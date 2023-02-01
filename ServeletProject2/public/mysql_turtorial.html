@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="main.js" defer></script>
+	<link rel="stylesheet" href="styles.css">
+	<!--fontawesome link for drop navigation bar  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>MySQL Turtorial</title>
+</head>
+
+<body>
+	<div class="topnav" id="myTopnav">
+		<a href="index.html" class="active">Home</a>
+		<a href="mysql_turtorial.html">MySQL</a>
+		<a href="dom.html">DOM</a>
+		<a href="#about">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+	<form id="language">
+		<select name="select">
+			<option value="index.html" selected>日本語</option>
+			<option value="index-english.html">English</option>
+		</select>
+	</form>
+	<h1>MySQL Turtorial</h1>
+	<p>特にわからなかったところ</p>
+	<ol>
+		<li><a href="#">関数</a></li>
+		<li><a href="#">コールバック関数</a></li>
+		<li><a href="#">documentcontentloaded vs loaded</a></li>
+	</ol>
+
+	<h4>SQLの体系</h4>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img1.jpg" alt="img" width="300" height="200">
+	<p style="color:blue;">家計簿の内容を全て表示したい。</p>
+	<p>SELECT * FROM 家計簿</p>
+	<p style="color:blue;">2000円より大きな金額を使った日をしりたい。</p>
+	<p>SELECT 日付　FROM 家計簿　WHERE 出金額　&gt; 2000 </p>
+	<p style="color:blue;">３月１日に1800縁で映画をみた記録を追加したい。</p>
+	<p>INSERT INTO　家計簿　VALUES ('2022-03-01', '娯楽', '映画をみた', 0, 1800)</p>
+	<p style="color:blue;">３月１日に1500\だったので直したい。</p>
+	<p>UPDATE 家計簿　SET　出金額=1500 WHERE 日付＝'2022-03-01'</p>
+	<p style="color:blue;">全データを消去したい</p>
+	<p>DELETE FROM 家計簿</p>
+
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img3.jpg" alt="img" width="300" height="200">
+	<p>1.すべての列名をせっていしてすべての行の取得をしろ。</p>
+	<code>
+		Q1. SELECT CODE, REGION, PREFECTURE, CAPITAL, AREA <br>
+		FROM PREFECTURES<br>
+		Q2. SELECT * FROM PREFECTURES<br>
+		Q3. SELECT REGION AS DIARECT, PREFECTRURE AS PRF FROM PREFECTURE
+	</code>
+	<p>2.列名の指定を省略して、１と同様の結果を取得しろ。</p>
+	<p>3.名前の替え方。</p>
+
+
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img2.jpg" alt="img" width="300" height="200">
+	<p>問題２－３の都道府県テーブルをSQL文で追加しなさい。</p>
+	<pre>
+		<code>
+			INSERT INTO PREFECTURES (CODE, REGION, PREFECTURE, AREAS)<br>
+			VALUES ('26', 'KINKI', 'KYOTO', 4613<br>
+			INSERT INTO PREFECTURES<br>
+			VALUES ('37', 'SHIKOKU', 'KAGAWA', 'TAKAMATSU', 1876)<br>
+			INSERT INTO PREFECTURES (CODE, PREFECTURE, CAPITAL)<br>
+			VALUES ('40', 'HUKUOKA', 'HUKUOKA')
+		</code>
+	</pre>
+	<p>コード２6に県庁所在地 KYOTO をついかしなさい。また、コード４０に地域「九州」　面積「4976」ついかしなさい。。</p>
+	<pre>
+		<code>
+			UPDATE PREFECTURES SET CAPITAL = 'KYOTO'<br>
+			WHERE CODE = '26'<br>
+			UPDATE PREFECTURES SET REGION = 'KYUSYU', AREA = 4976<br>
+			WHERE CODE = '40'
+		</code>
+	</pre>
+	<p>２６のデータを消去しな</p>
+	<pre>
+		<code>
+			DELETE FROM PREFECTURES WHERE CODE = '26'
+		</code>
+	</pre>
+	<p>プロジェクト作り方</p>
+	<p>CREATE DATABASE myProjectName</p>
+	<p>プロジェクト抜け方</p>
+	<p>DROP DATABASE myProjectName</p>
+	<p>どのプロジェクトを使うか？</p>
+	<p>USE projectName / Schemasの中のプロジェクトクリック→右クリック→set as default schema </p>
+	<p>これをやらないとMySQLデータベースにデータが保存されないので注意!!!</p>
+	<p>データベースを読む(READ ONLY)だけにする方法</p>
+	<p>ALTER DATABASE myProjectName READ ONLY = 1;</p>
+	<p>データベースを読む(READ ONLY)モードを解除する方法</p>
+	<p>ALTER DATABASE myProjectName READ ONLY = 0;</p>
+	<p>Employee テーブルの作り方。</p>
+	<pre>
+		<code>
+			CREATE TABLE employees (
+			employee_id INT,
+			first_name VARCHAR(50),
+			last_name VARCHAR(50),
+			hourly_pay DECIMAL(5,2),
+			hire_date DATE
+			);
+		</code>
+	</pre>
+	<p>Employee テーブルの呼び出し方。</p>
+	<pre>
+		<code>
+			SELECT * FROM employees
+		</code>
+	</pre>
+	<p>Employee テーブルの名前変え方 employeeからworkersに変更</p>
+	<pre>
+		<code>
+			RENAME　employees TO workers;
+		</code>
+	</pre>
+	<p>テーブルからの抜け方</p>
+	<pre>
+		<code>
+			DROP　TABLE　myProjectName;
+		</code>
+	</pre>
+	<p>テーブル（コラム）に電話番号の追加</p>
+	<pre>
+		<code>
+			ALTER TABLE employees
+			ADD phone_number VARCHAR(15);
+		</code>
+	</pre>
+	<p>テーブルコラム電話番号をEmailに変換する。</p>
+	<pre>
+		<code>
+			ALTER TABLE employees
+			RENAME COLUMN phone_number TO email;
+		</code>
+	</pre>
+	<p>テーブルコラムEmailのVARCHARを変更する。</p>
+	<pre>
+		<code>
+			ALTER TABLE employees
+			MODIFY COLUMN email VARCHAR(100);
+		</code>
+	</pre>
+	<p>テーブルコラムEmailをラストネームのあとに移動する。</p>
+	<pre>
+		<code>
+			ALTER TABLE employees
+			MODIFY email VARCHAR(100)
+			AFTER last_name;
+
+			SELECT * FROM employees;
+		</code>
+	</pre>
+	<p>Emailコラムの消し方</p>
+	<pre>
+		<code>
+			ALTER TABLE employees
+			DROP COLUMN email;
+
+			SELECT * FROM employees;
+		</code>
+	</pre>
+	<p>employees コラムにデータ追加し方。</p>
+	<pre>
+		<code>
+			INSERT INTO employees
+			VALUES(1,"Satoshi", "Nakamoto", 24, "2023-02-01");
+
+			SELECT * FROM employees;
+		</code>
+	</pre>
+	<p>employees コラムに一気にデータ追加するやり方。</p>
+	<pre>
+		<code>
+			INSERT INTO employees
+			VALUES (2, "Tanaka", "Kakuei", 30, "2022-01-31" ),
+			(3, "Takemoto", "Tsuyoshi", 20, "2022-01-31"),
+			(4, "Takahashi", "Toshimitsu", 20, "2022-01-31"),
+			(5, "Johnny", "Tsuyoshi", 22, "2022-02-01");
+
+			SELECT * FROM employees;
+		</code>
+	</pre>
+	<p>employees コラムに特定のデータだけを追加するとき</p>
+	<pre>
+		<code>
+			INSERT INTO employees (employee_id, first_name, last_name)
+			VALUES (6, "Tadashi", "Hisamoto");
+
+			SELECT * FROM employees;
+		</code>
+	</pre>
+	<p>employees 　id 4 だけを取り出す時</p>
+	<pre>
+		<code>
+			SELECT * FROM employees
+			WHERE employee_id = 4;
+		</code>
+	</pre>
+	<p>employees 給料時給１５いじょうを抽出する</p>
+	<pre>
+		<code>
+			SELECT * FROM employees
+			WHERE hourly_pay >= 15;
+		</code>
+	</pre>
+
+
+
+
+</body>
+
+</html>

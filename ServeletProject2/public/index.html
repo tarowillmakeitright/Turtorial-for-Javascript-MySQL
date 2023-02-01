@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="main.js" defer></script>
+	<link rel="stylesheet" href="styles.css">
+	<!--fontawesome link for drop navigation bar  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Javascript Turtorial</title>
+</head>
+
+<body>
+	<div class="topnav" id="myTopnav">
+		<a href="index.html" class="active">Home</a>
+		<a href="mysql_turtorial.html">MySQL</a>
+		<a href="dom.html">DOM</a>
+		<a href="about.html">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+	<form id="language">
+		<select name="select">
+			<option value="index.html" selected>日本語</option>
+			<option value="index-english.html">English</option>
+		</select>
+	</form>
+	<h1>Javascript Turtorial</h1>
+	<p>特にわからなかったところ</p>
+	<ol>
+		<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Functions">関数</a></li>
+		<li><a href="https://developer.mozilla.org/ja/docs/Glossary/Callback_function">コールバック関数</a></li>
+		<li><a href="https://takayamato.com/eventlistener/">documentcontentloaded vs loaded</a></li>
+	</ol>
+	<h4>Function ! document.getElementById textContent = ()</h4>
+	<p id="output"></p>
+	<p id="output1"></p>
+	<p id="output2"></p>
+
+	<h4>For Statement,document.getElementById insertAdjacentHTML </h4>
+	<p> insertAdjacentHTML() は、第二引数で指定するテキストを HTML または XML としてパースし、その結果であるノードを DOM
+		ツリー内の指定された位置（第一引数で指定）に挿入します。これは挿入先の要素を再度パースするものではないため、既存の要素や要素内部の破壊を伴いません。余分なシリアル化のステップを回避できる分、 innerHTML
+		への代入による直接的な操作よりもはるかに高速な動作となります。</p>
+	<p>To do List</p>
+	<ul id="list">
+	</ul>
+
+	<h4 id="array">Array List Using Json</h4>
+	<p>Javascriptの配列はいろいろな型を入れることができる。</p>
+
+	<table>
+		<tr>
+			<td id="name"></td>
+			<td id="age"></td>
+			<td id="city"></td>
+		</tr>
+	</table>
+
+	<p id="arrybox"></p>
+	<p id="microsoftComputers_name"></p>
+	<p id="microsoftComputers_colors"></p>
+	<p id="microsoftComputers_price"></p>
+
+
+	<h4>配列とforeachメソッド</h4>
+
+
+	<pre>
+		<code>
+			const animals = ["Lion", "Giraff", "Gorilla", "Dog", "Snake", "Rabbit"];
+
+			//フォー文をつかったときと同じ結果がでる。簡略も可能である。
+			animals.forEach(function(v, i, animals) {
+			console.log(v)
+			})
+			//アロー関数で書き直すと。。。
+			animals.forEach((v, i, animals)　=> {
+			console.log(v)
+			});
+			//第二第三引数が必要ない場合は、かっこ省略と波かっこも省略できる。
+			//できるだけ変数をへらすことができる。＝バグが少なくなる。軽くなる。
+			animals.forEach(v　=>console.log(v));
+
+
+			for(let i = 0; i < animals.length; i++) { const v=animals[i]; console.log(v); } </code>
+	</pre>
+
+	<h4>フォームの入力内容を取得する。</h4>
+	<section>
+		<form action="#" id="form">
+			<input type="text" name="word">
+			<input type="submit" value="search">
+		</form>
+		<p id="output3">
+		</p>
+	</section>
+
+
+
+	<section>
+		<p>次のワールドカップまで</p>
+		<p class="timer"> <span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒
+		</p>
+	</section>
+
+	<h4>動的型付け言語</h4>
+	<p>動的型付け言語の場合には、途中で変数のデータ型が変わることも許容されます。つまり、数値型の変数に文字列を代入することもできるのです。宣言時にNumber（数値）であった変数ですが、文字列を代入してもエラーにはなりません。文字列が代入されたタイミングでデータ型がString（文字列）に変換されるためです。このように、JavaScriptではデータ型が自動的に付与されるため、データ型を強く意識する必要がありません。他の言語では、例えば数値型の変数に文字列を入れるとエラーになってしまいますが、JavaScriptではそれが起こりません。
+	</p>
+
+	<h4> FOR文</h4>
+	<pre>
+		<code>
+			const secondexample = [122,444,556,634];
+			//iは添え字という意味合いがある。ofの時は使わない。
+			//ofでは添え字が渡ってくる。
+			for (let i of secondexample){
+			console.log(i);
+			}
+
+
+			//inでは値がわたってくる。
+			const arry = [1,3,5,6,7,9]
+			for (let i in arry) {
+			console.log(i); //output 1,3,5,6,7,9
+			}
+
+
+
+			for (let i=0; i< todos.length; i++){ console.log(todos[i]);　 <br>
+				//output //*completed: true id: 1 title: "go to a movie theate
+
+				completed: true
+				id:2 ..続く
+				*/
+				console.log(todos[i].title);　
+				//go to a movie theater
+				//go shopping
+				//having dinner
+
+				}
+		</code>
+	</pre>
+
+	<h4>if文</h4>
+	<pre>
+		<code>
+
+			//「二つの値が一致するかどうか？」の時にIf文を使う。
+			//２つの　＝＝　の時は左辺と右辺の方は気にしないでデータが等しいかどうかを決める、
+			//３つの　＝＝＝の時は左辺と右辺のデータの方も含めて等しいかどうかを決める。
+			const number = 10;
+
+			if (number){
+			console.log(" Yes"); } else if(true) { console.log("No"); } else { console.log("error"); } </code>
+	</pre>
+
+
+	<h4 id=function>関数Function アロー関数</h4>
+	<pre>
+		<code>
+
+			//普通のFunction
+			//function hello(name) {
+			//console.log('hello' + name);
+			//}
+
+			//hello("Tom");
+
+			//普通のFunction
+			var f\getTriangle (base, height) {
+			return base * height/2;
+			}
+
+			console.log("Triangle area :" getTriangle(5,2));
+		</code>
+	</pre>
+	<pre>
+		<code>
+			//関数は静的な構造を宣言する。
+			console.log("Triangle area:" + getTriangle(5,2));
+
+			function getTriangle(base, height){
+			return base * height/2;
+			}
+			上記の例はエラーとはならない。ファンクション命令はコードを解析・コンパイルするタイミングで関数を登録している。
+
+			console.log("Triangle area:" + getTriangle(5,2));
+
+			var getTriangle = function(base, height){
+			return base * height /2;
+			}
+
+			上記の例はエラー。ファンクション命令tとは異なり、関数リテラル・ファンクションコンストラクターは実行時（代入時）に評価される。
+			この場合だと、呼び出し元のコードよりも前に記述しなければならない。
+			//アロー関数 二行以上の場合は波かっこが必要。一行の時は波かっこ消去可能。
+
+			const hello = (name, age) => {
+			console.log('hello' + name + age)
+			console.log('hello' + name + age)
+			}
+			hello("Erran", 27);
+		</code>
+	</pre>
+
+	<pre>
+		<code>
+			//アロー関数 functionもreturnも略せる。
+			var getTriangle = (base, height) => base * height /2;
+			console.log("Traiangle area:' getTriangle(5,2);// expected 5
+
+			//アロー関数はFor文でよく使われる。
+
+			const numbers = [1,2,3,4,5,6,7,8];
+
+			numbers.forEach(function(value) {
+			console.log(value);
+			}) //output 1,2,3,4,5,6,7,8
+
+			numbers.forEach(value => console.log(value))//output 1,2,3,4,5,6,7,8
+		</code>
+
+
+	</pre>
+
+	<pre>
+		<code>
+			//Callback function (コールバック関数)
+			コールバック関数とは、引数として他の関数に渡され、外側の関数の中で呼び出されて、何らかのルーチンやアクションを完了させる関数のことです。
+			function doSomething(a, b, callback) {
+			const result = callback(a,b);
+			console.log(result);
+			}
+
+			function multiple(a,b) {
+			return a * b;
+			}
+
+			doSomething(8, 9, multiple);
+		</code>
+
+
+	</pre>
+
+	<pre>
+		<code>
+			//コールバック関数例２
+			const lists = ["number1", "number2", "number3"];
+
+			function forEach(lists, callback) {<br>
+			for(let i = 0; i < lists.length; i++){ callback(lists[i])<br>
+				}
+				}
+				function showLists(list) { console.log(list);}<br>
+				function addList(list) { list="This is " + list showLists(list); } forEach(lists, addList); // This is
+				number1 .... continue... <br>
+				//関数を定義せずにforEachを使ってそのまま書くこともできる。 forEach(lists, function(list) {<br>
+				list="This is " + list; showLists(list); }); <br>
+				//output // This is number1 .... continue...
+		</code>
+
+
+	</pre>
+
+
+	<pre>
+		<code>
+			//ES2015における引数の記述方法
+			//引数のデフォルト値
+
+
+			function getTriangle(base=1, height=1){
+			return base*height/2;
+			}
+
+			console.log(getTriangle(5)); // expected 2.5
+
+		</code>
+
+
+	</pre>
+	<pre>
+		<code>
+			//可変長引数の関数を定義する
+
+			function sum(...nums){
+			let result = 0;
+			for(let num of nums){if(typeof num !== 'number'){
+			throw new Error('指定地が数値ではありません　'+ num);
+			}
+			result += num;
+			}
+			return result;
+			}
+
+
+			//名前付き引数でコードを読みやすくする。
+			function getTriangle({base=1, height=1}){
+			return base * height/2;
+			}
+
+			console.log({base:5, height:4});
+
+
+			//オブジェクトから特定のプロパティだけを取り出す。
+			この 例 で あれ ば、 show 関数 は 引数 として オブジェクト 全体 を 受け取り ます が、 関数 側 では、 name プロパティ だけを 分割 代入 によって 取り出し て い ます。 複数 の
+			プロパティ を 必要 と する 場合 にも、 関数 の 呼び出し 側 で、 個々 の プロパティ を 意識 せ ず、 オブジェクト を まるごと 渡せる のが 良い ところ です。 また、 必要 な プロパティ が
+			変化 し た 場合 にも、 呼び出し 側 の コード に 影響 が 及び ませ ん。
+			function show({name}){
+			console.log(name);
+			};
+
+			let member = {
+			mid: "Y0001",
+			name: "Satoshi Nakamoto",
+			address: "satoshinakamoto@sample.com"
+			}
+
+			show(member);
+
+		</code>
+
+
+	</pre>
+
+	<p>関数の引数も関数ー高階関数</p>
+
+	<p>「 JavaScript の 関数 は データ 型 の 一種」 です。 つまり、 関数 そのもの も また、 ほか の 数値 型 や 文字列 型 などと 同様、 関数 の 引数
+		として 引き渡し たり、 戻り 値 として 返し たり する こと が できる という こと です。 そして、 その よう に「 関数 を 引数、 戻り 値 として 扱う 関数」 の こと を 高階 関数 と 呼び ます。
+	</p>
+	<pre>
+		<code>
+			//高階関数arrayWalkを定義
+			function.arrayWalk(data,f){
+			for(var key in data){
+			f(data[key], key);
+			}
+			}
+			//配列を処理するためのユーザーを定義
+			function showElement(value, key) {
+			console.log(key + ':' + value);
+			}
+
+			var ary = {1,2,4,8,16};
+			arrayWalk(ary, showElement);
+
+			//expected
+			0: 1
+			1: 2
+			2: 4
+			3: 8
+			4: 16
+
+		</code>
+	</pre>
+
+	<p>使い捨ての関数は匿名関数で</p>
+	<p> 匿名 関数（ 関数 リテラル） を 利用 する こと で、 関数 呼び出し の コード に 関数 を 直接 指定 でき ます。 これ によって、 コード が 短く なっ た のは もちろん です が、 関連 する 処理 が
+		1 つ の 文 で 記述 できる こと から、 呼び出し 元 の コード と 実際 の 処理 を 規定 し て いる 関数 との 関係 が わかり やすく なり、 コード が 読み やすく なっ た と 思い ませ ん か。
+		また、 一度 限り しか 使用 し ない 関数 に 名前 ─ ─ しかも、 グローバル スコープ の 名前 ─ ─ を つけ ず に 済む ので、「 意図 せ ぬ 名前 の 重複 を 回避 できる」 という 意味 も あり
+		ます。 この よう な 記法 は、 より 高度 な スクリプト を 記述 する うえ で 重宝 し ます し、 多く の JavaScript プログラマー が 好ん で 利用 し て いる ので、 外部 ライブラリ などを
+		読み解く 際 にも 有用 です。 ぜひとも、 ここ で しっかり と 押さえ て おき ましょ う。</p>
+	<pre>
+		<code>
+			fucntion arrayWalk(data, f){
+			for(var key in data){
+
+			}
+			}
+
+			var ary = {1,2,4,8,16};
+			arrayWalk{
+			ary,
+			function(value, key){
+			console.log(key + ':' + value);
+			}
+			}
+		</code>
+	</pre>
+
+	<h4>Reduceメソッド</h4>
+	<pre>
+		<code>
+			///Reduce method
+
+			const array1 = [4,6,5,7];
+
+			// 0 + 1 + 2 + 3 + 4
+			const initialValue = 0;
+			const sumWithInitial = array1.reduce(
+			(accumulator, currentValue) => accumulator + currentValue,
+			initialValue
+			);
+
+
+			console.log(sumWithInitial);
+			// Expected output: 22
+
+
+			const string = "DISNEY WORLD";
+			const stringArray = string.split('');
+
+			function tag(accumulate, recentValue) {
+			return `${accumulate}<${recentValue}>`;
+				}
+
+				function reduce(array, callback, defaultValue) {
+				let accumulate = defaultValue;
+
+				for (let i = 0; i array.length; i++) {
+				let recentValue = array[i];
+				accumulate = callback(accumulate,recentValue);
+				}
+				return accumulate;
+				}
+
+				const result = reduce(stringArray, tag, "");
+				console.log(result);//Expected Disney world
+
+
+		</code>
+	</pre>
+
+	<h4>DOM</h4>
+	<p>document.querySelectorAll()</p>
+	<p>「querySelector()」は、JavaScriptから任意のHTML要素を検出・取得することができるメソッドになります。
+
+		JavaScriptには以前から「getElementById()」とか「getElemetnsByClassName()」などHTML要素を取得できるメソッドはありました。
+
+		しかし、「querySelector()」を使うとid属性値・class属性値などを意識せずにjQuery感覚でHTML要素をセレクタ指定することができます。
+
+		つまり、簡単に言うと「querySelector()」だけであらゆるHTML要素を取得することができるわけです。</p>
+
+	<a href="https://takayamato.com/eventlistener/">domcontentloaded vs loaded </a>
+	<p>細かいところ解説していくと長くなるので、とりあえずこの２段階を知っていれば大丈夫です。
+
+		①DOMツリーを読み込む
+		②画像、CSSなどの外部ファイルの読み込み完了
+
+		①の時に全てのHTMLタグを樹形図のように表し、その構造（テキスト情報も含む）を書き出します。
+		まずページ全体の骨格を作っていると思っておいてOKです。
+
+		②ではその骨格の形成が完了した後に使われている画像やCSSを読み込んでページを完成させていきます。
+
+		ネット環境がめちゃくちゃ悪いところで何かのページを見ると、まず文章構造（文字や改行）だけが反映されて、その後にCSSが適用されて画像が読み込まれますよね。
+		これは重要なポイントです。</p>
+
+
+	<h4>いろいろなメソッド</h4>
+	<p style="color:blue;">foreachメソッド</p>
+	<p>foreachめっそどは配列内の要素を、指定した関数で順に処理するためのメソッドです。</p>
+
+	<p>配列オブジェクトcallback：個々の要素を処理するための関数that：</p>
+	</pre>関数callbackの中でthis（5.1.5項)が示すオブジェクト</p>
+	<pre>
+		<code>array. forEach( callback [,that]) array：
+			var data = [2, 3, 4, 5]; data. forEach( function( value, index, array) {
+			console.log( value * value); // 結果：4、9、16、25 });
+		</code>
+	</pre>
+	<ul>
+		<li>第一引数う→要素の値</li>
+		<li>第二引数→インデックス番号</li>
+		<li>第三引数→元の配列</li>
+	</ul>
+
+	<p style="color:blue;">sortメソッド</p>
+	<p>sort() メソッドは、配列の要素をその場でソートし、ソートされた同じ配列の参照を返します。既定のソート順は昇順で、要素を文字列に変換してから、 UTF-16 コード単位の値の並びとして比較します。
+
+		ソートの時間的・空間的予測値は実装に依存するため、保証はできません。</p>
+	<pre>
+		<code>const months = ['March', 'Jan', 'Feb', 'Dec'];
+			months.sort();<br>
+			console.log(months);<br>
+			// Expected output: Array ["Dec", "Feb", "Jan", "March"]<br>
+
+			const array1 = [1, 30, 4, 21, 100000];<br>
+			array1.sort();<br>
+			console.log(array1);<br>
+			// Expected output: Array [1, 100000, 21, 30, 4]
+		</code>
+	</pre>
+	<br>
+	<br>
+	<br>
+	<pre>
+		<code>
+			var classes = ['部長', '課長', '主任', '担当'];<br>
+			var members = [
+			{ name: '鈴木 清 子', clazz: '主任' }, <br>
+			{ name: '山口 久 雄', clazz: '部長' },<br>
+			{ name: '井上 太郎', clazz: '担当' }, <br>
+			{ name: '和田 知 美', clazz: '課長' },<br>
+			{ name: '小 森 雄 太', clazz: '担当' }, ];
+			console. log( members. sort(<br>
+			function( x, y) { return classes. indexOf( x. clazz) - classes. indexOf( y. clazz); ← ❶ }))
+		</code>
+	</pre>
+	<p style="color:blue;">someメソッド</p>
+	<p>some() メソッドは、指定された関数で実装されているテストに、配列の中の少なくとも 1 つの要素が 合格するかどうかを判定します。配列の中で指定された関数が true を返す要素を見つけた場合は true
+		を返し、そうでない場合は false を返します。それ以外の場合は false を返します。配列は変更しません。</p>
+	<pre>
+		<code>
+			const array = [1, 2, 3, 4, 5];<br>
+
+			// Checks whether an element is even<br>
+			const even = (element) => element % 2 === 0;<br>
+
+			console.log(array.some(even));<br>
+			// Expected output: true
+
+		</code>
+	</pre>
+	<h4>Global　Scope</h4>
+	<p>スコープ とは、「 変数 が スクリプト の 中 の どの 場所 から 参照 できる か」 を 決める 概念 です。 JavaScript の スコープ は、 以下 の 2 つ に 分類 でき ます。 ・スクリプト
+		全体 から
+		参照 できる グローバル スコープ ・定義 さ れ た 関数 の 中 で のみ 参照 できる ローカル スコープ</p>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\javascript_turtorial_img1.jpg" alt="img" width="300"
+		height="200">
+	<p style="color:blue">ローカル変数は関数の先頭で宣言することを心がける。なぜならば、<a
+			href="https://developer.mozilla.org/ja/docs/Glossary/Hoisting">変数</a>の巻き上げをふせぐため。
+</body>
+<p>ファンクションコンストラクターの配下の変数はその宣言場所にかかわらず、常にグローバルスコープとみなされる。</p>
+<pre>
+	<code>
+		var scope = 'Global Variable'; <br>
+		function checkScope() {<br>
+		var scope = 'Local Variable'; <br>
+		var f_ lit = function() { return scope; }; <br>
+		console. log( f_ lit()); 結果： Local Variable<br>
+		var f_ con = new Function(' return scope;'); <br>
+		console. log( f_ con()); // 結果： Global Variable }
+
+	</code>
+</pre>
+
+<h4>Javascriptにおけるオブジェクト指向の特徴</h4>
+<p>ここ までに 見 て き た よう に、 JavaScript は れっきとした オブジェクト 指向 言語 です。 しかし、 Java や C ++、 C# といった オブジェクト 指向 言語 とは 根本的 に 異なる 点 が あり ます。 それ は「『 インスタンス 化／ インスタンス』 という 概念 は ある ものの、 いわゆる『 クラス』 が なく、『 プロトタイプ（ ひな型）』 という 概念 だけが 存在 する」 という 点 です。 プロトタイプ とは、「 ある オブジェクト の 元 と なる オブジェクト」 の こと。 JavaScript では、（ クラス の 代わり に） プロトタイプ を 利用 し て、 新た な オブジェクト を 生成 し て いく こと になり ます。 この よう な 性質 から、 JavaScript の オブジェクト 指向 は、 プロトタイプ ベース の オブジェクト 指向 と 呼ば れる こと も あり ます。 クラス ベース の オブジェクト 指向 に どっぷり と 浸かっ て しまっ た 方 にとって は、 やや イメージ が つかみ にくい かも しれ ませ ん が、 プロトタイプ とは、 要は「 より 縛り の 弱い クラス の よう な もの」 と 思っ て おい て ください。</p>
+</html>
