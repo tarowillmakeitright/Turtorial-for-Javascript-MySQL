@@ -11,10 +11,10 @@
 }
  
  
+
+
  
- 
- 
- 
+ /*
  
  
  function total(price){
@@ -123,7 +123,7 @@ function refresh(){
 }
 recalc();
 
-
+*/
 
 
 ////////////////////////////////////////////////DROP NAVIGATION////////////////////////
@@ -137,6 +137,7 @@ function myFunction() {
   }
 }
 
+/*
 /////////////////////////////////////////////////////FOR文///////////////////////////
 const secondexample = [122,444,556,634];
 //iは添え字という意味合いがある。ofの時は使わない。
@@ -178,8 +179,8 @@ const todos = [
 ]
 
 
-for (let i=0; i< todos.length; i++){
-	console.log(todos[i]);　
+//for (let i=0; i< todos.length; i++){
+	//console.log(todos[i]);　
 	//output 
 	/*completed: true
 	id: 1
@@ -188,19 +189,19 @@ for (let i=0; i< todos.length; i++){
 	completed: true
 	id:2 ..続く
 	*/
-	console.log(todos[i].title);　
+	//console.log(todos[i].title);　
 	//go to a movie theater
 	//go shopping
 	//having dinner
 	
-}
+//}
 
 
 ///////////////////////////////////////////////////if文///////////////////////////////////
 //「二つの値が一致するかどうか？」の時にIf文を使う。
 //２つの　＝＝　の時は左辺と右辺の方は気にしないでデータが等しいかどうかを決める、
 //３つの　＝＝＝の時は左辺と右辺のデータの方も含めて等しいかどうかを決める。
-
+/*
 const number = 10; 
 
 if (number){
@@ -301,31 +302,31 @@ forEach(lists, function(list) {
 
 
 
-const animals = ["Lion", "Giraff", "Gorilla", "Dog", "Snake", "Rabbit"];
+/*const animals = ["Lion", "Giraff", "Gorilla", "Dog", "Snake", "Rabbit"];*/
 
 //フォー文をつかったときと同じ結果がでる。簡略も可能である。
-animals.forEach(function(v, i, animals) {
+/*animals.forEach(function(v, i, animals) {
 	console.log(v)
 })
 //アロー関数で書き直すと。。。
-animals.forEach((v, i, animals)　=> {
+/*animals.forEach((v, i, animals)　=> {
 	console.log(v)
-});
+});*/
 //第二第三引数が必要ない場合は、かっこ省略と波かっこも省略できる。
 //できるだけ変数をへらすことができる。＝バグが少なくなる。軽くなる。
-animals.forEach(v　=>console.log(v));
+/*animals.forEach(v　=>console.log(v));
 
 
 for(let i = 0; i < animals.length; i++) {
 	const v = animals[i];
 	console.log(v);
-}
+}*/
 
 
 
 
 ///Reduce method 
-
+/*
 const array1 = [4,6,5,7];
 
 // 0 + 1 + 2 + 3 + 4
@@ -343,10 +344,10 @@ console.log(sumWithInitial);
 const string = "DISNEY WORLD";
 const stringArray = string.split('');
 
-function tag(accumulate, recentValue) {
+/*function tag(accumulate, recentValue) {
 	return `${accumulate}<${recentValue}>`;
-}
-
+}*/
+/*
 function reduce(array, callback, defaultValue) {
 	let accumulate = defaultValue;
 	
@@ -359,5 +360,4 @@ function reduce(array, callback, defaultValue) {
 
 const result = reduce(stringArray, tag, "");
 console.log(result);//Expected <D><I><S><N><E><Y>< ><W><O><R><L><D>
-
-
+*/

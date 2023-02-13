@@ -3,6 +3,8 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script type="text/javascript" src="dom.js" defer></script>
 	<link rel="stylesheet" href="styles.css">
 	<!--fontawesome link for drop navigation bar  -->
@@ -15,7 +17,8 @@
 		<a href="index.html" class="active">Home</a>
 		<a href="mysql_turtorial.html">MySQL</a>
 		<a href="dom.html">DOM</a>
-		<a href="#about">About</a>
+		<a href="java.html">Java</a>
+		<a href="about.html">About</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>
 		</a>
@@ -26,22 +29,193 @@
 			<option value="index-english.html">English</option>
 		</select>
 	</form>
-	<div class="animate-title">
-		DOM TURTORIAL
-	</div>
+	 
+		<h1>DOM TURTORIAL</h1>
 	<p>特にわからなかったところ</p>
 	<ol>
 		<li><a href="#">A</a></li>
 		<li><a href="#">B</a></li>
 		<li><a href="#">C</a></li>
 	</ol>
-	<h4>Function ! document.getElementById textContent = ()</h4>
+	
 	<p id="output"></p>
 	<p id="output1"></p>
 	<p id="output2"></p>
+	<p style= "color:blue ">HTML内にジャバスクリプトを記載するのは、規模が大きくなるにつれて何をどこに書いたのか大変わかりにくくなることがありますので、HTMLとJavascriptは分けて書きましょう。一部例外的に書くことはあります。</p>
+	<h4>Function ! document.getElementById textContent = ()</h4>
+	<h4>document.querySelector()　＝　場所を特定して表示させる。</h4>
+<pre>
+<code>
+document.querySelector('#IDName, .className');
+</code>
+</pre>
+<h4>ボタンを押したら、H1の色を変える。</h4>
+<p>main.jst</p>
+<pre>
+<code>
+//ここでクエリーセレクターをして場所を特定させる。
+const btn = document.querySelector('#btn');
+const h1 = document.querySelector('h1');
+
+
+function hello() {
+    alert('hello');
+    // this.style.color = 'red';
+}
+function changeColor() {
+    h1.style.color = 'red';
+}
+function changeBgColor() {
+    h1.style.backgroundColor = 'green';
+}
+//イベント名と関数名を記載する、
+btn.addEventListener('click', changeColor);
+btn.addEventListener('click', changeBgColor);
+//removeされる。
+btn.removeEventListener('click', changeBgColor);
+
+//Eventhandler　は一つしか登録できない。
+//btn.onclick = changeColor;
+</code>
+</pre>
+<h4>DOMContentLoaded vs Loaded この例は画像をどちらが早く出力するかです。</h4>
+<p>main.jst</p>
+<pre>
+<code>
+//なるべく早くうぇぶサイトに反映させるにはDOMCOntentLoadedを使う。
+document.addEventListener("DOMContentLoaded", function () {
+    const dcl = document.querySelector('.dcl');
+    dcl.classList.add('done');
+
+    const h1 = document.querySelector('h1');
+    h1.style.color = 'red';
+});
+
+
+//documentはロードには使えない。画像が表示されるまで待たなければならない。
+window.addEventListener("load", function () {
+    const load = document.querySelector('.load');
+    load.classList.add('done');
+});
+</code>
+</pre>
+<h4>クラスでアニメーションを動かす。</h4>
+<pre>
+<code>
+document.addEventListener('DOMContentLoaded', function () {
+    const ta = new TextAnimation('.animate-title');
+    const ta2 = new TextAnimation('.animate-title-2');
+    setTimeout(() => {
+        ta.animate();
+        ta2.animate();
+    }, 1000);
+    
+});
 
 
 
+class TextAnimation {
+	//コンストラクターはクラスができたときに必ず呼ばれる。
+    constructor(el) {
+        this.el = document.querySelector(el);
+        this.chars = this.el.innerHTML.trim().split("");
+        this.el.innerHTML = this._splitText();
+    }
+    //private method 明示的に（ここだけしか呼べませんよ）示してるだけ。Javascriptは完全なprivateにはならない。
+    _splitText() {
+        return this.chars.reduce((acc, curr) => {
+            curr = curr.replace(/\s+/, '&nbsp;');
+            return `${acc}<span class="char">${curr}</span>`;
+        }, "");
+    }
+    //public method
+    animate() {
+        this.el.classList.toggle('inview');
+    }
+}
+
+</code>
+</pre>
+<h4>クラスとオブジェクト。</h4>
+<pre>
+<code>
+const obj = {
+    first_name: 'Mafia',
+    last_name: 'Code',
+    //関数を呼び出すこともできる。
+    printFullName: function() {
+        console.log('hello');
+    }
+}
+
+//呼び出し方。
+//console.log(obj.first_name);
+//obj.printFullName();
+
+//クラスの演算子を用いてオブジェクトを記載する処理をここでする
+//javascriptのクラスはオブジェクト生成するための一つのまとまり。
+class MyObj {
+	//コンストラクター関数
+    constructor() {
+	//初期化
+        this.first_name = 'Mafia';
+        this.last_name = 'Code';
+    }
+
+    printFullName() {
+        console.log('hello');
+    }
+}
+
+//ニュー演算子を使うことによって、オブジェクト生成ができるようになる。
+const obj2 = new MyObj();
+
+
+obj.printFullName();
+obj2.printFullName();
+</code>
+</pre>
+<h4>クラスとオブジェクト。</h4>
+<pre>
+<code>
+const obj = {
+    first_name: 'Mafia',
+    last_name: 'Code',
+    //関数を呼び出すこともできる。
+    printFullName: function() {
+        console.log('hello');
+    }
+}
+
+//呼び出し方。
+//console.log(obj.first_name);
+//obj.printFullName();
+
+//クラスの演算子を用いてオブジェクトを記載する処理をここでする
+//javascriptのクラスはオブジェクト生成するための一つのまとまり。
+//クラスを定義した時点では、クラス名.first_name やクラス名.last_nameはできない。
+//なぜならば、const obj2 = new MyObj();　<=ここでクラスは生成されるから。
+class MyObj {
+	//コンストラクター関数
+    constructor() {
+	//初期化
+        this.first_name = 'Mafia';
+        this.last_name = 'Code';
+    }
+
+    printFullName() {
+        console.log('hello');
+    }
+}
+
+//ニュー演算子を使うことによって、オブジェクト生成ができるようになる。
+const obj2 = new MyObj();
+
+
+obj.printFullName();
+obj2.printFullName();
+</code>
+</pre>
 
 </body>
 

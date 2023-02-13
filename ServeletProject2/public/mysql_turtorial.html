@@ -3,6 +3,8 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script type="text/javascript" src="main.js" defer></script>
 	<link rel="stylesheet" href="styles.css">
 	<!--fontawesome link for drop navigation bar  -->
@@ -15,7 +17,8 @@
 		<a href="index.html" class="active">Home</a>
 		<a href="mysql_turtorial.html">MySQL</a>
 		<a href="dom.html">DOM</a>
-		<a href="#about">About</a>
+		<a href="java.html">Java</a>
+		<a href="about.html">About</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>
 		</a>
@@ -35,7 +38,8 @@
 	</ol>
 
 	<h4>SQLの体系</h4>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img1.jpg" alt="img" width="300" height="200">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img1.jpg" alt="img"  width="390px"
+		height="320px">
 	<p style="color:blue;">家計簿の内容を全て表示したい。</p>
 	<p>SELECT * FROM 家計簿</p>
 	<p style="color:blue;">2000円より大きな金額を使った日をしりたい。</p>
@@ -47,174 +51,840 @@
 	<p style="color:blue;">全データを消去したい</p>
 	<p>DELETE FROM 家計簿</p>
 
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img3.jpg" alt="img" width="300" height="200">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img3.jpg" alt="img"  width="390px"
+		height="320px">
 	<p>1.すべての列名をせっていしてすべての行の取得をしろ。</p>
 	<code>
-		Q1. SELECT CODE, REGION, PREFECTURE, CAPITAL, AREA <br>
-		FROM PREFECTURES<br>
-		Q2. SELECT * FROM PREFECTURES<br>
-		Q3. SELECT REGION AS DIARECT, PREFECTRURE AS PRF FROM PREFECTURE
+Q1. SELECT CODE, REGION, PREFECTURE, CAPITAL, AREA <br>
+FROM PREFECTURES<br>
+Q2. SELECT * FROM PREFECTURES<br>
+Q3. SELECT REGION AS DIARECT, PREFECTRURE AS PRF FROM PREFECTURE		
 	</code>
 	<p>2.列名の指定を省略して、１と同様の結果を取得しろ。</p>
 	<p>3.名前の替え方。</p>
 
 
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img2.jpg" alt="img" width="300" height="200">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img2.jpg" alt="img"  width="390px"
+		height="320px">
 	<p>問題２－３の都道府県テーブルをSQL文で追加しなさい。</p>
 	<pre>
 		<code>
-			INSERT INTO PREFECTURES (CODE, REGION, PREFECTURE, AREAS)<br>
-			VALUES ('26', 'KINKI', 'KYOTO', 4613<br>
-			INSERT INTO PREFECTURES<br>
-			VALUES ('37', 'SHIKOKU', 'KAGAWA', 'TAKAMATSU', 1876)<br>
-			INSERT INTO PREFECTURES (CODE, PREFECTURE, CAPITAL)<br>
-			VALUES ('40', 'HUKUOKA', 'HUKUOKA')
+INSERT INTO PREFECTURES (CODE, REGION, PREFECTURE, AREAS)<br>
+VALUES ('26', 'KINKI', 'KYOTO', 4613<br>
+INSERT INTO PREFECTURES<br>
+VALUES ('37', 'SHIKOKU', 'KAGAWA', 'TAKAMATSU', 1876)<br>
+INSERT INTO PREFECTURES (CODE, PREFECTURE, CAPITAL)<br>
+VALUES ('40', 'HUKUOKA', 'HUKUOKA')
 		</code>
 	</pre>
-	<p>コード２6に県庁所在地 KYOTO をついかしなさい。また、コード４０に地域「九州」　面積「4976」ついかしなさい。。</p>
+	<p>コード２6に県庁所在地 KYOTO をアップデートしなさい。また、コード４０に地域「九州」　面積「4976」アップデートしなさい。。</p>
 	<pre>
 		<code>
-			UPDATE PREFECTURES SET CAPITAL = 'KYOTO'<br>
-			WHERE CODE = '26'<br>
-			UPDATE PREFECTURES SET REGION = 'KYUSYU', AREA = 4976<br>
-			WHERE CODE = '40'
+UPDATE PREFECTURES SET CAPITAL = 'KYOTO'<br>
+WHERE CODE = '26'<br>
+UPDATE PREFECTURES SET REGION = 'KYUSYU', AREA = 4976<br>
+WHERE CODE = '40'
 		</code>
 	</pre>
 	<p>２６のデータを消去しな</p>
 	<pre>
 		<code>
-			DELETE FROM PREFECTURES WHERE CODE = '26'
+DELETE FROM PREFECTURES WHERE CODE = '26'
 		</code>
 	</pre>
 	<p>プロジェクト作り方</p>
 	<p>CREATE DATABASE myProjectName</p>
-	<p>プロジェクト抜け方</p>
+	<p>プロジェクト消し方　全部きえるので要注意</p>
 	<p>DROP DATABASE myProjectName</p>
-	<p>どのプロジェクトを使うか？</p>
-	<p>USE projectName / Schemasの中のプロジェクトクリック→右クリック→set as default schema </p>
-	<p>これをやらないとMySQLデータベースにデータが保存されないので注意!!!</p>
+	<p>どのプロジェクトを使うか？　これをやらないとMySQLデータベースにデータが保存されないので注意!!!</p>
+	<p>USE projectName / Schemasの中のプロジェクトクリック→
+		右クリック→set as default schema </p>
 	<p>データベースを読む(READ ONLY)だけにする方法</p>
 	<p>ALTER DATABASE myProjectName READ ONLY = 1;</p>
 	<p>データベースを読む(READ ONLY)モードを解除する方法</p>
 	<p>ALTER DATABASE myProjectName READ ONLY = 0;</p>
+
+	<h4>MySQL基礎構文</h4>
+	<p>どのプロジェクトを使うか？ここできちんと選択しないと、のちにデータが保存されない。</p>
+	<pre>
+		<code>use myDb</code>
+	</pre>
+
+
 	<p>Employee テーブルの作り方。</p>
 	<pre>
 		<code>
-			CREATE TABLE employees (
-			employee_id INT,
-			first_name VARCHAR(50),
-			last_name VARCHAR(50),
-			hourly_pay DECIMAL(5,2),
-			hire_date DATE
-			);
+CREATE TABLE employees (
+employee_id INT,
+first_name VARCHAR(50),
+last_name VARCHAR(50),
+hourly_pay DECIMAL(5,2),
+hire_date DATE
+);
 		</code>
 	</pre>
 	<p>Employee テーブルの呼び出し方。</p>
 	<pre>
 		<code>
-			SELECT * FROM employees
+SELECT * FROM employees
 		</code>
 	</pre>
 	<p>Employee テーブルの名前変え方 employeeからworkersに変更</p>
 	<pre>
 		<code>
-			RENAME　employees TO workers;
+RENAME　employees TO workers;
 		</code>
 	</pre>
 	<p>テーブルからの抜け方</p>
 	<pre>
 		<code>
-			DROP　TABLE　myProjectName;
+DROP　TABLE　myProjectName;
 		</code>
 	</pre>
 	<p>テーブル（コラム）に電話番号の追加</p>
 	<pre>
 		<code>
-			ALTER TABLE employees
-			ADD phone_number VARCHAR(15);
+ALTER TABLE employees
+ADD phone_number VARCHAR(15);
 		</code>
 	</pre>
 	<p>テーブルコラム電話番号をEmailに変換する。</p>
 	<pre>
 		<code>
-			ALTER TABLE employees
-			RENAME COLUMN phone_number TO email;
+ALTER TABLE employees
+RENAME COLUMN phone_number TO email;
 		</code>
 	</pre>
 	<p>テーブルコラムEmailのVARCHARを変更する。</p>
 	<pre>
 		<code>
-			ALTER TABLE employees
-			MODIFY COLUMN email VARCHAR(100);
+ALTER TABLE employees
+MODIFY COLUMN email VARCHAR(100);
 		</code>
 	</pre>
 	<p>テーブルコラムEmailをラストネームのあとに移動する。</p>
 	<pre>
 		<code>
-			ALTER TABLE employees
-			MODIFY email VARCHAR(100)
-			AFTER last_name;
+ALTER TABLE employees
+MODIFY email VARCHAR(100)
+AFTER last_name;
 
-			SELECT * FROM employees;
+SELECT * FROM employees;
 		</code>
 	</pre>
 	<p>Emailコラムの消し方</p>
 	<pre>
 		<code>
-			ALTER TABLE employees
-			DROP COLUMN email;
+ALTER TABLE employees
+DROP COLUMN email;
 
-			SELECT * FROM employees;
+SELECT * FROM employees;
 		</code>
 	</pre>
 	<p>employees コラムにデータ追加し方。</p>
 	<pre>
 		<code>
-			INSERT INTO employees
-			VALUES(1,"Satoshi", "Nakamoto", 24, "2023-02-01");
+INSERT INTO employees
+VALUES(1,"Satoshi", "Nakamoto", 24, "2023-02-01");
 
-			SELECT * FROM employees;
+SELECT * FROM employees;
 		</code>
 	</pre>
 	<p>employees コラムに一気にデータ追加するやり方。</p>
 	<pre>
 		<code>
-			INSERT INTO employees
-			VALUES (2, "Tanaka", "Kakuei", 30, "2022-01-31" ),
-			(3, "Takemoto", "Tsuyoshi", 20, "2022-01-31"),
-			(4, "Takahashi", "Toshimitsu", 20, "2022-01-31"),
-			(5, "Johnny", "Tsuyoshi", 22, "2022-02-01");
+INSERT INTO employees
+VALUES (2, "Tanaka", "Kakuei", 30, "2022-01-31" ),
+(3, "Takemoto", "Tsuyoshi", 20, "2022-01-31"),
+(4, "Takahashi", "Toshimitsu", 20, "2022-01-31"),
+(5, "Johnny", "Tsuyoshi", 22, "2022-02-01");
 
-			SELECT * FROM employees;
+SELECT * FROM employees;
 		</code>
 	</pre>
 	<p>employees コラムに特定のデータだけを追加するとき</p>
 	<pre>
 		<code>
-			INSERT INTO employees (employee_id, first_name, last_name)
-			VALUES (6, "Tadashi", "Hisamoto");
+INSERT INTO employees (employee_id, first_name, last_name)
+VALUES (6, "Tadashi", "Hisamoto");
 
-			SELECT * FROM employees;
+SELECT * FROM employees;
 		</code>
 	</pre>
 	<p>employees 　id 4 だけを取り出す時</p>
 	<pre>
 		<code>
-			SELECT * FROM employees
-			WHERE employee_id = 4;
+SELECT * FROM employees
+WHERE employee_id = 4;
 		</code>
 	</pre>
 	<p>employees 給料時給１５いじょうを抽出する</p>
 	<pre>
 		<code>
-			SELECT * FROM employees
-			WHERE hourly_pay >= 15;
+SELECT * FROM employees
+WHERE hourly_pay >= 15;
+		</code>
+	</pre>
+	<p>employees 給料　NULL 　のところを抽出する。</p>
+	<pre>
+		<code>
+SELECT * FROM employees
+WHERE hourly_pay IS NULL;
+		</code>
+	</pre>
+	<p>ORDER BY DESCまたはASCで。上昇下向順に並び替え。</p>
+	<pre>
+		<code>
+SELECT * FROM employees
+ORDER BY hourly_pay ASC
+		</code>
+	</pre>
+	<p>ランキング上位から何位までかをせんたくして抽出する方法</p>
+	<pre>
+		<code>
+SELECT * FROM employees
+ORDER BY hourly_pay DESC LIMIT 4
+		</code>
+	</pre>
+	<p>最大～～まで表示　【LIMIT】</p>
+	<pre>
+		<code>
+select id, first_name from users LIMIT 0, 1000
+
+
+select * from products limit 20;
+-- 0から10件--
+select * from products limit 0,10;
+-- １０から十件--
+select * from products limit 10,10;
+		</code>
+	</pre>
+	<p>記述順序と実行順序の違い</p>
+	<pre>
+		<code>
+1.select => from 対象テーブルの指定
+2.from => where 絞り込み条件の指定
+3.where => group by グループ化の条件を指定
+4.group by => having グループ化した後の絞り込み条件を指定
+5.having => select 取得行（コラム）の指定
+6.order by => order by 並び替え条件を指定
+7.limit => limit　取得する行数の制限
+		</code>
+	</pre>
+	<p>過去のコマンドから、再び呼び出すやり方。</p>
+	<p>
+mysqlワークベンチのアウトプットラン「Action Output」を選択。
+過去のコマンドからもう一度呼びたいコマンドを選択→右クリック
+→Append Select To SQL　Script
+	</p>
+
+
+	<p>抽出するだけでなく、さらに計算などもできる。</p>
+	<pre>
+		<code>
+select price,
+price * 1.08 as including_tax
+
+from products;
+		</code>
+	</pre>
+	<p>～～以上の何かを取り出したい。=>　Whereをつかう。</p>
+	<pre>
+		<code>
+select name, price from products where price >= 9800;
+		</code>
+	</pre>
+	<p>～以上～以下の何かを調べたい。 AND </p>
+	<pre>
+		<code>
+select * from products
+where price between 1000 and 1900;
+select * from products
+where price >= 1000 and price <＝　1900; </code>
+	</pre>
+	<p>特定のIDでその列を呼び出す。</p>
+	<pre>
+		<code>
+select * from products where id in (1, 2, 3);
+		</code>
+	</pre>
+	<p>価格が1000円2000円の商品を呼び出す。</p>
+	<pre>
+		<code>
+select * from products where price = 1000 or price = 2000;
+		</code>
+	</pre>
+	<p>パターンマッチングの絞り込みによる【LIKE】</p>
+	<pre>
+		<code>
+中から始まる苗字
+select * from users where last_name like '中%';
+中を含んでいる苗字
+select * from users where last_name like '%中%';
+名前が子でおわる名前
+select * from users where first_name like '%子';
+名前か3文字でかつ「子」で終わる。
+select * from users where first_name like '__子';
+		</code>
+	</pre>
+	<p>期間により絞り込み方</p>
+	<pre>
+		<code>
+SELECT * FROM orders
+where order_time >= '2017-01-01 00:00:00'
+and
+order_time < '2017-02-01 00:00:00' ; </code>
+	</pre>
+	<p>期間による合計値の求め方 sum</p>
+	<pre>
+		<code>
+SELECT sum(amount)
+FROM　orders
+where order_time >= '2017-01-01 00:00:00'
+and order_time < '2017-02-01 00:00:00' ; </code>
+	</pre>
+	<p>平均値の求め方 avg()</p>
+	<pre>
+		<code>
+select avg(price) from products;
+		</code>
+	</pre>
+	<p>最小値の求め方　min()</p>
+	<pre>
+		<code>
+select min(price) from products;
+		</code>
+	</pre>
+	<p>最大値の求め方　max()</p>
+	<pre>
+		<code>
+select max(price) from products;
+		</code>
+	</pre>
+	<p>テーブル行数の求め方　(*)</p>
+	<pre>
+		<code>
+select * from users;
+
+select count(*) from users;
+
+		</code>
+	</pre>
+	<p>ASを使うことで別名をつける</p>
+	<pre>
+		<code>
+SELECT COUNT(*) AS "50再以上の人数" FROM members WHERE age >= 50
+
+
+		</code>
+	</pre>
+	<p>[集約関数]さらに特定の何かの数を求めたいとき　count(*) where </p>
+	<pre>
+		<code>
+select count(*) from users where gender = 2;
+		</code>
+	</pre>
+	<p>特定の「日にち」から何かを抽出したいとき　count() where </p>
+	<pre>
+		<code>
+select * from access_logs;
+
+select
+count(distinct user_id)
+from
+access_logs
+where
+request_month = '2017-01-01';
+		</code>
+	</pre>
+	<p>ある特定のデータからグループごとのデータ抽出してその数を調べたいとき　count() group by </p>
+	<p>GROUP　BY間違えやすいポイント </p>
+	<ol>
+		<li>GROUPBY文にASで命名した別名は指定できない。</li>
+		<li>GROUPBY文に並び替え機能はない。→並び替えはORDERBY</li>
+	</ol>	
+	<p>SELECT文には以下のいずれしか書くことができない。 </p>
+	<ol>
+		<li>定数</li>
+		<li>GROUP BY文で指定したカラム名（集約キー）</li>
+		<li>集約関数</li>
+	</ol>	
+	<p>基本的にいかのようにSELECT文を書くことは許されない。</p>
+	<pre>
+		<code>
+SELECT job_id, name FROM members GROUP BY job_id		
+	</code>
+	</pre>
+	<p>このときSELECT分のnameカラムが上記の制限に違反している。同じjob_idが複数ある時にどのnameを表示したらいいかわからなくなるため。表示する値を一つに定めなければならない。</p>
+	<pre>
+		<code>
+select * from users;
+
+select
+prefecture_id,
+-- ユーザー数をカウントする。--
+count(*)
+from
+users
+group by
+prefecture_id
+
+		</code>
+	</pre>
+	<p>ある特定の期間からグループごとのデータ抽出してその数を調べたいとき　count() group by where</p>
+	<pre>
+		<code>
+select
+request_month,
+count(distinct user_id)
+from
+access_logs
+where
+request_month >= '2017-01-01'
+and request_month < '2018-01-01' group by request_month </code>
+	</pre>
+	<p>GROUP　BY　HAVING　</p>
+	<p>職種ごとの平均身長が170㎝よりも高い職種と、その職種ごとの平均身長を取得</p>
+	<pre>
+		<code>
+select job_id, AVG(height) 
+from members
+group by job_id 
+having AVG(height) > 170;
+		</code>
+	</pre>
+	<p>SELECT カラム名　FROM　テーブル名　GROUP BY　集約キー　HAVING　グループの値に対する条件式</p>
+	<pre>
+		<code>
+select
+request_mon
+count(distinct user_id)
+from
+access_logs
+where
+request_month >= '2017-01-01'
+and request_month < '2018-01-01' 　 
+group by 
+request_month 
+having 
+count(distinct user_id)>= 630
+		</code>
+	</pre>
+	<p>BMIが２２以下の人の名前身長体重BMIをBMIが低い順に取得</p>
+	<pre>
+		<code>
+select name, height, weight, (weight/(height/100)/(height/100))as BMI 
+from members
+where (weight/(height/100)/(height/100)) <= 22
+order by (weight/(height/100)/(height/100));
+		</code>
+	</pre>
+	<p>ORDERBY DESC ASC　SELECT　カラム名　FROM テーブル名　ORDER BY　並び化の基準となるカラム名　DESC　ASC　</p>
+	<p>order by デフォルトでは昇順（小→大）</p>
+	<p>規則性はあるが、ORDER　BYをせンたくしないとどんな並び順になるのか保証はない。</p>
+	<pre>
+		<code>
+select * from products order by price desc;
+		</code>
+	</pre>
+	<p>降順昇順を両方使ってでーた抽出　ASC DESC</p>
+	<pre>
+		<code>
+select * from products order by price desc, id asc;
+		</code>
+	</pre>
+	<p>四捨五入　round使い方</p>
+	<pre>
+		<code>
+select id, name, price * 1.08 from products;
+
+select id, name, round(price * 1.08, 0) from products;
+-- 少数第一はゼロ　--
+select round(10.555, 0);
+-- 少数第2はゼロ　--
+select round(10.555, 1);
+-- 少数第3はゼロ　--
+select round(10.555, 2);
+		</code>
+	</pre>
+	<p>文字列演算　concat 使い方 </p>
+	<p>名前の後ろに「さん」をつける。 </p>
+	<pre>
+		<code>
+select concat(last_name, '', first_name, 'さん')from users;
+		</code>
+	</pre>
+	<p>名前のあとに「さん」をつけるのと、女性だけに、Emailをつけるやりかた。 </p>
+	<pre>
+		<code>
+select concat(last_name, '-san'), email from users where gender = 2;
+		</code>
+	</pre>
+	<h4>日付と時刻の関数や演算子 </h4>
+	<pre>
+		<code>
+現在の日付 *** curent_date
+現在の時刻 *** current_timestamp
+N日後の日付 *** d + n
+N日前の日付 *** d - n
+X時間後の時刻 *** interval 'x hour'
+X時間前の時刻 *** -interval 'x hour'
+extract *** 日付や時刻の特定の部分（年や月）までを取り出す。
+		</code>
+	</pre>
+	<p>現在の日付 </p>
+	<pre>
+		<code>
+select current_date()
+		</code>
+	</pre>
+	<p>現在の時刻 </p>
+	<pre>
+		<code>
+select current_timestamp();
+		</code>
+	</pre>
+	<p>日付と時刻の演算 n日後の日付 </p>
+	<pre>
+		<code>
+select current_date() + interval 3 day;
+		</code>
+	</pre>
+	<p>日付と時刻の演算 n日前の日付 </p>
+	<pre>
+		<code>
+select current_date() - interval 3 day;
+		</code>
+	</pre>
+	<p>日付と時刻の演算 日を跨ぐx時間前の時刻計算 </p>
+	<pre>
+		<code>
+select current_timestamp() - interval 6 hour;
+		</code>
+	</pre>
+	<p>Ordersテーブルから注文日時が（order_time）が、までを取り出す。 </p>
+	<pre>
+		<code>
+select * from orders where extract(year_month from order_time)= 201701;
+		</code>
+	</pre>
+	<p>Ordersテーブルから注文日時が（order_time）が、２０１７年の時だけ取り出す。 </p>
+	<pre>
+		<code>
+select * from orders where extract(year from order_time)= 2017;
+		</code>
+	</pre>
+	<p>Ordersテーブルから注文日時が（order_time）が、一月の時だけ取り出す。 </p>
+	<pre>
+		<code>
+select * from orders where extract(month from order_time)= 1;
 		</code>
 	</pre>
 
+	<h4>テーブルの結合</h4>
+	<p>複数のテーブルを結合して、新しく一つのテーブルをつくること。</p>
+	<p>なぜ結合するのか？データ管理が用意になる。データ容量の削減</p>
+
+	<ul>
+		<li>テーブルの結合とは</li>
+		<li>テーブルの正規化とは</li>
+		<li>Primary key 主キー　*** 一つの行をと規定できる列のこと　例　主キー＝id::: id1 田中さん　千葉県出身</li>
+		<li>foreign key 外部キー　***ほかのテーブルとの関連付けに使う列のこと　例 外部キー＝出身::: id1 田中さん　千葉県出身</li>
+		<li>1対多　ユーザーvs注文　注文vs注文明細　部署vs従業員</li>
+		<li>多対多　商品VS商品カテゴリ　ブログの投稿VSブログのカテゴリ　ユーザーVS操作権限</li>
+		<li>↑商品001（id=1）がコンピューターの場合、カテゴリに分けるとマック、マイクロソフトなどでさらに分類される。</li>
+		<li>1対1　電話番号ｖｓユーザー　（あまり使われない。）</li>
+		<li>内部結合　inner join </li>
+		<li>外部結合　outer join</li>
+		<li>テーブルの足し算　union, union all </li>
+	</ul>
+	<p>内部結合　inner join </p>
+	<pre>
+		<code>
+
+select
+id,
+last_name,
+first_name,
+prefecture_id
+from
+users;
+
+		</code>
+	</pre>
+	<p>↑だとprefecture_idがどこの県なのかはっきりしない。 </p>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img4.jpg" alt="img"  width="390px"
+		height="320px">
+	<p>IDを都道府県名に変える。 </p>
+	<pre>
+		<code>
+select
+users.id,
+users.last_name,
+users.first_name,
+prefectures.name
+from
+users
+//内部結合↓
+inner join
+prefectures
+//結合条件↓
+on users.prefecture_id = prefectures.id;
+		</code>
+	</pre>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img5.jpg" alt="img"  width="390px"
+		height="320px">
+	<p>内部結合　inner join　＋　where 女性だけに絞るやり方。 </p>
+	<pre>
+		<code>
+select
+users.id,
+users.last_name,
+users.first_name,
+prefectures.name
+from
+users
+inner join
+prefectures
+on users.prefecture_id = prefectures.id;			
 
 
+select
+users.id,
+users.last_name,
+users.first_name,
+prefectures.name
+from
+users
+inner join
+prefectures
+on users.prefecture_id = prefectures.id
+where users.gender = 2;
+		</code>
+	</pre>
+	<p>体重が50kg以上かつ年収が５００万円以上かつ年齢が４０歳未満の人の名前を取得。 </p>
+	<pre>
+		<code>
+-- membersの表を選択　--
+select members.name from members  
+-- つなぎたい表はどれか？--
+inner join jobs on jobs.id = members.job_id  
+-- inner join するとどっちのあたいわからなくなるときがあるからしっかりと指定　-- 
+where members.weight >= 50 and jobs.salary >= 500 
+and members.age < 40;
 
+		</code>
+	</pre>
+
+	<p>実行順序 </p>
+	<ol>
+		<li>from　対象テーブルの指定</li>
+		<li>結合処理</li>
+		<li>where　絞り込み条件の指定</li>
+		<li>group by　グループ化の条件の指定 </li>
+		<li>having グループ化した後の絞り込み条件を指定</li>
+		<li>select 取得業の指定</li>
+		<li>order by並び替え条件を指定</li>
+		<li>limit　取得する行数の制限</li>
+	</ol>
+	<p>内部結合　inner join　orderID順　期間限定　限定エリア　 </p>
+	<pre>
+		<code>
+select * from orders;
+
+select
+orders.id,
+orders.order_time,
+orders.amount,
+users.id,
+users.last_name,
+users.first_name
+from
+orders
+inner join
+users
+on orders.user_id = users.id
+//東京は１３　限定エリア
+where users.prefecture_id = 13
+and orders.order_time >= '2017-01-01- 00:00:00'
+and orders.order_time < '2017-02-01- 00:00:00' order by order_id; ; </code>
+	</pre>
+	<h4>Java MySQL databaseつなぎ方　 </h4>
+	<pre>
+		<code>
+
+package chap03;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Sample03_01 {
+
+public static void main(String[] args) {
+String url = "jdbc:mysql://localhost:3306/sample_db";
+String userName = "root";
+String password = "root";
+
+Connection con = null;
+PreparedStatement stmt = null;
+ResultSet rs = null;
+
+String sql = "SELECT * FROM Products";
+
+try {
+Class.forName("com.mysql.jdbc.Driver");
+con = DriverManager.getConnection(url, userName, password);
+stmt = con.prepareStatement(sql);
+rs = stmt.executeQuery();
+
+while (rs.next()) {
+String id = rs.getString("id");
+String name = rs.getString("name");
+int price = rs.getInt("price");
+
+System.out.println(id + "\t" + name + "\t" + price);
+	}
+} catch (ClassNotFoundException e) {
+	System.out.println("JDBCドライバがロードできません。");
+} catch (SQLException e) {
+	System.out.println("データベース・アクセスエラーです。");
+} finally {
+	try {
+		if (con != null) {
+			con.close();
+		}
+	} catch (SQLException e) {
+System.out.println("データベース・アクセスエラーです。");
+	}
+}
+	}
+
+}
+
+		</code>
+	</pre>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img6.jpg" alt="img" width="390px"
+		height="320px">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img7.jpg" alt="img" width="390px"
+		height="320px">
+		
+		
+<h4>JavaでMySQLを書く　DAO </h4>
+<p>なぜDAOを書くのか？たとえば使用するＤＢＭＳがMySQLからPostgresSQLに変更になった場合JDBC ドライバうを変更しなければなりません。また、保存先のデータベースの変更があったりテーブル名や列名の変更
+列数の増減があった場合それまでに記述した業務ロジックのソースコードをすべて書き換える必要があるためです。</p>
+<p>Daoはテーブルに合わせてつくる。たとえばプロダクトテーブルがあったら、プロダクトDaoを作る。</p>
+<p></p>
+	<pre>
+		<code>
+
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import bean.User;
+
+public class UserDAO {
+private DBConnection db;
+
+public UserDAO(DBConnection db) {
+this.db = db;
+}
+
+public User find(String id) throws Exception {
+//ユーザーくらすの宣言　まずは空っぽで設定しまス。
+User user = null;
+//この部分がSQL上で実行する設定。SQL構文になっていることに注目
+		
+//また「？」引数の「id」を設定できるようにします。<= public User find(String id)....
+String sql = "SELECT id, name FROM Users WHERE id = ?";
+//String sql = "SELECT id, name FROM Users WHERE id = '" + id + "'";
+
+//コネクションの生成
+Connection con = db.getConnect();
+// ＳＱＬ構文をｓｔｍｔに入れる。 //select文=>excuteQuery()メソッド使用　
+//select分以外=>excuteUpdate();
+PreparedStatement stmt = con.prepareStatement(sql);
+//一つ目の値にidを入れてください。 
+//setFloat setInt, setLong setDouble...(int parameterIndex, int x) throws SQL Exce@tion 
+stmt.setString(1, id);
+//ここでＳＱＬ文をじっこうして結果を出力します。
+ResultSet rs = stmt.executeQuery();
+//もしデータベーすにid, nameがあったら、それをユーザーのＩＤと名前として取ってください。
+		
+if (rs.next()) {
+//MySQLから値を取得する。
+String userId = rs.getString("id");
+String name = rs.getString("name");
+
+user = new User(userId, name);
+	}
+//お願いします。
+return user;
+}
+}
+
+		</code>
+	</pre>
+<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img8.jpg" alt="img" width="390px"
+		height="320px">
+<h4>Productsテーブルに１件のレコードを登録するJavaを書く　</h4>
+	<pre>
+		<code>
+
+package chap03;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Sample03_03 {
+
+public static void main(String[] args) {
+String url = "jdbc:mysql://localhost:3306/sample_db";
+String userName = "root";
+String password = "root";
+
+Connection con = null;
+PreparedStatement stmt = null;
+
+String sql = "INSERT INTO Products VALUES(?, ?, ?)";
+
+try {
+Class.forName("com.mysql.jdbc.Driver");
+con = DriverManager.getConnection(url, userName, password);
+
+stmt = con.prepareStatement(sql);
+stmt.setString(1, "0104");
+stmt.setString(2, "ぶどう");
+stmt.setInt(3, 550);
+
+int count = stmt.executeUpdate();
+
+System.out.println(count + "件のレコードを登録しました。");
+} catch (ClassNotFoundException e) {
+	System.out.println("JDBCドライバがロードできません。");
+} catch (SQLException e) {
+	System.out.println("データベース・アクセスエラーです。");
+} finally {
+try {
+if (con != null) {
+	con.close();
+}
+} catch (SQLException e) {
+System.out.println("データベース・アクセスエラーです。");
+}
+}
+}
+
+}
+		</code>
+	</pre>
+<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img9.jpg" alt="img" width="390px"
+		height="320px">
 </body>
 
 </html>
