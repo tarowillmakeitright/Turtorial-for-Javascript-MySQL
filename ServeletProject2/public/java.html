@@ -3,21 +3,24 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<script type="text/javascript" src="dom.js" defer></script>
+	<script type="text/javascript" src="main.js" defer></script>
 	<link rel="stylesheet" href="styles.css">
 	<!--fontawesome link for drop navigation bar  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>DOM Turtorial</title>
+	<title>MySQL Turtorial</title>
 </head>
 
 <body>
 	<div class="topnav" id="myTopnav">
 		<a href="index.html" class="active">Home</a>
+		<a href="index.html" class="active">Javascript</a>
 		<a href="mysql_turtorial.html">MySQL</a>
 		<a href="dom.html">DOM</a>
 		<a href="java.html">Java</a>
+		<a href="jsp.html">JSP</a>
+		<a href="servlet.html">Servlet</a>
 		<a href="about.html">About</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>
@@ -31,14 +34,1189 @@
 	</form>
 	 
 		<h1>Java TURTORIAL</h1>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"　height="320px">
 	<p>特にわからなかったところ</p>
 	<ol>
-		<li><a href="#">A</a></li>
-		<li><a href="#">B</a></li>
-		<li><a href="#">C</a></li>
+		<li><a href="https://teratail.com/questions/284516"> なぜ引数戻り値は必要なのか</a></li>
+		<li><a href="https://www.tech-teacher.jp/blog/java-static/">【初心者向け】Javaのstaticメソッド・static変数について解説！</a></li>
+		<li><a href="https://teratail.com/questions/13203">【staticなmethodのメリットとは</a></li>
+		<li><a href="https://camp.trainocate.co.jp/magazine/java-regular-expressions/">正規表現</a></li>
+		<li><a href="https://style.potepan.com/articles/27761.html#:~:text=Object%E5%9E%8B%E3%81%A8%E3%81%AF%E3%80%81Java,%E7%B6%99%E6%89%BF%E5%85%83%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82">[Java]object型は全てのクラスの祖先！object型の型比較などを詳しく解説</a></li>
+		<li><a href="https://qiita.com/aiko_han/items/e8ddce85188970fd77da">なぜ抽象クラス(Abstract)を実装するのか</a></li>
+		<li><a href="https://qiita.com/RYO-4947123/items/eaeb48b6fcf97c02710f">なぜアップキャストは安全で、ダウンキャストは危険なのか</a></li>
+		<li><a href="https://qiita.com/pebblip/items/1206f866980f2ff91e77">Java ジェネリクスのポイント</a></li>
+		<li><a href="https://www.zunouissiki.com/entry/2018/05/20/071155/">【Java入門】ジェネリクス(総称型)と型推論</a></li>
+		<li><a href="https://qiita.com/yoshi389111/items/7ea0f9b9483b0138ecdf">[Java] Mapのメモ</a></li>
+		<li><a href="https://qiita.com/yoshi389111/items/c24f8beefb7b96cad921">[Java] Iteratorのメモ</a></li>
+		<li><a href="https://camp.trainocate.co.jp/magazine/java-interface-abstract/#:~:text=%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%E3%81%AF%E3%80%81%E3%81%9D%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%E5%86%85,%E3%81%AE%E7%99%BA%E7%94%9F%E3%82%92%E9%98%B2%E3%81%92%E3%81%BE%E3%81%99%E3%80%82">Javaのinterfaceとは？インターフェースの使い方やabstractクラスとの違い</a></li>
+		<li><a href="https://qiita.com/atsuk0r0/items/8d6e4b57821817b65bd0">Java Mapの使い方</a></li>
 	</ol>
+<h4>「クラス」</h4>	
+<p>フィールドとメソッドから成り立っています。フィールドは、メンバ変数ともよばれ、変数などを保存する場所です。データを格納するばしょと覚えておくといい。メソッドはある機能を持たせると思ってください。命令や処理の記述をすると覚えておくと良い。</p>
+
+<h4>「インスタンス」</h4>
+<p>よくインスタンスはタイ焼きだ。とか言われます。クラスはプロ蔵身の部品のテンプレートであり、インスタンスはテンプレートから作った実際の部品。タイ焼きの型とタイ焼きです。タイ焼きの型だけあってもダメですよね？まず生地（クラス）を作って、次に、あんこやカスタード（クラス）などを入れます。そしてその型にいれて作ったら、タイ焼き（インスタンス生成）の完成です。</p>
+<h4>「演算子」</h4>
+<pre>
+<code>
+
+演算子
+
+public class Turtorial{
+public static void main(String[] args) {
+  int a;
+  int b = 123;
+  int c = 134;
+  
+  sum
+  a = b + c;
+  System.out.println(a);
+  substract
+  a = b - c;
+  System.out.println(a);
+  times
+  a = b * c;
+  System.out.println(a);
+  divide
+  a = b / c;
+  System.out.println(a);
+  remainder
+  a = b % c;
+  System.out.println(a);
+  
+	}
+}
+
+
+</code>
+</pre>
+
+<h4>「キャスト演算」</h4>
+<p>型を強制的に変換させるということ。しかしキャストを用いて変換できない型が存在する。</p>
+<h4>「エスケープ文字」</h4>
+<p>バックスラッシュ + n で改行ができる。　\n </p>
+<h4>「スタティック」</h4>
+<p>インスタンスの生成なしでメソッドを書きたい場合、に有効活用するのが最大のメリット</p>
+<h4>「変数」</h4>
+<p>ABCとabcは違う。</p>
+<h4>「スイッチ文」</h4>
+<p>「変数＝＝値」「変数＝＝変数」のような左辺と右辺が一致するかを比較する式であり、それ以外の「＞」や「＜」「！＝」は使われていない。
+</p>
+<h4>「for文while文違い」</h4>
+<ol>
+<li>for文は内側で変数iに値を代入するため外側からその変数は使えないこと。</li>
+<li>一方でwhile文は変数iを外側で宣言するため以後変数iを再宣言することはできない。</li>
+<li>for文は式と変数iが（）内にあるので直感的に見たときにわかりやすい。</li>
+<li>あらかじめ始まり終わりの数字が明確になっているとき。（例：配列、List）→for while -> 繰り返しが決まっていない処理ファイルから何かをよみとったりするとき。</li>
+</ol>
+<pre>
+<code>
+int型の値を４個まとめて格納できる配列。不正解→newがなかった。
+int[] points = new {10,20,30,40};
+double[] weights = new {1,2,3,4,5};
+boolean[] answers = new  {true, true, false};
+String[] names = new {"taro", "Yukari", "Liwei", "John", "Miki"};
+
+
+public class Turtorial {
+	public static void main (String[] args) {
+    int[] moneylist = {121902, 8302, 53100};
+    System.out.println("Here is your money list.");
+    for(int i = 0; i < moneylist.length; i++) {
+    	System.out.println(moneylist[i]);
+    }
+	}
+}
+
+拡張for文
+public class Turtorial {
+ public static void main (String[] args) {
+  int[] moneylist = {121902, 8302, 53100};
+  System.out.println("Here is your money list.");
+  for(int value :  moneylist ) {
+  	System.out.println(value);
+  }
+  }
+}
+
+public class Turtorial {
+ public static void main (String[] args) {
+  int[] numbers = {3,4,9};
+  System.out.println("type a single digit number");
+  int input = new java.util.Scanner(System.in).nextInt();
+  for (int i = 0; i < numbers.length; i++) {
+  	if ( i == input) {
+  		System.out.println("CORRECT!");
+  	}
+  }
+  	
+  
+  
+ }
+}
+
+while 文
+
+public class Turtorial {
+	public static void main(String[] args) {
+		int temp = 23;
+while (temp > 20) {
+ temp--;
+ System.out.println("ただ今の気温は" + temp + "度です。");
+ System.out.println("温度をさらに一度下げます。");
+ if (temp == 20) {
+  System.out.println("ただ今気温は設定値" + temp + "度に達しました。");
+  System.out.println("エアコンを止めます。");
+  break;
+	}
+
+}
+
+	}
+}
+
+
+for文をつかって配列を扱う。
+
+public class Turtorial {
+	public static void main(String[] args) {
+		int[] numbers = {10, 20, 30, 40, 50};
+		for(int i = 0; i < 5; i++) {
+			
+			System.out.println (numbers[i]);
+		}
+	}
+}
+
+ 拡張for文
+
+public class Turtorial {
+	public static void main (String[] args) {
+		int[] numbers = {10, 20, 30, 40, 50};
+		for( int value : numbers ) {
+			System.out.println(value);
+		}
+	}
+}
+
+</code>
+</pre>
+
+<h4>「条件分岐」if文とSwitch文」</h4>
+<p>条件指定がtrue/falseだった場合はif文、変数の値によって条件分岐する場合はswitch文。if文を使用してswitch文を書くことは可能だが、else ifをたくさん書くことになるので、コードが複雑になり、その分処理速度が遅くなるということ</p>
+<pre>
+<code>
+public class Turtorial {
+	public static void main(String[] args) {
+    boolean weather = true;
+    int tempature = -7;
+    if ((weather = true) && (tempature >= 0)) {
+    	System.out.println("You should hike the mountain!");
+    } else {
+    	System.out.println("Sorry, but, I don't recommend you to hike the mountain today.");
+    }
+	}
+}
+
+
+
+ IF文
+public void weather (String[] args) {
+	boolean weather = true;
+	if (weather == true) {
+		System.out.println("I am going to wash my clothing");
+	
+		
+	} else {
+		System.out.println("I am going to watch Netflix");
+	}
+}
+	
+	スイッチ文
+public static void nextline (String[] args)  {
+	System.out.println("[menu] 1:research 2:register 3 :delete 4:update");
+	int number = new java.util.Scanner(System.in).nextInt();
+	switch (number) {
+	case 1: 
+		System.out.println("I am going to research");
+		break;
+	case 2:
+		System.out.println("I would like to reaserch");
+		break;
+	case 3: 
+		System.out.println("No, I would like to delete.");
+		break;
+	case 4:
+		System.out.println("Yes, I would like to update");
+		break;
+	default:
+		break;
+	}		
+	
+</code>
+</pre>
+<h4>「なぜメソッドを使うのか」</h4>
+<p>プログラム全体がきれいに見える。あとからみやすくなる。同じ処理を再利用できる。修正がきく。</p>
+
+<h4>「なぜクラスをつくるのか」</h4>
+<p>部品化するため。。車を作るにはドアを作る人、タイヤを作る人、塗装をする人などに分かれていて、これに似たようなこと。</p>
+<h4>「なぜ引数戻り値は必要なのか」</h4>
+<p>x+yとしておくことで外部からのアクセスが可能になる。５＋１であれば、再利用もできなく重複してしまう。<a href= "https://teratail.com/questions/284516<">個々のウェブサイトによると</a>　そもそも「なぜ戻り値は必要なのか？」という考えではなく、その逆の思考「メソッドにどんな機能を持たせたいのか」を考えることが最も重要と書かれていました。
+<pre>
+<code>
+引数の例
+public class Turtorial {
+	public static void main(String[] args) {
+		System.out.println("メソッドを呼び出します。");
+		hello("Kaede");
+		hello("Naoka");
+		hello("Sumire");
+		System.out.println("It is done by calling the method.");
+	}
+	public static void hello(String name) {
+		System.out.println( "Hello" + name + "-san");
+	}
+}
+
+引数の例（渡す値が複数の場合）
+public class Turtorial {
+	public static void main(String[] args) {
+		add(199,29);
+		add(288,47);
+	}
+	複数の値を受け取るaddメソッド
+	public static void add(int x, int y) {
+		int ans = x + y;
+		System.out.println(x + "+" + y + "=" + ans );
+	}
+}
+
+戻り値の例
+public class Turtorial {
+	public static int add(int x, int y) {
+		int ans = x + y;
+		return ans;
+	}
+	public static void main(String[] args) {
+		int ans = add(100,19);
+		System.out.println("100 + 19 =" + ans);
+	}
+}
+
+引数の型が異なる場合；オーバーロード
+public class Turtorial{
+	public static int add(int x, int y) {
+		return x + y;
+	}
+	public static double add(double x, double y) {
+		return x + y;
+	}
+	public static String add(String x, String y) {
+		return x + y;
+	}
+	public static void main(String[] args) {
+		System.out.println(add(19,20));
+		System.out.println(add(2.4, 3.4));
+		System.out.println(add("Hello","DisneyLand!"));
+	}
+}
+
+引数の型が異なる場合；オーバーロード
+
+public class Turtorial {
+	public static int add(int x, int y) {
+		return x + y;
+	}
+	public static int add(int x, int y, int z) {
+		return x + y + z;
+	}
+	public static void main(String[] args) {
+		System.out.println("10+20="+ add( 10, 20) );
+		System.out.println("30+40+50=" + add(30,40,50));
+		
+	}
+}
+
+引数に配列を受け取るメソッドの利用
+public class Turtorial {
+	int型配列を受け取り、すべての要素を表示するメソッド
+	public static void printArray(int[] array) {
+		for (int element : array) {
+			System.out.println(element);
+		}
+	}
+	public static void main(String[] args) {
+		int[] array = {1, 2, 3};
+		配列を渡す。
+		printArray(array); 
+	}
+}
+
+おなじ配列を参照していることを確認する。
+public class Turtorial {
+	public static void incArray(int[] array) {
+      配列の長さを取得するには length フィールドの値を参照します。配列の長さとは配列に含まれる要素の数です。
+      for(int i = 0; i < array.length; i++) {
+      	array[i]++;
+		}
+	}
+	public static void main(String[] args) {
+       int[] array = {1,2,3};
+       incArray(array);
+       for (int i : array) {
+       	System.out.println(i);
+       }
+	}
+}
+
+戻り値が配列の場合 makearray(3)でアドレスを作っている.newArrayでも新しい住所を作っている。
+同時にまじわるところから、数がカウントされる。
+public class Turtorial {
+	public static int[] makeArray(int size) {
+      int[] newArray = new int[size];
+      for(int i = 0; i < newArray.length; i++) {
+      	newArray[i] = i;
+      }
+		return newArray;
+	}
+	public static void main(String[] args) {
+		int[] array = makeArray(3);
+		for(int i : array ) {
+			System.out.println(i);
+		}
+	}
+}
+
+public class Turtorial {
+	public static String add(String x, String y) {
+		return x + y;
+	}
+	public static int add(int x, int y) {
+		return x + y; 
+	}
+	
+	public static double add(double x, double y) {
+		return x + y;
+	}
+	 
+	public static void greeting(String name){
+		System.out.println("Hello" + name);
+	}
+	public static void main (String[] args) {
+		System.out.println(add ("Hello", "Aoki"));
+		System.out.println(add(3, 4));
+		System.out.println(add(1.2, 1.5));
+		greeting("Takashi");
+	}
 	
 
+public class Turtorial {
+	public static int add(int x, int y ) {
+		int calcTriangleArea = x * y / 2;
+		return calcTriangleArea;
+		
+	}
+	public static int add(double z) {
+		int calcCircleArea = z * z;
+		return calcCircleArea;
+	}
+	public static void main (String[] args) {
+		int calcTriangleArea = add(2,3);
+		int calcCircleArea = add(2.2);
+		System.out.println(calcTriangleArea);
+		System.out.println(calcCircleArea);
+	}
+}
+public class Hero {
+	public static void email(String name) {
+		System.out.println(name);
+	}
+
+	public static String add(String x) {
+		return x;
+	}
+
+	public static void main(String[] args) {
+		System.out.println("this is the message for you.");
+		email("tittle");
+		email("content");
+		email("Bye");
+		System.out.println("Regards, XXX");
+
+	}
+
+}
+
+
+</code>
+</pre>
+</p>
+<h4>「コンストラクタはなぜあるのか」</h4>
+<p>
+インスタンスの初期値を操ることができるから。しかしどのようなときに使うのか？については一つのインスタンスに対して複数の引数を指定したいときとしか考えつくことがありません。このように思ったのは引数が違うのであれば、コンストラクタをオーバーロードすることは可能だったからです。
+</p>
+<h4>「=＝とequal違い」</h4>
+<p>
+String foo = "Apple" String bar = "Apple" if(foo == bar)の場合＝＝はメモリの参照先が同じかどうかを判定する。また参照先が違うため、コンピューターは違う値とみなす。ですので、「文字列の時にはequalsを使うと良い」。参照先とは一種の住所。アパートメント自体の住所（"Orange"）は同じだとしても部屋番号（"Orange" : 101, "Orange" : 102）は異なります。
+</p>
+<h4>「正規表現」</h4>
+<p>
+郵便番号、携帯番号、数字チェック、英数字チェック、日付、メールアドレス、URLを特定する正規表現
+<a href="https://camp.trainocate.co.jp/magazine/java-regular-expressions/" >こちらを参照</a>
+</p>
+<h4>「アクセス修飾子」</h4>
+<p>
+Final　定数　ファイナルはクラス、メソッド、変数に代入可能で参照先を変えたくないときに扱う。プログラミング副作用を防ぐ。public どこからでもアクセス可能。private　同じクラス内だけでしか、アクセスできない。厳密にいうと、getter/setterをつかって、アクセスはできる。デフォルトメソッドは、同じパッケージないでしか、アクセスできない。
+</p>
+<h4>「ジェネリクス」</h4>
+<p>
+アプリを作ってみるとこのジェネリクスをたくさん使っていた。調べてみたところ、ジェネリクスが発表される以前はキャストがたはつしていた。私の理解した範囲内で書きますと、ジェネリクスを使うことによってゲットで呼ぶことができその時同時に型指定もできる。このことによって、いちいち違う型のクラスを使わなくてよくなる。ArrayListのときにも、ダイヤモンド演算子として使われる。継承元のメソッドで型を定義した場合、ダイヤモンド演算子の中に、メソッド名を入れることは可能<a href = "https://www.zunouissiki.com/entry/2018/05/20/071155/">初心者はこちらを参考にするとよい。</a>詳細はこちら<a href="https://qiita.com/pebblip/items/1206f866980f2ff91e77">Java ジェネリクスのポイント</a>
+</p>
+<h4>「ArrayList」</h4>
+<p>
+箱の個数が決まっていないときに追加できる。<a href = "https://qiita.com/atsuk0r0/items/839d51185a11ccc9eae9">Java ArrayListについて</a>ArrayList とは、 Listインタフェース を実装した コレクションクラス である。
+ArrayList は、 Array という名にあるように配列のような感覚で扱うことができる。ダイヤモンド演算子の中はラッパークラスを使う。
+</p>
+<table class="pro2">
+<tr><th>基本データ型</th><th>ラッパークラス</th></tr>
+<tr><td>boolean</td><td>Boolean</td></tr>
+<tr><td>char</td><td>Character</td></tr>
+<tr><td>byte</td><td>Byte</td></tr>
+<tr><td>short</td><td>Short</td></tr>
+<tr><td>int</td><td>Integer</td></tr>
+<tr><td>long</td><td>Long</td></tr>
+<tr><td>float</td><td>Float</td></tr>
+<tr><td>double</td><td>Double</td></tr>
+</table>
+<pre>
+<code>
+public class Student {
+//  名前
+private String name;
+//  学年
+private int grade;
+//  番号
+private int number;
+
+//  コンストラクタ
+public Student(String name, int grade, int number) {
+this.name = name;
+this.grade = grade;
+this.number = number;
+}
+
+//  名前の取得
+public String getName() {
+return name;
+}
+
+//  学年の取得
+public int getGrade() {
+return grade;
+}
+
+//  番号の取得
+public int getNumber() {
+return number;
+}
+
+}
+
+public class SampleEx501 {
+
+public static void main(String[] args) {
+ArrayList<Student> al = new ArrayList<>();
+al.add(new Student("安藤一郎", 1, 1));
+al.add(new Student("伊藤花子", 1, 2));
+al.add(new Student("太田たかし", 2, 3));
+al.add(new Student("加藤紀子", 2, 4));
+al.add(new Student("木田直美", 3, 5));
+//  3番目を削除
+al.remove(3);
+//al.lengthではなくal.size()
+for (int i = 0; i < al.size(); i++) {
+Student s = (Student) al.get(i); //  i番目のオブジェクトを取得
+System.out.println("番号:" + s.getNumber() + " 名前: " + s.getName() + " 学年" + s.getGrade());
+}
+
+}
+
+}
+</code>
+</pre>
+<h4>「enum」</h4>
+<p>
+こちらでは、enum に複数の定数を代入し一つにまとめることができる。enumを別クラスにおいて呼び出すことで、かなりすっきりとしたこーどを書くことができる。定数が多い場合にenumで書くことによって漏れを防ぐためにある。
+</p>
+<pre>
+<code>
+public enum Fruits {
+Banana("沖縄県", 1), Orange("和歌山", 1), Apple("青森", 1), Strawberry("栃木", 1), 
+Blueberry("東京", 1), Rasberrry("東京",1), Pinapple("沖縄県", 1);
+
+private String prefecture;
+private int ranking;
+
+private Fruits(String prefecture, int ranking) {
+	this.prefecture = prefecture;
+	this.ranking = ranking;
+}
+
+public String getPrefecture() {
+	return prefecture;
+}
+
+public int getRanking() {
+	return ranking;
+}
+
+}
+
+
+public class Main {
+public static void main(String[] args) {
+for (Fruits fruits : Fruits.values()) {
+	System.out.println(fruits);
+}
+
+System.out.println("::::::::::::::::");
+Fruits fruits = Fruits.Apple;
+System.out.println(fruits);
+System.out.println(fruits.Orange.getPrefecture());
+System.out.println(fruits.Orange.getRanking());
+
+	}
+
+}
+
+</code>
+</pre>
+<h4>「配列」</h4>
+<p>
+箱中におもちゃを入れたとする。そのおもちゃ一個一個をすべて値として取り出せる。for文を使うとおもちゃ全部の名前が出てくる。
+</p>
+<pre>
+<code>
+Extended for statement
+public class Main {
+public static void main(String[] args) {
+int[] scores = {50, 40, 20, 40,70};
+for(int i : scores) {
+System.out.println(i);
+}
+}
+}
+
+For statment.
+public class Main{
+public static void main(String[] args) {
+ int[] scores = {50, 40, 20, 40,70};
+ for(int i=0; i < scores.length; i++ ) {
+ System.out.println(scores[i]);
+ }
+}
+}
+
+public class Main{
+public static void main(String[] args) {
+int[]  numbers;
+numbers = new int[5]; //配列の要素数を決定する。
+System.out.println(numbers.length);
+	}
+}
+
+
+配列とfor statement
+
+public class Turtorial {
+public static void main (String[] args) {
+int[] scores = {20, 30, 40, 50, 80};
+int sum = 0;
+for (int i = 0; i < scores.length; i++) {
+	sum += scores[i];
+}
+int avg = sum / scores.length;
+System.out.println("SUM" + sum );
+System.out.println ("AVG" + avg);
+	}
+}
+
+research scores are above 50;
+
+public class Turtorial {
+public static void main(String[] args) {
+int[] scores = {10, 30, 60, 90 ,100};
+int count = 0;
+for (int i = 0; i < scores.length; i++);{
+if (scores[i] >= 50);{
+	count++;
+}
+}
+}
+}
+</code>
+</pre>
+<h4>「Staticメソッド 」</h4>
+<p>
+インスタンスの生成なしでメソッドを書きたい場合、に有効活用するのが最大のメリット 字列処理を正したいときなどに使われることが多い。インスタンスメンバは、インスタンスを生成しないといけない。
+</p>
+<pre>
+<code>
+//  静的メンバもつクラス
+public class SampleClassEx01 {
+private int value = 0;              //  インスタンスフィールド
+private static int num = 0;         //  静的フィールド
+//  コンストラクタ①　引数あり
+public SampleClassEx01(int value){
+    //  引数をインスタンスフィールドに代入
+    this.value = value;
+    //  静的メンバのインクリメント
+    num++;
+}
+//  コンストラクタ②　引数なし
+public SampleClassEx01(){
+    this(100);  //  引数つきコンストラクタを呼び出す
+}
+//  インスタンスの数を取得
+public static int getNumberOfInstance(){
+    return num;
+}
+//  インスタンスフィールドを取得
+public int getValue(){
+    return this.value;
+}
+}
+</code>
+</pre>
+<h4>「継承　extend」</h4>
+<p>
+継承を利用すると同じようなコーディングを複数並べることがあるが、それをextendsで継承することができる。そして子クラスでは、継承以外の（共通機能以外の）機能だけをかくことができる。superを使うときには、親クラスのメソッドをsuper.でつなげて書く。またスーパーは書かなくても自動的に引き継がれている主流は親クラスから継承し子クラスには特有のメソッドを与え、メインめそっドで、子クラスのインスタンスを生成した際にオブジェクトを与えている。また継承の概念に関して、抽象的にみて車には、トラック、救急車などがある。トラックは「荷物を運ぶ」が仕事であり、救急車は「患者さんを助ける」ことが仕事である。そして車としては「走る」「止まる」ことはかわりませんので、こちらをトラックと救急車には継承することができる
+</p>
+<pre>
+<code>
+
+継承
+ Hero only run and atack. 
+public class Hero {
+String name =  "Minato";
+int hp = 100;
+	
+public void attack(Matango m) {
+System.out.println(this.name + "attack!");
+m.hp -=5;
+System.out.println("5 points damage");
+}
+public void run() {
+System.out.println(this.name + "run away!");
+}
+}
+ ヒーロークラスをけいしょうしてスパーヒーローを作成する。
+ひーろにある、データはスパーヒーローに反映される。これを継承と呼ぶ。
+public class Superhero extends Hero {
+boolean flying;
+public void fly() {
+ this.flying = true;
+ System.out.println("he flew out");
+　}
+public void land() {
+this.flying = false;
+System.out.println("he arrived at");
+　}
+ }
+
+アタックをオーバーライドしたスーパーヒーロー
+ひーろクラスののアタックが修正され、一回の攻撃で敵に与えるダメージが１０
+に修正されたとしても、ダメージのポイントは５＊２のままになってしまう。
+public class Superhero extends Hero {
+public void attack (Matango m) {
+System.out.pprintln(this.name + "attack!");
+m.hp=-5;
+System.out.println("5 points damage");z
+}
+if (this.flying) {
+System.out.println(this.name + "attack!");
+m.hp-=5;
+System.out.println("5 points damage");
+}
+}
+
+superとは「いまより一つ内側のインスタンス部分」を表す予約語です。これを利用すれば
+親インスタンス部分のメソッドやフィールドに子インスタンス部分からアクセスすることができます。
+public class Superhero extends hero {
+public void attack (Matango m) {
+super.attack (m);
+if(this.flying) {
+super.attack(m);
+}
+}
+}
+
+//クラス救急車
+ public class Ambulance extends Car {
+//  番号
+private int number = 119;
+　
+//  コンストラクタ
+public Ambulance() {
+System.out.println("Ambulanceオブジェクト生成");
+}
+　
+//  救急救命活動
+public void sevePeople() {
+System.out.println("救急救命活動");
+System.out.println("呼び出しは" + number + "番");
+}
+}
+
+//クラス車
+public class Car {
+private int fuel = 0; //  燃料
+private int migration = 0; //  移動距離
+//  コンストラクタ
+　
+public Car() {
+	System.out.println("Carオブジェクト生成");
+}
+　
+//  移動メソッド
+public void move() {
+//  燃料があるなら移動
+if (fuel >= 0) {
+	migration++; //  距離移動
+	fuel--; //  燃料消費
+}
+System.out.println("移動距離 : " + migration);
+System.out.println("燃料 : " + fuel);
+}
+　
+//  燃料補給メソッド
+public void supply(int fuel) {
+if (fuel > 0) {
+	this.fuel += fuel; //  燃料補給
+}
+System.out.println("燃料 : " + fuel);
+}
+　
+}
+
+//クラス　メイン
+public class SampleEx201 {
+
+public static void main(String[] args) {
+// TODO 自動生成されたメソッド・スタブ
+Car c = new Car();
+c.supply(10); //  燃料補給
+c.move(); //  移動
+c.move(); //  移動
+Ambulance a = new Ambulance();
+a.supply(10);
+a.move();
+a.sevePeople();
+}
+　
+}
+</code>
+</pre>
+<h4>「抽象クラス」</h4>
+<p>
+<a href="https://qiita.com/aiko_han/items/e8ddce85188970fd77da">なぜ抽象クラスを作るのか？</a>なぜ抽象クラス(Abstract)を実装するのか 一つのスーパークラス（Player）の参照変数に他のサブクラス（MusicPlayerとVideoPlayer）のインスタンスを代入できるので、統一した記述方法を使用しながら、それぞれのオーバーライドメソッドを呼び出すことができる！
+</p>
+<ol>
+<li>メソッド名を統一し、ロジックを共通化し、大体何の処理をしているか把握しやすくなる</li>
+<li>共通の処理をいちいち全てのクラスに書き込む必要がなくなり、個別の処理も追加しやすくもなる。</li>
+<li>開発者がサブクラスを定義した際に、メソッドの実装忘れやメソッド名に間違いがあればコンパイルエラーが起き、コーディングミスを防ぐ</li>
+</ol>
+<pre>
+<code>
+//  抽象クラス（鳥）
+public abstract class Bird {
+//  名前フィールド
+private String name;
+
+//  引数つきコンストラクタ
+Bird(String name) {
+	this.name = name;
+}
+
+//  名前の取得
+public String getName() {
+	return name;
+}
+
+//  鳴く（抽象メソッド）
+abstract void sing();
+}
+
+
+
+//  カラスクラス
+public class Crow2 extends Bird {
+//  コンストラクタ（引数なし）
+public Crow2() {
+	super("カラス"); //  Birdクラスの引数つきコンストラクタを呼び出す
+}
+
+//  カラスがなく
+public void sing() {
+	System.out.println("カーカー");
+}
+}
+
+
+
+
+//  すずめクラス
+public class Sparrow2 extends Bird {
+//  コンストラクタ（引数なし）
+public Sparrow2() {
+	super("すずめ"); //  Birdクラスの引数つきコンストラクタを呼び出す
+}
+
+// 雀が鳴く
+public void sing() {
+	System.out.println("チュンチュン");
+}
+}
+
+
+//オブジェクト生成
+public class SampleEx302 {
+public static void main(String args[]) {
+Cro2 c = new Crow2();
+Sparow2 s = new Sparrow2();
+// カラスがなく
+Sysem.out.print(c.getName() + " : ");
+c.sng();
+// 雀がなく
+Sysem.out.print(s.getName() + " : ");
+s.sng();
+		
+		
+//上記のようにも書けるがこちらのほうがさらに簡潔に書けます。
+Bird b = new Bird[2];
+b[0] = new Crow2();
+b[1] = new Sparrow2();
+	
+for(int i = 0; i< b.length; b++){
+	system.out.println(b[i].getName()+ " : ");
+	b[i].sing();
+}
+}
+}
+</code>
+</pre>
+
+<h4>「インターフェイス」</h4>
+<p>
+抽象クラスとインターフェイスの違いは、内部からアクセスする場合はprivate protectedを使えるabstractを使う。インターフェイスは主に外部へアクセスするときに使う。またインターフェイスクラスで定数を作成することは可能である。<a href="https://camp.trainocate.co.jp/magazine/java-interface-abstract/#:~:text=%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%E3%81%AF%E3%80%81%E3%81%9D%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%E5%86%85,%E3%81%AE%E7%99%BA%E7%94%9F%E3%82%92%E9%98%B2%E3%81%92%E3%81%BE%E3%81%99%E3%80%82">Javaのinterfaceとは？インターフェースの使い方やabstractクラスとの違い</a>
+</p>
+
+<p>例①　インターフェイスとメインクラス</p>
+<pre>
+<code>
+package exday4;
+
+public interface IPhone {
+//電話する
+public void call(String number);
+}
+public interface IEmail {
+//  メールを送る
+public void sendMail(String address);
+}
+
+//  携帯電話クラス
+public class CellPhone implements IPhone, IEmail {
+//  メールアドレス
+private String mailAddress;
+//  電話番号
+private String number;
+
+//  コンストラクタ（メールアドレスと電話番号を設定
+public CellPhone(String mailAddress, String number) {
+	this.mailAddress = mailAddress;
+	this.number = number;
+}
+
+//  指定したメールアドレスにメールを送信する
+public void sendMail(String address) {
+	System.out.println(address + "に、" + this.mailAddress + "からメールを出します。");
+}
+
+//  指定した番号に電話をかける
+public void call(String number) {
+	System.out.println(number + "に、" + this.number + "から電話をかけます。");
+}
+}
+
+
+
+public class SampleEx401 {
+
+public static void main(String[] args) {
+//  携帯電話クラスのインスタンスを生成
+CellPhone cp = new CellPhone("hoge@email.com", "090-1234-5678");
+//  携帯電話クラスで、電話とメールを送る
+cp.call("011-123-4567");
+cp.sendMail("fuga@email.com");
+//  電話インターフェースでインスタンスにアクセス。
+IPhone phone = (IPhone) cp;
+//  電話をかける
+phone.call("011-987-6543"); 
+  //  メールの送信メソッドは利用できない。
+//  phone.sendMail("foo@email.com");      
+//  メールインターフェースでインスタンスにアクセス。
+IEmail mail = (IEmail) cp;
+mail.sendMail("bar@email.com"); //  メールを出す
+ //  mailインターフェースでは、電話の機能を利用できない。
+//mail.call("011-222-3333");       
+
+}
+}
+</code>
+</pre>
+
+<p>例②　インターフェイスとextendsとメインクラス　定数を作れる。extendsとinterfaceを継承した、タンククラスに注目。（大）武器→戦車→車、大砲（小）</p>
+<pre>
+<code>
+//  武器クラス
+public abstract class Weapon {
+private String name = "";
+
+//  コンストラクタ
+public Weapon(String name) {
+	//  武器の名前を設定
+	this.name = name;
+}
+
+//  武器の名前を取得
+public String getName() {
+	return this.name;
+}
+
+//  攻撃メソッド
+public abstract void attack();
+}
+
+public class Tank extends Weapon implements ICar, ICannon {
+//  コンストラクタ
+public Tank() {
+super("戦車");
+}
+
+//  大砲を撃つ
+public void fire() {
+System.out.println("砲撃");
+}
+
+//  移動
+public void move() {
+System.out.println("移動");
+}
+
+//  攻撃
+public void attack() {
+System.out.println(this.getName() + "の攻撃方法");
+System.out.println("--------------");
+fire();
+move();
+System.out.println("--------------");
+}
+
+}
+
+//  自動車インターフェース
+public interface ICar {
+public String TYPE_NAME = "car";
+
+//  移動メソッド
+public void move();
+}
+
+//  大砲インターフェース
+public interface ICannon {
+public String WEAPON_NAME = "cannon";
+
+//  大砲を撃つ
+public void fire();
+}
+
+public class SampleEx402 {
+
+public static void main(String[] args) {
+Tank t = new Tank();
+System.out.println(t.getName() + "の武器の名前:" + Tank.WEAPON_NAME);
+System.out.println(t.getName() + "の武器のタイプ:" + Tank.TYPE_NAME);
+System.out.println();
+t.attack(); //  攻撃
+}
+
+}
+</code>
+</pre>
+
+<h4>「オブジェクト型」</h4>
+<p>
+すべての継承先元のルートであるため、どのようなインスタンスを生成することもできる。。親クラスの型に子クラスの変数を代入し、インスタンスを生成することをアップキャスト、子クラスの変数に親クラスの変数を代入しインスタンスを生成することをダウンキャストと言う。アップキャストを使うのはOKだけど、ダウンキャストはNO。← 詳細はこちら。<a href="https://qiita.com/RYO-4947123/items/eaeb48b6fcf97c02710f">なぜアップキャストは安全で、ダウンキャストは危険なのか</a>
+</p>
+<h4>「Map」</h4>
+<a href="https://qiita.com/atsuk0r0/items/8d6e4b57821817b65bd0">こちらをまず初めに見るといいです。</a>
+<p>
+Mapには「キー」と「値」がペアとして格納される。ひとつのキーをひとつの値に対応させなければいけない。つまり、キーが重複してはいけない。<a href="https://qiita.com/yoshi389111/items/7ea0f9b9483b0138ecdf">こちらで学習した。</a>
+</p>
+<pre>
+<code>
+public class SampleEx601 {
+
+public static void main(String[] args) {
+HashMap<String, Integer> map = new HashMap<>();
+String nengo[] = { "明治", "大正", "昭和", "平成" };
+map.put(nengo[0], 1868);
+map.put(nengo[1], 1912);
+map.put(nengo[2], 1926);
+map.put(nengo[3], 1989);
+for (String s : nengo) {
+	System.out.println(s + "元年は、西暦" + map.get(s) + "年");
+}
+}
+}
+
+
+</code>
+</pre>
+<h4>「Iterator」</h4>
+<p>
+コレクションの時に順番通り、出力したい場合またそのほかのadd remove などの処理をしたい場合に用いる。<a href="https://qiita.com/yoshi389111/items/c24f8beefb7b96cad921">こちらを参照にした。</a>
+</p>
+<pre>
+<code>
+
+//////////////ENUM/////////////////////////
+
+
+from java.util package
+import java.util.Enumeration;
+import java.util.Vector;
+
+//Main class
+public class Main
+{
+ // Main driver method
+ public static void main(String[] args)
+ {
+ // Creating a vector object
+ Vector v = new Vector();
+ 
+// Iterating over vector object
+for (int i = 0; i < 10; i++)
+      v.addElement(i);
+ 
+// Printing elements in vector object 
+System.out.println(v);
+
+// At beginning e(cursor) will point to
+// index just before the first element in v
+Enumeration e = v.elements();
+
+/ Checking the next element availability where
+/ condition holds true till there is a single element
+// remaining in the List
+  while (e.hasMoreElements())
+  {
+// Moving cursor to next element
+int i = (Integer)e.nextElement();
+
+// Print above elements in object
+System.out.print(i + " ");
+  }
+ }
+}
+
+//リストイテレーター
+
+//Importing ArrayList and List iterator classes
+//from java.util package
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+//Main class
+public class Main {
+// Main driver method
+public static void main(String[] args) {
+// Creating an object of ArrayList class
+ArrayList al = new ArrayList();
+　
+// Iterating over Arraylist object
+for (int i = 0; i < 10; i++)
+　
+// Adding elements to the Arraylist object
+al.add(i);
+　
+// Print and display all elements inside object
+// created above
+System.out.println(al);
+　
+// At beginning ltr(cursor) will point to
+// index just before the first element in al
+ListIterator ltr = al.listIterator();
+　
+// Checking the next element availability
+while (ltr.hasNext()) {
+//  Moving cursor to next element
+int i = (Integer) ltr.next();
+　
+// Getting even elements one by one
+System.out.print(i + " ");
+　
+// Changing even numbers to odd and
+// adding modified number again in
+// iterator
+if (i % 2 == 0) {
+// Change to odd
+i++;
+// Set method to change value
+ltr.set(i);
+// To add
+ltr.add(i);
+}
+}
+　
+// Print and display statements
+System.out.println();
+System.out.println(al);
+	}
+}
+
+
+</code>
+</pre>
+
+<h4>「エラー　try catch finally」</h4>
+<p>
+エラー対処に行う。
+</p>
+<pre>
+<code>
+NullPinterException
+nullの値があるかどうかを調べる。
+public class Main {
+public static void main(String[] args) {
+String value = null;
+
+try {
+	if (value != null) {
+		System.out.println(value);
+	} else {
+		throw new NullPointerException();
+	}
+} catch (NullPointerException e) {
+	e.printStackTrace();
+}
+
+}
+}
+</code>
+</pre>
 </body>
 
 </html>

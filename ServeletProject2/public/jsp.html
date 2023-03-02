@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="main.js" defer></script>
+	<link rel="stylesheet" href="styles.css">
+	<!--fontawesome link for drop navigation bar  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>MySQL Turtorial</title>
+</head>
+
+<body>
+	<div class="topnav" id="myTopnav">
+		<a href="index.html" class="active">Home</a>
+		<a href="index.html" class="active">Javascript</a>
+		<a href="mysql_turtorial.html">MySQL</a>
+		<a href="dom.html">DOM</a>
+		<a href="java.html">Java</a>
+		<a href="jsp.html">JSP</a>
+		<a href="servlet.html">Servlet</a>
+		<a href="about.html">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+	<form id="language">
+		<select name="select">
+			<option value="index.html" selected>日本語</option>
+			<option value="index-english.html">English</option>
+		</select>
+	</form>
+	<h1> JSP Turtorial</h1>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"
+		height="320px">
+	<p>特にわからなかったところ</p>
+	<ol>
+		<li><a href="https://qiita.com/takahirocook/items/70f9b5bca1da89474b9d">【Java】Webスコープ(データの有効範囲)</a></li>
+		<li><a href="#">B</a></li>
+		<li><a href="#">C</a></li>
+		<li><a href="#">D</a></li>
+		<li><a href="#">E</a></li>
+	</ol>
+	<h4>ディレクティブ</h4>
+	<p>@pageで文字エンコーディングを指定すること</p>
+	<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">ディレクティブ</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">@page</th>
+<td id="null">現在のページの処理方法を指定</td>
+</tr><tr>
+<th id="null">@include</th>
+<td id="null">外部ファイルをインクルード（「アクションタグ」参照）起動時にだけファイルが埋め込まれる。</td>
+</tr><tr>
+<th id="null">@taglib</th>
+<td id="null">タグライブラリを定義</td>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+	
+<h4>アクションタグ</h4>
+
+	<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">アクションタグ</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">include</th>
+<td id="null">指定した外部ファイルを埋め込む。JSP実行後もファイルを埋め込むことができる。</td>
+</tr><tr>
+<th id="null">forward</th>
+<td id="null">受信したリクエスト情報をほかのJSPやServletに転送する。URLは転送元のまま。</td>
+</tr><tr>
+<th id="null">useBean</th>
+<td id="null">JSPページ内でJavaBeansクラスのオブジェクトを生成する。</td>
+</tr><tr>
+<th id="null">setProperty</th>
+<td id="null">JavaBeansのクラスのプロパティ値（メンバ変数の値）を設定する。</td>
+</tr><tr>
+<th id="null">getProperty</th>
+<td id="null">JavaBeansのクラスのプロパティ値（メンバ変数の値）を設定する。</td>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+	<h4>setCharacterEncodingで文字コード形式を指定</h4>
+	<pre>
+	<code>
+<%@ page contentType="text/html"; charset="UTF-8" %>
+	</code>
+	</pre>
+<p><strong>単一のクラスをインポートする場合</strong></h4>
+<pre>
+	<code>
+<%@ page import="java.utill.Arraylist" %>
+	</code>
+	</pre>
+	<h4>includeを使ってほかのページからコピー</h4>
+	<pre>
+	<code>
+jsp:include page="footer.jsp"
+	</code>
+	</pre>
+	<h4>スクリプトレット <%= %></h4>
+	<p>Javaの式をここに書けるようになる。</p>
+	<pre>
+	<code>
+<% int x = 10, y = 20 ;%>
+<% int z  = x + y %>
+
+<% for (int i=0; i<5; i++)%>
+こんにちわ
+<% }%>
+
+そのほかにも
+
+	</code>
+	</pre>
+<div class="table">
+
+
+
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">コード</th>
+<th id="null">説明</th>
+</tr></thead><tbody><tr>
+<th id="null">&lt;%= abc %></th>
+<td id="null">変数abcの値を表示します。</td>
+</tr><tr>
+<th id="null">&lt;%= getValue( ) %></th>
+<td id="null">メソッドgetValueの実行結果を表示します。</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+ <h4>JSPファイルでリクエストパラメーターの値を取得する方法</h4>
+	<p>formでname＝"name" name="gender"と指定した場合</p>
+	<pre>
+	<code>
+<% 
+request.setCharacterEncoding("UTF-8");
+String name = request.getParameter("name");
+String gender = request.getParameter("gender")
+%>
+
+	</code>
+	</pre>
+ <h4>MVCモデル</h4>
+ <p>MVCモデルを用いてウェブアプリケーションを作成するのが一般的です。MVCモデルを実装するとJSPファイルをwebで直接呼ぶとエラーの原因になります。ですので、
+ 一般的にはサーブレットからJSPを呼ぶようにしてください。ファイル位置はWebContent直下にJSPファイルを作りそこに配置するのが基本です。</p>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead>
+<tr>
+<th id="null" width="30%">要素</th>
+<th id="null">役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th id="null">モデル MODEL</th>
+<td id="null">アプリケーションのデータ処理をJavaでする。</td>
+</tr><tr>
+<th id="null">ビュー VIEW</th>
+<td id="null">がめんのひょうじを基本JSPで行う。JSPからデータをServlet、Javaに送ったりする。</td>
+</tr><tr>
+<th id="null">コントローラー COTOLOLLER</th>
+<td id="null">ユーザーから要求をもらったり、飛ばしたり、いろんな処理をサーブレットでする。</td>
+</tr>
+</tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<h4>フォーワード</h4>
+<p>ServletからJSPページを表示させるやり方の一つ。</p>
+	<pre>
+	<code>
+RequestDispatcher dispatcher = request.getRequestDispatcher("Path");
+dispatcher.forward(request, response);
+	</code>
+	</pre>
+<p>JSPファイルの場合　→/WebContentからのパス</p> 
+<p>Servletファイルの場合　→/URLパターン</p> 
+<h4>リダイレクト</h4>
+<p>フォーワードとサーブレットは処理の仕方が違うフォーワードはリクエストレスポンスを一往復するのに対して、リダイレクトh２往復する。
+転送元と転送先のアプリケーションが別の場合はリダイレクトを使うしかないです。リダイレクトはブラウザにサイトリクエストする。そのため、アドレスばーも変わる。</p>
+	<pre>
+	<code>
+response.sendRedirect("/example/SampleServlet");
+response.sendRedirect("URL PATH");
+	</code>
+	</pre>
+<p>JSPファイルの場合　→/WebContentからのパス</p> 
+<p>Servletファイルの場合　→/URLパターン</p> 
+
+<h4>スコープ基本</h4>
+<p>JSPからServletを使うとインスタンスがどこへ行ってしまったのか、通常JSP同士ならば何事もなかったかのように動いていたものがサーブレットを通すことでインスタンスが消えてしまうことがある。
+このようなときには、<strong>スコープ</strong>を使うのが基本である。それはインスタンスを保存する場所である。スコープにより、サーブレットクラスとJSPファイル間をインスタンスは通ることができるようになる。</p>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">スコープ名</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">page</th>
+<td id="null">同一のJSPファイル内で情報を共有する。</td>
+</tr><tr>
+<th id="null">request</th>
+<td id="null">ユーザ（ｗｅｂブラウザ）から送信された一回のリクエスト内で情報を共有する。</td>
+</tr><tr>
+<th id="null">session</th>
+<td id="null">ユーザ（ｗｅｂブラウザ）別に、複数のリクエストをまたいで、情報を共有する。</td>
+</tr><tr>
+<th id="null">application</th>
+<td id="null">ウェブアプリケーション内で、情報を共有する</td>
+</tr><tr>
+<th id="null"> void setAttribute(String name, Object o)　</th>
+<td id="null">オブジェクトに第一引数で指定したキー名で第二引数のデータを格納する。</td>
+</tr><tr>
+<th id="null">Object getAttribute(String name)</th>
+<td id="null">オブジェクトから引数に指定した名前のキーに相当するデータを取得する。＊キー名に相当するデータが存在しない場合はNullを返す。</td>
+</tr><tr>
+<th id="null">void  removeAttribbtue(String name)</th>
+<td id="null">オブジェクトから引数に指定した名前のキーに相当するデータを消去する。</td>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<h4>スコープ関連のメソッド</h4>
+<p>アプリケーションスコープ、セッションスコープ、リクエストスコープのデータ共有に使用するメソッドはsetAttribute() （データ格納用メソッド）getAttribute（データ取得用メソッド） removeAttributeです。（データ消去用メソッド）</p>
+
+<h4>インスタンス保存方法 JavaBeans</h4>
+<p>このインスタンスを保存する方法がJavaBeansクラスをつくることである。これがJavaBeansだ。</p>
+<pre>
+<code>
+//パッケージはモデル。
+package model;
+
+import java.io.Serializable;
+
+//必ずpublic
+public class Human implements Serializable {
+//フィールド変数はprivate　
+//外部からはメソッドのアクセスだけにする。
+private String name;
+private int age;
+
+public Human() {
+}
+
+public Human(String name, int age) {
+	this.name = name;
+	this.age = age;
+
+}
+
+//ゲッター
+//gettersetterメソッドを持たせる。
+//getterはgetから始める。
+//booleanの場合はisから始める。
+//引数はなし。戻り値はフィールド。
+//セッター
+//setterはsetから始める。
+//引数は一つでフィールドに設定する用。戻り値なし。
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public int getAge() {
+	return age;
+}
+
+public void setAge(int age) {
+	this.age = age;
+}
+
+}
+
+</code>
+</pre>
+<h4>アプリケーションスコープ　セッションスコープ　リクエストスコープ</h4>
+<p><a href="https://qiita.com/takahirocook/items/70f9b5bca1da89474b9d">こちらを参照にしました。</a></p>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead>
+<tr>
+<th id="null" width="30%">スコープ名</th>
+<th id="null">内容</th>
+<th id="null">クラス名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th id="null">アプリケーションスコープ(application)</th>
+<td id="null">Webアプリケーション自体を指し、最も広い有効範囲を示します。
+アプリケーション・サーバーが終了しない限り保持されるスコープ。
+ブラウザを閉じても保持されます。</td>
+<td id="null">ServletContext</td>
+</tr>
+<tr>
+<th id="null">セッションスコープ
+(session)</th>
+<td id="null">ある特定のWebクライアントとWebサーバの通信を1つの単位として扱い、
+その通信が閉ざされるまでの間を有効範囲とします。
+ブラウザを閉じない、あるいはタイムアウトしない限り保持されます。</td>
+<td id="null">HttpSession</td>
+</tr>
+<tr>
+<th id="null">リクエストスコープ
+(request)</th>
+<td id="null">クライアント（ブラウザ）から1回のリクエストの間だけを有効範囲とします。
+ブラウザからのリクエスト毎に生成されます。
+次のリクエストが来た場合やブラウザを閉じたり、
+アプリケーション・サーバーが再起動した場合は原則保持されません</td>
+<td id="null">HttpServletRequest</td>
+</tr>
+</tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<h4>EL式 ${式}</h4>
+<pre>
+<code>
+計算結果の出力方法
+${100+200} //expected 300
+
+比較結果の出力方法
+${data > 10} expected true/false
+
+1. 例題　
+スコープに保存されているオブジェクトを参照する、
+session.setAttribute("name", "Yamada Taro");
+
+${name} or ${sessionScope.name}
+
+2.例題
+スコープに保存されているオブジェクトを参照する、
+Product p = new Product();
+p.setName("Apple");
+session.setAttribute("product", p);
+
+${product.name} or ${sessionScope.name} //expected Apple
+
+3. 例題3
+スコープに保存されているオブジェクトを参照する、
+String[] fruits = {"Apple", "Strawberry", "Banana"};
+session.setAttribute("list", fruits);
+
+${list[0]} or ${sessionScope.list[0]} // expected Apple
+
+
+</code>
+</pre>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead>
+<tr>
+<th id="null" width="30%">スコープ名</th>
+<th id="null">EL式での記述方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th id="null">page</th>
+<td id="null">pageScope</td>
+</tr>
+<tr>
+<th id="null">request</th>
+<td id="null">requestScope</td>
+</tr>
+<tr>
+<th id="null">session</th>
+<td id="null">sessionScope</td>
+</tr>
+<tr>
+<th id="null">application</th>
+<td id="null">applicationScope</td>
+</tr>
+</tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<h4>Jsp:useBean </h4>
+<p>useBeanをつかってオブジェクトと名前を生成する。ラムダ式で受けとる。</p>
+<pre>
+<code>
+jsp:useBean id="product" scope="session" class="bean.Product" 
+jsp:setProperty name="product" property="name" value="りんご"
+jsp:setProperty name="product" property="price" value="200" 
+
+<%
+
+Product p = new Product();
+p.setName("Apple");
+p.setPrice(200);
+
+session.setAttribute("product", p);
+%>
+
+
+// ここで受け取る。
+商品名：${sessionScope.product.name}　
+単価：${product.price}
+</code>
+</pre>
+<h4>JSTLのタグの種類</h4>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">JSTL名</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">core</th>
+<td id="null">繰り返し、条件分岐、変数の参照設定などの基本タグ。</td>
+</tr><tr>
+<th id="null">il8n</th>
+<td id="null">数値や日付のフォーマット、国際対応可機能のサポート。</td>
+</tr><tr>
+<th id="null">xml</th>
+<td id="null">XML文章の解析、XSLスタイルシートを変換する。</td>
+</tr><tr>
+<th id="null">function</th>
+<td id="null"> 文字列などを操作する、</td>
+</tr><tr>
+<th id="null">datasbase</th>
+<td id="null">SQLを発行しデータベースを操作する。</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+
+</body>
+</html>

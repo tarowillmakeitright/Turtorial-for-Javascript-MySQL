@@ -15,9 +15,12 @@
 <body>
 	<div class="topnav" id="myTopnav">
 		<a href="index.html" class="active">Home</a>
+		<a href="index.html" class="active">Javascript</a>
 		<a href="mysql_turtorial.html">MySQL</a>
 		<a href="dom.html">DOM</a>
 		<a href="java.html">Java</a>
+		<a href="jsp.html">JSP</a>
+		<a href="servlet.html">Servlet</a>
 		<a href="about.html">About</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>
@@ -30,12 +33,29 @@
 		</select>
 	</form>
 	<h1>MySQL Turtorial</h1>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"
+		height="320px">
 	<p>特にわからなかったところ</p>
 	<ol>
 		<li><a href="#">関数</a></li>
 		<li><a href="#">コールバック関数</a></li>
 		<li><a href="#">documentcontentloaded vs loaded</a></li>
 	</ol>
+<h4>SQL関数</h4>
+	<p style="color:blue;">日にちと時間</p>
+	<pre>
+		<code>
+create table test (
+my_time time,
+my_date date,
+my_datetime datetimeA
+     );
+
+insert into test values (CURRENT_DATE(), CURRENT_TIME(),NOW());
+     </code>
+	</pre>
+	<p style="color:blue;">2000円より大きな金額を使った日をしりたい。</p>
+	<p>SELECT 日付　FROM 家計簿　WHERE 出金額　&gt; 2000 </p>
 
 	<h4>SQLの体系</h4>
 	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img1.jpg" alt="img"  width="390px"
@@ -48,6 +68,8 @@
 	<p>INSERT INTO　家計簿　VALUES ('2022-03-01', '娯楽', '映画をみた', 0, 1800)</p>
 	<p style="color:blue;">３月１日に1500\だったので直したい。</p>
 	<p>UPDATE 家計簿　SET　出金額=1500 WHERE 日付＝'2022-03-01'</p>
+	<p style="color:blue;">テーブル内容を変更したいとき。</p>
+	<p>update employees set hourly_pay = 10.50, hire_date = '2023-02-16' where employee_id = 6;</p>
 	<p style="color:blue;">全データを消去したい</p>
 	<p>DELETE FROM 家計簿</p>
 
@@ -107,7 +129,7 @@ DELETE FROM PREFECTURES WHERE CODE = '26'
 	<h4>MySQL基礎構文</h4>
 	<p>どのプロジェクトを使うか？ここできちんと選択しないと、のちにデータが保存されない。</p>
 	<pre>
-		<code>use myDb</code>
+<code>use myDb</code>
 	</pre>
 
 
@@ -230,6 +252,13 @@ WHERE hourly_pay >= 15;
 		<code>
 SELECT * FROM employees
 WHERE hourly_pay IS NULL;
+		</code>
+	</pre>
+	<p>employees 給料　NULL 　以外のところを抽出する。</p>
+	<pre>
+		<code>
+SELECT * FROM employees
+WHERE hourly_pay IS NOT NULL;
 		</code>
 	</pre>
 	<p>ORDER BY DESCまたはASCで。上昇下向順に並び替え。</p>

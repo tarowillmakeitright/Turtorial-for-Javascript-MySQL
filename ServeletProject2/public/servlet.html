@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="main.js" defer></script>
+	<link rel="stylesheet" href="styles.css">
+	<!--fontawesome link for drop navigation bar  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>MySQL Turtorial</title>
+</head>
+
+<body>
+	<div class="topnav" id="myTopnav">
+		<a href="index.html" class="active">Home</a>
+		<a href="index.html" class="active">Javascript</a>
+		<a href="mysql_turtorial.html">MySQL</a>
+		<a href="dom.html">DOM</a>
+		<a href="java.html">Java</a>
+		<a href="jsp.html">JSP</a>
+		<a href="servlet.html">Servlet</a>
+		<a href="about.html">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+	<form id="language">
+		<select name="select">
+			<option value="index.html" selected>日本語</option>
+			<option value="index-english.html">English</option>
+		</select>
+	</form>
+	<h1> Servlet Turtorial</h1>
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"
+		height="320px">
+	<p>特にわからなかったところ</p>
+	<ol>
+		<li><a href="#">A</a></li>
+		<li><a href="#">B</a></li>
+		<li><a href="#">C</a></li>
+		<li><a href="#">D</a></li>
+		<li><a href="#">E</a></li>
+	</ol>
+<body>
+<h4>Web.xmlに設定可能な主な内容</h4>
+<ul>
+<li>Servletの定義　：　作成したServletに対して、クラスメイトは別にServlet名をつけて定義する。</li>
+<li>Servletパスの定義　：　定義したServlet名に対して、Servletパスを定義する。</li>
+<li>フィルタの定義　：　Servletを呼び出すときに自動的に呼び出すプログラムの定義する。</li>
+<li>セッションタイムアウトの定義　：　定義した時間内にリクエストがない場合、セッションを切断する。</li>
+</ul>
+
+<img src="\pleiades\2022-09\workspace\ServeletProject2\servlet01.jpg" alt="img"  width="390px"
+		height="320px">
+<pre>
+<code>
+
+
+
+</code>
+</pre>
+
+<h4>HttpServletRequestインターフェイス</h4>
+	<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">メソッド</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">setCharacterEncoding::: void setCharacterEncoding(String env)</th>
+<td id="null">パラメーターの文字コードを設定する</td>
+</tr><tr>
+<th id="null">void setAttrivute (String name, Object o)</th>
+<td id="null">リクエストに属性を設定する。</td>
+</tr><tr>
+<th id="null">String getAttribute(String name)</th>
+<td id="null">リクエストパラメータの値を取得する。</td>
+</tr><tr>
+<th id="null">String[] getParameterValues(String name)</th>
+<td id="null">指定された名前のリクエストパラメーターのすべての値を取得する。</td>
+</tr><tr>
+<th id="null">HttpSession getSession(bookean create)</th>
+<td id="null">新規あるいは既存のセッションオブジェクトを取得する、</td>
+</tr><tr>
+<th id="null">get RequestDispatcher (String path)</th>
+<td id="null">RequestDispatcher インターフェイスのオブジェクトを生成する。</td>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+ 
+ 
+	<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">メソッド</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">String get ServerName()</th>
+<td id="null">サーバー名を取得する。</td>
+</tr><tr>
+<th id="null">int getServerPort()</th>
+<td id="null">サーバーのポート番号を取得する。</td>
+</tr><tr>
+<th id="null">String getMethod()</th>
+<td id="null">「GET」か「POST」を取得する。</td>
+</tr><tr>
+<th id="null">String getRequestURL()</th>
+<td id="null">URLのコンテキストルートからのパスを取得する。</td>
+</tr><tr>
+<th id="null">String getContextPath()</th>
+<td id="null">URLのコンテキスト名を取得する。</td>
+</tr><tr>
+<th id="null">String getServletPath()</th>
+<td id="null">URLのServletのパス名を取得する。</td>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+ <h4>サーブレクとくらすの定義</h4>
+ <ul>
+ <li>HttpServletクラスを継承しユーザ定義Servletクラスを定義する。</li>
+ <li>必要に応じてdoGet() doPost()をオーバーライドしてHTTP通信の対応処理をする。</li>
+ </ul>
+ <pre>
+<code>
+
+public class XYZ extends HttpServlet {
+	protected void doGet(HttpRequest req, HttpServletResponse res) 
+	throws ServletException, IOException {
+		//getリクエスト送信時の処理。
+	}
+	protected void doPost(HttpRequest req, HttpServletResponse res) 
+	throws ServletException, IOException {
+		//POSTリクエスト送信時の処理。
+}
+}
+</code>
+</pre>
+ <h4>HttpServletResponseインターフェイス</h4>
+ <table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">メソッド</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">SC_INTERNAL_SERVER_ERROR</th>
+<td id="null">リクエストの完了を妨げるようなHTTPサーバーの内部エラーを示すステータスコード５００</td>
+</tr><tr>
+<th id="null">void setContentType(String type)</th>
+<td id="null">webブラウザに渡すコンテンツタイプを設定する。</td>
+</tr><tr>
+<th id="null">PrintWriter getWriter()</th>
+<td id="null">出力ストリームを取得する。</td>
+</tr><tr>
+<th id="null">void sendError(int sc)</th>
+<td id="null">引数に設定されたステータスを使ってウェブブラウザにエラーレスポンスを送る。</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<h4>setContetntType() コンテンツタイプ設定する。</h4>
+<pre>
+<code>
+public class XYZ extends HttpServlet {
+	protected void doGet(HttpRequest req, HttpServletResponse res) 
+	throws ServletException, IOException {
+//Webブラウザにどのようなタイプのデータを
+送るかのお知らせをするための情報
+							↓MIMEタイプ	↓文字コード
+		res.setContentType("text/html;charset="UTF-8");
+	}
+}
+</code>
+</pre>
+
+<h4>getWriter() 出力ストリームを取得する。</h4>
+<pre>
+<code>
+public class XYZ extends HttpServlet {
+	protected void doGet(HttpRequest req, HttpServletResponse res) 
+	throws ServletException, IOException {
+
+		res.setContentType("text/html;charset="UTF-8");
+		//webブラウザに情報を送るための道を作成する。
+		PrintWriter out = res.getWriter();
+		
+		//htmlコードを書いていく。
+		out.println("");
+		
+	}
+}
+</code>
+</pre>
+<h4>フォームのリクエストインスタンスをgetParameterで保存する。</h4>
+<pre>
+<code>
+protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+//HTMLで設定したメタタグとおなじになるように設定してください。
+req.setCharacterEncoding("UTF-8");
+//この部分はHTMLから送られてきたデータを取得する。
+String name = req.getParameter("name");
+String gender = req.getParameter("gender");
+
+res.setContentType("text/html; charset=UTF-8");
+
+//htmlコードを書いていく。
+		out.println("");
+
+</code>
+</pre>
+</body>
+</html>
