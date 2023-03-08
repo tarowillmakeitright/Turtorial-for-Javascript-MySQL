@@ -5,11 +5,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Highlight.js -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- main.js -->
 	<script type="text/javascript" src="main.js" defer></script>
+	<!-- css -->
 	<link rel="stylesheet" href="styles.css">
 	<!--fontawesome link for drop navigation bar  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>MySQL Turtorial</title>
+	<title>JSP Turtorial</title>
 </head>
 
 <body>
@@ -33,8 +39,9 @@
 		</select>
 	</form>
 	<h1> JSP Turtorial</h1>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"
-		height="320px">
+	<div class="header_image">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"height="320px">
+	</div>
 	<p>特にわからなかったところ</p>
 	<ol>
 		<li><a href="https://qiita.com/takahirocook/items/70f9b5bca1da89474b9d">【Java】Webスコープ(データの有効範囲)</a></li>
@@ -103,7 +110,7 @@
 	<h4>includeを使ってほかのページからコピー</h4>
 	<pre>
 	<code>
-jsp:include page="footer.jsp"
+＜jsp:include page="footer.jsp"＞
 	</code>
 	</pre>
 	<h4>スクリプトレット <%= %></h4>
@@ -396,6 +403,7 @@ jsp:useBean id="product" scope="session" class="bean.Product"
 jsp:setProperty name="product" property="name" value="りんご"
 jsp:setProperty name="product" property="price" value="200" 
 
+上記は下記と同じ。
 <%
 
 Product p = new Product();

@@ -5,11 +5,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Highlight.js -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- main.js -->
 	<script type="text/javascript" src="main.js" defer></script>
+	<!-- css -->
 	<link rel="stylesheet" href="styles.css">
 	<!--fontawesome link for drop navigation bar  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>MySQL Turtorial</title>
+	<title>DOM Turtorial</title>
 </head>
 
 <body>
@@ -34,8 +40,9 @@
 	</form>
 	 
 		<h1>DOM TURTORIAL</h1>
-		<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"
-		height="320px">
+		<div class="header_image">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"height="320px">
+	</div>
 	<p>特にわからなかったところ</p>
 	<ol>
 		<li><a href="#">A</a></li>
@@ -199,7 +206,7 @@ const obj = {
 //クラスの演算子を用いてオブジェクトを記載する処理をここでする
 //javascriptのクラスはオブジェクト生成するための一つのまとまり。
 //クラスを定義した時点では、クラス名.first_name やクラス名.last_nameはできない。
-//なぜならば、const obj2 = new MyObj();　<=ここでクラスは生成されるから。
+//なぜならば、const obj2 = new MyObj();　<　=ここでクラスは生成されるから。
 class MyObj {
 	//コンストラクター関数
     constructor() {

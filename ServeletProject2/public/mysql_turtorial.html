@@ -5,7 +5,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Highlight.js -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- main.js -->
 	<script type="text/javascript" src="main.js" defer></script>
+	<!-- css -->
 	<link rel="stylesheet" href="styles.css">
 	<!--fontawesome link for drop navigation bar  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,14 +39,26 @@
 		</select>
 	</form>
 	<h1>MySQL Turtorial</h1>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"
-		height="320px">
+	<div class="header_image">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"height="320px">
+	</div>
 	<p>特にわからなかったところ</p>
 	<ol>
 		<li><a href="#">関数</a></li>
 		<li><a href="#">コールバック関数</a></li>
 		<li><a href="#">documentcontentloaded vs loaded</a></li>
 	</ol>
+<h4>コマンドプロンプトかワークベンチを立ち上げて、MySQLにログインする。</h4>
+<pre>
+<code>
+コンソール上でログインする場合。
+
+ログイン
+mysql -u username -D databaseName -p 
+ログアウト
+quit
+</pre>
+</code>
 <h4>SQL関数</h4>
 	<p style="color:blue;">日にちと時間</p>
 	<pre>
@@ -323,21 +341,32 @@ from products;
 select name, price from products where price >= 9800;
 		</code>
 	</pre>
-	<p>～以上～以下の何かを調べたい。 AND </p>
+	<p>priceが1000から1900の行を取得　～以上～以下の何かを調べたい。BETWEEN  AND </p>
 	<pre>
 		<code>
+例題1.　BETWEEN
+
 select * from products
 where price between 1000 and 1900;
+
+例題2. ANDを使って取得
 select * from products
-where price >= 1000 and price <＝　1900; </code>
+where price >= 1000 and price <＝　1900; 
+</code>
 	</pre>
-	<p>特定のIDでその列を呼び出す。</p>
+	<p>whereをつかってidが1か２か３の行を取得する。　</p>
 	<pre>
 		<code>
-select * from products where id in (1, 2, 3);
+select * from products where id in(1, 2, 3);
 		</code>
 	</pre>
-	<p>価格が1000円2000円の商品を呼び出す。</p>
+	<p>whereをつかってidが1か２か３ではない行を取得する。　</p>
+	<pre>
+		<code>
+select * from products where id not in(1, 2, 3);
+		</code>
+	</pre>
+	<p>論理和　条件Aか条件Bが一つ以上成り立つ場合にtrue 価格が1000円2000円の商品を呼び出す。</p>
 	<pre>
 		<code>
 select * from products where price = 1000 or price = 2000;
@@ -402,14 +431,14 @@ select count(*) from users;
 	<p>ASを使うことで別名をつける</p>
 	<pre>
 		<code>
-SELECT COUNT(*) AS "50再以上の人数" FROM members WHERE age >= 50
-
-
+select name as 名前, price as 価格 from products;
 		</code>
 	</pre>
-	<p>[集約関数]さらに特定の何かの数を求めたいとき　count(*) where </p>
+	<p>[集約関数]さらに特定の何かの「数」を求めたいとき　count(*) where </p>
 	<pre>
 		<code>
+SELECT COUNT(*) AS "50再以上の人数" FROM members WHERE age >= 50
+
 select count(*) from users where gender = 2;
 		</code>
 	</pre>
@@ -838,7 +867,7 @@ Connection con = db.getConnect();
 //select分以外=>excuteUpdate();
 PreparedStatement stmt = con.prepareStatement(sql);
 //一つ目の値にidを入れてください。 
-//setFloat setInt, setLong setDouble...(int parameterIndex, int x) throws SQL Exce@tion 
+setFloat setInt, setLong setDouble...(int parameterIndex, int x) throws SQL Exception 
 stmt.setString(1, id);
 //ここでＳＱＬ文をじっこうして結果を出力します。
 ResultSet rs = stmt.executeQuery();

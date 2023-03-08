@@ -5,13 +5,18 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Highlight.js -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- main.js -->
 	<script type="text/javascript" src="main.js" defer></script>
+	<!-- css -->
 	<link rel="stylesheet" href="styles.css">
 	<!--fontawesome link for drop navigation bar  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>MySQL Turtorial</title>
+	<title>Servlet Turtorial</title>
 </head>
-
 <body>
 	<div class="topnav" id="myTopnav">
 		<a href="index.html" class="active">Home</a>
@@ -33,8 +38,9 @@
 		</select>
 	</form>
 	<h1> Servlet Turtorial</h1>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"
-		height="320px">
+	<div class="header_image">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"　height="320px">
+	</div>
 	<p>特にわからなかったところ</p>
 	<ol>
 		<li><a href="#">A</a></li>
@@ -56,9 +62,17 @@
 		height="320px">
 <pre>
 <code>
-
-
-
+あえて<>は＜＞にしてあります。ご了承ください。
+＜servlet＞
+    ＜description＞＜/description＞
+    ＜display-name>ServletSample05＜/display-name＞
+    ＜servlet-name>ServletSample05＜/servlet-name＞
+    ＜servlet-class>chap07.ServletSample05＜/servlet-class＞
+  ＜/servlet＞
+  ＜servlet-mapping＞
+    ＜servlet-name＞ServletSample05＜/servlet-name＞
+    ＜url-pattern＞/servletsample05＜/url-pattern＞
+  ＜/servlet-mapping＞
 </code>
 </pre>
 
@@ -208,6 +222,142 @@ res.setContentType("text/html; charset=UTF-8");
 		out.println("");
 
 </code>
+</pre>
+<h4>初期化パラメータ</h4>
+<p>ＤＢ接続する際のログインやＩＤやパスワードや、使用する外部ファイル名などをあらかじめ設定しておいて実行時によみこんで利用できるようにすること。</p>
+<p>設定情報（web.xml）をＳｅｒｖｌｅｔに保存する。利用する情報をあらかじめ設定しておくことで読み込むだけだから、毎回プログラムを書かなくてもいいし覚える必要もない。また万が一パスワードやユーザー名に変更があった場合開発者が各々変更することはない。weeb.xmlだけを変更すればよい。最後に開発者がパスワードを記憶しなくてもよい。</p>
+<pre>
+<code>
+***あえて<>は＜＞になってます。ご了承ください。
+＜servlet＞
+
+＜servlet-name＞servlet名＜/servlet-name＞
+＜servlet-class＞＜/servlet-class＞
+＜init-param＞
+＜param-name＞パラメータ名　例→　DATA＜/param-name＞
+＜param-vaalue＞パラメータ値　例→　1000＜/param-value＞
+＜/init-param＞
+
+＜/servlet＞
+
+</code>
+</pre>
+<h4>ServletからSevlet初期化パラメータを取得する方法</h4>
+<p>ServletConfigオブジェクトを取得する。</p>
+<pre>
+<code>
+Servlet config = getServletConfig();
+</code>
+</pre>
+<p>パラメータ名を指定してパラメータ値を取得する。</p>
+<pre>
+<code>
+Servlet param = config.getInitParameter("パラメータ名")
+</code>
+</pre>
+
+<h4>コンテスト初期化パラメーターをしゅとくする方法</h4>
+<p>コンテキスト単位に指定する初期化パラメータ。プロジェクト単位でせっていするからほかのServletでも利用可能。</p>
+<pre>
+<code>
+***あえて<>は＜＞になってます。ご了承ください。
+＜web-app＞
+＜context-param＞
+＜param-name＞パラメータ名例→　 DATA＜/param-name＞
+＜param-value＞パラメータ値 例→　2000＜/param-value＞
+＜/context-param＞
+＜/web-app＞
+</code>
+</pre>
+
+<ol>
+<li>ServletConfigオブジェクトを取得する。</li>
+<pre>
+<code>
+Servlet config = getServletConfig();
+</code>
+</pre>
+<li>ServletContextオブジェクトを取得する。</li>
+<pre>
+<code>
+ServletContext context = config.getServletContext();
+</code>
+</pre>
+<li>パラメータ名を指定してパラメータ値を取得する。</li>
+<pre>
+<code>
+String param = context.getInitParameter("パラメータ名");
+</code>
+</pre>
+</ol>
+
+<h4>フィルタ　</h4>
+<p>Servletを実行する前に先に呼び出される。フィルタはServletやJSPや静的コンテンツなどを呼び出すときに自動的に先に呼び出されるプログラムです。フィルタの設定ができることで必要な機能を
+持ったフィルタをさくせいして設定しておけばServlet自体はへんこうすることなく、呼び出し元もきにすることなく様々な前処理が可能となります。</p>
+<pre>
+<code>
+public class XYZ implements Filter {
+	.....
+}
+</code>
+</pre>
+ <table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">メソッド</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">init</th>
+<td id="null">フィルタが使用されるときに呼びだされる。public void init(FilterConfig filterConfig)throws ServletException</td>
+</tr><tr>
+<th id="null">doFilter</th>
+<td id="null">フィルタの対象となるServletなどが呼び出される時に実行される。 public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws Java.io.IOException, ServletException</td>
+</tr><tr>
+<th id="null">destory()</th>
+<td id="null">フィルタが破棄されるときに呼び出される</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+
+<pre>
+<code>
+***あえて<>は＜＞になってます。ご了承ください。
+フィルタの定義方法
+＜filter＞
+＜filter-name＞フィルタ名＜/filter-name＞
+＜filter-class＞フィルタのクラス名＜/filter-class＞
+＜/filter＞
+
+フィルタ処理後のパスの定義方法
+＜filter-mapping＞
+＜filter-name＞フィルタ名＜/filter-name＞
+＜url-patter＞フィルタのクラス名＜/url-patter＞
+＜/filter-mapping＞
+</code>
+</pre>
+<pre>
+<code>
+  ＜servlet＞
+   ＜description>＜/description＞
+    ＜display-name>ServletSample06＜/display-name＞
+    ＜servlet-name>ServletSample06＜/servlet-name＞
+    ＜servlet-class>chap07.ServletSample06＜/servlet-class＞
+ ＜/servlet＞
+  ＜servlet-mapping＞
+    ＜servlet-name>ServletSample06＜/servlet-name＞
+    ＜url-pattern>/servletsample06＜/url-pattern＞
+  ＜/servlet-mapping＞
+  ＜filter＞
+    ＜display-name＞FilterSample＜/display-name＞
+    ＜filter-name＞FilterSample＜/filter-name＞
+    ＜filter-class＞chap07.FilterSample＜/filter-class＞
+  ＜/filter>
+ ＜filter-mapping＞
+    ＜filter-name＞FilterSample＜/filter-name＞
+    ＜url-pattern＞/servletsample06＜/url-pattern＞
+  ＜/filter-mapping>
+ </code>
 </pre>
 </body>
 </html>
