@@ -39,7 +39,7 @@
 	</form>
 	<h1> Servlet Turtorial</h1>
 	<div class="header_image">
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"　height="320px">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"height="320px">
 	</div>
 	<p>特にわからなかったところ</p>
 	<ol>
@@ -62,17 +62,16 @@
 		height="320px">
 <pre>
 <code>
-あえて<>は＜＞にしてあります。ご了承ください。
-＜servlet＞
-    ＜description＞＜/description＞
-    ＜display-name>ServletSample05＜/display-name＞
-    ＜servlet-name>ServletSample05＜/servlet-name＞
-    ＜servlet-class>chap07.ServletSample05＜/servlet-class＞
-  ＜/servlet＞
-  ＜servlet-mapping＞
-    ＜servlet-name＞ServletSample05＜/servlet-name＞
-    ＜url-pattern＞/servletsample05＜/url-pattern＞
-  ＜/servlet-mapping＞
+&lt;servlet>
+    &lt;description>&lt;/description>
+    &lt;display-name>ServletSample05&lt;/display-name>
+    &lt;servlet-name>ServletSample05&lt;/servlet-name>
+    &lt;servlet-class>chap07.ServletSample05&lt;/servlet-class>
+  &lt;/servlet>
+  &lt;servlet-mapping>
+   &lt;servlet-name>ServletSample05&lt;/servlet-name>
+    &lt;url-pattern>/servletsample05&lt;/url-pattern>
+  &lt;/servlet-mapping>
 </code>
 </pre>
 
@@ -228,17 +227,16 @@ res.setContentType("text/html; charset=UTF-8");
 <p>設定情報（web.xml）をＳｅｒｖｌｅｔに保存する。利用する情報をあらかじめ設定しておくことで読み込むだけだから、毎回プログラムを書かなくてもいいし覚える必要もない。また万が一パスワードやユーザー名に変更があった場合開発者が各々変更することはない。weeb.xmlだけを変更すればよい。最後に開発者がパスワードを記憶しなくてもよい。</p>
 <pre>
 <code>
-***あえて<>は＜＞になってます。ご了承ください。
-＜servlet＞
+&lt;servlet>
 
-＜servlet-name＞servlet名＜/servlet-name＞
-＜servlet-class＞＜/servlet-class＞
-＜init-param＞
-＜param-name＞パラメータ名　例→　DATA＜/param-name＞
-＜param-vaalue＞パラメータ値　例→　1000＜/param-value＞
-＜/init-param＞
+&lt;servlet-name>servlet名&lt;/servlet-name>
+&lt;servlet-class>&lt;/servlet-class>
+&lt;init-param>
+&lt;param-name>パラメータ名　例→　DATA&lt;/param-name>
+&lt;param-vaalue>パラメータ値　例→　1000&lt;/param-value>
+&lt;/init-param>
 
-＜/servlet＞
+&lt;/servlet>
 
 </code>
 </pre>
@@ -260,13 +258,12 @@ Servlet param = config.getInitParameter("パラメータ名")
 <p>コンテキスト単位に指定する初期化パラメータ。プロジェクト単位でせっていするからほかのServletでも利用可能。</p>
 <pre>
 <code>
-***あえて<>は＜＞になってます。ご了承ください。
-＜web-app＞
-＜context-param＞
-＜param-name＞パラメータ名例→　 DATA＜/param-name＞
-＜param-value＞パラメータ値 例→　2000＜/param-value＞
-＜/context-param＞
-＜/web-app＞
+&lt;web-app>
+&lt;context-param>
+&lt;param-name>パラメータ名例→　 DATA&lt;/param-name>
+&lt;param-value>パラメータ値 例→　2000&lt;/param-value>
+&lt;/context-param>
+&lt;/web-app>
 </code>
 </pre>
 
@@ -322,41 +319,41 @@ public class XYZ implements Filter {
 
 <pre>
 <code>
-***あえて<>は＜＞になってます。ご了承ください。
+
 フィルタの定義方法
-＜filter＞
-＜filter-name＞フィルタ名＜/filter-name＞
-＜filter-class＞フィルタのクラス名＜/filter-class＞
-＜/filter＞
+&lt;filter>
+&lt;filter-name>フィルタ名&lt;/filter-name>
+&lt;filter-class>フィルタのクラス名&lt;/filter-class>
+&lt;/filter>
 
 フィルタ処理後のパスの定義方法
-＜filter-mapping＞
-＜filter-name＞フィルタ名＜/filter-name＞
-＜url-patter＞フィルタのクラス名＜/url-patter＞
-＜/filter-mapping＞
+&lt;filter-mapping>
+&lt;filter-name>フィルタ名&lt;/filter-name>
+&lt;url-patter>フィルタのクラス名&lt;/url-patter>
+&lt;/filter-mapping>
 </code>
 </pre>
 <pre>
 <code>
-  ＜servlet＞
-   ＜description>＜/description＞
-    ＜display-name>ServletSample06＜/display-name＞
-    ＜servlet-name>ServletSample06＜/servlet-name＞
-    ＜servlet-class>chap07.ServletSample06＜/servlet-class＞
- ＜/servlet＞
-  ＜servlet-mapping＞
-    ＜servlet-name>ServletSample06＜/servlet-name＞
-    ＜url-pattern>/servletsample06＜/url-pattern＞
-  ＜/servlet-mapping＞
-  ＜filter＞
-    ＜display-name＞FilterSample＜/display-name＞
-    ＜filter-name＞FilterSample＜/filter-name＞
-    ＜filter-class＞chap07.FilterSample＜/filter-class＞
-  ＜/filter>
- ＜filter-mapping＞
-    ＜filter-name＞FilterSample＜/filter-name＞
-    ＜url-pattern＞/servletsample06＜/url-pattern＞
-  ＜/filter-mapping>
+  &lt;servlet>
+   &lt;description>&lt;/description>
+    &lt;display-name>ServletSample06&lt;/display-name>
+    &lt;servlet-name>ServletSample06&lt;/servlet-name>
+    &lt;servlet-class>chap07.ServletSample06&lt;/servlet-class>
+ &lt;/servlet>
+  &lt;servlet-mapping>
+    &lt;servlet-name>ServletSample06&lt;/servlet-name>
+    &lt;url-pattern>/servletsample06&lt;/url-pattern>
+  &lt;/servlet-mapping>
+  &lt;filter>
+    &lt;display-name>FilterSample&lt;/display-name>
+    &lt;filter-name>FilterSample&lt;/filter-name>
+    &lt;filter-class>chap07.FilterSample&lt;/filter-class>
+  &lt;/filter>
+ &lt;filter-mapping>
+    &lt;filter-name>FilterSample&lt;/filter-name>
+    &lt;url-pattern>/servletsample06&lt;/url-pattern>
+  &lt;/filter-mapping>
  </code>
 </pre>
 </body>

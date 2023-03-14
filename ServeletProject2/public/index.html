@@ -40,7 +40,7 @@
 	</form>
 	<h1>Javascript Turtorial</h1>
 	<div class="header_image">
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"　height="320px">
+	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"height="320px">
 	</div>
 	<p>こちらはとにかく例を貼りまくったサイトになります。わからない例題は、グーグルのコンソールをつかって実装することをお勧めします。キーワードを指定してください。コマンドFまたはコントロールFを使うことをお勧めします。</p>
 	<p>特にわからなかったところ</p>
@@ -52,12 +52,12 @@
 		<li><a href="https://jsprimer.net/basic/operator/#ternary-operator">三項演算子</a></li>
 	</ol>
 		
-<!--	<h4>Function ! document.getElementById textContent = ()</h4>
+<!--	<h3>Function ! document.getElementById textContent = ()</h3>
 	<p id="output"></p>
 	<p id="output1"></p>
 	<p id="output2"></p>
 
-	<h4>For Statement,document.getElementById insertAdjacentHTML </h4>
+	<h3>For Statement,document.getElementById insertAdjacentHTML </h3>
 	<p> insertAdjacentHTML() は、第二引数で指定するテキストを HTML または XML としてパースし、
 		その結果であるノードを DOM ツリー内の指定された位置（第一引数で指定）に挿入します。
 		これは挿入先の要素を再度パースするものではないため、既存の要素や要素内部の破壊を伴いません。
@@ -68,7 +68,7 @@
 	<ul id="list">
 	</ul>
 
-	<h4 id="array">Array List Using Json</h4>
+	<h4 id="array">Array List Using Json</h3>
 	<p>Javascriptの配列はいろいろな型を入れることができる。</p>
 
 	<table>
@@ -84,7 +84,52 @@
 	<p id="microsoftComputers_colors"></p>
 	<p id="microsoftComputers_price"></p>
 -->
-<h4>Javascriptのルール　式と文</h4>
+
+<h3>letを使い変数を作る。</h3>
+<ul>
+<li>=の右側値を「初期値」</li>
+<li>二回同じ変数名で宣言することはできない。</li>
+</ul>
+<pre>
+<code>
+let apple = "Mac";
+console.log(apple);
+ //expected Mac
+
+//代入できる。
+apple="iphone";
+console.log(apple);
+//expected iphone
+
+
+</code>
+</pre>
+<h3>constを使い定数を作る。</h3>
+<ul>
+<li>代入はできない。</li>
+<li>定数をつかうことで後からの修正が可能になる。</li>
+<li>コードが変数に代わるので読みやすくなる。</li>
+<li>2つを除いて特殊な記号は変数名には入れることはできない。</li>
+<li>「$」「_」ドルマークとアンダーバーは変数にいれることができる。</li>
+<li>変数名に対して、数字は先頭に来てはいけない。</li>
+<li>変数名は一般的に英語で書く。</li>
+<li>単語単語で区切る時には、キャメルケース。単語の初めは大文字。-> appleBanana</li>
+<li>あとはアンダースコアーで区切る。スネークケース　-> apple_Banana　一般的には使わない。</li>
+</ul>
+<pre>
+<code>
+const apple = "Mac";
+
+console.log(apple) //expected Mac
+
+//代入はできません。
+apple = "ipad";
+console.log(apple);
+//expected エラーが起きます。
+</code>
+</pre>
+
+<h3>Javascriptのルール　式と文</h3>
 <p>Ecmascriptで明確な式と文の定義は別にない。式とはなにか？それは、変数の代入時に右辺に書くものである。例えば　let x = 5;　let y = 8; let z = x + y; この 「x + y」はしきである。この式をJavascriptが読むことを「評価する」と言います。では文とは何か？実行すると何かをすることを指します。厳密の定義は置いて、セミコロンで一文ととらえる。if文やfor文などが文と呼ばれる。文は式になることはできない。さらにここから大事なのが、文を書く場所に式はかける。だからIf文の中にconsole.log();とかも書ける。<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference">（ここで上げている例は一部に過ぎない。）</a> あと意外と重要なのがブロック分です。｛｝ブロック文ないで定義された変数は外側からアクセスすることはできないといことは覚えよう。</p>
 
 
@@ -106,7 +151,7 @@ console.log(v)
 animals.forEach(v　=>console.log(v));
 
 
-for(let i = 0; i < animals.length; i++) { const v=animals[i]; console.log(v); }
+for(let i = 0; i &lt; animals.length; i++) { const v=animals[i]; console.log(v); }
 
 let array = ['apple', 'banana', 'grape'];
 array = [1,2,3];
@@ -119,7 +164,7 @@ console.log('array');
 
  </code>
 	</pre>
-	<h4>配列とforeachメソッド</h4>
+	<h3>配列とforeachメソッド</h3>
 
 
 	<pre>
@@ -139,7 +184,7 @@ console.log(v)
 animals.forEach(v　=>console.log(v));
 
 
-for(let i = 0; i < animals.length; i++) { const v=animals[i]; console.log(v); }
+for(let i = 0; i &lt; animals.length; i++) { const v=animals[i]; console.log(v); }
 
 let array = ['apple', 'banana', 'grape'];
 array = [1,2,3];
@@ -152,7 +197,7 @@ console.log('array');
 
  </code>
 	</pre>
-	<h4>オブジェクト キーとバリューが並んでいる塊。</h4>
+	<h3>オブジェクト キーとバリューが並んでいる塊。</h3>
 	<p>キーとバリューをセットでプロパティと呼ぶこともある。</p>
 
 	<pre>
@@ -192,7 +237,7 @@ coffee.price
  </code>
 	</pre>
 
-<!--	<h4>フォームの入力内容を取得する。</h4>
+<!--	<h3>フォームの入力内容を取得する。</h3>
 	<section>
 		<form action="#" id="form">
 			<input type="text" name="word">
@@ -211,12 +256,12 @@ coffee.price
 	</section>
  -->
  
- <h4>null vs undefined</h4>
+ <h3>null vs undefined</h3>
 	<p>nullは意図的に何も値を入れていないときに使う。Undefiinedは意図せず値が入っていなかったときなどにUndefiinedと返す。</p>
 	
-	<h4>動的型付け言語</h4>
+	<h3>動的型付け言語</h3>
 	<p>動的型付け言語の場合には、途中で変数のデータ型が変わることも許容されます。つまり、数値型の変数に文字列を代入することもできるのです。宣言時にNumber（数値）であった変数ですが、文字列を代入してもエラーにはなりません。文字列が代入されたタイミングでデータ型がString（文字列）に変換されるためです。このように、JavaScriptではデータ型が自動的に付与されるため、データ型を強く意識する必要がありません。他の言語では、例えば数値型の変数に文字列を入れるとエラーになってしまいますが、JavaScriptではそれが起こりません。</p>
-<h4> Typeof演算子</h4>
+<h3> Typeof演算子</h3>
 	<pre>
 		<code>
 typeof "Hello"
@@ -236,13 +281,13 @@ typeof {name:"Tom"}
 
 		</code>
 	</pre>
-<h4>While文</h4>
+<h3>While文</h3>
 	<pre>
 		<code>
  
  let count = 0;
  
- while (count < 10){
+ while (count &lt; 10){
 	console.log(count);
 	count += 1;
 }
@@ -251,7 +296,7 @@ typeof {name:"Tom"}
 
 		</code>
 	</pre>
-<h4>do While文</h4>
+<h3>do While文</h3>
 	<pre>
 		<code>
  上記の例と下記の例を見比べてみて
@@ -269,13 +314,13 @@ typeof {name:"Tom"}
 	console.log("do while Counting..."count);
 	count += 1;
 	
-}while(count < 10);
+}while(count &lt; 10);
 
 //expected 0,1,2,3,4....
 
 		</code>
 	</pre>
-	<h4> FOR文</h4>
+	<h3> FOR文</h3>
 	<pre>
 		<code>
 		
@@ -302,13 +347,13 @@ let a = 1, b = 2;
 
 for (
 	let pumbpkinCount = 0, i = 0;
-	pumbpkinCount < 10;
+	pumbpkinCount &lt; 10;
 	pumbpkinCount +=1, i += 1
 ) {
 	console.log(pumbpkinCount);
 }
 
-for (let i=0; i< todos.length; i++){ console.log(todos[i]);　 <br>
+for (let i=0; i&lt; todos.length; i++){ console.log(todos[i]);　 <br>
 	//output //*completed: true id: 1 title: "go to a movie theate
 
 	completed: true
@@ -346,7 +391,7 @@ for (const customer in coffee) {
 		</code>
 	</pre>
 
-	<h4>break文</h4>
+	<h3>break文</h3>
 	<pre>
 		<code>
 
@@ -367,7 +412,7 @@ for (const customer in coffee) {
 }
 		</code>
 	</pre>
-	<h4>continue文</h4>
+	<h3>continue文</h3>
 	<pre>
 		<code>
 
@@ -388,7 +433,7 @@ for (const customer in coffee) {
 }
 		</code>
 	</pre>
-	<h4>ラベル文 あんまり使われない。</h4>
+	<h3>ラベル文 あんまり使われない。</h3>
 	<pre>
 		<code>
 ラベル文はbreak文とcontinue文と一緒に使う。
@@ -417,7 +462,7 @@ coffeeLabel:if (true){
 //↑の場合"Do you wanna have another a cup of coffee?"は出力されず、If文の外側に移動することになる。ラベル文が内側と外側で同じ名前と定義されている場合はエラーになる。ただし、外側と外側で同じ名前をもつラベル文の場合はエラーにはならない。なぜなら、全く違う変数とみなされるから。またノートすると、ラベル文は関数に対しては使えない。
 		</code>
 	</pre>
-<h4>if文　演算子</h4>
+<h3>if文　演算子</h3>
 	<pre>
 		<code>
 //二つの値が一致するかどうか？」の時にIf文を使う。
@@ -456,9 +501,9 @@ ok = 1 !== 2;
 ok = 1 == 2; 
 
 ok = 1 > 0; //expected true　大なり
-ok = 1 < 0; //exxpected false 小なり
-ok = "a" < "b"; // expected true
-ok = "A" < "a"; //expected true
+ok = 1 &lt; 0; //exxpected false 小なり
+ok = "a" &lt; "b"; // expected true
+ok = "A" &lt; "a"; //expected true
 console.log(ok);
 
 
@@ -498,7 +543,7 @@ console.log(ok);
 		 </code>
 	</pre>
 	
-	<h4>try catch　finally文</h4>
+	<h3>try catch　finally文</h3>
 	<pre>
 		<code>
 try {
@@ -549,7 +594,7 @@ try {
 //expected catch an error done...
 		</code>
 	</pre>
-	<h4>三項演算子</h4>
+	<h3>三項演算子</h3>
 	<a href="https://jsprimer.net/basic/operator/#ternary-operator">詳しくはこちらを。</a>
 <pre>
 	<code>
@@ -561,7 +606,7 @@ console.log(ok);
 
 	</code>
 </pre>
-	<h4>switch文</h4>
+	<h3>switch文</h3>
 <pre>
 	<code>
 例えばこのようなコードがあったとする。
@@ -616,7 +661,7 @@ switch (vegetable) {	{
 
 	</code>
 </pre>
-	<h4>Global Scope Local Scope </h4>
+	<h3>Global Scope Local Scope </h3>
 	<p>スコープ とは、「 変数 が スクリプト の 中 の どの 場所 から 参照 できる か」 を 決める 概念 です。 JavaScript の スコープ は、 以下 の 2 つ に 分類 でき ます。 ・スクリプト
 		全体 から
 		参照 できる グローバル スコープ ・定義 さ れ た 関数 の 中 で のみ 参照 できる ローカル スコープ</p>
@@ -643,8 +688,7 @@ const returnedValue = add(2,3);
 </pre>
 	<img src="\pleiades\2022-09\workspace\ServeletProject2\javascript_turtorial_img1.jpg" alt="img" width="390px"
 		width="340px">
-	<p style="color:blue">ローカル変数は関数の先頭で宣言することを心がける。なぜならば、<a
-			href="https://developer.mozilla.org/ja/docs/Glossary/Hoisting">変数</a>の巻き上げをふせぐため。
+	</p>ローカル変数は関数の先頭で宣言することを心がける。なぜならば、<a>href="https://developer.mozilla.org/ja/docs/Glossary/Hoisting">変数</a>の巻き上げをふせぐため。</p>
 <pre>
 <code>
 関数の中だけしか扱えないようなconst value = num1 + num2;
@@ -679,8 +723,8 @@ console. log( f_ con()); // 結果： Global Variable }
 		</code>
 	</pre>
 
-	<h4 id=function>関数Function アロー関数</h4>
-	<p style= "color:blue">関数は巻き上げられる。関数は一番初めに読み込まれるため、戻り値の下にあろうが、呼び出される。</p>
+	<h3>関数Function アロー関数</h3>
+	<p>関数は巻き上げられる。関数は一番初めに読み込まれるため、戻り値の下にあろうが、呼び出される。</p>
 	<pre>
 		<code>
 
@@ -705,7 +749,7 @@ function add(){
   add(); //呼び出し方
 //expected 4
     
-  <p style= "color:blue">パラメーターと引数。</p>
+//パラメーターと引数。
   
               //↓パラメーター
  function add(num1, num2){
@@ -717,8 +761,8 @@ add(5,3);
 
 //expected 8
 
- <p style= "color:blue">return文。</p>
- <p style= "color:blue">return文のあとの文法はすべて無視される。</p>
+//return文
+//return文のあとの文法はすべて無視される。
 
 function add(num1, num2){
 	return num1 + num2;
@@ -808,7 +852,7 @@ doSomething(8, 9, multiple);
 const lists = ["number1", "number2", "number3"];
 
 function forEach(lists, callback) {
-for(let i = 0; i < lists.length; i++){ callback(lists[i])
+for(let i = 0; i &lt; lists.length; i++){ callback(lists[i])
 	}
 	}
 function showLists(list) { console.log(list);}
@@ -888,7 +932,7 @@ show(member);
 
 	</pre>
 
-	<p>関数の引数も関数ー高階関数</p>
+	<p>関数の引数も関数ー高階関数</>
 
 	<p>「 JavaScript の 関数 は データ 型 の 一種」 です。 つまり、 関数 そのもの も また、 ほか の 数値 型 や 文字列 型 などと 同様、 関数 の 引数として 引き渡し たり、 戻り 値 として 返し たり する こと が できる という こと です。 そして、 その よう に「 関数 を 引数、 戻り 値 として 扱う 関数」 の こと を 高階 関数 と 呼び ます。</p>
 	<pre>
@@ -937,7 +981,7 @@ console.log(key + ':' + value);
 		</code>
 	</pre>
 
-	<h4>Reduceメソッド</h4>
+	<h3>Reduceメソッド</h3>
 	<pre>
 		<code>
 ///Reduce method
@@ -960,7 +1004,7 @@ const string = "DISNEY WORLD";
 const stringArray = string.split('');
 
 function tag(accumulate, recentValue) {
-return `${accumulate}<${recentValue}>`;
+return `${accumulate}&lt;${recentValue}>`;
 	}
 
 	function reduce(array, callback, defaultValue) {
@@ -980,7 +1024,7 @@ return `${accumulate}<${recentValue}>`;
 		</code>
 	</pre>
 
-	<h4>DOM</h4>
+	<h3>DOM</h3>
 	<p>document.querySelectorAll()</p>
 	<p>「querySelector()」は、JavaScriptから任意のHTML要素を検出・取得することができるメソッドになります。
 		JavaScriptには以前から「getElementById()」とか「getElemetnsByClassName()」などHTML要素を取得できるメソッドはありました。
@@ -1000,12 +1044,13 @@ return `${accumulate}<${recentValue}>`;
 	<p style="color: blue;">正規表現</p>
 	<img src="\pleiades\2022-09\workspace\ServeletProject2\formalExpressions_img4.jpg" alt="img" width="390px"
 		width="340px">
-	<h4>いろいろなメソッド</h4>
+	<h3>いろいろなメソッド</h3>
 	<p style="color:blue;">foreachメソッド</p>
 	<p>foreachめっそどは配列内の要素を、指定した関数で順に処理するためのメソッドです。</p>
 
 	<p>配列オブジェクトcallback：個々の要素を処理するための関数that：</p>
-	</pre>関数callbackの中でthis（5.1.5項)が示すオブジェクト</p>
+	<p>関数callbackの中でthis（5.1.5項)が示すオブジェクト</p>
+
 	<pre>
 		<code>array. forEach( callback [,that]) array：
 var data = [2, 3, 4, 5]; data. forEach( function( value, index, array) {
@@ -1066,7 +1111,7 @@ console.log(array.some(even));<br>
 	</pre>
 	
 
-	<h4>Javascriptにおけるオブジェクト指向の特徴</h4>
+	<h3>Javascriptにおけるオブジェクト指向の特徴</h3>
 	<p>ここ までに 見 て き た よう に、 JavaScript は れっきとした オブジェクト 指向 言語 です。 しかし、 Java や C ++、 C# といった オブジェクト 指向 言語 とは 根本的 に 異なる 点 が
 		あり ます。 それ は「『 インスタンス 化／ インスタンス』 という 概念 は ある ものの、 いわゆる『 クラス』 が なく、『 プロトタイプ（ ひな型）』 という 概念 だけが 存在 する」 という 点 です。
 		プロトタイプ とは、「 ある オブジェクト の 元 と なる オブジェクト」 の こと。 JavaScript では、（ クラス の 代わり に） プロトタイプ を 利用 し て、 新た な オブジェクト を 生成 し て

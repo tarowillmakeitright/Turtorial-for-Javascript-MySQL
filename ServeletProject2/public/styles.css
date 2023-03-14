@@ -1,8 +1,11 @@
 @charset "UTF-8";
 
+/*h1*/
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Open+Sans&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+/*h4*/
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique:wght@900&display=swap');
+/*paragraph*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 	.topnav a:not(:first-child) {display: none;}
@@ -113,15 +116,23 @@ h1 {
   text-align: center;
 }
 
-h4 {
-  font-family: 'DotGothic16', sans-serif;
-  font-family: 'Open Sans', sans-serif;
-  color: #9146FF;
-  text-decoration: underline;
-  text-decoration-color: yellow;
-  text-decoration-thickness:3px;
+/*Animation for H2 */
+.sample {
+  display: inline-block; /* 要素が display: inline; の場合は追加する */
+ 
+  animation-name: bounce;
+  animation-duration: 10s;
+}
+
+h3 {
+  font-family: 'Shippori Antique', sans-serif;
+  color: rgb(255, 255, 255);
+  text-decoration: underline overline;
+  text-decoration-color: rgb(0, 255, 64);
+  text-decoration-thickness:4px;
   
 }
+
 
 body {
 	background:#000000;
@@ -129,8 +140,13 @@ body {
 }
 
 p{
-	font-family: 'Mochiy Pop P One', sans-serif;
+	font-family: 'Noto Sans JP', sans-serif;
+	
 
+}
+
+.highlighter_01 {
+  background: linear-gradient(transparent 10%, #FF9100 10% 90%, transparent 90%);
 }
 
 /****************************************DROP NAVIGATION ***************************/
@@ -245,8 +261,8 @@ pre {
     word-break: break-all;
     word-wrap: break-word;
     background-color: rgb(0, 0, 0);
-    border: 1px solid #ccc;
-    border-radius: 4px
+    border: 3px solid #ccc;
+    border-radius: 8px
 }
 
 pre code {
@@ -255,7 +271,7 @@ pre code {
     color: inherit;
     white-space: pre-wrap;
     background-color: transparent;
-    border-radius: 0
+    border-radius: 8px;
 }
 
 /**

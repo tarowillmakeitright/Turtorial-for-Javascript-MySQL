@@ -15,6 +15,9 @@
 	<link rel="stylesheet" href="styles.css">
 	<!--fontawesome link for drop navigation bar  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--CDN animation  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 	<title>Java Turtorial</title>
 </head>
 
@@ -39,7 +42,7 @@
 		</select>
 	</form>
 	 
-		<h1>Java TURTORIAL</h1>
+		<h1>Java Turtorial</h1>
 	<div class="header_image">
 	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"height="320px">
 	</div>
@@ -65,7 +68,7 @@
 		<li><a href="https://medium-company.com/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%82%B3%E3%83%94%E3%83%BC%E3%81%A8%E3%82%B7%E3%83%A3%E3%83%AD%E3%83%BC%E3%82%B3%E3%83%94%E3%83%BC%E3%81%AE%E9%81%95%E3%81%84/">ディープコピーシャローコピーの違い</a></li>
 		<li><a href="https://cyzennt.co.jp/blog/2020/01/24/java%EF%BC%9A%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E4%B8%AD%E8%BA%AB%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%EF%BC%88clone%E3%83%A1%E3%82%BD/">java：オブジェクトの中身をコピーする方法（cloneメソッド実装）</a></li>
 	</ol>
-<h4>型</h4>
+<h3>型</h3>
 <pre>
 <code>
 Char型は一つの文字しか扱えない。文字はシングルクオテーションで囲む。
@@ -77,12 +80,12 @@ System.out.println(name);
 
 </code>
 </pre>
-<h4>「クラス」</h4>	
-<p>フィールドとメソッドから成り立っています。フィールドは、メンバ変数ともよばれ、変数などを保存する場所です。データを格納するばしょと覚えておくといい。メソッドはある機能を持たせると思ってください。命令や処理の記述をすると覚えておくと良い。</p>
+<h3>「クラス」</h3>	
+<p>フィールドとメソッドから成り立っています。フィールドは、メンバ変数ともよばれ、変数などを保存する場所です。データを格納する場所と覚えておくといい。メソッドはある機能を持たせると思ってください。命令や処理の記述をすると覚えておくと良い。</p>
 
-<h4>「インスタンス」</h4>
-<p>よくインスタンスはタイ焼きだ。とか言われます。クラスはプロ蔵身の部品のテンプレートであり、インスタンスはテンプレートから作った実際の部品。タイ焼きの型とタイ焼きです。タイ焼きの型だけあってもダメですよね？まず生地（クラス）を作って、次に、あんこやカスタード（クラス）などを入れます。そしてその型にいれて作ったら、タイ焼き（インスタンス生成）の完成です。</p>
-<h4>「演算子」</h4>
+<h3>「インスタンス」</h3>
+<p>よくインスタンスはタイ焼きだ。とか言われます。クラスはプログラムの部品のテンプレートであり、インスタンスはテンプレートから作った実際の部品。タイ焼きの型とタイ焼きです。タイ焼きの型だけあってもダメですよね？まず生地（クラス）を作って、次に、あんこやカスタード（クラス）などを入れます。そしてその型にいれて作ったら、タイ焼き（インスタンス生成）の完成です。こちらはオブジェクト指向を参考にしてください。</p>
+<h3>「演算子」</h3>
 <pre>
 <code>
 
@@ -112,30 +115,25 @@ public static void main(String[] args) {
   
 	}
 }
-
-
 </code>
 </pre>
 
-<h4>「キャスト演算」</h4>
-<p>型を強制的に変換させるということ。しかしキャストを用いて変換できない型が存在する。</p>
-<h4>「エスケープ文字」</h4>
-<p>バックスラッシュ + n で改行ができる。　\n </p>
-<h4>「スタティック」</h4>
-<p>インスタンスの生成なしでメソッドを書きたい場合、に有効活用するのが最大のメリット</p>
-<h4>「変数」</h4>
-<p>ABCとabcは違う。</p>
-<h4>「スイッチ文」</h4>
-<p>「変数＝＝値」「変数＝＝変数」のような左辺と右辺が一致するかを比較する式であり、それ以外の「＞」や「＜」「！＝」は使われていない。
-</p>
 
-<h4>「for文　繰り返し文　ループ処理」</h4>
+<h3>「キャスト演算」</h3>
+<p>型を強制的に変換させるということ。しかしキャストを用いて変換できない型が存在する。</p>
+<h3>「エスケープ文字」</h3>
+<p>バックスラッシュ + n で改行ができる。　\n </p>
+<h3>「スタティック」</h3>
+<p>インスタンスの生成なしでメソッドを書きたい場合、に有効活用するのが最大のメリット</p>
+<h3>「変数」</h3>
+<p>ABCとabcは違う。</p>
+<h3>「for文　繰り返し文　ループ処理」</h3>
 <ul>
 <li>何度も同じことを繰り返す処理を行うことをループ処理、繰り返し文といいます。</li>
 <li>For文には 初期化式　int i = 0;</li>
-<li>継続条件式　i< 5</li>
+<li>継続条件式　i&lt; 5</li>
 <li> 変化式　i++ </li>
-<li> があって、それをfor(int i=0; i < 5 i++)のように書く！ </li>
+<li> があって、それをfor(int i=0; i &lt; 5 i++)のように書く！ </li>
 </ul>
 <pre>
 <code>
@@ -150,7 +148,7 @@ public class Turtorial {
 	public static void main (String[] args) {
     int[] moneylist = {121902, 8302, 53100};
     System.out.println("Here is your money list.");
-    for(int i = 0; i < moneylist.length; i++) {
+    for(int i = 0; i &lt; moneylist.length; i++) {
     	System.out.println(moneylist[i]);
     }
 	}
@@ -208,24 +206,24 @@ public class Turtorial {
 
 </code>
 </pre>
-<h4>「while文　繰り返し文　ループ処理」</h4>
-<p>while文は初めに条件式が読み込まれるのでfalseだった場合は繰り返し処理は行われず終了。trueだった場合のみ繰り返し処理が行われる。</p>
-<p>dowhile文の時は必ず一回はループ処理が実行される。そのあとに条件式をみて条件を判断し条件に見たさないのであれば再びループ処理を行う。<p>
+<h3>「while文　繰り返し文　ループ処理」</h3>
+<p>while文は初めに条件式が読み込まれる（これを前判定という。）のでfalseだった場合は繰り返し処理は行われず終了。trueだった場合のみ繰り返し処理が行われる。</p>
+<p>dowhile文の時は必ず一回はループ処理が実行される。そのあとに条件式をみて条件を判断する。（これを後判定という。）条件がtrueならば終了、falseならばdo継続する。<p>
 <pre>
 <code>
-while 文
+//while 文
 
 public class Turtorial {
-	public static void main(String[] args) {
-		int temp = 23;
+public static void main(String[] args) {
+int temp = 23;
 while (temp > 20) {
- temp--;
- System.out.println("ただ今の気温は" + temp + "度です。");
- System.out.println("温度をさらに一度下げます。");
- if (temp == 20) {
-  System.out.println("ただ今気温は設定値" + temp + "度に達しました。");
-  System.out.println("エアコンを止めます。");
-  break;
+temp--;
+System.out.println("ただ今の気温は" + temp + "度です。");
+System.out.println("温度をさらに一度下げます。");
+if (temp == 20) {
+System.out.println("ただ今気温は設定値" + temp + "度に達しました。");
+System.out.println("エアコンを止めます。");
+break;
 	}
 
 }
@@ -235,35 +233,47 @@ while (temp > 20) {
 
 //doWhile文
 public class Main {
-	public static void main(String[] args) {
+public static void main(String[] args) {
 
-		int i = 0;
+int i = 0;
 
-		do {
-			i++;
-			System.out.println(i);
-		} while (i < 5);
+do {
+	i++;
+	System.out.println(i);
+} while (i &lt; 5);
 
 	}
 }
+
+//さいころーゲーム　6が出るまで回り続けます。
+int number = (int) (Math.random() * 6) + 1;
+int count = 0;
+while (number != 6) {
+number = (int) (Math.random() * 6) + 1;
+System.out.println("Your number is : " + number);
+
+count++;
+}
+System.out.println("You got the number ***6***");
+System.out.println("You got 6 untill you had " + count + " times");
 </code>
 </pre>
-<h4>「for文while文違い」</h4>
+<h3>「for文while文違い」</h3>
 <ol>
 <li>for文は内側で変数iに値を代入するため外側からその変数は使えないこと。</li>
 <li>一方でwhile文は変数iを外側で宣言するため以後変数iを再宣言することはできない。</li>
 <li>for文は式と変数iが（）内にあるので直感的に見たときにわかりやすい。</li>
 <li>あらかじめ始まり終わりの数字が明確になっているとき。（例：配列、List）→for while -> 繰り返しが決まっていない処理ファイルから何かをよみとったりするとき。</li>
 </ol>
-<h4>「for文入れ子」</h4>
+<h3>「for文入れ子」</h3>
 <p>初期化式に変数はそれぞれ違わなければ機能しない。外側のfor文が123と繰り返す。内側のfor文も123と繰り返す。</p>
 <pre>
 <code>
 public class Main {
 public static void main(String[] args) {
 
-for (int i = 1; i <= 3; i++) {
-for (int j = 1; j <= 3; j++) {
+for (int i = 1; i &lt;= 3; i++) {
+for (int j = 1; j &lt;= 3; j++) {
 System.out.println(j);
 }
 }
@@ -273,7 +283,7 @@ System.out.println(j);
 </code>
 </pre>
 
-<h4>「条件分岐 if文」</h4>
+<h3>「条件分岐 if文」</h3>
 <ul>
 <li>If文の入れ子elseのあとにif-else文を再び書く。</li>
 <li>IF文が一文の時であれば省略できます。</li>
@@ -284,6 +294,8 @@ public class Turtorial {
 	public static void main(String[] args) {
     boolean weather = true;
     int tempature = -7;
+    
+    /^(?=.*weather = true)(?=.*tempature >= 0)/
     if ((weather = true) && (tempature >= 0)) {
     	System.out.println("You should hike the mountain!");
     } else {
@@ -306,11 +318,11 @@ public void weather (String[] args) {
  int price  = 2200;
  double discount = 0 ;
  
- if(price <= 1000) {
+ if(price &lt;= 1000) {
 	discout = 0.1; //1000\以下なら10％引き //trueであればここが表示される。
 }else {
 	 //falseであればここが表示
-	if(price <= 2000) {
+	if(price &lt;= 2000) {
 		//falseの中でもtrueだったらここが表示
 		discount = 0.2; //1000\～2000円以下なら20％引き
 	} else {
@@ -324,11 +336,11 @@ price = (int)(price * (1.0 -disscount));
 System.out.println(price);
 
 //例題1　IF文省略前　
-if(price <= 2000) {
+if(price &lt;= 2000) {
 		discount = 0.2;
 	}
 //例題1　IF文省略後
-//IF文省略は鍵かっこを外します。一文の時にしかできません。
+//IF文省略は鍵括弧()を外します。一文の時にしかできません。
 if(price > 1000) discount = 0.2;
 
 //例題2　IF文省略前
@@ -342,8 +354,8 @@ if(price >= 1000) discount = 0.2;
 else discount = 0.1;
 </code>
 </pre>
-<h4>「条件演算子」</h4>
-<p>If文のような処理を短く書くための処理　初めのかっこの中にBoolean式を書く。trueならばコロン左、falseならばコロン右。</p>
+<h3>「条件演算子」</h3>
+<p>If文のような処理を短く書くための処理　初めの括弧()の中にBoolean式を書く。trueならばコロン左、falseならばコロン右。</p>
 <pre>
 <code>
 //IF文省略前
@@ -355,15 +367,19 @@ double discount;
 }else {
 	double discount = 0;
 }
-//IF文省略後
+//条件演算子　IF文省略後
 int price = 100;
 double discount = (price >= 1000) ? 0.2 : 0;
 </code>
 </pre>
-<h4>「Switch文」</h4>
-<p>IF文はかっこの中がTrueFalseのBooleanだった条件分岐に対して、Switchは値が0、1、2だった場合の処理を書く。</p>
-<p>Breakを書かないとcase2,3,4と処理を行ってしまう。</p>
-<p>逆にケース1、ケース２だった場合にといった処理をあえてBreakを書かずに記述できる。</p>
+<h3>「Switch文」</h3>
+<ul>
+<li>IF文は括弧（）の中がTrueFalseのBooleanだった条件分岐に対して、Switchは値が0、1、2だった場合の処理を書く。</li>
+<li>「変数＝＝値」「変数＝＝変数」のような左辺と右辺が一致するかを比較する式であり、それ以外の「＞」や「＜」「！＝」は使われていない。</li>
+<li>Breakを書かないとcase2,3,4と処理を行ってしまう。</li>
+<li>逆にケース1、ケース２だった場合にといった処理をあえてBreakを書かずに記述できる。</li>
+</ul>
+
 <pre>
 <code>
 スイッチ文
@@ -388,11 +404,76 @@ public static void nextline (String[] args)  {
 	}
 </code>		
 </pre>
-<h4>「IF文Switch文違い？」</h4>
-<p>条件指定がtrue/falseだった場合はif文、変数の値によって条件分岐する場合はswitch文。if文を使用してswitch文を書くことは可能だが、else ifをたくさん書くことになるので、コードが複雑になり、その分処理速度が遅くなるということ</p>
-<h4>「なぜメソッドを使うのか」</h4>
+<h3>break文</h3>
+<ul>
+<li>break文は処理を中断し繰り返し文を抜けることができる。</li>
+<li>if文と組み合わせることである条件を満たしたら繰り返し処理を抜けたい場合に使用する。</li>
+</ul>
+<pre>
+<code>
+for (int i = 0; i < 10; i++) {
+System.out.println(i);
+if (i == 6) {
+	System.out.println("NO7");
+	break;
+}
+
+}
+System.out.println("done counting");
+
+//expected 1,2,3,4,5,6,NO7,done counting
+</code>
+</pre>
+<h3>continue文</h3>
+<ul>
+<li>繰り返し処理を中断し、次の繰り返し処理に移る機能を持つ。</li>
+<li>if文と組み合わせることである条件を満たしたら繰り返し処理を抜けたい場合に使用する。</li>
+</ul>
+<pre>
+<code>
+for (int i = 0; i < 10; i++) {
+System.out.println(i);
+if (i == 6) {
+System.out.println("hello");
+continue;
+}
+
+}
+
+//expected 1,2,3,4,5,6,hello,7,8,9
+</code>
+</pre>
+<h3>ラベル</h3>
+<ul>
+<li>ループがネスト（入れ子）されている状況だけでなく外側のループも抜けたいようなときはラベルを使う。</li>
+<li>ラベルは中断継続したいループ処理に「ラベル名:」を付けると使用できる。</li>
+<li>ラベル名はなんでもいい。</li>
+</ul>
+<pre>
+<code>
+int[][] apartmentNumbers = { { 101, 102, 103 }, { 201, 202, 203 }, { 301, 302, 303 } };
+//ラベル文
+LABEL: for (int i = 0; i < 3; i++) {
+for (int j = 0; j < 3; j++) {
+System.out.println(apartmentNumbers[i][j]);
+
+if (apartmentNumbers[i][j] == 202) {
+System.out.println("it is the second floor.");
+//ラベル名追加　こちらはbreak文ですがcontinue文でも可能です。
+break LABEL;
+}
+
+}
+
+}
+System.out.println("The package has been delivered");
+</code>
+</pre>
+<h3>「IF文Switch文違い？」</h3>
+<p>条件指定がtrue/falseだった場合はif文、変数の値によって条件分岐する場合はswitch文。if文を使用してswitch文を書くことは可能だが、else ifをたくさん書くことになるので、コードが複雑になり、その分処理速度が遅くなる。</p>
+<h3>「なぜメソッドを使うのか」</h3>
 <p>プログラム全体がきれいに見える。あとからみやすくなる。同じ処理を再利用できる。修正がきく。</p>
-<h4>「配列」</h4>
+<h3>「配列」</h3>
 <p>配列はfor文とセットで使われることが多い。配列は箱の中にものを入れている感じをイメージするといい。配列の各要素にループ処理で一つずつ利用する。</p>
 <pre>
 <code>
@@ -400,7 +481,7 @@ public class Main {
 	public static void main(String[] args) {
 		int[] numbers = { 1, 2, 3, 5, 6, 7, 8, };
 
-		for (int i = 0; i < numbers.length; i++) {
+		for (int i = 0; i &lt; numbers.length; i++) {
 			System.out.println(numbers[i]);
 		}
 
@@ -408,9 +489,60 @@ public class Main {
 }
 </code>
 </pre>
-<h4>「なぜクラスをつくるのか」</h4>
-<p>部品化するため。。車を作るにはドアを作る人、タイヤを作る人、塗装をする人などに分かれていて、これに似たようなこと。</p>
-<h4>「なぜ引数戻り値は必要なのか」</h4>
+<h3>多次元配列</h3>
+<p>箱の中身を整理して入れるように多次元配列を使うと箱の中身が整理される。</p>
+<pre>
+<code>
+int rooms[][] = { { 100, 101, 102 }, { 201, 202, 203 }, { 301, 302, 303 } };
+
+System.out.println(rooms[0][2]);
+System.out.println(rooms[2][2]);
+System.out.println(rooms.length);
+System.out.println(rooms[2].length);
+System.out.println("------------------------------------------");
+for (int i = 0; i &lt; rooms.length; i++) {
+	for (int j = 0; j &lt; rooms[0].length; j++) {
+		System.out.println(rooms[i][j]);
+	}
+}
+
+
+//文字列の表示方法　another example 
+String[][] animals = {
+{ "Akita Ken", "Hachiko, the adorable pup whose legacy lives on as a Japanese dog statue in Shibuya",
+"Akita Prefecture" },
+{ "Hokkaiido Inu",
+"Thought to have an older bloodline among the Japanese dogs, they have a thicker outer coat, larger paws, and smaller ears.",
+"Hokkaido" },
+{ "Kai Ken",
+"The Kai Ken is one of the most distinctive of the original Japanese dog breeds; nicknamed the \"tiger dog\" from their coat colors.",
+"Yamanashi" },
+{ "Kishu Inu",
+"A hunting dog that's still relatively rare even in Japan, they are intelligent, brave and independent, but also quite impulsive.",
+"Kyushu" },
+{ "Shikoku Ken",
+"The Shikoku Ken is a beautiful Japanese spitz-type breed with a wolf-like appearance.",
+"Shikoku" } };
+
+for (int i = 0; i &lt; animals.length; i++) {
+for (int j = 0; j &lt; animals[0].length; j++) {
+
+System.out.println(animals[i][j]);
+	}
+}
+</code>
+</pre>
+<h3>「なぜクラスをつくるのか」</h3>
+<p>部品化するため。。車を作るにはドアを作る人、タイヤを作る人、塗装をする人などに分かれていて、これに似たようなこと。こちらについてはオブジェクト指向にてまた触れる。</p>
+<h3>なぜクラスやメソッドに分ける？</h3>
+<ul>
+<li>短くまとまったコードの方が見やすい。わかりやすい。</li>
+<li>一度書いたソースコードを何度でも使いまわせる。</li>
+<li>使うクラスだけをインスタンス化することでメモリ節約でき、処理スピードがあがる。</li>
+<li>どのプログラムがどこに書かれているか、誰がいつどのような背景で書いたかなど、情報の管理や特定ができる。</li>
+<li>変更が必要なクラスやメソッドのみを修正すればよい。（メンテナンス性）</li>
+</ul>
+<h3>「なぜ引数戻り値は必要なのか」</h3>
 <p>x+yとしておくことで外部からのアクセスが可能になる。５＋１であれば、再利用もできなく重複してしまう。<a href= "https://teratail.com/questions/284516<">個々のウェブサイトによると</a>　そもそも「なぜ戻り値は必要なのか？」という考えではなく、その逆の思考「メソッドにどんな機能を持たせたいのか」を考えることが最も重要と書かれていました。
 <pre>
 <code>
@@ -473,7 +605,7 @@ public class Turtorial {
 public class Turtorial {
 	public static void incArray(int[] array) {
       配列の長さを取得するには length フィールドの値を参照します。配列の長さとは配列に含まれる要素の数です。
-      for(int i = 0; i < array.length; i++) {
+      for(int i = 0; i &lt; array.length; i++) {
       	array[i]++;
 		}
 	}
@@ -491,7 +623,7 @@ public class Turtorial {
 public class Turtorial {
 	public static int[] makeArray(int size) {
       int[] newArray = new int[size];
-      for(int i = 0; i < newArray.length; i++) {
+      for(int i = 0; i &lt;newArray.length; i++) {
       	newArray[i] = i;
       }
 		return newArray;
@@ -527,7 +659,27 @@ public class Hero {
 
 </code>
 </pre>
-<h4>メソッドのオーバーロード</h4>
+<h3>可変長引数</h3>
+<p>引数の数が決まっていない引数、型が同じだとどんな数の引数でも当てはめることができる。</p>
+<pre>
+<code>
+public class Main {
+
+	static void number(int... numbers) {
+		for (int num : numbers) {
+
+			System.out.println(num);
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		number(4, 5, 6, 7);
+}
+</code>
+</pre>
+<h3>メソッドのオーバーロード</h3>
 <p>同じ名前のメソッドを作り引数が違う場合オーバーロード可能。</p>
 <ul>
 <li>同じ名前同じ引き数はエラーになる。</li>
@@ -594,50 +746,59 @@ public class Turtorial {
 </code>
 </pre>
 
-<h4>「コンストラクタはなぜあるのか」</h4>
+
+<h3>「コンストラクタはなぜあるのか」</h3>
 <ul>
 <li> Construct Construction 組み立てることです。</li>
 <li> オブジェクトを構築するもの。</li>
 <li>コンストラクタを作った場合インスタンス化する際に引数にあった値を入れなければエラーになる。</li>
+
 </ul>
 <p>
-インスタンスの初期値を操ることができるから。しかしどのようなときに使うのか？については一つのインスタンスに対して複数の引数を指定したいときとしか考えつくことがありません。このように思ったのは引数が違うのであれば、コンストラクタをオーバーロードすることは可能だったからです。
+インスタンスの初期値を操ることができるから。しかしどのようなときに使うのか？については一つのインスタンスに対して複数の引数を指定したいときとしか考えつくことがありません。引数が違うのであれば、コンストラクタをオーバーロードすることは可能。
 </p>
+<p>コンストラクタのルール定義</p>
+<ul>
+<li>コンストラクタの定義において戻り値の情報は何も記述しない</li>
+<li> コンストラクタ名はクラス名と同じ</li>
+<li>インスタンス生成時必ず最初に呼び出される。</li>
+<li>インスタンス生成時は「＝」の右側がコンストラクタになる。</li>
+</ul>
 <pre>
 <code>
 public class Main {
-	//三角形の面積を求める。
-	//これがコンストラクタ
-	public static int add(int x, int y) {
-		int calcTriangleArea = x * y / 2;
-		return calcTriangleArea;
+//三角形の面積を求める。
+//これがコンストラクタ
+public static int add(int x, int y) {
+int calcTriangleArea = x * y / 2;
+return calcTriangleArea;
 
-	}
+}
 
-	//円の直径を求める。
-	//これがコンストラクタ
-	public static int add(double z) {
-		int calcCircleArea = (int) (z * z);
-		return calcCircleArea;
-	}
+//円の直径を求める。
+//これがコンストラクタ
+public static int add(double z) {
+int calcCircleArea = (int) (z * z);
+return calcCircleArea;
+}
 
-	public static void main(String[] args) {
-		//メソッドをオーバーライドしている。引数が違うから計算も違う。
+public static void main(String[] args) {
+//メソッドをオーバーライドしている。引数が違うから計算も違う。
 
-		//		int calcTriangleArea = add(2,3);
-		//		int calcCircleArea = add(2.2);
-		System.out.println(add(2, 3));
-		System.out.println(add(2.2));
-	}
+//int calcTriangleArea = add(2,3);
+//int calcCircleArea = add(2.2);
+System.out.println(add(2, 3));
+System.out.println(add(2.2));
+}
 }
 </code>
 </pre>
 
-<h4>「=＝とequal違い」</h4>
+<h3>「=＝とequal違い」</h3>
 <p>
-String foo = "Apple" String bar = "Apple" if(foo == bar)の場合＝＝はメモリの参照先が同じかどうかを判定する。また参照先が違うため、コンピューターは違う値とみなす。ですので、「文字列の時にはequalsを使うと良い」。参照先とは一種の住所。アパートメント自体の住所（"Orange"）は同じだとしても部屋番号（"Orange" : 101, "Orange" : 102）は異なります。
+String foo = "Apple" String bar = "Apple" if(foo == bar)の場合＝＝はオブジェクトが同じかどうかをはんていするのでTrueになる。メモリの参照先が同じかどうかを判定するしたい場合は、equalsを使う。ですので、「文字列の時にはequalsを使うと良い」。参照先とは一種の住所。アパートメント自体の住所（"Orange"）は同じだとしても部屋番号（"Orange" : 101, "Orange" : 102）は異なります。参照先が違うため、コンピューターは違う値とみなす。
 </p>
-<h4>クローン　ディープコピー　シャローコピー</h4>
+<h3>クローン　ディープコピー　シャローコピー</h3>
 <p>クローンを使うとディープコピーできる。データを含めたオブジェクトをコピーできる。</p>
 <ul>
 <li>シャローコピー：＝でだいにゅうするだけだと参照先だけがコピーされる。</li>
@@ -652,40 +813,40 @@ String foo = "Apple" String bar = "Apple" if(foo == bar)の場合＝＝はメモ
 <code>
 public class CloneableItem implements Cloneable {
 
-	// イミュータブルではない参照型変数を含む場合はそれも一緒にcloneが必要
-	// （今回は割愛）
-	private int itemNumber;
-	private String itemWeapon;
+// イミュータブルではない参照型変数を含む場合はそれも一緒にcloneが必要
+// （今回は割愛）
+private int itemNumber;
+private String itemWeapon;
 
-	public int getItemNumber() {
-		return itemNumber;
-	}
+public int getItemNumber() {
+	return itemNumber;
+}
 
-	public void setItemNumber(int itemNumber) {
-		this.itemNumber = itemNumber;
-	}
+public void setItemNumber(int itemNumber) {
+	this.itemNumber = itemNumber;
+}
 
-	public String getItemWeapon() {
-		return itemWeapon;
-	}
+public String getItemWeapon() {
+	return itemWeapon;
+}
 
-	public void setItemWeapon(String itemWeapon) {
-		this.itemWeapon = itemWeapon;
-	}
+public void setItemWeapon(String itemWeapon) {
+	this.itemWeapon = itemWeapon;
+}
 
-	// Cloneableインターフェースのclone()メソッドをオーバーライド
-	@Override
-	public CloneableItem clone() {
-		CloneableItem clonedItem = null;
-		// CloneNotSupportedExceptionを返す可能性があるので例外処理が必要
-		try {
-			// Object型で返ってくるのでキャストが必要
-			clonedItem = (CloneableItem) super.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return clonedItem;
+// Cloneableインターフェースのclone()メソッドをオーバーライド
+@Override
+public CloneableItem clone() {
+	CloneableItem clonedItem = null;
+	// CloneNotSupportedExceptionを返す可能性があるので例外処理が必要
+	try {
+		// Object型で返ってくるのでキャストが必要
+		clonedItem = (CloneableItem) super.clone();
+	} catch (CloneNotSupportedException e) {
+		e.printStackTrace();
 	}
+	return clonedItem;
+}
 
 }
 
@@ -694,81 +855,329 @@ public class ItemCloneMain {
 	public static void main(String[] args) {
 
 //シャローコピー
-		System.out.println("［参照先のみコピーした場合］");
-		CloneableItem cloneableItem1 = new CloneableItem();
-		cloneableItem1.setItemNumber(1);
-		cloneableItem1.setItemWeapon("sword");
-		System.out.println("コピー前のコピー元オブジェクト：ID=" +
-				cloneableItem1.getItemNumber() +
-				" NAME=" +
-				cloneableItem1.getItemWeapon());
-		CloneableItem cloneableItem2 = cloneableItem1;
-		System.out.println("コピー後のコピー元オブジェクト：ID=" +
-				cloneableItem1.getItemNumber() +
-				" NAME=" +
-				cloneableItem1.getItemWeapon());
-		System.out.println("コピー後のコピー先オブジェクト：ID=" +
-				cloneableItem2.getItemNumber() +
-				" NAME=" +
-				cloneableItem2.getItemWeapon());
-		cloneableItem2.setItemNumber(2);
-		cloneableItem2.setItemWeapon("shield");
-		System.out.println("編集後のコピー元オブジェクト　：ID=" +
-				cloneableItem1.getItemNumber() +
-				" NAME=" +
-				cloneableItem1.getItemWeapon());
-		System.out.println("編集後のコピー先オブジェクト　：ID=" +
-				cloneableItem2.getItemNumber() +
-				" NAME=" +
-				cloneableItem2.getItemWeapon());
+System.out.println("［参照先のみコピーした場合］");
+CloneableItem cloneableItem1 = new CloneableItem();
+cloneableItem1.setItemNumber(1);
+cloneableItem1.setItemWeapon("sword");
+System.out.println("コピー前のコピー元オブジェクト：ID=" +
+		cloneableItem1.getItemNumber() +
+		" NAME=" +
+		cloneableItem1.getItemWeapon());
+CloneableItem cloneableItem2 = cloneableItem1;
+System.out.println("コピー後のコピー元オブジェクト：ID=" +
+		cloneableItem1.getItemNumber() +
+		" NAME=" +
+		cloneableItem1.getItemWeapon());
+System.out.println("コピー後のコピー先オブジェクト：ID=" +
+		cloneableItem2.getItemNumber() +
+		" NAME=" +
+		cloneableItem2.getItemWeapon());
+cloneableItem2.setItemNumber(2);
+cloneableItem2.setItemWeapon("shield");
+System.out.println("編集後のコピー元オブジェクト　：ID=" +
+		cloneableItem1.getItemNumber() +
+		" NAME=" +
+		cloneableItem1.getItemWeapon());
+System.out.println("編集後のコピー先オブジェクト　：ID=" +
+		cloneableItem2.getItemNumber() +
+		" NAME=" +
+		cloneableItem2.getItemWeapon());
 //ディープコピー
-		System.out.println("");
-		System.out.println("［cloneで中身をコピーした場合］");
-		CloneableItem cloneableItem3 = new CloneableItem();
-		cloneableItem3.setItemNumber(3);
-		cloneableItem3.setItemWeapon("armor");
-		System.out.println("コピー前のコピー元オブジェクト：ID=" +
-				cloneableItem3.getItemNumber() +
-				" NAME=" +
-				cloneableItem3.getItemWeapon());
-		CloneableItem cloneableItem4 = cloneableItem3.clone();
-		System.out.println("コピー後のコピー元オブジェクト：ID=" +
-				cloneableItem3.getItemNumber() +
-				" NAME=" +
-				cloneableItem3.getItemWeapon());
-		System.out.println("コピー後のコピー先オブジェクト：ID=" +
-				cloneableItem4.getItemNumber() +
-				" NAME=" +
-				cloneableItem4.getItemWeapon());
-		cloneableItem4.setItemNumber(4);
-		cloneableItem4.setItemWeapon("helm");
-		System.out.println("編集後のコピー元オブジェクト　：ID=" +
-				cloneableItem3.getItemNumber() +
-				" NAME=" +
-				cloneableItem3.getItemWeapon());
-		System.out.println("編集後のコピー先オブジェクト　：ID=" +
-				cloneableItem4.getItemNumber() +
-				" NAME=" +
-				cloneableItem4.getItemWeapon());
+System.out.println("");
+System.out.println("［cloneで中身をコピーした場合］");
+CloneableItem cloneableItem3 = new CloneableItem();
+cloneableItem3.setItemNumber(3);
+cloneableItem3.setItemWeapon("armor");
+System.out.println("コピー前のコピー元オブジェクト：ID=" +
+		cloneableItem3.getItemNumber() +
+		" NAME=" +
+		cloneableItem3.getItemWeapon());
+CloneableItem cloneableItem4 = cloneableItem3.clone();
+System.out.println("コピー後のコピー元オブジェクト：ID=" +
+		cloneableItem3.getItemNumber() +
+		" NAME=" +
+		cloneableItem3.getItemWeapon());
+System.out.println("コピー後のコピー先オブジェクト：ID=" +
+		cloneableItem4.getItemNumber() +
+		" NAME=" +
+		cloneableItem4.getItemWeapon());
+cloneableItem4.setItemNumber(4);
+cloneableItem4.setItemWeapon("helm");
+System.out.println("編集後のコピー元オブジェクト　：ID=" +
+		cloneableItem3.getItemNumber() +
+		" NAME=" +
+		cloneableItem3.getItemWeapon());
+System.out.println("編集後のコピー先オブジェクト　：ID=" +
+		cloneableItem4.getItemNumber() +
+		" NAME=" +
+		cloneableItem4.getItemWeapon());
 
 	}
 }
 </code>
 </pre>
-<h4>「正規表現」</h4>
+<h3>「正規表現」</h3>
 <p>
 郵便番号、携帯番号、数字チェック、英数字チェック、日付、メールアドレス、URLを特定する正規表現
 <a href="https://camp.trainocate.co.jp/magazine/java-regular-expressions/" >こちらを参照</a>
 </p>
-<h4>「アクセス修飾子」</h4>
+
+<p style="color:blue">正規表現における代表的なメタ文字</p>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">正規表現</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">.</th>
+<td id="null">何か一文字</td>
+</tr><tr>
+<th id="null">|</th>
+<td id="null">または（or条件）</td>
+</tr><tr>
+<th id="null">*</th>
+<td id="null">左の文字の繰り返し(0文字以上)</td>
+</tr><tr>
+<th id="null">+</th>
+<td id="null">左の文字の繰り返し(1文字以上)</td>
+</tr><tr>
+<th id="null">?</th>
+<td id="null">左の文字の繰り返し(0文字以上1文字)</td>
+</tr><tr>
+<th id="null">{数値}</th>
+<td id="null">左の文字を繰り返し（指定数回）</td>
+</tr><tr>
+<th id="null">{数値A,数値B}</th>
+<td id="null">左の文字を繰り返し(A回以上B回以下)</td>
+</tr><tr>
+<th id="null">{数値,｝</th>
+<td id="null">左の文字を繰り返し(指定数回以上)</td>
+</tr><tr>
+<th id="null">^</th>
+<td id="null">前方一致</td>
+</tr><tr>
+<th id="null">$</th>
+<td id="null">後方一致</td>
+</tr><tr>
+<th id="null">\　バックスラッシュ</th>
+<td id="null">エスケープ</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+
+
+<p style="color:blue">文字セット・文字レンジ</p>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">正規表現</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">{文字}</th>
+<td id="null">指定文字に一致する１文字</td>
+</tr><tr>
+<th id="null">[文字A文字B]</th>
+<td id="null">AかBに一致する一文字</td>
+</tr><tr>
+<th id="null">[文字A-文字B]</th>
+<td id="null">文字レンジに一致する１文字</td>
+</tr><tr>
+<th id="null">ルールに一致しない１文字</th>
+<td id="null">[^]</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<p style="color:blue">文字レンジの使用例</p>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">正規表現</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">{0-9a-zA-Z}</th>
+<td id="null">半角英数</td>
+</tr><tr>
+<th id="null">[!-~]</th>
+<td id="null">半角英数記号（半角スペースを除く）</td>
+</tr><tr>
+<th id="null">[!-/:-@[-`{-~]</th>
+<td id="null">半角記号（半角スペースを除く）「[」の後ろに\エスケープシーケンス忘れずに</td>
+</tr><tr>
+<th id="null">[ぁ-んー]</th>
+<td id="null">全角ひらがな</td>
+</tr><tr>
+<th id="null">[ァ-ンヴー]</th>
+<td id="null">全角カタカナ</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<p style="color:blue">チートシート</p>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">正規表現</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">メールアドレス</th>
+<td id="null">^[a-zA-Z0-9_.-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$</td>
+</tr><tr>
+<th id="null">携帯電話番号</th>
+<td id="null">^0[789]0-\d{4}-\d{4}$</td>
+</tr><tr>
+<th id="null">郵便番号</th>
+<td id="null">^\d{3}-\d{4}$</td>
+</tr><tr>
+<th id="null"></th>
+<td id="null">^\d{3}-\d{4}$</td>
+</tr><tr>
+<th id="null">URL</th>
+<td id="null">https?://([\w-]+\.)+[\w-]+(/[\w\-./?%&=~]*)?</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<p style="color:blue">正規表現における代表的なエスケープシーケンス</p>
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">正規表現</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">\t</th>
+<td id="null">タブ</td>
+</tr><tr>
+<th id="null">\r</th>
+<td id="null">改行（CR：カーソルを一番左へ）</td>
+</tr><tr>
+<th id="null">\n</th>
+<td id="null">改行（LF：カーソルを一番左へ）</td>
+</tr><tr>
+<th id="null">\r\n</th>
+<td id="null">改行（CRLF：カーソルを一番左へ）</td>
+</tr><tr>
+<th id="null">\f</th>
+<td id="null">改ページ</td>
+</tr><tr>
+<th id="null">\d</th>
+<td id="null">数値１文字（[0-9]）と同じ</td>
+</tr><tr>
+<th id="null">\D</th>
+<td id="null">数値以外の一文字[^0-9]</td>
+</tr><tr>
+<th id="null">\s</th>
+<td id="null">空白文字（半角スペース・タブ・改行・改ページ）一文字</td>
+</tr><tr>
+<th id="null">\S</th>
+<td id="null">空白文字（半角スペース・タブ・改行・改ページ）以外の一文字</td>
+</tr><tr>
+<th id="null">\w</th>
+<td id="null">記号や空白文字を除く文字（注意: ＿アンダーはヒットする。）</td>
+</tr><tr>
+<th id="null">\W</th>
+<td id="null">記号や空白文字</td>
+</tr><tr>
+<th id="null">\0</th>
+<td id="null">NULL文字</td>
+</tr><tr>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
+<h3>「アクセス修飾子」</h3>
+<p>public</p>
+<ul>
+<li>
+public どこからでもアクセス可能。
+</li>
+</ul>
+<p>private</p>
+<ul>
+<li>
+private　同じクラス内だけでしか、アクセスできない。厳密にいうと、getter/setterをつかって、アクセスはできる。デフォルトメソッドは、同じパッケージ内でしか、アクセスできない。
+</li>
+</ul>
+<pre>
+<code>
+//Calculationクラス
+package variables;
+
+public class Calculation {
+private double tax_rate = 1.1;
+
+double priceIncludingTax(int price, double tax_rate) {
+
+return price * this.tax_rate;
+
+}
+
+}
+
+//Mainクラス
+package variables;
+
+public class Main {
+public static void main(String[] args) {
+
+Calculation cal = new Calculation();
+//privateで1.1と固定したので1.8になっているが1.1のままで計算される。
+System.out.println(cal.priceIncludingTax(1000, 1.8));
+//アクセスできない。Privateは同じクラス内でしかアクセスできない。
+System.out.println(cal.TAX_RATE);
+	}
+}
+
+
+</code>
+</pre>
+<p>Final　定数</p>
+
+<ul>
+<li>
+ファイナルはクラス、メソッド、変数に代入可能で参照先を変えたくないときに扱う。この時に定数は大文字にする。ルールである（待ち合わせ時間に遅れてはいけない的な）。プログラミング副作用を防ぐ。
+</li>
+</ul>
+<pre>
+<code>
+//Calculationクラス
+package variables;
+
+public class Calculation {
+final double TAX_RATE = 1.1;
+
+double priceIncludingTax(int price, double tax_rate) {
+
+return price * this.TAX_RATE;
+
+	}
+
+}
+
+//Mainクラス
+package variables;
+
+public class Main {
+public static void main(String[] args) {
+
+Calculation cal = new Calculation();
+//1.8になっていても1.1で計算される。
+System.out.println(cal.priceIncludingTax(1000, 1.8));
+//ファイナルの時はアクセスはできるが再度代入はできない。
+System.out.println(cal.TAX_RATE);
+
+	}
+}
+
+
+
+</code>
+</pre>
+<h3>「ジェネリクス」</h3>
 <p>
-Final　定数　ファイナルはクラス、メソッド、変数に代入可能で参照先を変えたくないときに扱う。プログラミング副作用を防ぐ。public どこからでもアクセス可能。private　同じクラス内だけでしか、アクセスできない。厳密にいうと、getter/setterをつかって、アクセスはできる。デフォルトメソッドは、同じパッケージないでしか、アクセスできない。
+アプリを作ってみるとこのジェネリクスをたくさん使っていた。調べてみたところ、ジェネリクスが発表される以前はキャストを頻繁に使用していたらしい。私の理解した範囲内で書きますと、ジェネリクスを使うことによってゲットで呼ぶことができその時同時に型指定もできる。このことによって、いちいち違う型のクラスを使わなくてよくなる。ArrayListのときにも、ダイヤモンド演算子として使われる。継承元のメソッドで型を定義した場合、ダイヤモンド演算子の中に、メソッド名を入れることは可能である。<a href = "https://www.zunouissiki.com/entry/2018/05/20/071155/">初心者はこちらを参考にするとよい。</a>詳細はこちら<a href="https://qiita.com/pebblip/items/1206f866980f2ff91e77">Java ジェネリクスのポイント</a>
 </p>
-<h4>「ジェネリクス」</h4>
-<p>
-アプリを作ってみるとこのジェネリクスをたくさん使っていた。調べてみたところ、ジェネリクスが発表される以前はキャストがたはつしていた。私の理解した範囲内で書きますと、ジェネリクスを使うことによってゲットで呼ぶことができその時同時に型指定もできる。このことによって、いちいち違う型のクラスを使わなくてよくなる。ArrayListのときにも、ダイヤモンド演算子として使われる。継承元のメソッドで型を定義した場合、ダイヤモンド演算子の中に、メソッド名を入れることは可能<a href = "https://www.zunouissiki.com/entry/2018/05/20/071155/">初心者はこちらを参考にするとよい。</a>詳細はこちら<a href="https://qiita.com/pebblip/items/1206f866980f2ff91e77">Java ジェネリクスのポイント</a>
-</p>
-<h4>「ArrayList」</h4>
+<h3>「ArrayList」</h3>
 <p>
 箱の個数が決まっていないときに追加できる。<a href = "https://qiita.com/atsuk0r0/items/839d51185a11ccc9eae9">Java ArrayListについて</a>ArrayList とは、 Listインタフェース を実装した コレクションクラス である。
 ArrayList は、 Array という名にあるように配列のような感覚で扱うことができる。ダイヤモンド演算子の中はラッパークラスを使う。
@@ -821,7 +1230,7 @@ return number;
 public class SampleEx501 {
 
 public static void main(String[] args) {
-ArrayList<Student> al = new ArrayList<>();
+ArrayList&lt;Student> al = new ArrayList&lt;>();
 al.add(new Student("安藤一郎", 1, 1));
 al.add(new Student("伊藤花子", 1, 2));
 al.add(new Student("太田たかし", 2, 3));
@@ -830,7 +1239,7 @@ al.add(new Student("木田直美", 3, 5));
 //  3番目を削除
 al.remove(3);
 //al.lengthではなくal.size()
-for (int i = 0; i < al.size(); i++) {
+for (int i = 0; i &lt; al.size(); i++) {
 Student s = (Student) al.get(i); //  i番目のオブジェクトを取得
 System.out.println("番号:" + s.getNumber() + " 名前: " + s.getName() + " 学年" + s.getGrade());
 }
@@ -840,7 +1249,7 @@ System.out.println("番号:" + s.getNumber() + " 名前: " + s.getName() + " 学
 }
 </code>
 </pre>
-<h4>「enum」</h4>
+<h3>「enum」</h3>
 <p>
 こちらでは、enum に複数の定数を代入し一つにまとめることができる。enumを別クラスにおいて呼び出すことで、かなりすっきりとしたこーどを書くことができる。定数が多い場合にenumで書くことによって漏れを防ぐためにある。
 </p>
@@ -853,7 +1262,7 @@ Blueberry("東京", 1), Rasberrry("東京",1), Pinapple("沖縄県", 1);
 private String prefecture;
 private int ranking;
 
-private Fruits(String prefecture, int ranking) {
+public Fruits(String prefecture, int ranking) {
 	this.prefecture = prefecture;
 	this.ranking = ranking;
 }
@@ -887,7 +1296,7 @@ System.out.println(fruits.Orange.getRanking());
 
 </code>
 </pre>
-<h4>「配列」</h4>
+<h3>「配列」</h3>
 <p>
 箱中におもちゃを入れたとする。そのおもちゃ一個一個をすべて値として取り出せる。for文を使うとおもちゃ全部の名前が出てくる。
 </p>
@@ -898,7 +1307,7 @@ System.out.println(fruits.Orange.getRanking());
 public class Main{
 public static void main(String[] args) {
  int[] scores = {50, 40, 20, 40,70};
- for(int i=0; i < scores.length; i++ ) {
+ for(int i=0; i &lt; scores.length; i++ ) {
  System.out.println(scores[i]);
  }
 }
@@ -931,7 +1340,7 @@ public class Turtorial {
 public static void main (String[] args) {
 int[] scores = {20, 30, 40, 50, 80};
 int sum = 0;
-for (int i = 0; i < scores.length; i++) {
+for (int i = 0; i &lt; scores.length; i++) {
 	sum += scores[i];
 }
 int avg = sum / scores.length;
@@ -948,7 +1357,7 @@ public class Turtorial {
 public static void main(String[] args) {
 int[] scores = {10, 30, 60, 90 ,100};
 int count = 0;
-for (int i = 0; i < scores.length; i++);{
+for (int i = 0; i &lt; scores.length; i++);{
 if (scores[i] >= 50);{
 	count++;
 }
@@ -957,7 +1366,7 @@ if (scores[i] >= 50);{
 }
 </code>
 </pre>
-<h4>「Staticメソッド 」</h4>
+<h3>「Staticメソッド 」</h3>
 <ul>
 <li>クラス付属のフィールドやメソッドを指す。</li>
 <li>クラスから直接利用可能。</li>
@@ -967,7 +1376,6 @@ if (scores[i] >= 50);{
 <li> 字列処理を正したいときなどに使われることが多い。</li>
 <li>インスタンスメンバは、インスタンスを生成しないといけない。</li>
 </ul>
-
 <pre>
 <code>
 //  静的メンバもつクラス
@@ -978,7 +1386,7 @@ private static int num = 0;         //  静的フィールド
 public SampleClassEx01(int value){
     //  引数をインスタンスフィールドに代入
     this.value = value;
-    //  静的メンバのインクリメント
+    //  静的メンバのインクリメント。 インスタンス化なし。
     num++;
 }
 //  コンストラクタ②　引数なし
@@ -996,19 +1404,117 @@ public int getValue(){
 }
 </code>
 </pre>
-<h4>Object指向</h4>
+<p>インスタンスの元となるfile情報を格納しているメモリ領域をクラスオブジェクトと言い、Javaの実行の際にメモリ上に生成されます。</p>
+<p>クラスオブジェクトではfile情報のほかにフィールドとメソッドを保養うすることが可能であり、フィールドをクラス変数、メソッドをクラスメソッド、合わせて静的メンバと言う。</p>
+<p>Static修飾子をつけることで静的メンバとして扱う。</p>
+<p>クラスオブジェクトは変数名としてクラス名が使われます。</p>
+<p>インスタンス化の際に複製されない。クラスで固有全てのインスタンスで共通のものとして扱われる。</p>
+<p>静的メンバは「インスタンス名.〇〇」というようにインスタンスから自身のものであるかのようにアクセスが可能。</p>
+<pre>
+<code>
+//SettingCar.java
+
+//abstract class 
+
+package accessRestrictionClass;
+
+public abstract class SettingCar {
+	abstract void speed(int km);
+
+	abstract void stop(boolean signal);
+
+	abstract void lock();
+}
+
+
+//Main.java
+package accessRestrictionClass;
+
+public class Main {
+	public static void main(String[] args) {
+		Mercedes mercedes = new Mercedes();
+		Tesla tesla = new Tesla();
+		System.out.println("---------------------------------Mercedes-----------------");
+		mercedes.stop(false);
+		mercedes.speed(240);
+
+		System.out.println("------------------------------tesla------------------");
+		tesla.autopilot();
+		///polymorphism 多態性　ポリモーフィズム
+		System.out.println("------------------------polymorphism-------------------");
+		SettingCar[] scar = { mercedes, tesla };
+		for (int i = 0; i < scar.length; i++) {
+			scar[i].lock();
+		}
+
+	}
+}
+
+//Mercedes.java
+package accessRestrictionClass;
+
+public class Mercedes extends SettingCar {
+
+	@Override
+	void speed(int km) {
+		// TODO 自動生成されたメソッド・スタブ
+		System.out.println("The speed is so fast " + km + " km in 3 seconds");
+	}
+
+	@Override
+	void stop(boolean signal) {
+		// TODO 自動生成されたメソッド・スタブ
+		System.out.println("you have to stop when the signal is " + signal);
+	}
+
+	void lock() {
+		System.out.println("locked");
+	}
+
+}
+
+//Tesla.java
+package accessRestrictionClass;
+
+public class Tesla extends Mercedes {
+	@Override
+	void speed(int km) {
+		// TODO 自動生成されたメソッド・スタブ
+		System.out.println("The speed is so fast " + km + " km in 3 seconds");
+	}
+
+	@Override
+	void stop(boolean signal) {
+		// TODO 自動生成されたメソッド・スタブ
+		System.out.println("you have to stop when the signal is " + signal);
+	}
+
+	void lock() {
+		System.out.println("locked");
+	}
+
+	void autopilot() {
+		System.out.println("Autopilot mode begin...");
+	}
+
+}
+
+
+</code>
+</pre>
+ 
+<h3>Object指向</h3>
 <a href="https://qiita.com/Kujiro/items/e3ed881567b0d0f5e875#:~:text=%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%81%A8%E3%81%AF%E3%80%81%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF,%E6%A7%8B%E7%AF%89%E3%81%97%E3%81%A6%E3%81%84%E3%81%8F%E6%89%8B%E6%B3%95%E3%80%82">本当のオブジェクト指向の話をしよう</a>
 <p>タイ焼きとタイ焼きの型。タイ焼きをつくるのには、タイ焼きの型をタイ焼きを作るために作る。それを何度も繰り返し
 てタイ焼きを作る。ひな形から実体を作る。タイ焼きの材料、カスタードとかあんことか、それ専門に作る人がいる。タイ焼きを焼く人はその材料をつかって、タイ焼きの型に具材をいれてタイ焼きを作る。全部一から作ろうとしないで、元々あるスクリプト通りに分担してタイ焼きを作る。</p>
-<h4>「継承　extend」</h4>
+<h3>「継承　extend」</h3>
 <p>
-継承を利用すると同じようなコーディングを複数並べることがあるが、それをextendsで継承することができる。そして子クラスでは、継承以外の（共通機能以外の）機能だけをかくことができる。superを使うときには、親クラスのメソッドをsuper.でつなげて書く。またスーパーは書かなくても自動的に引き継がれている主流は親クラスから継承し子クラスには特有のメソッドを与え、メインめそっドで、子クラスのインスタンスを生成した際にオブジェクトを与えている。また継承の概念に関して、抽象的にみて車には、トラック、救急車などがある。トラックは「荷物を運ぶ」が仕事であり、救急車は「患者さんを助ける」ことが仕事である。そして車としては「走る」「止まる」ことはかわりませんので、こちらをトラックと救急車には継承することができる
+継承を利用すると同じようなコーディングを複数並べることがあるが、それをextendsで継承することができる。そして子クラスでは、継承以外の（共通機能以外の）機能だけをかくことができる。superを使うときには、親クラスのメソッドをsuper.でつなげて書く。またスーパーは書かなくても自動的に引き継がれている主流は親クラスから継承し子クラスには特有のメソッドを与え、メインメソッドで、子クラスのインスタンスを生成した際にオブジェクトを与えている。抽象的にみて（多態性）車には、トラック、救急車などがある。トラックは「荷物を運ぶ」が仕事であり、救急車は「患者さんを助ける」ことが仕事である。そして車としては「走る」「止まる」ことはかわりませんので、こちらをトラックと救急車には継承することができる。これが継承の考えである。「いちから作るのではなくてテンプレートがあるならテンプレートを複製しましょう」と言うことである。
 </p>
 <pre>
 <code>
 
-//継承
- Hero only run and atack. 
+//継承　Hero only run and atack. 
 public class Hero {
 String name =  "Minato";
 int hp = 100;
@@ -1129,13 +1635,13 @@ a.sevePeople();
 }
 </code>
 </pre>
-<h4>制御構文　なぜprivateをつけるのか？</h4>
+<h3>アクセス制御　カプセル化　なぜprivateをつけるのか？</h3>
 <p> <a href="https://qiita.com/GleamingCake/items/2b325d189a166ca4f88e">全部 public じゃなんでダメなの？</a></p>
 <ul>
 <li>privateを使うことによってバグが減らせる。固定値を定めたい時には必ずprivateを使う。バグなんか起きないでしょって思うけど使う。</li>
 <li>チームで連携してコードを書いたときに自分が触る場所はprivate以外だとわかりやすい。</li>
 </ul>
-<h4>「抽象クラス」</h4>
+<h3>「抽象クラス」</h3>
 <p>
 <a href="https://qiita.com/aiko_han/items/e8ddce85188970fd77da">なぜ抽象クラスを作るのか？</a>なぜ抽象クラス(Abstract)を実装するのか 一つのスーパークラス（Player）の参照変数に他のサブクラス（MusicPlayerとVideoPlayer）のインスタンスを代入できるので、統一した記述方法を使用しながら、それぞれのオーバーライドメソッドを呼び出すことができる！
 </p>
@@ -1217,7 +1723,7 @@ Bird b = new Bird[2];
 b[0] = new Crow2();
 b[1] = new Sparrow2();
 	
-for(int i = 0; i< b.length; b++){
+for(int i = 0; i&lt; b.length; b++){
 	system.out.println(b[i].getName()+ " : ");
 	b[i].sing();
 }
@@ -1226,7 +1732,7 @@ for(int i = 0; i< b.length; b++){
 </code>
 </pre>
 
-<h4>「インターフェイス」</h4>
+<h3>「インターフェイス」</h3>
 <p>
 抽象クラスとインターフェイスの違いは、内部からアクセスする場合はprivate protectedを使えるabstractを使う。インターフェイスは主に外部へアクセスするときに使う。またインターフェイスクラスで定数を作成することは可能である。<a href="https://camp.trainocate.co.jp/magazine/java-interface-abstract/#:~:text=%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%E3%81%AF%E3%80%81%E3%81%9D%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%E5%86%85,%E3%81%AE%E7%99%BA%E7%94%9F%E3%82%92%E9%98%B2%E3%81%92%E3%81%BE%E3%81%99%E3%80%82">Javaのinterfaceとは？インターフェースの使い方やabstractクラスとの違い</a>
 </p>
@@ -1296,7 +1802,7 @@ mail.sendMail("bar@email.com"); //  メールを出す
 </code>
 </pre>
 
-<p>例②　インターフェイスとextendsとメインクラス　定数を作れる。extendsとinterfaceを継承した、タンククラスに注目。（大）武器→戦車→車、大砲（小）</p>
+<p>例②　インターフェイスとextendsとメインクラス　定数を作れる。extendsとinterfaceを継承した、↓タンク（戦車）クラスに注目。（大）武器→戦車→車、大砲（小）</p>
 <pre>
 <code>
 //  武器クラス
@@ -1375,11 +1881,11 @@ t.attack(); //  攻撃
 </code>
 </pre>
 
-<h4>「オブジェクト型」</h4>
+<h3>「オブジェクト型」</h3>
 <p>
 すべての継承先元のルートであるため、どのようなインスタンスを生成することもできる。。親クラスの型に子クラスの変数を代入し、インスタンスを生成することをアップキャスト、子クラスの変数に親クラスの変数を代入しインスタンスを生成することをダウンキャストと言う。アップキャストを使うのはOKだけど、ダウンキャストはNO。← 詳細はこちら。<a href="https://qiita.com/RYO-4947123/items/eaeb48b6fcf97c02710f">なぜアップキャストは安全で、ダウンキャストは危険なのか</a>
 </p>
-<h4>「Map」</h4>
+<h3>「Map」</h3>
 <a href="https://qiita.com/atsuk0r0/items/8d6e4b57821817b65bd0">こちらをまず初めに見るといいです。</a>
 <p>
 Mapには「キー」と「値」がペアとして格納される。ひとつのキーをひとつの値に対応させなければいけない。つまり、キーが重複してはいけない。<a href="https://qiita.com/yoshi389111/items/7ea0f9b9483b0138ecdf">こちらで学習した。</a>
@@ -1389,13 +1895,13 @@ Mapには「キー」と「値」がペアとして格納される。ひとつ�
 public class SampleEx601 {
 
 public static void main(String[] args) {
-HashMap<String, Integer> map = new HashMap<>();
-String nengo[] = { "明治", "大正", "昭和", "平成" };
-map.put(nengo[0], 1868);
-map.put(nengo[1], 1912);
-map.put(nengo[2], 1926);
-map.put(nengo[3], 1989);
-for (String s : nengo) {
+HashMap&lt;String, Integer> map = new HashMap&lt;>();
+String era[] = { "明治", "大正", "昭和", "平成" };
+map.put(era[0], 1868);
+map.put(era[1], 1912);
+map.put(era[2], 1926);
+map.put(era[3], 1989);
+for (String s : era) {
 	System.out.println(s + "元年は、西暦" + map.get(s) + "年");
 }
 }
@@ -1404,7 +1910,7 @@ for (String s : nengo) {
 
 </code>
 </pre>
-<h4>「Iterator」</h4>
+<h3>「Iterator」</h3>
 <p>
 コレクションの時に順番通り、出力したい場合またそのほかのadd remove などの処理をしたい場合に用いる。<a href="https://qiita.com/yoshi389111/items/c24f8beefb7b96cad921">こちらを参照にした。</a>
 </p>
@@ -1428,7 +1934,7 @@ public class Main
  Vector v = new Vector();
  
 // Iterating over vector object
-for (int i = 0; i < 10; i++)
+for (int i = 0; i &lt; 10; i++)
       v.addElement(i);
  
 // Printing elements in vector object 
@@ -1467,7 +1973,7 @@ public static void main(String[] args) {
 ArrayList al = new ArrayList();
 　
 // Iterating over Arraylist object
-for (int i = 0; i < 10; i++)
+for (int i = 0; i &lt; 10; i++)
 　
 // Adding elements to the Arraylist object
 al.add(i);
@@ -1511,11 +2017,53 @@ System.out.println(al);
 </code>
 </pre>
 
-<h4>「エラー　try catch finally」</h4>
+<h3>「エラー　try catch finally」</h3>
 <a href="https://qiita.com/ts7i/items/d7f6c1cd5a14e55943d4">段階的に理解する Java 例外処理</a>
 <p>
 エラー対処に行う。例外がthrowされる可能性のある処理をtryで実行する。例外が発生すると例外処理（catch）をする。finallyはtryもcatchも関係なく必ず最後に実行される。
 </p>
+
+<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
+<caption></caption>
+<thead><tr>
+<th id="null" width="30%">Exception名</th>
+<th id="null">概要</th>
+</tr></thead><tbody><tr>
+<th id="null">NullPointerException</th>
+<td id="null">オブジェクトが必要な場合に null に対して操作を試みるなどした場合に発生する例外。</td>
+</tr><tr>
+<th id="null">ArrayIndexOutOfBoundsException</th>
+<td id="null">配列のインデックスなどのインデックスについて、有効な範囲を超えてアクセスした場合に発生する例外。</td>
+</tr><tr>
+<th id="null">IOException</th>
+<td id="null">I/O (入出力) 関連のなんらかの例外が発生したことを示す汎用の例外クラス。</td>
+</tr><tr>
+<th id="null">ParseException</th>
+<td id="null">パース (文字解析) 中になんらかの例外が発生したことを示す例外クラス。</td>
+</tr><tr>
+<th id="null">SQLException</th>
+<td id="null">データベース関連の例外が発生したことを示すための例外クラス。</td>
+</tr><tr>
+<th id="null">SOAPException</th>
+<td id="null">SOAP 関連 (いわゆる XML Web サービス) に関連してなんらかの問題が発生したことを示す例外クラス。</td>
+</tr><tr>
+<th id="null">TimeoutException</th>
+<td id="null">ブロッキング操作 (処理の結果を待つ待ち状態) がタイムアウトによって失敗したことを示す例外クラス。</td>
+</tr><tr>
+<th id="null">NumberFormatException</th>
+<td id="null">このエラーは文字列の値を数値に変換(キャスト）しようとしたが、文字列に数値として正しくない値が設定されている場合に発生する。</td>
+</tr><tr>
+<th id="null">ClassCastException</th>
+<td id="null">このエラーはあるクラスを変換できないクラスにキャストしようとした時に発生する。</td>
+</tr><tr>
+<th id="null">NumberFormatException</th>
+<td id="null">このエラーは文字列の値を数値に変換(キャスト）しようとしたが、文字列に数値として正しくない値が設定されている場合に発生する。</td>
+</tr><tr>
+<th id="null">ArithmeticException</th>
+<td id="null"> 0での除算等、計算で問題が発生した場合に投げられる例外。</td>
+</tr></tbody>
+<tfoot><tr><td colspan="2"></td></tr></tfoot>
+</table>
 <pre>
 <code>
 NullPinterException
@@ -1536,8 +2084,399 @@ try {
 
 }
 }
+
+// 例外処理 - 0除算
+
+public class Main {
+    public static void main(String[] args) {
+       System.out.println("hello world");
+       
+      try {
+        int number=0;
+        int answer = 100 /number;
+        System.out.println(answer);
+      }catch(Exception e) {
+          e.printStackTrace();
+      }finally{
+         System.out.println("done");
+      }
+       
+       
+    }
+}
+
+//////////////////////////////////////////////////
+//Main.java
+package tryCatchError;
+
+class Main {
+	public static void main(String args[]) {
+		int num1, num2;
+		try {
+			/* 
+			  エラーが起きそうな構文をここに記述する。
+			 */
+			num1 = 0;
+			num2 = 62 / num1;
+			System.out.println(num2);
+			System.out.println("Hey I'm at the end of try block");
+		} catch (ArithmeticException e) {
+			/*　  Arithmetic exception がおこったらここが起動する。
+			 */
+			System.out.println("You should not divide a number by zero");
+		} catch (Exception e) {
+			/* 
+			 *　ここはエラーが起きたらいつでも起動する。
+			 */
+			System.out.println("Exception occurred");
+		}
+		System.out.println("I'm out of try-catch block in Java.");
+	}
+}
 </code>
 </pre>
+
+<h2 class="animate__animated animate__bounce animate__infinite">ここからDB接続編に入ります。</h2>
+<p>MySQL学んでいなければ<a href="mysql_turtorial.html">ここで！</a></p>
+<h3>「データベース接続の概要」ステップ１</h3>
+<ol>
+<li>JDBCドライバのロード</li>
+<li>接続の確立</li>
+<li>SQL文の送信</li>
+<li>抽出結果の取得</li>
+<li>接続の解除</li>
+</ol>
+<ol>
+<li>Class.forNameメソッドを使ってドライバをダウンロードします。</li>
+<li>DriverManagerクラスのgetConnectionメソッドを使用してデータベースとの接続にひつようなConnectionオブジェクトを取得します。</li>
+<li>Statement系オブジェクトのexcuteQueryメソッドやexcuteUpdateメソッドでSQL文をじっこうするようRDBMSに依頼します。</li>
+<li>ResultSetオブジェクトでSQLの実行結果が返ってくるので読み取って処理します。</li>
+<li>データベースへのアクセスが終了したら明示的に接続を解除する必要があります。Connectionオブジェクト、Statement系オブジェクト、ResultSetオブジェクト、それぞれでcloseメソッドをきどうすることで接続を解除できます。</li>
+</ol>
+<pre>
+<code>
+package j4_01;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Sample4_01_1 {
+
+//定数
+private static String COMMA = ","; //コンマ
+
+public static void main(String[] args) {
+//-------------------------------------------
+//データベースへの接続情報
+//-------------------------------------------
+
+//JDBCドライバの相対パス
+//※バージョンによって変わる可能性があります（MySQL5系の場合は「com.mysql.jdbc.Driver」）
+String driverName = "com.mysql.cj.jdbc.Driver";
+
+//接続先のデータベース
+//※データベース名が「test_db」でない場合は該当の箇所を変更してください
+String jdbcUrl    = "jdbc:mysql://localhost/test_db?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false";
+
+//接続するユーザー名
+//※ユーザー名が「test_user」でない場合は該当の箇所を変更してください
+String userId     = "test_user";
+
+//接続するユーザーのパスワード
+//※パスワードが「test_pass」でない場合は該当の箇所を変更してください
+String userPass   = "test_pass";
+
+//-------------------------------------------
+//① JDBCドライバのロード
+//-------------------------------------------
+try {
+	Class.forName(driverName);       //JDBCドライバをロード＆接続先として指定
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
+
+
+//JDBCの接続に使用するオブジェクトを宣言
+//※finallyブロックでも扱うためtryブロック内で宣言してはいけないことに注意
+Connection        con = null ;   // Connection（DB接続情報）格納用変数
+PreparedStatement ps  = null ;   // PreparedStatement（SQL発行用オブジェクト）格納用変数
+ResultSet         rs  = null ;   // ResultSet（SQL抽出結果）格納用変数
+</code>
+</pre>
+<h3>「データベース接続の概要」ステップ2</h3>
+<ol>
+<li>接続の確立</li>
+</ol>
+
+<p>DriverManagerクラス</p>
+<p>JDBCドライバマネージャのクラス。JDBCドライバにアクセスそてRDBMSを操作するための様々な機能が提供されている。</p>
+<p>getConnectionメソッドでRDBMSに接続し、接続に成功した場合はDB接続に関する情報を有するConnectionオブジェクトを戻り値として返す。引数にDBへの接続情報（接続先DB,ゆーざID、パスワード）を指定することで接続が可能になる。</p>
+<pre>
+<code>
+try {
+//-------------------------------------------
+// ②接続の確立（Connectionオブジェクトの取得）
+//-------------------------------------------
+con = DriverManager.getConnection(jdbcUrl, userId, userPass);
+</code>
+</pre>
+<h3>「データベース接続の概要」ステップ3</h3>
+<ol>
+<li>SQL文の送信</li>
+</ol>
+
+<p>Statement系オブジェクト</p>
+<p>RDBMSにSQL文を送信する機能を有するオブジェクト*用途によって複数用意される。</p>
+<p>SQLを送信する際はまず送信したいSQLをセットし、次に送信するためのメソッドを実行する。このメソッドはSELECT文を送信する場合に用いるexcuteQuery、それ以外に用いるexcuteUpdateの２種類ある。</p>
+
+<pre>
+<code>
+// ③SQL文の送信 ＆ ④抽出結果の取得
+//-------------------------------------------
+
+//SQL文の生成（SELECT）
+StringBuffer buf = new StringBuffer() ;
+buf.append(" SELECT        ");
+buf.append("   id     ,    ");
+buf.append("   name   ,    ");
+buf.append("   gender ,    ");
+buf.append("   age    ,    ");
+buf.append("   course      ");
+buf.append(" FROM          ");
+buf.append("   uzuz_member ");
+buf.append(" ORDER BY      ");
+buf.append("   id          ");
+
+//PreparedStatementオブジェクトを生成＆発行するSQLをセット
+ps = con.prepareStatement(buf.toString());
+
+//SQL文の送信＆抽出結果（ResultSetオブジェクト）の取得
+rs = ps.executeQuery();
+</code>
+</pre>
+<h3>「データベース接続の概要」ステップ4</h3>
+<ol>
+<li>抽出結果の取得。</li>
+</ol>
+
+<p>while文rs.nextを使って一行一行データを読み取る。getStringでStringで取得してくれる。そのほかにもgetInt getDoubleがある。</p>
+
+<pre>
+<code>
+//ResultSetオブジェクトから1レコードずつデータを取得＆加工＆表示する
+while (rs.next()) {
+
+//1レコード分のデータを取得＆加工（各カラムをコンマ綴りで結合）
+StringBuffer rsbuf = new StringBuffer();
+rsbuf.append(rs.getString("id"));
+rsbuf.append(COMMA);
+rsbuf.append(rs.getString("name"));
+rsbuf.append(COMMA);
+rsbuf.append(rs.getString("gender"));
+rsbuf.append(COMMA);
+rsbuf.append(rs.getString("age"));
+rsbuf.append(COMMA);
+rsbuf.append(rs.getString("course"));
+
+//加工作成した1レコード分のデータを表示
+System.out.println(rsbuf.toString());
+}
+</code>
+</pre>
+<h3>「データベース接続の概要」ステップ5</h3>
+<ol>
+<li>接続の解除。</li>
+</ol>
+
+<p></p>
+
+<pre>
+<code>
+catch (SQLException e) {
+e.printStackTrace();
+
+} finally {
+//-------------------------------------------
+// ⑤接続の解除
+//-------------------------------------------
+
+//ResultSetオブジェクトの接続解除
+if (rs != null) {    //接続が確認できている場合のみ実施
+	try {
+		rs.close();  //接続の解除
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
+
+//PreparedStatementオブジェクトの接続解除
+if (ps != null) {    //接続が確認できている場合のみ実施
+	try {
+		ps.close();  //接続の解除
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
+
+//Connectionオブジェクトの接続解除
+if (con != null) {    //接続が確認できている場合のみ実施
+try {
+	con.close();  //接続の解除
+} catch (SQLException e) {
+	e.printStackTrace();
+}
+}
+}
+}
+}
+}
+</code>
+</pre>
+
+<h3>「データベース接続の概要」全部のコード</h3>
+<pre>
+<code>
+package j4_01;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Sample4_01_1 {
+
+//定数
+private static String COMMA = ","; //コンマ
+public static void main(String[] args) {
+//-------------------------------------------
+//データベースへの接続情報
+//-------------------------------------------
+
+//JDBCドライバの相対パス
+//※バージョンによって変わる可能性があります（MySQL5系の場合は「com.mysql.jdbc.Driver」）
+String driverName = "com.mysql.cj.jdbc.Driver";
+
+//接続先のデータベース
+//※データベース名が「test_db」でない場合は該当の箇所を変更してください
+String jdbcUrl    = "jdbc:mysql://localhost/test_db?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false";
+
+//接続するユーザー名
+//※ユーザー名が「test_user」でない場合は該当の箇所を変更してください
+String userId     = "test_user";
+
+//接続するユーザーのパスワード
+//※パスワードが「test_pass」でない場合は該当の箇所を変更してください
+String userPass   = "test_pass";
+
+//-------------------------------------------
+//① JDBCドライバのロード
+//-------------------------------------------
+try {
+	Class.forName(driverName);       //JDBCドライバをロード＆接続先として指定
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
+
+
+//JDBCの接続に使用するオブジェクトを宣言
+//※finallyブロックでも扱うためtryブロック内で宣言してはいけないことに注意
+Connection        con = null ;   // Connection（DB接続情報）格納用変数
+PreparedStatement ps  = null ;   // PreparedStatement（SQL発行用オブジェクト）格納用変数
+ResultSet         rs  = null ;   // ResultSet（SQL抽出結果）格納用変数
+
+try {
+//-------------------------------------------
+// ②接続の確立（Connectionオブジェクトの取得）
+//-------------------------------------------
+con = DriverManager.getConnection(jdbcUrl, userId, userPass);
+
+//-------------------------------------------
+// ③SQL文の送信 ＆ ④抽出結果の取得
+//-------------------------------------------
+
+//SQL文の生成（SELECT）
+StringBuffer buf = new StringBuffer() ;
+buf.append(" SELECT        ");
+buf.append("   id     ,    ");
+buf.append("   name   ,    ");
+buf.append("   gender ,    ");
+buf.append("   age    ,    ");
+buf.append("   course      ");
+buf.append(" FROM          ");
+buf.append("   uzuz_member ");
+buf.append(" ORDER BY      ");
+buf.append("   id          ");
+
+//PreparedStatementオブジェクトを生成＆発行するSQLをセット
+ps = con.prepareStatement(buf.toString());
+
+//SQL文の送信＆抽出結果（ResultSetオブジェクト）の取得
+rs = ps.executeQuery();
+
+//ResultSetオブジェクトから1レコードずつデータを取得＆加工＆表示する
+while (rs.next()) {
+
+//1レコード分のデータを取得＆加工（各カラムをコンマ綴りで結合）
+StringBuffer rsbuf = new StringBuffer();
+rsbuf.append(rs.getString("id"));
+rsbuf.append(COMMA);
+rsbuf.append(rs.getString("name"));
+rsbuf.append(COMMA);
+rsbuf.append(rs.getString("gender"));
+rsbuf.append(COMMA);
+rsbuf.append(rs.getString("age"));
+rsbuf.append(COMMA);
+rsbuf.append(rs.getString("course"));
+
+//加工作成した1レコード分のデータを表示
+System.out.println(rsbuf.toString());
+}
+
+} catch (SQLException e) {
+	e.printStackTrace();
+
+} finally {
+//-------------------------------------------
+// ⑤接続の解除
+//-------------------------------------------
+
+//ResultSetオブジェクトの接続解除
+if (rs != null) {    //接続が確認できている場合のみ実施
+	try {
+		rs.close();  //接続の解除
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
+
+//PreparedStatementオブジェクトの接続解除
+if (ps != null) {    //接続が確認できている場合のみ実施
+	try {
+		ps.close();  //接続の解除
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
+
+//Connectionオブジェクトの接続解除
+if (con != null) {    //接続が確認できている場合のみ実施
+	try {
+		con.close();  //接続の解除
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
+		}
+	}
+}
+
+</code>
+</pre>
+
 </body>
 
 </html>

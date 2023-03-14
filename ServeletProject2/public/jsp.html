@@ -45,7 +45,7 @@
 	<p>特にわからなかったところ</p>
 	<ol>
 		<li><a href="https://qiita.com/takahirocook/items/70f9b5bca1da89474b9d">【Java】Webスコープ(データの有効範囲)</a></li>
-		<li><a href="#">B</a></li>
+		<li><a href="https://www.ntt.com/bizon/glossary/j-s/session.html">セッション</a></li>
 		<li><a href="#">C</a></li>
 		<li><a href="#">D</a></li>
 		<li><a href="#">E</a></li>
@@ -98,40 +98,81 @@
 	<h4>setCharacterEncodingで文字コード形式を指定</h4>
 	<pre>
 	<code>
-<%@ page contentType="text/html"; charset="UTF-8" %>
+&lt;%@ page contentType="text/html"; charset="UTF-8" %>
 	</code>
 	</pre>
 <p><strong>単一のクラスをインポートする場合</strong></h4>
 <pre>
 	<code>
-<%@ page import="java.utill.Arraylist" %>
+&lt;%@ page import="java.utill.Arraylist" %>
 	</code>
 	</pre>
 	<h4>includeを使ってほかのページからコピー</h4>
 	<pre>
 	<code>
-＜jsp:include page="footer.jsp"＞
+&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;title>Insert title here&lt;/title>
+&lt;/head>
+&lt;body>
+&lt;jsp:include page = "myheader.html"/>
+&lt;h1>Hello World&lt;/h1>
+&lt;jsp:include page="footer.jsp"/>
+&lt;/body>
+&lt;/html>
+
+
+//footer.jsp
+&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;title>Insert title here&lt;/title>
+&lt;/head>
+&lt;body>
+&lt;footer>
+  &lt;p>Author: Hege Refsnes&lt;/p>
+  &lt;p>&lt;a href="mailto:hege@example.com">hege@example.com&lt;/a>&lt;/p>
+&lt;/footer>
+&lt;/body>
+&lt;/html>
+
+
+//myheader.html htmlからもインクルードできる。
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;title>Insert title here&lt;/title>
+&lt;/head>
+&lt;body>
+&lt;h1>JSP turtorial this is from the html.&lt;/h1>
+&lt;/body>
+&lt;/html>
 	</code>
 	</pre>
-	<h4>スクリプトレット <%= %></h4>
+	<h4>スクリプトレット &lt;%= %></h4>
 	<p>Javaの式をここに書けるようになる。</p>
 	<pre>
 	<code>
-<% int x = 10, y = 20 ;%>
-<% int z  = x + y %>
+&lt;% int x = 10, y = 20 ;%>
+&lt;% int z  = x + y %>
 
-<% for (int i=0; i<5; i++)%>
+&lt;% for (int i=0; i&lt;5; i++)%>
 こんにちわ
-<% }%>
+&lt;% }%>
 
 そのほかにも
 
 	</code>
 	</pre>
 <div class="table">
-
-
-
 <table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
 <caption></caption>
 <thead><tr>
@@ -147,18 +188,121 @@
 </tr></tbody>
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
+</div>
+
+<h4>JavaファイルからJSPにメソッドを呼び込む</h4>
+<p>JavaでつくったメソッドをJSPに表示する方法。</p>
+<pre>
+<code>
+//パッケージfunのクラス名FunUtils.java
+package funny;
+
+public class FunUtils {
+	public static String makeItLower(String data) {
+		return data.toLowerCase();
+	}
+}
+
+
+//fun-test.jsp
+&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset=&lt;"UTF-8">
+&lt;title>Insert title here &lt;/title>
+&lt;/head>
+&lt;body>
+have some fun &lt;%= funny.FunUtils.makeItLower("HAHAHAHAHA") %>
+&lt;/body>
+&lt;/html>
+
+</code>
+</pre>
  <h4>JSPファイルでリクエストパラメーターの値を取得する方法</h4>
 	<p>formでname＝"name" name="gender"と指定した場合</p>
 	<pre>
 	<code>
-<% 
+&lt;% 
 request.setCharacterEncoding("UTF-8");
 String name = request.getParameter("name");
 String gender = request.getParameter("gender")
 %>
-
 	</code>
 	</pre>
+<h4>フォーム作り方(JSPだけ)</h4>
+<p>JSPだけでフォームを作ります。こちらはEL式を使っていますのでリクエストパラメータを取得する必要はない。この場合${param.}を使う。</p>
+<pre>
+<code>
+//students-form.html
+
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;title>Insert title here&lt;/title>
+&lt;/head>
+&lt;body>
+&lt;form action="students-response.jsp">
+&lt;First Name : &lt;input type="text" name="firstName">&lt;br>
+&lt;Last Name : &lt;input type="text" name="lastName">&lt;br>
+
+&lt;select name="country">&lt;br>
+	&lt;option>Brazil&lt;/option>
+	&lt;option>France&lt;/option>
+	&lt;option>Germany&lt;/option>
+	&lt;option>Japan&lt;/option>
+&lt;/select>&lt;br>
+
+Java&lt;input type="radio" name="favoriteLanguage" value="Java">
+Javascript&lt;input type="radio" name="favoriteLanguage" value="Javascript">
+PHP&lt;input type="radio" name="favoriteLanguage" value="PHP">
+Python&lt;input type="radio" name="favoriteLanguage" value="Python">
+Ruby&lt;input type="radio" name="favoriteLanguage" value="Ruby">
+
+
+Java&lt;input type="checkbox" name="favoriteLanguageCheck" value="Java">
+Javascript&lt;input type="checkbox" name="favoriteLanguageCheck" value="Javascript">
+PHP&lt;input type="checkbox" name="favoriteLanguageCheck" value="PHP">
+Python&lt;input type="checkbox" name="favoriteLanguageCheck" value="Python">
+Ruby&lt;input type="checkbox" name="favoriteLanguageCheck" value="Ruby">&lt;br>
+
+
+&lt;input type="submit" name="submit">&lt;br>
+&lt;/form>
+&lt;/body>
+&lt;/html>
+
+//students-response.jsp
+
+&lt;%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;title>Insert title here&lt;/title>
+
+&lt;/head>&lt;
+&lt;body>
+	&lt;p>style="color:red">Here is your result.&lt;/p>&lt;br> 
+	First Name : ${param.firstName } &lt;br>
+	Last Name :  ${param.lastName } &lt;br>
+	Your country: ${param.country} &lt;br>
+		Your favorite Language : 
+	&lt;%
+	String[] langs = request.getParameterValues("favoriteLanguageCheck"); 
+	
+	for(String tempLang :langs){
+		out.println("&lt;li>" + tempLang +"&lt;/li>");
+	}
+	%>
+	
+&lt;/body>
+&lt;/html>
+</code>
+</pre>
+
  <h4>MVCモデル</h4>
  <p>MVCモデルを用いてウェブアプリケーションを作成するのが一般的です。MVCモデルを実装するとJSPファイルをwebで直接呼ぶとエラーの原因になります。ですので、
  一般的にはサーブレットからJSPを呼ぶようにしてください。ファイル位置はWebContent直下にJSPファイルを作りそこに配置するのが基本です。</p>
@@ -240,7 +384,6 @@ response.sendRedirect("URL PATH");
 </table>
 <h4>スコープ関連のメソッド</h4>
 <p>アプリケーションスコープ、セッションスコープ、リクエストスコープのデータ共有に使用するメソッドはsetAttribute() （データ格納用メソッド）getAttribute（データ取得用メソッド） removeAttributeです。（データ消去用メソッド）</p>
-
 <h4>インスタンス保存方法 JavaBeans</h4>
 <p>このインスタンスを保存する方法がJavaBeansクラスをつくることである。これがJavaBeansだ。</p>
 <pre>
@@ -316,6 +459,7 @@ public void setAge(int age) {
 </tr>
 <tr>
 <th id="null">セッションスコープ
+<p><a href="https://www.ntt.com/bizon/glossary/j-s/session.html">セッション</a>はありとあらゆるアプリに使われている。それぞれのユーザーは独自のセッションを持ってる。</p>
 (session)</th>
 <td id="null">ある特定のWebクライアントとWebサーバの通信を1つの単位として扱い、
 その通信が閉ざされるまでの間を有効範囲とします。
@@ -404,7 +548,7 @@ jsp:setProperty name="product" property="name" value="りんご"
 jsp:setProperty name="product" property="price" value="200" 
 
 上記は下記と同じ。
-<%
+&lt;%
 
 Product p = new Product();
 p.setName("Apple");
