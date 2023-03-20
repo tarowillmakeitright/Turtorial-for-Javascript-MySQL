@@ -128,45 +128,398 @@ console.log(apple);
 //expected エラーが起きます。
 </code>
 </pre>
+<h3>Varとletの違い。</h3>
+<ul>
+<li>varは使われていません。</li>
+<li>違い1つ目：同じ変数名を再宣言できる。</li>
+<li>違い2つ目：スコープ（変数を参照できる範囲の事。）の違い。letは波かっこ内でしかスコープは共有されないが、varは波かっこがあろうともグローバル変数になる。ただしvarには例外があって<strong>関数の場合のみ関数の中からでしかアクセスはできない。</strong>　このことからvarはvarは関数スコープ　letはブロック関数と言われる。</li>
+<li>違い3つ目：グローバルオブジェクトの一部になる。</li>
+<li>違い4つ目：巻き上げ　hoisting</li>
+</ul>
+<pre>
+<code>
+var hello = 'hello';
+hello = 'hi'
+console.log(hello);
 
+
+//違い一つ目：同じ変数名を再宣言できる。
+var hello = 'hello';
+var hello = 'hi';
+console.log(hello); //これはエラーにならずにhiが表示される。
+
+//これをletに変えた場合、エラーが起きる。
+let hello = 'hello';
+let hello = 'hi';
+console.log(hello); //error 
+
+//違い2つ目：スコープの違い。 
+var hello = 'hello';
+var hello = 'hi';
+{
+	
+	let tomato = 'tomato'
+}
+console.log(tomato); //スコープの問題でこれはエラーが起きる。
+
+//しかしこれをvarで置き換えると、エラーが起き「ない」。
+var hello = 'hello';
+var hello = 'hi';
+{
+	
+	var tomato = 'tomato'
+}
+console.log(tomato);
+
+//違い3つ目：グローバルオブジェクトの一部になる。
+var apple = 'apple';
+console.log(globalThis); //グローバルオブジェクトにアップルが新しく追加される。
+
+//違い4つ目：巻き上げ　hoisting
+
+console.log(apple); // 普通ここはletだったらエラーが起きる。
+var apple = 'apple";
+console.log(apple); 
+
+</code>
+</pre>
+
+<h3>グローバルオブジェクト</h3>
+<ul>
+<li>グローバルオブジェクトを一覧で管理している。</li>
+<li>最初にJavascriptエンジンでブラウザで呼んでいる。</li>
+<li>globalThis　グローバルオブジェクトが見れる。</li>
+<li>組み込み型（ビルトイン）のおかげでいちいち呼び出さなくても使える。</li>
+<li></li>
+</ul>
+<pre>
+<code>
+//コンソールドットログはどこからきたの？
+console.log("hello")
+
+//グローバルオブジェクトを見れる。
+conosle.log(globalThis);
+</code>
+</pre>
 <h3>Javascriptのルール　式と文</h3>
 <p>Ecmascriptで明確な式と文の定義は別にない。式とはなにか？それは、変数の代入時に右辺に書くものである。例えば　let x = 5;　let y = 8; let z = x + y; この 「x + y」はしきである。この式をJavascriptが読むことを「評価する」と言います。では文とは何か？実行すると何かをすることを指します。厳密の定義は置いて、セミコロンで一文ととらえる。if文やfor文などが文と呼ばれる。文は式になることはできない。さらにここから大事なのが、文を書く場所に式はかける。だからIf文の中にconsole.log();とかも書ける。<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference">（ここで上げている例は一部に過ぎない。）</a> あと意外と重要なのがブロック分です。｛｝ブロック文ないで定義された変数は外側からアクセスすることはできないといことは覚えよう。</p>
 
+<h3>useStrictモードとは</h3>
+<p>現代のJavascriptが適用される。useStrictを宣言するとルールが制限される。一方で使わないと昔のJavascriptの書き方が適用されるのでルールが緩くなる。サッカーで言うと、VR判定がなくなる。</p>
+<h3>primitiveとobjectとは</h3>
+<p>Objectはオブジェクト、配列、関数を表す。Primitiveはnumber, string, boolean, undefined, nullなどを表す。</p>
+<ul>
+<li>Primitiveの場合　：　let x= 8;はメモリに保存される。メモリは電源を切ったら忘れる。</li>
+<li>Objectの場合　：　let x = {x:0}はとある特定の住所に保存される。xという番地に数字が間接的に保存される。x=yになった場合もともとの住所はは動かさないでxの番地だけを移動する。オブジェクトはいちいち運ばない。アドレスがｘとｙに入っていると思ってください。</li>
+<li>Constは再代入を防いでいる。</li>
+<li>Constでも値が変わることをmutable　可変と言います。</li>
+<li>オブジェクトはmutableである。</li>
+<li>逆に変わらないことをimmutable　　primitiveは不変である　と言います。</li>
+</ul>
+
+<pre>
+<code>
+//参照が違うことを示す。番地と住所の話。
+const coffee = {
+	name: 'Caffe Latte',
+}
+
+const coffee3 = {
+	name : 'Caffe Latte',
+}
+
+console.log(coffee === coffee3); //expected false 
 
 
-	<pre>
-		<code>
-const animals = ["Lion", "Giraff", "Gorilla", "Dog", "Snake", "Rabbit"];
+//Constは再代入を防いでいる「だけ」。
 
-//フォー文をつかったときと同じ結果がでる。簡略も可能である。
-animals.forEach(function(v, i, animals) {
-console.log(v)
-})
-//アロー関数で書き直すと。。。
-animals.forEach((v, i, animals)　=> {
-console.log(v)
-});
-//第二第三引数が必要ない場合は、かっこ省略と波かっこも省略できる。
-//できるだけ変数をへらすことができる。＝バグが少なくなる。軽くなる。
-animals.forEach(v　=>console.log(v));
+const coffee  = {
+	name:'Caffe Latte',
+}
+
+//example 1 
+
+const coffee = {
+	name: 'Caffe Latte',
+};
+
+const coffee2 = coffee;
+coffee2.name = 'Charamel Machiato';
+console.log(coffee); //Charamel Machiato Constなのに値が変わってるよね？
+
+</code>
+</pre>
+
+<h3>レキシカル環境(LexicalEnviroment)</h3>
+<p>レキシカル環境とはキーとバリューをセットにしたDBみたいな感じ。オブジェクトである。</p>
+<ul>
+<li>レキシカル環境ではブロックがみつかった場合また更にもう一つのレキシカル環境をつくる。</li>
+<li>同じLexical環境内で変数があって呼んだ場合には同じLexical環境内の変数変数が呼び出される。</li>
+<li>関数の場合呼び出されたときにLexical環境が作り出される。</li>
+<li>関数の場合別々のLexical環境が作り出されるので上書きはされない。</li>
+<li>クロージャ：レキシカル環境はアドレスのように指定される。</li>
+<li>理論上レキシカル環境は一生残る。</li>
+</ul>
+
+<pre>
+<code>
+let x = 1; // (1)
+let a = function( ) {
+    console.log( x );
+};
+let b = function( ) {
+    let x  = 2;
+    a ( );    // 1
+
+    let b2 = function( ) {
+        let x = 3;
+        a ( );    // 1
+    };
+    b2( );
+};
+b( );
 
 
-for(let i = 0; i &lt; animals.length; i++) { const v=animals[i]; console.log(v); }
+let message = "さんこんにちは";
 
-let array = ['apple', 'banana', 'grape'];
-array = [1,2,3];
-array = [1, 'apple', true, array];
-array = ['apple', 'banana', 'grape'];
-console.log(array[0]) //expected apple
+function a( name ){
 
-array.push("pinapple");
-console.log('array');
+    let m = name + message;    
 
- </code>
-	</pre>
-	<h3>配列とforeachメソッド</h3>
+    return function ( ){
+         console.log( m );
+    };
+}
+
+let a2 = a( "Taro" );
+let a3 = a( "Hanako" ); // 2回呼び出したので変数mが上書きされるはず
+
+a2( );   // Taroさんこんにちは ← 上書きされていない！！
+a3( );   // Hanakoさんこんにちは
+</code>
+</pre>
 
 
+<h3>クロージャを使ってプライベートを作る方法</h3>
+<p></p>
+<ul>
+<li>メソッドをつかって書き換えれなくする。</li>
+</ul>
+<pre>
+<code>
+
+let generatePerson = () => {
+	let age = 0;
+	return {
+		name: () => 'Taro',
+		getAge: () => age,
+		incrementAge: () => {
+			age +=1;
+		},
+	};
+};
+
+const taro = generatePerson('Taro');
+console.log(taro.getAge()); //expected 0 
+taro.incrementAge();
+taro.incrementAge();
+console.log(taro.getAge()); //expected 2
+
+const tom = generatePerson('Tom');
+tom.incrementAge();
+tom.incrementAge();
+tom.incrementAge();
+console.log(tom.getAge()); // expected 3 ここがレキシカル環境が完全に別れている証拠。
+
+</code>
+</pre>
+
+<h3>実行コンテキストスタック excution context stack</h3>
+<p></p>
+<ul>
+<li></li>
+</ul>
+<pre>
+<code>
+
+const c = () => {
+	return 'hello';
+}
+
+const b = () => {
+	return c();
+}
+
+const a = () => {
+	return b();
+}
+
+a();
+
+
+</code>
+</pre>
+<h3>Object.assignを使ってオブジェクトを拡張する方法</h3>
+<p>Object.assignでオブジェクトを結合する。</p>
+<ul>
+<li>「()」の中の右側が常に優先される。</li>
+<li> 無限にとれる。 </li>
+<li> スプレッド構文をObject.assignにいれたいときには{}を使う。 </li>
+</ul>
+<pre>
+<code>
+const ob1 = {
+	a : 1,
+}
+
+const ob2 = {
+	b: 2,
+}
+
+const ob3 = {
+	c: 3,
+}
+Object.assign(ob1,ob2, ob3); //「()」の中の右側が常に優先される。無限にとれる。
+console.log(ob1); //expected {a:1, b:2, c:3} 
+
+const coffee = {
+	isHot : false,
+	charamel : true,
+	machiato : true,
+	milk : true,
+	espresso : true,
+}
+
+const newCoffee = Object.assign({}, coffee, {isHot : true}); //スプレッド構文をObject.assignにいれたいときには{}を使う。
+console.log(newCoffee === coffee );
+
+
+</code>
+</pre>
+<h3>分割代入はこうなっている。</h3>
+<p></p>
+<ul>
+<li>例題①をよく見てほしい。titletitleを取得してbook.titleにいれて、呼ぶとSpiderManと呼ばれる。</li>
+<li>オブジェクトをつけると別名をつけられる。</li>
+<li> でふぉると値も設定できる。あんま使われない。</li>
+<li> 残り全てという書き方もできる。...etc</li>
+<li> var let も同じように動く。そして関数も動く。</li>
+<li> 関数のパラメーターの中にオブジェクトをまんま入れることができる。</li>
+<li> 関数を呼び出すときにそのオブジェクトの変数を読んであげる。</li>
+</ul>
+<pre>
+<code>
+//example 1
+
+
+
+const book = {
+	title : 'SpiderMan',
+	price : 9.99,
+	
+}
+const title = book.title;　//titleを取得してbook.titleにいれると
+
+console.log(title); //expected SpiderMan
+
+
+const {title, price} = book; //分割代入はこうする！！！
+console.log(title, price ); //expected SpiderMan 9.99 
+
+
+//example 2
+const book = {
+	title : 'SpiderMan',
+	price : 9.99,	
+}
+
+
+const {title: booktitle, price} = book; //ここでオブジェクトに別名をつけてる。
+console.log(booktitle, price);　//expected SpiderMan 9.99 
+
+
+//example 3
+
+const book = {
+	title : 'SpiderMan',
+	price : 9.99,	
+	author : { 
+		firstName : 'Imanishi',
+		lastName :  'Tsuyoshi',
+	},
+}
+
+
+const {title: booktitle, price, author : {firstName, lastName}} = book; //ここでオブジェクトに別名をつけてる。
+console.log(booktitle, price, firstName, lastName);　//expected SpiderMan 9.99 Imanishi Tsuyoshi
+
+//example4
+
+const book = {
+	title : 'SpiderMan',
+	price : 9.99,	
+	author : { 
+		firstName : 'Imanishi',
+		lastName :  'Tsuyoshi',
+	},
+	isbn : 2345874,
+	description : 'A man fights for the revenge.',
+}
+
+
+const aboutBook = ({
+title: booktitle, 
+price,
+author : {firstName, lastName},
+publisher:pub = 'Sanakaku Shikaku', //デフォルト値が設定できる　bookの方にはpublisherは含まれていません。
+...etc　//スプレッド構文を追加できる。isbnとdescriptionはaboutBookには含まれていないことに注目。
+
+})=> {
+	console.log(booktitle, price, firstName, lastName, pub, etc);　
+};
+
+aboutBook(book); 
+</code>
+</pre>
+
+<h3> in演算子を利用してプロパティの有無を調べる。</h3>
+<p>特定のプロパティがあればTrueなければFalseを返す。</p>
+<ul>
+<li>「book.title !== undefined」と 「'title' in book」 は違う。</li>
+<li>「book.title !== undefined」の場合呼び出しても表示されない。タイトルはないってことになる。</li>
+<li>「'title' in book」の場合、タイトルはあるってことになる。でもundefinedは呼び出されない。</li>
+
+</ul>
+<pre>
+<code>
+//example 1
+const book ={
+	title : 'the begginer couse of Javascript',
+}
+
+book.title = undefined //ここでundefinedにすると
+　
+if(book.title !== undefined){ //ここは表示されない。
+	console.log(book.title); // the begginer couse of Javascript
+	console.log('title' in book); //expected true
+}
+
+//example 2 
+const book ={
+	title :'the begginer couse of Javascript',
+}
+
+book.title = undefined;
+
+if('title' in book ) {
+	console.log(book.title);//expected the begginer couse of Javascript
+	console.log('title' in book); //expected true 
+}
+</code>
+</pre>
+
+
+<h3>配列とforeachメソッド</h3>
 	<pre>
 		<code>
 const animals = ["Lion", "Giraff", "Gorilla", "Dog", "Snake", "Rabbit"];
@@ -688,7 +1041,7 @@ const returnedValue = add(2,3);
 </pre>
 	<img src="\pleiades\2022-09\workspace\ServeletProject2\javascript_turtorial_img1.jpg" alt="img" width="390px"
 		width="340px">
-	</p>ローカル変数は関数の先頭で宣言することを心がける。なぜならば、<a>href="https://developer.mozilla.org/ja/docs/Glossary/Hoisting">変数</a>の巻き上げをふせぐため。</p>
+	<p>ローカル変数は関数の先頭で宣言することを心がける。なぜならば、<a>href="https://developer.mozilla.org/ja/docs/Glossary/Hoisting">変数</a>の巻き上げをふせぐため。</p>
 <pre>
 <code>
 関数の中だけしか扱えないようなconst value = num1 + num2;
@@ -724,10 +1077,79 @@ console. log( f_ con()); // 結果： Global Variable }
 	</pre>
 
 	<h3>関数Function アロー関数</h3>
-	<p>関数は巻き上げられる。関数は一番初めに読み込まれるため、戻り値の下にあろうが、呼び出される。</p>
+	<ul>
+	<li>関数はオブジェクトに過ぎない。</li>
+	</ul>
+	<pre>
+	<code>
+function add(a,b){
+	return a + b;
+}
+
+console.log(add);
+console.log(add.name);
+console.log(add.length);
+関数がオブジェクトなら代入できるよね？
+const newAdd = add;
+console.log(newAdd(3,4)); //expected 7 
+	</code>
+	</pre>
+
+<p>関数式</p>
+<p>関数は静的な構造を宣言する。</p>
+<ul>
+<li>関数を定義するときには2つの方法がある。</li>
+<li>関数の宣言文をつかって関数を生み出す。</li>
+<li>関数式を使って関数を生み出す。</li>
+</ul>
+	<pre>
+	<code>
+//名前付き関数式
+let sayHi  = function hi(){
+	return 'Hi';
+}
+
+console.log(sayHi()); //expected Hi
+
+//名前がついていない関数をAnonymusFunction無名関数という。
+sayHi = function (){};
+console.log(sayHi());
+
+console.log("Triangle area:" + getTriangle(5,2));
+
+function getTriangle(base, height){
+return base * height/2;
+}
+//上記の例はエラーとはならない。ファンクション命令はコードを
+//解析・コンパイルするタイミングで関数を登録している。
+
+console.log("Triangle area:" + getTriangle(5,2));
+
+var getTriangle = function(base, height){
+return base * height /2;
+}
+
+//上記の例はエラー。ファンクション命令tとは異なり、
+//関数リテラル・ファンクションコンストラクターは実行時（代入時）に評価される。
+//この場合だと、呼び出し元のコードよりも前に記述しなければならない。
+//アロー関数 二行以上の場合は波かっこが必要。一行の時は波かっこ消去可能。
+
+const hello = (name, age) => {
+console.log('hello' + name + age)
+console.log('hello' + name + age)
+}
+hello("Erran", 27);
+	</code>
+	</pre>
+<p>関数宣言文VS関数式どっちで宣言したらいいのか？</p>
+<ul>
+<li>関数は巻き上げられる。関数は一番初めに読み込まれるため、戻り値の下にあろうが、呼び出される。</li>
+<li>関数式は巻き上げられない。つまり関数宣言した前では呼び出せない。</li>
+<li>一方関数宣言文は何処でも呼ぶことができるのと視覚的に関数とわかりやすい。</li>
+<li>プロジェクトで統一することが大事。関数式を使うといいかも・。</li>
+</ul>
 	<pre>
 		<code>
-
 //普通のFunction
 //function hello(name) {
 //console.log('hello' + name);
@@ -751,12 +1173,12 @@ function add(){
     
 //パラメーターと引数。
   
-              //↓パラメーター
+//パラメーター
  function add(num1, num2){
 	
 	console.log() num1 + num2);
 }
-  //↓引数（argument）
+//引数（argument）
 add(5,3);
 
 //expected 8
@@ -770,45 +1192,62 @@ function add(num1, num2){
 
 const returnedValue = add(2,3);
 console.log(returnedValue);
-
-
-		</code>
-	</pre>
-	
-	
-	<pre>
-		<code>
-//関数は静的な構造を宣言する。
-console.log("Triangle area:" + getTriangle(5,2));
-
-function getTriangle(base, height){
-return base * height/2;
-}
-上記の例はエラーとはならない。ファンクション命令はコードを
-解析・コンパイルするタイミングで関数を登録している。
-
-console.log("Triangle area:" + getTriangle(5,2));
-
-var getTriangle = function(base, height){
-return base * height /2;
-}
-
-上記の例はエラー。ファンクション命令tとは異なり、
-関数リテラル・ファンクションコンストラクターは実行時（代入時）に評価される。
-この場合だと、呼び出し元のコードよりも前に記述しなければならない。
-//アロー関数 二行以上の場合は波かっこが必要。一行の時は波かっこ消去可能。
-
-const hello = (name, age) => {
-console.log('hello' + name + age)
-console.log('hello' + name + age)
-}
-hello("Erran", 27);
 		</code>
 	</pre>
 
+<p>関数とメソッドの違い。</p>
+<ul>
+<li>キーとバリューセットをプロパティと呼ぶ。</li>
+<li>つまりsayHiはプロパティである。</li>
+<li>またはsayHiメソッドと言う。</li>
+</ul>
+<pre>
+<code>
+
+const person = {
+	name : 'Taro',
+//メソッド
+	sayHi: function () {
+		return 'hi';
+	}
+}
+</code>
+</pre>
+
+<p>アロー関数 functionもreturnも略せる。３つの特徴</p>.
+<ul>
+<li> 無名関数の置き換えになる。無名関数の別の書き方がアロー関数。</li>
+<li> だから関数に名前はいらない。</li>
+<li>1. 一つに式をリターンする場合波かっこと且つリターンを省略できる。</li>
+<li>2. パラメータが一つの場合、パラメータの〇括弧を省略できる。ただパラメータが一つの場合のみです。</li>
+<li>3. thisというものです。後に説明</li>
+<li> thisというものです。後に説明</li>
+<li> アロー関数にオブジェクトはつけられない。式と認識するから。もしオブジェクトを入れたい場合は（）をつけてやる。</li>
+</ul>
 	<pre>
 		<code>
-//アロー関数 functionもreturnも略せる。
+//無名関数式
+sayHi = function (name) {
+	return `hi ${name}!`;
+}
+//アロー関数
+sayHi = (name) => {
+	return `Hi ${name}`;
+}
+
+//波かっこを消して且つリターンも省略
+sayHi = (name) => `Hi ${name}`;
+
+// アロー関数にオブジェクトはつけられない。
+sayHi = (name) => {
+	name: name;
+}
+じゃあどうするか？()をつけてやると式と認識する。
+sayHi = (name) => ({
+	name: name;
+})
+
+//アロー関数
 var getTriangle = (base, height) => base * height /2;
 console.log("Traiangle area:' getTriangle(5,2);// expected 5
 
@@ -822,15 +1261,18 @@ console.log(value);
 
 numbers.forEach(value => console.log(value))//output 1,2,3,4,5,6,7,8
 		</code>
-
-
 	</pre>
 
-	<pre>
-		<code>
-//Callback function (コールバック関数)
+<p>Callback function (コールバック関数)</p>
+<ul>
+<li>
 コールバック関数とは、引数として他の関数に渡され、
 外側の関数の中で呼び出されて、何らかのルーチンやアクションを完了させる関数のことです。
+</li>
+<li>引数に関数は渡せる。頻繁度高く使われるので覚えよう。</li>
+</ul>
+	<pre>
+		<code>
 function doSomething(a, b, callback) {
 const result = callback(a,b);
 console.log(result);
@@ -841,14 +1283,28 @@ return a * b;
 }
 
 doSomething(8, 9, multiple);
+
+//引数に関数は渡せる。
+
+let subtract = (a, b, callback) => {
+	let result = a - b;
+	callback(result);
+}
+
+subtract(10,3, (result) => {
+	console.log(result); //expected 7
+});
+
+subtract(19,4,(result) => {
+	alert(result); //expected 15
+});
 		</code>
 
 
 	</pre>
-
+<p>コールバック関数例２</p>
 	<pre>
 		<code>
-//コールバック関数例２
 const lists = ["number1", "number2", "number3"];
 
 function forEach(lists, callback) {
@@ -863,9 +1319,169 @@ function addList(list) { list="This is " + list showLists(list); }
 list="This is " + list; showLists(list); }); 
 //output // This is number1 .... continue...
 		</code>
-
-
 	</pre>
+<h3>デフォルトパラメータはこう使う</h3>	
+<ul>
+<li>
+もし戻り値を返さなかったらどうなるの？
+</li>
+<li>デフォルト値を設定できる。</li>
+<li>戻り値にUndefinedもいれることができる。</li>
+<li>UndefinedだけがDefaut値に変換される。</li>
+<li>引数が複数あった場合デフォルト値はデフォルトパラメータの最後に設定する。</li>
+<li>こちらは例を見てください。デフォルト値が二つ以上あった場合はB=Aともできる。messageにnameを代入することができる。</li>
+<li>引数を入れすぎた場合は無視される。</li>
+</ul>
+<pre>
+<code>
+
+sayHi = (name) => `Hi ${name}!`; 
+
+console.log(sayHi('Aoi'));//expected Hi Aoi!
+
+//もし戻り値を渡さなかったら？
+sayHi = (name) => `Hi ${name}!`; 
+
+console.log(sayHi());　//undefined 
+
+
+//何も戻り値がなかった場合にデフォルト値を設定できる。
+sayHi = (name = 'User') => `Hi ${name}!`; 
+
+console.log(sayHi());　//expected Hi User!
+
+//戻り値にUndefinedも入れることができる。
+sayHi = (name = 'User') => `Hi ${name}!`; 
+
+console.log(sayHi(undefined));　//expected Hi User!
+
+//引数が複数あった場合デフォルト値はデフォルトパラメータの最後に設定する。
+sayHi = (name, message=' how are you?') => `Hi ${name} ${message}`; 
+
+console.log(sayHi('Rin'));　// Hi Rin how are you?
+
+//デフォルト値が二つ以上あった場合はB=Aともできる。messageにnameを代入
+sayHi = (name, message='${name}') => `Hi ${name} `; 
+
+console.log(sayHi('Rin'));　// Hi Rin 
+
+sayHi = (name, message='${name}') => `Hi ${message}`; 
+
+console.log(sayHi('Rin', 'how are you?'));　// Hi how are you?
+</code>
+</pre>
+
+
+<h3>レストパラメーターで無限個の引数を扱う方法</h3>
+<ul>
+<li>
+「...」レストパラメーターを使うと数を無限個引き受けられる。
+</li>
+<li>
+「...」レストパラメーターを使うときは必ずパラメータの最後に書く。
+</li>
+<li>
+「...」レストパラメーターを使うときは必ず括弧をつける。
+</li>
+<li>
+「...」レストパラメーター以外にもargumentsがあるがそれは使用しないようにしましょう。
+</li>
+</ul>
+<pre>
+<code>
+普通に足していく
+let sum = (a,b,c) => {
+	return a + b + c;
+}
+
+console.log(sum(23,5,6)); //expected 34
+
+
+//for文を使って配列に数字を入れて表示させる。
+let sum = (nums) => {
+	let total = 0;
+	for(num of nums){
+		total += num;
+	}
+	return total;
+};
+
+console.log(sum([1,35,6,8]));//expected 50
+
+//レストパラメーターを使うと。。。
+
+let sum = (...nums){
+	let total = 0;
+	for(num of nums){
+		total += num;
+	}
+	return total;
+}
+
+console.log(sum(1,45,75,32));
+</code>
+</pre>
+
+
+<h3>無名関数と名前付き関数の違い</h3>
+<ul>
+<li>
+　名前付き関数の場合デバックの時にわかりやすい。グーグルは名前付き関数を見ている。
+</li>
+<li>
+変数に無名関数やアロー関数を代入した場合その変数名がネームプロパティーになる。推測される。
+</li>
+</ul>
+<pre>
+<code>
+//変数に無名関数やアロー関数を代入した場合その変数名がネームプロパティーになる。
+let sayHi = function hi() {};
+
+sayHi = function () {
+	return 'hi';
+};
+
+console.dir(sayHi); //expected name: "sayHi"
+</code>
+</pre>
+<h3>引数は後から変更可能</h3>
+<ul>
+<li>引数はあとから変更可能。</li>
+<li>パラメーターは常に固定ではない</li>
+<li>ただこちらは読みにくくなるのでできるだけ避けてください。</li>
+</ul>
+<pre>
+<code>
+
+let subtract = (a,b, callback) => {
+	//ここで変更してる。
+	a = 30;
+	let result = a-b;
+	callback(result)
+}
+
+
+subtract(10, 3, function (result){
+	console.log(result) //expected 27
+}); 
+
+</code>
+</pre>
+<h3>関数とオブジェクトの見分け方</h3>
+<ul>
+<li>type of 演算子で見分けられる。</li>
+</ul>
+<pre>
+<code>
+
+typeof{} //expected object
+
+typeof[] function() {} //expected function
+
+</code>
+</pre>
+
+
 
 
 	<pre>
@@ -884,9 +1500,11 @@ console.log(getTriangle(5)); // expected 2.5
 
 
 	</pre>
+	
+<p>可変長引数の関数を定義する</p>
 	<pre>
 		<code>
-//可変長引数の関数を定義する
+//
 
 function sum(...nums){
 let result = 0;
@@ -895,7 +1513,7 @@ throw new Error('指定地が数値ではありません　'+ num);
 }
 result += num;
 }
-return result;
+return result; 
 }
 
 
@@ -932,7 +1550,7 @@ show(member);
 
 	</pre>
 
-	<p>関数の引数も関数ー高階関数</>
+	<p>関数の引数も関数ー高階関数</p>
 
 	<p>「 JavaScript の 関数 は データ 型 の 一種」 です。 つまり、 関数 そのもの も また、 ほか の 数値 型 や 文字列 型 などと 同様、 関数 の 引数として 引き渡し たり、 戻り 値 として 返し たり する こと が できる という こと です。 そして、 その よう に「 関数 を 引数、 戻り 値 として 扱う 関数」 の こと を 高階 関数 と 呼び ます。</p>
 	<pre>

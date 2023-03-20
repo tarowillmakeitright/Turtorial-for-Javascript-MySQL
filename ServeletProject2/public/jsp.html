@@ -50,7 +50,7 @@
 		<li><a href="#">D</a></li>
 		<li><a href="#">E</a></li>
 	</ol>
-	<h4>ディレクティブ</h4>
+	<h3>ディレクティブ</h3>
 	<p>@pageで文字エンコーディングを指定すること</p>
 	<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
 <caption></caption>
@@ -70,7 +70,7 @@
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
 	
-<h4>アクションタグ</h4>
+<h3>アクションタグ</h3>
 
 	<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
 <caption></caption>
@@ -95,19 +95,19 @@
 </tr></tbody>
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
-	<h4>setCharacterEncodingで文字コード形式を指定</h4>
+	<h3>setCharacterEncodingで文字コード形式を指定</h3>
 	<pre>
 	<code>
 &lt;%@ page contentType="text/html"; charset="UTF-8" %>
 	</code>
 	</pre>
-<p><strong>単一のクラスをインポートする場合</strong></h4>
+<p><strong>単一のクラスをインポートする場合</strong></h3>
 <pre>
 	<code>
 &lt;%@ page import="java.utill.Arraylist" %>
 	</code>
 	</pre>
-	<h4>includeを使ってほかのページからコピー</h4>
+	<h3>includeを使ってほかのページからコピー</h3>
 	<pre>
 	<code>
 &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -157,7 +157,7 @@
 &lt;/html>
 	</code>
 	</pre>
-	<h4>スクリプトレット &lt;%= %></h4>
+	<h3>スクリプトレット &lt;%= %></h3>
 	<p>Javaの式をここに書けるようになる。</p>
 	<pre>
 	<code>
@@ -190,7 +190,7 @@
 </table>
 </div>
 
-<h4>JavaファイルからJSPにメソッドを呼び込む</h4>
+<h3>JavaファイルからJSPにメソッドを呼び込む</h3>
 <p>JavaでつくったメソッドをJSPに表示する方法。</p>
 <pre>
 <code>
@@ -220,7 +220,7 @@ have some fun &lt;%= funny.FunUtils.makeItLower("HAHAHAHAHA") %>
 
 </code>
 </pre>
- <h4>JSPファイルでリクエストパラメーターの値を取得する方法</h4>
+ <h3>JSPファイルでリクエストパラメーターの値を取得する方法</h3>
 	<p>formでname＝"name" name="gender"と指定した場合</p>
 	<pre>
 	<code>
@@ -231,7 +231,7 @@ String gender = request.getParameter("gender")
 %>
 	</code>
 	</pre>
-<h4>フォーム作り方(JSPだけ)</h4>
+<h3>フォーム作り方(JSPだけ)</h3>
 <p>JSPだけでフォームを作ります。こちらはEL式を使っていますのでリクエストパラメータを取得する必要はない。この場合${param.}を使う。</p>
 <pre>
 <code>
@@ -303,7 +303,7 @@ Ruby&lt;input type="checkbox" name="favoriteLanguageCheck" value="Ruby">&lt;br>
 </code>
 </pre>
 
- <h4>MVCモデル</h4>
+ <h3>MVCモデル</h3>
  <p>MVCモデルを用いてウェブアプリケーションを作成するのが一般的です。MVCモデルを実装するとJSPファイルをwebで直接呼ぶとエラーの原因になります。ですので、
  一般的にはサーブレットからJSPを呼ぶようにしてください。ファイル位置はWebContent直下にJSPファイルを作りそこに配置するのが基本です。</p>
 <table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
@@ -328,7 +328,7 @@ Ruby&lt;input type="checkbox" name="favoriteLanguageCheck" value="Ruby">&lt;br>
 </tbody>
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
-<h4>フォーワード</h4>
+<h3>フォーワード</h3>
 <p>ServletからJSPページを表示させるやり方の一つ。</p>
 	<pre>
 	<code>
@@ -338,7 +338,7 @@ dispatcher.forward(request, response);
 	</pre>
 <p>JSPファイルの場合　→/WebContentからのパス</p> 
 <p>Servletファイルの場合　→/URLパターン</p> 
-<h4>リダイレクト</h4>
+<h3>リダイレクト</h3>
 <p>フォーワードとサーブレットは処理の仕方が違うフォーワードはリクエストレスポンスを一往復するのに対して、リダイレクトh２往復する。
 転送元と転送先のアプリケーションが別の場合はリダイレクトを使うしかないです。リダイレクトはブラウザにサイトリクエストする。そのため、アドレスばーも変わる。</p>
 	<pre>
@@ -350,7 +350,7 @@ response.sendRedirect("URL PATH");
 <p>JSPファイルの場合　→/WebContentからのパス</p> 
 <p>Servletファイルの場合　→/URLパターン</p> 
 
-<h4>スコープ基本</h4>
+<h3>スコープ基本</h3>
 <p>JSPからServletを使うとインスタンスがどこへ行ってしまったのか、通常JSP同士ならば何事もなかったかのように動いていたものがサーブレットを通すことでインスタンスが消えてしまうことがある。
 このようなときには、<strong>スコープ</strong>を使うのが基本である。それはインスタンスを保存する場所である。スコープにより、サーブレットクラスとJSPファイル間をインスタンスは通ることができるようになる。</p>
 <table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
@@ -382,9 +382,9 @@ response.sendRedirect("URL PATH");
 </tr></tbody>
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
-<h4>スコープ関連のメソッド</h4>
+<h3>スコープ関連のメソッド</h3>
 <p>アプリケーションスコープ、セッションスコープ、リクエストスコープのデータ共有に使用するメソッドはsetAttribute() （データ格納用メソッド）getAttribute（データ取得用メソッド） removeAttributeです。（データ消去用メソッド）</p>
-<h4>インスタンス保存方法 JavaBeans</h4>
+<h3>インスタンス保存方法 JavaBeans</h3>
 <p>このインスタンスを保存する方法がJavaBeansクラスをつくることである。これがJavaBeansだ。</p>
 <pre>
 <code>
@@ -438,7 +438,7 @@ public void setAge(int age) {
 
 </code>
 </pre>
-<h4>アプリケーションスコープ　セッションスコープ　リクエストスコープ</h4>
+<h3>アプリケーションスコープ　セッションスコープ　リクエストスコープ</h3>
 <p><a href="https://qiita.com/takahirocook/items/70f9b5bca1da89474b9d">こちらを参照にしました。</a></p>
 <table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
 <caption></caption>
@@ -478,7 +478,7 @@ public void setAge(int age) {
 </tbody>
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
-<h4>EL式 ${式}</h4>
+<h3>EL式 ${式}</h3>
 <pre>
 <code>
 計算結果の出力方法
@@ -539,7 +539,7 @@ ${list[0]} or ${sessionScope.list[0]} // expected Apple
 </tbody>
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
-<h4>Jsp:useBean </h4>
+<h3>Jsp:useBean </h3>
 <p>useBeanをつかってオブジェクトと名前を生成する。ラムダ式で受けとる。</p>
 <pre>
 <code>
@@ -563,7 +563,7 @@ session.setAttribute("product", p);
 単価：${product.price}
 </code>
 </pre>
-<h4>JSTLのタグの種類</h4>
+<h3>JSTLのタグの種類</h3>
 <table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
 <caption></caption>
 <thead><tr>

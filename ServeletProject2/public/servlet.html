@@ -50,7 +50,7 @@
 		<li><a href="#">E</a></li>
 	</ol>
 <body>
-<h4>Web.xmlに設定可能な主な内容</h4>
+<h3>Web.xmlに設定可能な主な内容</h3>
 <ul>
 <li>Servletの定義　：　作成したServletに対して、クラスメイトは別にServlet名をつけて定義する。</li>
 <li>Servletパスの定義　：　定義したServlet名に対して、Servletパスを定義する。</li>
@@ -75,7 +75,7 @@
 </code>
 </pre>
 
-<h4>HttpServletRequestインターフェイス</h4>
+<h3>HttpServletRequestインターフェイス</h3>
 	<table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
 <caption></caption>
 <thead><tr>
@@ -130,7 +130,7 @@
 </tr></tbody>
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
- <h4>サーブレクとくらすの定義</h4>
+ <h3>サーブレクとくらすの定義</h3>
  <ul>
  <li>HttpServletクラスを継承しユーザ定義Servletクラスを定義する。</li>
  <li>必要に応じてdoGet() doPost()をオーバーライドしてHTTP通信の対応処理をする。</li>
@@ -150,7 +150,7 @@ public class XYZ extends HttpServlet {
 }
 </code>
 </pre>
- <h4>HttpServletResponseインターフェイス</h4>
+ <h3>HttpServletResponseインターフェイス</h3>
  <table id="tbl75c" class="cmsTable cmsTableC cmsTable75">
 <caption></caption>
 <thead><tr>
@@ -172,7 +172,7 @@ public class XYZ extends HttpServlet {
 </tr></tbody>
 <tfoot><tr><td colspan="2"></td></tr></tfoot>
 </table>
-<h4>setContetntType() コンテンツタイプ設定する。</h4>
+<h3>setContetntType() コンテンツタイプ設定する。</h3>
 <pre>
 <code>
 public class XYZ extends HttpServlet {
@@ -187,7 +187,7 @@ public class XYZ extends HttpServlet {
 </code>
 </pre>
 
-<h4>getWriter() 出力ストリームを取得する。</h4>
+<h3>getWriter() 出力ストリームを取得する。</h3>
 <pre>
 <code>
 public class XYZ extends HttpServlet {
@@ -205,7 +205,7 @@ public class XYZ extends HttpServlet {
 }
 </code>
 </pre>
-<h4>フォームのリクエストインスタンスをgetParameterで保存する。</h4>
+<h3>フォームのリクエストインスタンスをgetParameterで保存する。</h3>
 <pre>
 <code>
 protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -222,7 +222,7 @@ res.setContentType("text/html; charset=UTF-8");
 
 </code>
 </pre>
-<h4>初期化パラメータ</h4>
+<h3>初期化パラメータ</h3>
 <p>ＤＢ接続する際のログインやＩＤやパスワードや、使用する外部ファイル名などをあらかじめ設定しておいて実行時によみこんで利用できるようにすること。</p>
 <p>設定情報（web.xml）をＳｅｒｖｌｅｔに保存する。利用する情報をあらかじめ設定しておくことで読み込むだけだから、毎回プログラムを書かなくてもいいし覚える必要もない。また万が一パスワードやユーザー名に変更があった場合開発者が各々変更することはない。weeb.xmlだけを変更すればよい。最後に開発者がパスワードを記憶しなくてもよい。</p>
 <pre>
@@ -240,7 +240,7 @@ res.setContentType("text/html; charset=UTF-8");
 
 </code>
 </pre>
-<h4>ServletからSevlet初期化パラメータを取得する方法</h4>
+<h3>ServletからSevlet初期化パラメータを取得する方法</h3>
 <p>ServletConfigオブジェクトを取得する。</p>
 <pre>
 <code>
@@ -254,7 +254,7 @@ Servlet param = config.getInitParameter("パラメータ名")
 </code>
 </pre>
 
-<h4>コンテスト初期化パラメーターをしゅとくする方法</h4>
+<h3>コンテスト初期化パラメーターをしゅとくする方法</h3>
 <p>コンテキスト単位に指定する初期化パラメータ。プロジェクト単位でせっていするからほかのServletでも利用可能。</p>
 <pre>
 <code>
@@ -269,26 +269,32 @@ Servlet param = config.getInitParameter("パラメータ名")
 
 <ol>
 <li>ServletConfigオブジェクトを取得する。</li>
+
+<li>ServletContextオブジェクトを取得する。</li>
+
+<li>パラメータ名を指定してパラメータ値を取得する。</li>
+
+</ol>
+
+<p>1</p>
 <pre>
 <code>
 Servlet config = getServletConfig();
 </code>
 </pre>
-<li>ServletContextオブジェクトを取得する。</li>
+<p>2</p>
 <pre>
 <code>
 ServletContext context = config.getServletContext();
 </code>
 </pre>
-<li>パラメータ名を指定してパラメータ値を取得する。</li>
+<p>3</p>
 <pre>
 <code>
 String param = context.getInitParameter("パラメータ名");
 </code>
 </pre>
-</ol>
-
-<h4>フィルタ　</h4>
+<h3>フィルタ　</h3>
 <p>Servletを実行する前に先に呼び出される。フィルタはServletやJSPや静的コンテンツなどを呼び出すときに自動的に先に呼び出されるプログラムです。フィルタの設定ができることで必要な機能を
 持ったフィルタをさくせいして設定しておけばServlet自体はへんこうすることなく、呼び出し元もきにすることなく様々な前処理が可能となります。</p>
 <pre>
@@ -356,5 +362,26 @@ public class XYZ implements Filter {
   &lt;/filter-mapping>
  </code>
 </pre>
+<h3>MVCモデル</h3>
+<p>Controller</p>
+<ul>
+<li>HTTPリクエストを受け取りModelとViewの指示を出す。</li>
+<li>リクエストの情報を元にModelとデータのやり取りを行う。</li>
+<li>リクエストの情報を元に必要処理後Viewに結果を表示する依頼を行う。</li>
+</ul>
+<p>Model</p>
+<ul>
+<li>Controllerからオブジェクトを生成するなどによって呼び出す。</li>
+<li>Controllerの指示に比較演算などの処理を行う。</li>
+<li>業務ロジックを担当する。</li>
+<li>データベースアクセスを行う。</li>
+</ul>
+<p>View</p>
+<ul>
+<li>Contollerからフォワードすることによって呼び出す。</li>
+<li>HTML出力を担当する。</li>
+<li>Modelでのデータをとりだして表示する。</li>
+<li>JSPで構成する。</li>
+</ul>
 </body>
 </html>

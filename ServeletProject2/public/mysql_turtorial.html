@@ -48,7 +48,7 @@
 		<li><a href="#">コールバック関数</a></li>
 		<li><a href="#">documentcontentloaded vs loaded</a></li>
 	</ol>
-<h4>コマンドプロンプトかワークベンチを立ち上げて、MySQLにログインする。</h4>
+<h3>コマンドプロンプトかワークベンチを立ち上げて、MySQLにログインする。</h3>
 <pre>
 <code>
 コンソール上でログインする場合。
@@ -59,7 +59,7 @@ mysql -u username -D databaseName -p
 quit
 </pre>
 </code>
-<h4>SQL関数</h4>
+<h3>SQL関数</h3>
 	<p style="color:blue;">日にちと時間</p>
 	<pre>
 		<code>
@@ -75,7 +75,7 @@ insert into test values (CURRENT_DATE(), CURRENT_TIME(),NOW());
 	<p style="color:blue;">2000円より大きな金額を使った日をしりたい。</p>
 	<p>SELECT 日付　FROM 家計簿　WHERE 出金額　&gt; 2000 </p>
 
-	<h4>SQLの体系</h4>
+	<h3>SQLの体系</h3>
 	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img1.jpg" alt="img"  width="390px"
 		height="320px">
 	<p style="color:blue;">家計簿の内容を全て表示したい。</p>
@@ -144,7 +144,7 @@ DELETE FROM PREFECTURES WHERE CODE = '26'
 	<p>データベースを読む(READ ONLY)モードを解除する方法</p>
 	<p>ALTER DATABASE myProjectName READ ONLY = 0;</p>
 
-	<h4>MySQL基礎構文</h4>
+	<h3>MySQL基礎構文</h3>
 	<p>どのプロジェクトを使うか？ここできちんと選択しないと、のちにデータが保存されない。</p>
 	<pre>
 <code>use myDb</code>
@@ -173,12 +173,6 @@ SELECT * FROM employees
 	<pre>
 		<code>
 RENAME　employees TO workers;
-		</code>
-	</pre>
-	<p>テーブルからの抜け方</p>
-	<pre>
-		<code>
-DROP　TABLE　myProjectName;
 		</code>
 	</pre>
 	<p>テーブル（コラム）に電話番号の追加</p>
@@ -455,7 +449,7 @@ where
 request_month = '2017-01-01';
 		</code>
 	</pre>
-	<p>ある特定のデータからグループごとのデータ抽出してその数を調べたいとき　count() group by </p>
+	<h3>ある特定のデータからグループごとのデータ抽出してその数を調べたいとき　count() group by </h3>
 	<p>GROUP　BY間違えやすいポイント </p>
 	<ol>
 		<li>GROUPBY文にASで命名した別名は指定できない。</li>
@@ -467,6 +461,14 @@ request_month = '2017-01-01';
 		<li>GROUP BY文で指定したカラム名（集約キー）</li>
 		<li>集約関数</li>
 	</ol>	
+	<p>ポイント！</p>
+	<ol>
+	<li>GrroupByは集計を行う際に用いる。</li>
+	<li>Select句に書くことのできるカラムの制限</li>
+	<li>GroupBy句にASで命名した別名は指定できない。</li>
+	<li>GroupBy句に並び替えの機能はない。</li>
+	<li>SELECT-> FROM -> WHERE -> GROUP BY -> ORDER BYの順番に書く。</li>
+	</ol>
 	<p>基本的にいかのようにSELECT文を書くことは許されない。</p>
 	<pre>
 		<code>
@@ -490,6 +492,7 @@ prefecture_id
 		</code>
 	</pre>
 	<p>ある特定の期間からグループごとのデータ抽出してその数を調べたいとき　count() group by where</p>
+	
 	<pre>
 		<code>
 select
@@ -578,7 +581,7 @@ select concat(last_name, '', first_name, 'さん')from users;
 select concat(last_name, '-san'), email from users where gender = 2;
 		</code>
 	</pre>
-	<h4>日付と時刻の関数や演算子 </h4>
+	<h3>日付と時刻の関数や演算子 </h3>
 	<pre>
 		<code>
 現在の日付 *** curent_date
@@ -639,14 +642,14 @@ select * from orders where extract(month from order_time)= 1;
 		</code>
 	</pre>
 
-	<h4>テーブルの結合</h4>
+	<h3>テーブルの結合</h3>
 	<p>複数のテーブルを結合して、新しく一つのテーブルをつくること。</p>
 	<p>なぜ結合するのか？データ管理が用意になる。データ容量の削減</p>
 
 	<ul>
 		<li>テーブルの結合とは</li>
 		<li>テーブルの正規化とは</li>
-		<li>Primary key 主キー　*** 一つの行をと規定できる列のこと　例　主キー＝id::: id1 田中さん　千葉県出身</li>
+		<li>Primary key 主キー　*** 一つの行を特定できる列のこと　例　主キー＝id::: id1 田中さん　千葉県出身</li>
 		<li>foreign key 外部キー　***ほかのテーブルとの関連付けに使う列のこと　例 外部キー＝出身::: id1 田中さん　千葉県出身</li>
 		<li>1対多　ユーザーvs注文　注文vs注文明細　部署vs従業員</li>
 		<li>多対多　商品VS商品カテゴリ　ブログの投稿VSブログのカテゴリ　ユーザーVS操作権限</li>
@@ -767,7 +770,7 @@ where users.prefecture_id = 13
 and orders.order_time >= '2017-01-01- 00:00:00'
 and orders.order_time < '2017-02-01- 00:00:00' order by order_id; ; </code>
 	</pre>
-	<h4>Java MySQL databaseつなぎ方　 </h4>
+	<h3>Java MySQL databaseつなぎ方　 </h3>
 	<pre>
 		<code>
 
@@ -829,7 +832,7 @@ System.out.println("データベース・アクセスエラーです。");
 		height="320px">
 		
 		
-<h4>JavaでMySQLを書く　DAO </h4>
+<h3>JavaでMySQLを書く　DAO </h3>
 <p>なぜDAOを書くのか？たとえば使用するＤＢＭＳがMySQLからPostgresSQLに変更になった場合JDBC ドライバうを変更しなければなりません。また、保存先のデータベースの変更があったりテーブル名や列名の変更
 列数の増減があった場合それまでに記述した業務ロジックのソースコードをすべて書き換える必要があるためです。</p>
 <p>Daoはテーブルに合わせてつくる。たとえばプロダクトテーブルがあったら、プロダクトDaoを作る。</p>
@@ -889,7 +892,7 @@ return user;
 	</pre>
 <img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img8.jpg" alt="img" width="390px"
 		height="320px">
-<h4>Productsテーブルに１件のレコードを登録するJavaを書く　</h4>
+<h3>Productsテーブルに１件のレコードを登録するJavaを書く　</h3>
 	<pre>
 		<code>
 
