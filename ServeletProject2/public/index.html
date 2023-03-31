@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -16,7 +16,8 @@
 	<!--fontawesome link for drop navigation bar  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Javascript Turtorial</title>
-</head>
+	
+</head>		
 
 <body>
 	<div class="topnav" id="myTopnav">
@@ -32,18 +33,13 @@
 			<i class="fa fa-bars"></i>
 		</a>
 	</div>
-	<form id="language">
-		<select name="select">
-			<option value="index.html" selected>日本語</option>
-			<option value="index-english.html">English</option>
-		</select>
-	</form>
 	<h1>Javascript Turtorial</h1>
 	<div class="header_image">
 	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"height="320px">
 	</div>
 	<p>こちらはとにかく例を貼りまくったサイトになります。わからない例題は、グーグルのコンソールをつかって実装することをお勧めします。キーワードを指定してください。コマンドFまたはコントロールFを使うことをお勧めします。</p>
 	<p>特にわからなかったところ</p>
+	 
 	<ol>
 		<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Functions">関数</a></li>
 		<li><a href="https://developer.mozilla.org/ja/docs/Glossary/Callback_function">コールバック関数</a></li>
@@ -51,7 +47,12 @@
 		<li><a href="https://takayamato.com/eventlistener/">式と文</a></li>
 		<li><a href="https://jsprimer.net/basic/operator/#ternary-operator">三項演算子</a></li>
 	</ol>
-		
+	
+	<!-- Add icon library -->
+
+
+
+
 <!--	<h3>Function ! document.getElementById textContent = ()</h3>
 	<p id="output"></p>
 	<p id="output1"></p>
@@ -88,7 +89,8 @@
 <h3>letを使い変数を作る。</h3>
 <ul>
 <li>=の右側値を「初期値」</li>
-<li>二回同じ変数名で宣言することはできない。</li>
+<li>変数のValue変更可能。</li>
+<li>再代入VS再宣言の違い。</li>
 </ul>
 <pre>
 <code>
@@ -101,19 +103,32 @@ apple="iphone";
 console.log(apple);
 //expected iphone
 
+//再宣言
+let a = 0;
+let a = 1;//error
 
+var a = 0;
+var a = 1; //Varの場合再宣言可能　非推奨
+//再代入
+
+let a = 0;
+a = 1;
+console.log(a); //expected 1
+
+const a = 0;
+a = 9; //error
 </code>
 </pre>
 <h3>constを使い定数を作る。</h3>
 <ul>
-<li>代入はできない。</li>
+<li>constに再代入はできない。</li>
 <li>定数をつかうことで後からの修正が可能になる。</li>
 <li>コードが変数に代わるので読みやすくなる。</li>
 <li>2つを除いて特殊な記号は変数名には入れることはできない。</li>
 <li>「$」「_」ドルマークとアンダーバーは変数にいれることができる。</li>
 <li>変数名に対して、数字は先頭に来てはいけない。</li>
 <li>変数名は一般的に英語で書く。</li>
-<li>単語単語で区切る時には、キャメルケース。単語の初めは大文字。-> appleBanana</li>
+<li>単語単語で区切る時には、キャメルケース。単語の初めは大文字。-> appleBanana　→グーグル推奨</li>
 <li>あとはアンダースコアーで区切る。スネークケース　-> apple_Banana　一般的には使わない。</li>
 </ul>
 <pre>
@@ -122,10 +137,185 @@ const apple = "Mac";
 
 console.log(apple) //expected Mac
 
-//代入はできません。
+//constに再代入はできない。
 apple = "ipad";
 console.log(apple);
 //expected エラーが起きます。
+</code>
+</pre>
+
+
+<h3>関数スコープ　ブロックスコープ</h3>
+<dl>
+    <dt>関数スコープ</dt>
+    <dd>関数の中でしか変数を呼べない</dd>
+    <dd>関数の外からは変数を呼べない。</dd>
+    <dt>ブロックスコープ</dt>
+    <dd>letとconstを使う。Varは使えない。</dd>
+    <dd>ブロック内であると、関数宣言は無視される。つまり外側から呼べる。</dd>
+    <dd>関数式は呼び出せない。関数に変数を代入すること。これはブロック内で変数として扱われるから。</dd>
+
+</dl>
+
+<pre>
+<code>
+function a(){
+	//関数スコープ
+	let b = 0;
+	console.log(b); //expected 0
+}
+
+console.log(b) // error
+
+
+{
+	//ブロック
+	let c = 1;
+	console.log(c); //expected 1
+	
+	//もしvarを使った場合は外側から呼ばれる。非推奨。
+	//var c = 1;
+	
+	function d() {
+		console.log('d is called')
+	}
+	
+	const d = function (){
+		console.log('d is called again')
+	}
+}
+
+console.log(c) //error 
+
+d() //d is called
+
+console.log(d) //関数式を呼び出すことはできない。
+</code>
+</pre>
+<h3>クロージャー　静的な関数生成</h3>
+<dl>
+    <dt>レキシカルスコープの変数を関数が使用している状態。</dt>
+    <dd>クロージャーを使ってプライベート変数を作る。</dd>
+    <dd>関数のスコープ内で変数を宣言してあげると外側からアクセスは不可能になる。</dd>
+</dl>
+
+<pre>
+<code>
+//クロージャー
+function fn1(){
+	let b = 1;
+	function fn2(){
+		console.log(b);
+	}
+	fn2();
+}
+fn1(); //expected 1
+
+//クロージャーを使ってプライベート変数を作る。
+
+//example 1 
+//numをグローバル変数におくと。。。どこからでも変更可能になってしまう。 
+
+let num = 0 //どこからでもアクセス可能
+
+function increment(){
+	num += 1;
+	console.log(num);
+}　
+
+increment(); 
+ 
+ 
+//example 2  
+funciton incrementFactory(){
+	
+	//関数のスコープ内にはいってるから外側からはアクセス不可能。
+	let num = 0; 
+	
+	function increment(){
+		num += 1;
+		console.log(num)
+	}
+	return increment;
+}
+
+const increment = incrementFactory();
+
+increment();//expected 1
+increment();//expected 2
+increment();//expected 3
+</code>
+</pre>
+
+<h3>クロージャー（動的な関数生成）</h3>
+<dl>
+    <dt>関数を設定する関数に渡す値を変更すると出力結果が変わるので動的な関数といいます。</dt>
+    <dd>numに５が入る。numのレキシカルスコープは５に保たれる。その状態でaddNumberがリターンによって戻り値で返る。さらにadd5には５が格納されている状態でまた呼ばれているので10が追加され１５になる。</dd>
+</dl>
+<pre>
+<code>
+function addNumberFactory(num) {
+	function addNumber(value){
+		return num + value;
+	}
+	
+	return addNumber;
+}
+
+const add5 = addNumberFactory(5)
+const result = add5(10);
+console.log(result) //expected 15
+</code>
+</pre>
+<h3>即時関数</h3>
+<dl>
+    <dt>関数定義と同時に一度だけ実行される関数。</dt>
+    <dd>実行結果が呼び出し元に返却される。</dd>
+    <dd>グループ化させる。</dd>
+    <dd>リターンが表示されていたらリターンが返る。</dd>
+    <dd>関数のスコープ内でしか使えない値と外側で使う値を明確に分けたいときに使う。</dd>
+</dl>
+<pre>
+<code>
+//example 1 
+function a(){
+	console.log('called')
+}
+
+a();
+//グループ化とは括弧でかこんであげることを指す。
+let sum = (3+ 4) *2
+//example 2
+//即時関数　（）で囲ってあげる。グループ化する。
+(function() {
+	console.log('called');;;
+})() //無名関数＋即時関数で呼ばれている。
+
+//example 3
+let c = (function() {
+	let privateVal = 0;
+	let publicVal = 10;
+	
+	function privateFn(){
+		console.log('privateFn is called');
+	}
+	
+	function publicFn(){
+		console.log('publicFn is called' + privateVal);
+	}
+	
+	console.log('called');
+	return  {
+		publicVal, 
+		publicFn
+	};
+	
+})()
+
+c.publlicFn(); //expected 0
+c.publlicFn(); //expected 1
+c.publlicFn(); //expected 2
+
 </code>
 </pre>
 <h3>Varとletの違い。</h3>
@@ -154,8 +344,6 @@ let hello = 'hi';
 console.log(hello); //error 
 
 //違い2つ目：スコープの違い。 
-var hello = 'hello';
-var hello = 'hi';
 {
 	
 	let tomato = 'tomato'
@@ -163,13 +351,12 @@ var hello = 'hi';
 console.log(tomato); //スコープの問題でこれはエラーが起きる。
 
 //しかしこれをvarで置き換えると、エラーが起き「ない」。
-var hello = 'hello';
-var hello = 'hi';
+
 {
 	
 	var tomato = 'tomato'
 }
-console.log(tomato);
+console.log(tomato);　//expected tomato varを使うとブロック関係なくグローバルスコープになる。
 
 //違い3つ目：グローバルオブジェクトの一部になる。
 var apple = 'apple';
@@ -177,7 +364,7 @@ console.log(globalThis); //グローバルオブジェクトにアップルが�
 
 //違い4つ目：巻き上げ　hoisting
 
-console.log(apple); // 普通ここはletだったらエラーが起きる。
+console.log(apple); //expected apple 普通ここはletだったらエラーが起きる。
 var apple = 'apple";
 console.log(apple); 
 
@@ -190,7 +377,6 @@ console.log(apple);
 <li>最初にJavascriptエンジンでブラウザで呼んでいる。</li>
 <li>globalThis　グローバルオブジェクトが見れる。</li>
 <li>組み込み型（ビルトイン）のおかげでいちいち呼び出さなくても使える。</li>
-<li></li>
 </ul>
 <pre>
 <code>
@@ -202,23 +388,39 @@ conosle.log(globalThis);
 </code>
 </pre>
 <h3>Javascriptのルール　式と文</h3>
-<p>Ecmascriptで明確な式と文の定義は別にない。式とはなにか？それは、変数の代入時に右辺に書くものである。例えば　let x = 5;　let y = 8; let z = x + y; この 「x + y」はしきである。この式をJavascriptが読むことを「評価する」と言います。では文とは何か？実行すると何かをすることを指します。厳密の定義は置いて、セミコロンで一文ととらえる。if文やfor文などが文と呼ばれる。文は式になることはできない。さらにここから大事なのが、文を書く場所に式はかける。だからIf文の中にconsole.log();とかも書ける。<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference">（ここで上げている例は一部に過ぎない。）</a> あと意外と重要なのがブロック分です。｛｝ブロック文ないで定義された変数は外側からアクセスすることはできないといことは覚えよう。</p>
+<p>Ecmascriptで明確な式と文の定義は別にない。式とはなにか？それは、変数の代入時に右辺に書くものである。例えば　let x = 5;　let y = 8; let z = x + y; この 「x + y」はしきである。この式をJavascriptが読むことを「評価する」と言います。では文とは何か？実行すると何かをすることを指します。厳密の定義は置いて、セミコロンで一文ととらえる。if文やfor文などが文と呼ばれる。文は式になることはできない。さらにここから大事なのが、文を書く場所に式はかける。だからIf文の中にconsole.log();とかも書ける。<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference">（ここで上げている例は一部に過ぎない。）</a> あと意外と重要なのがブロック分です。｛｝ブロック文なしで定義された変数は外側からアクセスすることはできないといことは覚えよう。しかしながらVarをブロックの中で呼ぶと、ブロックの外から呼べてしまう。また関数をブロックの中で定義した場合でもブロックの外から呼ばれる。だから基本的にはブロック内ではletとかconstを使うように推奨されています。またブロック分の中では関数式で記入したほうがいいと思われます。（統一が大事です。）</p>
 
 <h3>useStrictモードとは</h3>
 <p>現代のJavascriptが適用される。useStrictを宣言するとルールが制限される。一方で使わないと昔のJavascriptの書き方が適用されるのでルールが緩くなる。サッカーで言うと、VR判定がなくなる。</p>
 <h3>primitiveとobjectとは</h3>
-<p>Objectはオブジェクト、配列、関数を表す。Primitiveはnumber, string, boolean, undefined, nullなどを表す。</p>
+<p>Objectはオブジェクト、配列、関数を表す。PrimitiveはInteger, string, boolean, undefined, nullなどを表す。</p>
 <ul>
-<li>Primitiveの場合　：　let x= 8;はメモリに保存される。メモリは電源を切ったら忘れる。</li>
-<li>Objectの場合　：　let x = {x:0}はとある特定の住所に保存される。xという番地に数字が間接的に保存される。x=yになった場合もともとの住所はは動かさないでxの番地だけを移動する。オブジェクトはいちいち運ばない。アドレスがｘとｙに入っていると思ってください。</li>
+<li>Primitiveの場合　：　不変である。互いに影響を受けない。let x = 8;はメモリに保存される。メモリは電源を切ったら忘れる。</li>
+<li>Objectの場合　：　可変である。お互いに影響を受ける。let x = {x:0}はとある特定の住所に保存される。xという番地に数字が間接的に保存される。x=yになった場合もともとの住所は動かさないでxの番地だけを移動する。オブジェクトはいちいち運ばない。アドレスがｘとｙに入っていると思ってください。</li>
 <li>Constは再代入を防いでいる。</li>
 <li>Constでも値が変わることをmutable　可変と言います。</li>
 <li>オブジェクトはmutableである。</li>
 <li>逆に変わらないことをimmutable　　primitiveは不変である　と言います。</li>
+<li>constのオブジェクト内のプロパティは定義しなおせる。</li>
 </ul>
 
 <pre>
 <code>
+//Primitive型の参照元はそのまま残る。
+
+let a = 'hello';
+let b = a;
+b = 'bye';
+console.log(a,b);
+
+//オブジェクト型の参照先は参照元も変わる。可変。
+let c = {
+	prop : 'hello'
+}
+
+let d = c;
+console.log(c,d);
+
 //参照が違うことを示す。番地と住所の話。
 const coffee = {
 	name: 'Caffe Latte',
@@ -245,14 +447,46 @@ const coffee = {
 
 const coffee2 = coffee;
 coffee2.name = 'Charamel Machiato';
-console.log(coffee); //Charamel Machiato Constなのに値が変わってるよね？
+console.log(coffee); //expected Charamel Machiato Constなのに値が変わってるよね？
 
+
+//つまり、constのオブジェクト内のプロパティは定義しなおせる。
+
+const b = {
+    prop: 'hello'
+}
+b.prop = 'bye';
+console.log(b); //expected bye
 </code>
 </pre>
-
-<h3>レキシカル環境(LexicalEnviroment)</h3>
-<p>レキシカル環境とはキーとバリューをセットにしたDBみたいな感じ。オブジェクトである。</p>
+<h3>参照と分割代入</h3>
+<p>分割代入を使用するとプロパティが持っている参照先がコピーされて新しい変数からの参照が貼られる。</p>
 <ul>
+<li>プロパティとPrimitiveは違う世界に住んでいる。</li>
+</ul>
+<pre>
+<code>
+const a = {
+	prop : 0
+}
+
+let {prop: b} = a;
+console.log(b)
+
+function fn({prop}){
+	prop = 1;
+	console.log(a, prop);
+}
+
+fn(a);
+</code>
+</pre>
+<h3>レキシカル環境(LexicalEnviroment)</h3>
+<p>レキシカル環境とはコードを書く場所によって参照できる変数が変わるスコープのことをさします。キーとバリューをセットにしたDBみたいな感じ。オブジェクトである。</p>
+<ul>
+<li>コードをを記述した時点で決定するため静的スコープとも呼ばれる。</li>
+<li>実行中のコードから見た外部スコープのこと</li>
+<li>どのようにしてスコープを決定するかの使用のこと</li>
 <li>レキシカル環境ではブロックがみつかった場合また更にもう一つのレキシカル環境をつくる。</li>
 <li>同じLexical環境内で変数があって呼んだ場合には同じLexical環境内の変数変数が呼び出される。</li>
 <li>関数の場合呼び出されたときにLexical環境が作り出される。</li>
@@ -275,9 +509,9 @@ let b = function( ) {
         let x = 3;
         a ( );    // 1
     };
-    b2( );
-};
-b( );
+    b2( ); //expected 1
+}; 
+b( );　//expected 1
 
 
 let message = "さんこんにちは";
@@ -301,7 +535,7 @@ a3( );   // Hanakoさんこんにちは
 
 
 <h3>クロージャを使ってプライベートを作る方法</h3>
-<p></p>
+<p>グローバル変数を使っているとバグにはまる。だけどクロージャを使ってプライベートすることがバグにたいして有効的。</p>
 <ul>
 <li>メソッドをつかって書き換えれなくする。</li>
 </ul>
@@ -331,34 +565,158 @@ tom.incrementAge();
 tom.incrementAge();
 console.log(tom.getAge()); // expected 3 ここがレキシカル環境が完全に別れている証拠。
 
+//クロージャを使ってプライベート変数を作る。
+//example2
+
+increment();
+increment();
+
+function increment(){
+	let num = 0; 
+	num++;
+	console.log(num); //expected 1が三回出力される。numが初期化されているから。
+}
+
+//num変数をブロックの外側に持っていくとグローバル変数になって1,2,3と出力されるが。バグが生まれやすくなる。
+//じゃあどうするか？
+//クロージャを使ってプライベート変数を作る。
+
+function incrementFactory(){ //Factoryは何かを生成するときに用いる。
+	let num = 0
+	
+	function increment(){
+		num += 1;
+		console.log(num);
+	}
+	return increment;	
+}
+
+increment();
+
+console.log(num); //error numがincrementFactoryの関数の中に入っていることに注目してください。
+
+
 </code>
 </pre>
-
-<h3>実行コンテキストスタック excution context stack</h3>
+<h3>クロージャ　動的な関数の生成　</h3>
 <p></p>
 <ul>
-<li></li>
+<li>add5にまず値が入る。</li>
+<li>次にresultに１０が入る。その時に5はレキシカルスコープに５が残ってる。</li>
+<li>そしてリターンのaddNumberにより１５が返される。</li>
 </ul>
+
 <pre>
 <code>
 
-const c = () => {
-	return 'hello';
+function addNumberFactory (num){
+	function addNumber(value){
+		return num + value;
+		
+	}
+	return addNumber;
 }
 
-const b = () => {
-	return c();
+const add5 = addNumberFactory(5); //addNumberFactoryの引数に５が渡される。
+const result = addNumberFactory(10); 
+console.log(result) //expected 15
+
+</code>
+</pre>
+
+<h3>実行コンテキスト</h3>
+<p>コンテキスト</p>
+<ul>
+<li>前後関係、文脈、状況、環境</li>
+<li><strong>グローバルコンテキスト</strong>　</li>
+<li>実行中のテキスト内の変数関数</li>
+<li><strong>関数コンテキスト</strong></li>
+<li>実行中のコンテキスト内の変数関数</li>
+<li>arguments super this 外部変数</li>
+</ul>
+
+<pre>
+<code>
+//Global context 
+let apple = 'mac'; 
+
+
+function b(){
+	//function 関数 context
+	console.log(this, arguments, apple);
+}
+console.log(apple);
+b(); 
+
+</code>
+</pre>
+
+<h3>コールスタック</h3>
+<p>コンテキストの積み重ね</p>
+<ul>
+<li>どのような経路を通ったのか記録しておくこと。</li>
+<li>どのような状態だったのか記録から確認できる。</li>
+<li>このようなスタックの仕組みを「後入れ先だし」Last In, First Outという。</li>
+
+</ul>
+
+<pre>
+<code>
+function a(){
+	
+}
+funciton b(){
+	ｂを呼ぶとaを呼ぶ
+	a()
+	
+}
+function c(){
+	//cを呼ぶbを呼ぶ
+	b();
+}
+c();
+</code>
+</pre>
+<h3>ホイスティング</h3>
+<p></p>
+<ul>
+<li>ブラウザが関数を先に読むようにできている。	</li>
+<li>変数の上では呼べない。</li>
+<li>このようなことをホイスティングと呼ぶ。</li>
+<li>コンテキストが呼ばれるたびにホイスティングが発生する。</li>
+
+</ul>
+
+<pre>
+<code>
+console.log('apple') //error
+let apple = 'Mac';
+
+computer() //expected Hello World
+function computer(){
+	console.log('Hello World');
 }
 
-const a = () => {
-	return b();
+
+
+function a (){
+	console.log(c); //error
+	let c = 1; //変数宣言の↑では呼べない。
+	
+	d();
+	function d(){
+		console.log('d is called.')
+	}
+	console.log('a is called.')
 }
 
 a();
 
-
 </code>
 </pre>
+
+
+
 <h3>Object.assignを使ってオブジェクトを拡張する方法</h3>
 <p>Object.assignでオブジェクトを結合する。</p>
 <ul>
@@ -391,18 +749,18 @@ const coffee = {
 }
 
 const newCoffee = Object.assign({}, coffee, {isHot : true}); //スプレッド構文をObject.assignにいれたいときには{}を使う。
-console.log(newCoffee === coffee );
+console.log(newCoffee === coffee );//expected false
 
 
 </code>
 </pre>
-<h3>分割代入はこうなっている。</h3>
+<h3>分割代入</h3>
 <p></p>
 <ul>
-<li>例題①をよく見てほしい。titletitleを取得してbook.titleにいれて、呼ぶとSpiderManと呼ばれる。</li>
+<li>titleを取得してbook.titleにいれて、呼ぶとSpiderManと呼ばれる。</li>
 <li>オブジェクトをつけると別名をつけられる。</li>
-<li> でふぉると値も設定できる。あんま使われない。</li>
-<li> 残り全てという書き方もできる。...etc</li>
+<li> default値も設定できる。あんま使われない。</li>
+<li> 残り全てという書き方もできる。=> 課長編引数　レストパラメーター　...etc</li>
 <li> var let も同じように動く。そして関数も動く。</li>
 <li> 関数のパラメーターの中にオブジェクトをまんま入れることができる。</li>
 <li> 関数を呼び出すときにそのオブジェクトの変数を読んであげる。</li>
@@ -589,6 +947,21 @@ coffee.price
 //expected '450'
  </code>
 	</pre>
+	<h3>Optional　Chaining　オプショナルチェーン。</h3>
+	<p>「.」の手前には「?」をつけることができる。</p>
+<ul>
+<li>オプショナルチェーンとは　：「？」の左側がnullかundefinedならばすぐにnullかundefinedを返す。</li>
+<li>？の右側は無視する。</li>
+<li>？の左側の変数がない場合はerrorになる。</li>
+</ul>
+<pre>
+<code>
+let user = undefined
+user.address //expected error
+
+user?.address; //errorは出なくなる。
+ </code>
+</pre>
 
 <!--	<h3>フォームの入力内容を取得する。</h3>
 	<section>
@@ -677,7 +1050,7 @@ typeof {name:"Tom"}
 	<pre>
 		<code>
 		
-for(;;) ⇐の意味は三つ式を取りますよという意味。
+//for(;;) ⇐の意味は三つ式を取りますよという意味。
 
 const secondexample = [122,444,556,634];
 //iは添え字という意味合いがある。ofの時は使わない。
@@ -694,9 +1067,9 @@ console.log(i); //output 1,3,5,6,7,9
 }
 
 
-ちなみにletはこうも書ける。
+/*ちなみにletはこうも書ける。
 let a = 1, b = 2;
-よってfor文ではこう書ける。
+よってfor文ではこう書ける。*/
 
 for (
 	let pumbpkinCount = 0, i = 0;
@@ -844,7 +1217,7 @@ if(ok) {
 } else if (maybeok) {
 	console.log('maybe okay');
 	} else { //falseの場合のみ
-	console.log('no!');
+	console.log('It is not ok ! No!');
 }
 
 
@@ -860,7 +1233,7 @@ ok = "A" &lt; "a"; //expected true
 console.log(ok);
 
 
-falsy false として扱われる値
+//falsy false として扱われる値
 false
 0
 -0
@@ -869,8 +1242,8 @@ null
 undefined
 NaN
 
-************
-論理演算子
+/************/
+//論理演算子
 ok = false && true;
 ok = false || false;
 //Truethy Falseyの場合はどうなるのか？
@@ -1039,17 +1412,15 @@ const returnedValue = add(2,3);
 const returnedValue = add(2,3); 
 </code>
 </pre>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\javascript_turtorial_img1.jpg" alt="img" width="390px"
-		width="340px">
-	<p>ローカル変数は関数の先頭で宣言することを心がける。なぜならば、<a>href="https://developer.mozilla.org/ja/docs/Glossary/Hoisting">変数</a>の巻き上げをふせぐため。</p>
+	<p>ローカル変数は関数の先頭で宣言することを心がける。なぜならば、<a href="https://developer.mozilla.org/ja/docs/Glossary/Hoisting">変数</a>の巻き上げをふせぐため。</p>
 <pre>
 <code>
-関数の中だけしか扱えないようなconst value = num1 + num2;
+/*関数の中だけしか扱えないようなconst value = num1 + num2;
 変数をローカルスコープまたはローカル関数と呼ぶ。または関数スコープとも呼ぶ。　
-************
-関数の内側と外側に同じキーの変数があった場合、優先して呼ばれるのは内側の変数。
-*****************
-これをシャドウぃんぐと呼ぶ
+*************/
+//関数の内側と外側に同じキーの変数があった場合、優先して呼ばれるのは内側の変数。
+/*****************/
+//これをshadowing　シャドウウィングと呼ぶ
 const newValue = 'Hello';	//変数をつくって関数の中で呼んでみる。
 		
 function add(num1, num2){
@@ -1059,23 +1430,24 @@ function add(num1, num2){
 }
 </code>
 </pre>
-
-。
 	<pre>
 		<code>
-ファンクションコンストラクターの配下の変数はその宣言場所にかかわらず、
-常にグローバルスコープとみなされる
-var scope = 'Global Variable'; <br>
-function checkScope() {<br>
-var scope = 'Local Variable'; <br>
-var f_ lit = function() { return scope; }; <br>
-console. log( f_ lit()); 結果： Local Variable<br>
-var f_ con = new Function(' return scope;'); <br>
-console. log( f_ con()); // 結果： Global Variable }
+/*ファンクションコンストラクターの配下の変数はその宣言場所にかかわらず、
+常にグローバルスコープとみなされる*/
+var scope = 'Global Variable';  
+function checkScope() { 
+var scope = 'Local Variable';  
+var func = function() { 
+	return scope; 
+	};  
+console. log( func()); //結果： Local Variable 
+var func2 = new Function(' return scope;');  
+console. log( func2()); // 結果： Global Variable }
 
 		</code>
 	</pre>
 
+<h2>関数　Function</h2>
 	<h3>関数Function アロー関数</h3>
 	<ul>
 	<li>関数はオブジェクトに過ぎない。</li>
@@ -1095,7 +1467,7 @@ console.log(newAdd(3,4)); //expected 7
 	</code>
 	</pre>
 
-<p>関数式</p>
+<h3>関数式</h3>
 <p>関数は静的な構造を宣言する。</p>
 <ul>
 <li>関数を定義するときには2つの方法がある。</li>
@@ -1176,7 +1548,7 @@ function add(){
 //パラメーター
  function add(num1, num2){
 	
-	console.log() num1 + num2);
+	console.log( num1 + num2);
 }
 //引数（argument）
 add(5,3);
@@ -1198,7 +1570,7 @@ console.log(returnedValue);
 <p>関数とメソッドの違い。</p>
 <ul>
 <li>キーとバリューセットをプロパティと呼ぶ。</li>
-<li>つまりsayHiはプロパティである。</li>
+<li>そのため、sayHiはプロパティである。</li>
 <li>またはsayHiメソッドと言う。</li>
 </ul>
 <pre>
@@ -1214,14 +1586,14 @@ const person = {
 </code>
 </pre>
 
-<p>アロー関数 functionもreturnも略せる。３つの特徴</p>.
+<h3>アロー関数 ３つの特徴</h3>
 <ul>
+<li>functionもreturnも略せる。</li>
 <li> 無名関数の置き換えになる。無名関数の別の書き方がアロー関数。</li>
 <li> だから関数に名前はいらない。</li>
 <li>1. 一つに式をリターンする場合波かっこと且つリターンを省略できる。</li>
 <li>2. パラメータが一つの場合、パラメータの〇括弧を省略できる。ただパラメータが一つの場合のみです。</li>
-<li>3. thisというものです。後に説明</li>
-<li> thisというものです。後に説明</li>
+<li>3. this arguments new prototypeはアロー関数では使えない。</li>
 <li> アロー関数にオブジェクトはつけられない。式と認識するから。もしオブジェクトを入れたい場合は（）をつけてやる。</li>
 </ul>
 	<pre>
@@ -1298,6 +1670,26 @@ subtract(10,3, (result) => {
 subtract(19,4,(result) => {
 	alert(result); //expected 15
 });
+
+//example 2
+function bye(){
+	console.log('bye');
+}
+
+function hi(name){
+	console.log('Hi' + name);
+}
+
+function fn(callback){
+	callback('Taro');
+}
+
+fn(bye); //expected bye
+fn(hi); //expected Hi Taro
+fn(function(name) {
+	console.log('hello' + name);
+})//expected  hello Taro
+
 		</code>
 
 
@@ -1320,6 +1712,251 @@ list="This is " + list; showLists(list); });
 //output // This is number1 .... continue...
 		</code>
 	</pre>
+	
+<h3>コールバック関数とthis</h3>
+<p>オブジェクトのメソッドとして実行される場合thisは呼び出し元オブジェクトをさす。関数として実行される場合thisはグローバルオブジェクトを指す。</p>
+<ul>
+<li>bindによって'this'や引数を固定した新しい関数を作成。</li>
+<li>bindをつかってthisのオブジェクトまたは引数を固定することができる。</li>
+</ul>
+
+<pre>
+<code>
+
+window.name = 'John';
+
+const person = {
+	name : 'Tom',
+	hello : function (){
+		console.log('Hello' + this.name);
+	}
+}
+
+person.hello(); //expected HelloTom
+
+
+function fn(ref){
+	ref();
+}
+
+fn(person.hello); //expected HelloJohn
+
+//bindをつかってthisのオブジェクトまたは引数を固定することができる。
+const helloTom = person.hello.bind(person);
+
+fn(helloTom); //expected helloTom
+
+function a(name) {
+	console.log('hello' + name);
+}
+
+const b = a.bind(null, 'Tim');
+
+b('Tom');
+</code>
+</pre>
+<h3>call apply と　this</h3>
+<p>bindはthisや引数の参照先を変更する。使用時点で実行はしない。call apply 'this'や引数の参照先を変更。同時に関数を実行する。</p>
+<ul>
+<li>apply call は関数の仮引数を定義することができる。</li>
+
+</ul>
+
+<pre>
+<code>
+function a(name, name1){
+	console.log('hello' + name + '' + name1);
+}
+
+const tim = {name: 'Tim'};
+
+const b = a.bind(tim);
+
+b();
+
+a.apply(tim, ['Tim', 'Bob']); //applyは配列で呼び出す。
+a.call(tim, 'Tim', 'Bob');
+
+</code>
+</pre>
+<h2>関数とオブジェクト　Part２</h2>
+<h3>コンストラクター関数</h3>
+<p>新しくオブジェクトを作成するための雛形となる関数。</p>
+<ul>
+<li>newで作成したオブジェクトをインスタンスという。</li>
+<li>newでオブジェクトを作成することをインスタンス化という。</li>
+<li>オブジェクトを大量に生産したい場合にはnew演算子とコンストラクターを使ったオブジェクトの生成は大変有効的である。</li>
+<li>テンプレート化されたオブジェクトを生成するためにはコンストラクター関数が使われる。</li>
+<li>new演算子をつかってオブジェクトを生成することをインスタンス化するという。</li>
+</ul>
+<pre>
+<code>
+
+function Person(name, age){
+	this.name = name;
+	this.age = age;
+}
+
+const bob = new Person('Bob', 18);
+const tom = new Person('Tom', 18);
+const Sum = new Person('Sum', 18);
+
+
+</code>
+</pre>
+<h3>プロトタイプ</h3>
+<p>オブジェクトに存在する特別なプロパティー。コンストラクター関数と合わせて使用する。</p>
+<ul>
+<li>インスタンス化した際にはprototypeの参照が__proto__にコピーされる。</li>
+<li>プロトタイプを使わないとhelloというメソッドを随時追加することになる。=>メモリ消費する。</li>
+<li>コンストラクター関数を作ってプロトタイプを使うと、いちいちhello関数を定義しなくてよくなる。=>メモリに優しい。</li>
+
+</ul>
+<pre>
+<code>
+
+function Person(name, age){
+	this.name = name;
+	this.age = age;
+}
+
+Person.prototype.hello = function () {
+	console.log('hello' + this.name)
+}
+const bob = new Person('Bob', 18);
+const tom = new Person('Tom', 18);
+const Sum = new Person('Sum', 18);
+
+bob.hello();
+
+</code>
+</pre>
+<h3>new演算子</h3>
+<p>コンストラクター関数からインスタンスを作成するために使用する演算子</p>
+<ul>
+<li>コンストラクター関数の戻り値がオブジェクトの場合、コンストラクターが返すリターンのオブジェクトを新しいオブジェクトとして呼び出し元に返す。</li>
+<li>コンストラクター関数の戻り値がオブジェクト以外の場合、コンストラクターのプロパティの__prototype__にコピーされる。</li>
+<li>スーパーは親のメソッドを呼ぶことができる。</li>
+</ul>
+<pre>
+<code>
+
+function F(a,b){
+	this.a = a;
+	this.b = b;
+	return {};
+}
+
+
+</code>
+</pre>
+<h3>instance of</h3>
+<p>どのコンストラクターから生成されたオブジェクトかを確認する。</p>
+<ul>
+<li>どのようなときに使うか？</li>
+<li>配列かオブジェクトかを判定する場合に条件分岐として使う。</li>
+</ul>
+<pre>
+<code>
+function F(a,b) {
+	this.a = a;
+	this.b = b
+	return {a:1}
+}
+
+F.prototype.c = function (){};
+
+const instance = new F(1,2);
+console.log(instance instanceof F) //expected false
+console.log(instance instanceof Object ); //expected true
+console.log(instance.__proto__ === F.prototype)
+
+function fn(arg){
+	if(arg instanceof Array){
+		
+	arg.push('value');
+	}else {
+		
+	arg['key'] = 'value';
+	}
+	console.log(arg)
+}
+
+//fn() //オブジェクトの時はオブジェクトを追加
+fn([]) //配列の時は配列で追加
+
+
+</code>
+</pre>
+<h3>関数コンストラクター</h3>
+<p>関数は実行可能なオブジェクトである。</p>
+<ul>
+<li>''で関数のBODY部分を表す。</li>
+<li>関数はオブジェクトである。</li>
+<li>関数コンストラクターで作られたインスタンス関数は関数オブジェクトである。</li>
+<li>関数宣言と関数コンストラクターは明確に使い分ける必要がある。</li>
+<li>関数コンストラクターは一般的には脆弱性の問題になるため使わないようにしましょう。</li>
+</ul>
+<pre>
+<code>
+//関数コンストラクター　''で関数のBODY部分を表す。
+const fn1 = new Function('a', 'b', 'return a + b'); 
+
+const result = fn1(2,4);
+
+console.log(result);
+
+function fn2(a,b) {
+	retunr a + b;
+}
+
+console.log(fn2 instacneof Function) //expected True
+
+//無名関数で生成されたオブジェクト
+const obj = new function(){
+	this.a = 0;
+}
+//無名関数から生成したオブジェクトインスタンス　→オブジェクトリテラルで囲まれる。
+const fn3 = new Function ('return;');　
+const obj3 = new fn3('this.a = 0;');　//ここで関数に入れてあげる。と
+//関数からインスタンス化されたオブジェクトになる。
+console.log(obj, fn3);
+</code>
+</pre>
+<h3>プロトタイプチェーン hasOwnProperty In </h3>
+<p>プロトタイプの多重形成をプロトタイプチェーンと言う。</p>
+<ul>
+<li>__prototype__が多態層で重なっている事をPrototypeChainと表現する。</li>
+<li>Personのクラスが呼び出される。しかし、Personくらすをコメントアウトすると、Objectクラスが呼び出される。</li>	
+<li>多重形成されたプロトタイプでは呼び出し先の優先順位が決まっている。</li>
+<li>hasOwnPropertyで自分自身のオブジェクトのプロパティとして引数で与えられた名前が存在するかをbookeanで確認できる。</li>
+<li>inは文字列のプロパティまたはメソッドが格納されているか調べることができる。</li>
+<li>inを使った場合プロトタイプチェーンを含めて名前のメソッドが存在するかどうか遡って調べていく。</li>
+</ul>
+
+<pre>
+<code>
+function Person(name, age) {
+	this.name = name;
+	this.age = age;
+}
+
+Person.prototype.hello = function(){
+	console.log('Hello  ' + this.name + ', you are '　+ this. age );
+}
+Object.prototype.hello = function(){
+	console.log('Hello  ' + this.name + ', you are '　+ this. age );
+}
+
+const bob = new Person('Bob', 18);
+bob.hello();
+
+const result = bob.hasOwnProperty('name', 'age');
+console.log(result); //expected true
+console.log('name' in bob); //expected true 文字列のプロパティまたはメソッドが格納されているか調べる
+console.log('hasOwnProperty' in bob); //expected true プロトタイプチェーンを含めて名前のメソッドが存在するかどうか調べる。
+</code>
+</pre>
 <h3>デフォルトパラメータはこう使う</h3>	
 <ul>
 <li>
@@ -1371,7 +2008,219 @@ console.log(sayHi('Rin', 'how are you?'));　// Hi how are you?
 </code>
 </pre>
 
+<h3>プロトタイプ継承</h3>
+<p>別のコンストラクター関数のプロトタイプを受け継いで、機能を流用できるようにすること。</p>
+<p>継承　：　別のコンストラクター関数を受け継ぐこと。</p>
+<ul>
+<li>複数個所に同じコードを書くのは効率的ではない。</li>
+<li></li>
+<li></li>
+</ul>
+<pre>
+<code>
+function Person(name, age){
+	this.name = name;
+	this.age = age;
+}
 
+Person.prototype.hello = function(){
+	console.log('hello' + this.name);
+}
+
+
+function Japanese (name, age){
+	Person.call(this, name, age, gender);
+	//Japaneseクラスだけに特定のプロパティを追加することもできる。
+	this.gender = gender 
+}
+
+//上書きが可能になる。
+/*Person.prototype.hello = function(){
+	console.log('hello' + this.name);
+}*/
+
+//プロトタイプ継承
+Japanese.prototype = Object.create(Person.prototype);
+//上書きをしてあげる。必ずプロトタイプ継承した後に上書きすること。
+Japanese.prototype.hello = function(){
+	console.log('Konnichiwa ' + this.name);
+}
+
+Japanese.prototype.bye = function(){
+	console.log('Matane! ' + this.name);
+}
+
+const taro = new Japanese('Taro', 32, 'Male');
+
+console.log(taro); // Japaneseだけに性別プロパティが入っている。
+taro.hello(); //expected helloTaro
+taro.bye();
+</code>
+</pre>
+
+<h3>クラス</h3>
+<p>コンストラクター関数をクラス表記で書けるようにしたもの。シンタックスシュガーという。</p>
+<ul>
+<li></li>
+</ul>
+<pre>
+<code>
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+	
+	hello(){
+		console.log('hello ' + this.name);
+	}
+}
+
+const bob = new Person('Bob', 23);
+console.log(bob);
+
+/*
+function Person(name, age){
+	this.name = name;
+	this.age = age;
+}
+
+Person.prototype.hello = function(){
+	console.log('hello' + this.name);
+}
+*/
+</code>
+</pre>
+<h3>プロトタイプ継承</h3>
+<ul>
+<li>extendsをつかって継承する。</li>
+<li>superはコンストラクター内の一番初めに呼ばなければならない。</li>
+</ul>
+<pre>
+<code>
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+	
+	hello(){
+		console.log('hello ' + this.name);
+	}
+}
+
+class Japanese extends Person {
+	constructor (name, age,gender){
+	super(name, age);
+	this.gender = gender;
+} 
+	
+	bye(){
+	console.log('Matane! ' + this.name);
+}
+	hello(){
+	// super.hello(); これを実行するとPersonクラスのhelloメソッドを呼び出すことになる。
+	console.log('Konnichiwa ' + this.name);
+}
+
+	
+}
+ const taro = new Japanese('Taro', 32, 'Male');
+
+console.log(taro); // Japaneseだけに性別プロパティが入っている。
+taro.hello(); //expected helloTaro
+taro.bye();
+</code>
+</pre>
+<h3>プロパティとディスクリプター</h3>
+<ul>
+<li>value　値</li>
+<li>configurable　設定変更可能性</li>
+<li>enumerable　列挙可能性</li>
+<li>writable 値の変更可能性</li>
+</ul>
+<pre>
+<code>
+const obj = {prop : 0};
+
+const descriptor = Object.getOwnPropertyDescriptor('prop', 0);
+/ * 
+Object.defineProperty(obj, 'prop', {
+		value: 0;
+		writable: true //writableだけtrueにすることができる。
+		configurable : true
+})
+
+definePropertyを使うことでconfigurable,enumerable,writableがすべてfalseになる。
+*/
+
+/*
+definePropertyを使ってwritableをtrueにしたのでここでobjectが追加できる。
+
+obj.prop = 1;
+console.log(obj.prop); //expected value : 1 
+
+
+delete obj.prop // configurableをtrueにすることで消去可能になる。
+*/
+
+console.log(descriptor); //expected configurable: false enumerable: true value:"p" writable: true
+</code>
+</pre>
+<h3>ゲッターセッター</h3>
+<ul>
+<li>definePropertyを使ってゲッターセッターを使う。</li>
+<li>何らかの処理をはさむ際にゲッターセッターを使う。</li>
+</ul>
+<pre>
+<code>
+function Person1(name, age) {
+	this._name = name;
+	this._age = age;
+}
+
+Object.defineProperty(Person1.prototype, 'name', {
+	get: function(){
+		console.log('Hello');
+		return this._name;
+	},
+	set: function(val){
+		//valueをセットする。
+		this._name = val;
+	}
+});
+
+const p1 = new Person1('Bob', 23);
+console.log(p1.name); //expected Bob
+
+
+/*
+クラスでゲッターセッターを使うと
+
+class Person2 {
+	constructor(name, age){
+		this._name = name;
+		this._age = age;
+	}
+	//getter
+	get name(){
+		console.log('hello');
+		return this._name;
+	}
+	//setter
+	set name(val) {
+		this._name = val;
+	}
+	//static method
+	static hello(){
+		console.log('hello')
+	}
+}
+
+Person2.hello()
+*/
+</code>
+</pre>
 <h3>レストパラメーターで無限個の引数を扱う方法</h3>
 <ul>
 <li>
@@ -1426,7 +2275,7 @@ console.log(sum(1,45,75,32));
 <h3>無名関数と名前付き関数の違い</h3>
 <ul>
 <li>
-　名前付き関数の場合デバックの時にわかりやすい。グーグルは名前付き関数を見ている。
+名前付き関数の場合デバックの時にわかりやすい。グーグルは名前付き関数を見ている。
 </li>
 <li>
 変数に無名関数やアロー関数を代入した場合その変数名がネームプロパティーになる。推測される。
@@ -1441,7 +2290,7 @@ sayHi = function () {
 	return 'hi';
 };
 
-console.dir(sayHi); //expected name: "sayHi"
+console.dir(sayHi); //expected　sayHi()
 </code>
 </pre>
 <h3>引数は後から変更可能</h3>
@@ -1495,17 +2344,12 @@ return base*height/2;
 }
 
 console.log(getTriangle(5)); // expected 2.5
-
 		</code>
-
-
 	</pre>
 	
 <p>可変長引数の関数を定義する</p>
 	<pre>
 		<code>
-//
-
 function sum(...nums){
 let result = 0;
 for(let num of nums){if(typeof num !== 'number'){
@@ -1526,12 +2370,11 @@ console.log({base:5, height:4});
 
 
 //オブジェクトから特定のプロパティだけを取り出す。
-この 例 で あれ ば、 show 関数 は 引数 として オブジェクト 全体 を 受け取り ます が、
-関数 側 では、 name プロパティ だけを 分割 代入 によって 取り出し て い ます。
+/*この 例 で あれ ば、 show 関数 は 引数 として オブジェクト 全体 を 受け取り ます が、関数 側 では、 name プロパティ だけを 分割 代入 によって 取り出し て い ます。
 複数 のプロパティ を 必要 と する 場合 にも、
 関数 の 呼び出し 側 で、 個々 の プロパティ を 意識 せ ず、
 オブジェクト を まるごと 渡せる のが 良い ところ です。 また、 必要 な プロパティ が
-変化 し た 場合 にも、 呼び出し 側 の コード に 影響 が 及び ませ ん。
+変化 し た 場合 にも、 呼び出し 側 の コード に 影響 が 及び ませ ん。*/
 
 function show({name}){
 console.log(name);
@@ -1544,7 +2387,6 @@ address: "satoshinakamoto@sample.com"
 }
 
 show(member);
-
 		</code>
 
 
@@ -1628,7 +2470,7 @@ return `${accumulate}&lt;${recentValue}>`;
 	function reduce(array, callback, defaultValue) {
 	let accumulate = defaultValue;
 
-	for (let i = 0; i array.length; i++) {
+	for (let i = 0; i < array.length; i++) {
 	let recentValue = array[i];
 	accumulate = callback(accumulate,recentValue);
 	}
@@ -1642,137 +2484,7 @@ return `${accumulate}&lt;${recentValue}>`;
 		</code>
 	</pre>
 
-	<h3>DOM</h3>
-	<p>document.querySelectorAll()</p>
-	<p>「querySelector()」は、JavaScriptから任意のHTML要素を検出・取得することができるメソッドになります。
-		JavaScriptには以前から「getElementById()」とか「getElemetnsByClassName()」などHTML要素を取得できるメソッドはありました。
-		しかし、「querySelector()」を使うとid属性値・class属性値などを意識せずにjQuery感覚でHTML要素をセレクタ指定することができます。
-		つまり、簡単に言うと「querySelector()」だけであらゆるHTML要素を取得することができるわけです。</p>
 
-	<a href="https://takayamato.com/eventlistener/">domcontentloaded vs loaded </a>
-	<p>細かいところ解説していくと長くなるので、とりあえずこの２段階を知っていれば大丈夫です。
-		①DOMツリーを読み込む
-		②画像、CSSなどの外部ファイルの読み込み完了
-		①の時に全てのHTMLタグを樹形図のように表し、その構造（テキスト情報も含む）を書き出します。
-		まずページ全体の骨格を作っていると思っておいてOKです。
-		②ではその骨格の形成が完了した後に使われている画像やCSSを読み込んでページを完成させていきます。
-		ネット環境がめちゃくちゃ悪いところで何かのページを見ると、まず文章構造（文字や改行）だけが反映されて、その後にCSSが適用されて画像が読み込まれますよね。
-		これは重要なポイントです。</p>
-
-	<p style="color: blue;">正規表現</p>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\formalExpressions_img4.jpg" alt="img" width="390px"
-		width="340px">
-	<h3>いろいろなメソッド</h3>
-	<p style="color:blue;">foreachメソッド</p>
-	<p>foreachめっそどは配列内の要素を、指定した関数で順に処理するためのメソッドです。</p>
-
-	<p>配列オブジェクトcallback：個々の要素を処理するための関数that：</p>
-	<p>関数callbackの中でthis（5.1.5項)が示すオブジェクト</p>
-
-	<pre>
-		<code>array. forEach( callback [,that]) array：
-var data = [2, 3, 4, 5]; data. forEach( function( value, index, array) {
-console.log( value * value); // 結果：4、9、16、25 });
-		</code>
-	</pre>
-	<ul>
-		<li>第一引数う→要素の値</li>
-		<li>第二引数→インデックス番号</li>
-		<li>第三引数→元の配列</li>
-	</ul>
-
-	<p style="color:blue;">sortメソッド</p>
-	<p>sort() メソッドは、配列の要素をその場でソートし、ソートされた同じ配列の参照を返します。既定のソート順は昇順で、要素を文字列に変換してから、 UTF-16 コード単位の値の並びとして比較します。ソートの時間的・空間的予測値は実装に依存するため、保証はできません。</p>
-	<pre>
-		<code>
-const months = ['March', 'Jan', 'Feb', 'Dec'];
-months.sort();<br>
-console.log(months);<br>
-// Expected output: Array ["Dec", "Feb", "Jan", "March"]<br>
-
-const array1 = [1, 30, 4, 21, 100000];<br>
-array1.sort();<br>
-console.log(array1);<br>
-// Expected output: Array [1, 100000, 21, 30, 4]
-		</code>
-	</pre>
-	<br>
-	<br>
-	<br>
-	<pre>
-		<code>
-var classes = ['部長', '課長', '主任', '担当'];<br>
-var members = [
-{ name: '鈴木 清 子', clazz: '主任' }, <br>
-{ name: '山口 久 雄', clazz: '部長' },<br>
-{ name: '井上 太郎', clazz: '担当' }, <br>
-{ name: '和田 知 美', clazz: '課長' },<br>
-{ name: '小 森 雄 太', clazz: '担当' }, ];
-console. log( members. sort(<br>
-function( x, y) { return classes. indexOf( x. clazz) - classes. indexOf( y. clazz); ← ❶ }))
-		</code>
-	</pre>
-	<p style="color:blue;">someメソッド</p>
-	<p>some() メソッドは、指定された関数で実装されているテストに、配列の中の少なくとも 1 つの要素が 合格するかどうかを判定します。配列の中で指定された関数が true を返す要素を見つけた場合は true
-		を返し、そうでない場合は false を返します。それ以外の場合は false を返します。配列は変更しません。</p>
-	<pre>
-		<code>
-const array = [1, 2, 3, 4, 5];<br>
-
-// Checks whether an element is even<br>
-const even = (element) => element % 2 === 0;<br>
-
-console.log(array.some(even));<br>
-// Expected output: true
-
-		</code>
-	</pre>
-	
-
-	<h3>Javascriptにおけるオブジェクト指向の特徴</h3>
-	<p>ここ までに 見 て き た よう に、 JavaScript は れっきとした オブジェクト 指向 言語 です。 しかし、 Java や C ++、 C# といった オブジェクト 指向 言語 とは 根本的 に 異なる 点 が
-		あり ます。 それ は「『 インスタンス 化／ インスタンス』 という 概念 は ある ものの、 いわゆる『 クラス』 が なく、『 プロトタイプ（ ひな型）』 という 概念 だけが 存在 する」 という 点 です。
-		プロトタイプ とは、「 ある オブジェクト の 元 と なる オブジェクト」 の こと。 JavaScript では、（ クラス の 代わり に） プロトタイプ を 利用 し て、 新た な オブジェクト を 生成 し て
-		いく こと になり ます。 この よう な 性質 から、 JavaScript の オブジェクト 指向 は、 プロトタイプ ベース の オブジェクト 指向 と 呼ば れる こと も あり ます。 クラス ベース の
-		オブジェクト 指向 に どっぷり と 浸かっ て しまっ た 方 にとって は、 やや イメージ が つかみ にくい かも しれ ませ ん が、 プロトタイプ とは、 要は「 より 縛り の 弱い クラス の よう な
-		もの」 と 思っ て おい て ください。</p>
-	<p style="color: blue;">プロパティとメソッド</p>
-	<p>ここ で 注目 す べき は、 this キーワード です。 this キーワード は、 コンス トラクター によって 生成 さ れる インスタンス（ つまり、 自分自身） を 表す もの です。 this キーワード
-		に対して 変数 を 指定 する こと で、 インスタンス の プロパティ を 設定 でき ます。関数 リテラル） を 指定 できる 点 にも 注目 し て ください。 JavaScript において は、 厳密 には
-		メソッド という 独立 し た 概念 は なく、 値 が 関数 オブジェクト で ある プロパティ が メソッド と 見なさ れる の です。 ここ では、 getName プロパティ に 関数 リテラル を 引き渡し て
-		いる ので、 いわゆる「 getName メソッド」 を 宣言 し た こと に なる わけ です。 実際 に、 Member オブジェクト を インスタンス 化 し て、 getName メソッド を 呼び出し て みる
-		と、 たしかに「 山田 祥 寛」 という 文字列 が 表示 さ れる こと が 確認 できる はず です。</p>
-	<pre>
-		<code>
-var Member = function( firstName, lastName) {
-this. firstName = firstName;
-this. lastName = lastName;
-this. getName = function() {
-return this. lastName + ' ' + this. firstName; } };
-
-var mem = new Member(' 祥 寛', '山田');
-console. log( mem. getName()); // 結果： 山田 祥 寛
-		</code>
-	</pre>
-	<p style="color: blue;">動的にメソッドを追加する。</p>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\protoTypeclassBase.jpg" width="390px" width="340px">
-	<p>Java の よう な クラス ベース の オブジェクト 指向 に 慣れ た 方 なら ば、「 同一 の クラス を 元 に 生成 さ れ た インスタンス は 同一 の メンバー を 持つ」 のが 常識 です が、
-		プロトタイプ ベース の オブジェクト 指向（ JavaScript） の 世界 では、 同一 の クラス を 元 に 生成 さ れ た インスタンス で あっ ても、 それぞれ が 持つ メンバー は 同一 で ある とは
-		限ら ない という こと です。 ここ では、 新た に メンバー を 追加 し て いる だけ です が、 delete 演算子（ 2. 4. 6 項） で インスタンス から 既存 の メンバー を 削除 する こと も
-		でき ます。 この よう な ゆる さが、 本章 の 冒頭 で、 プロトタイプ が「 より 縛り の 弱い クラス の よう な もの」 と 述べ た 理由 です。 </p>
-	<pre>
-		<code>
-var Member = function (firstName, lastName{
-this.firstName = firstName;
-this.lastName = lastName; };
-
-var mem = new Member(' 祥 寛', '山田');
-mem. getName = function() {
-return this. lastName + ' ' + this. firstName;
-}
-console. log( mem. getName()); // 結果： 山田 祥 寛
-		</code>
-	</pre>
 
 
 

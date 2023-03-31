@@ -97,19 +97,19 @@ public static void main(String[] args) {
   int b = 123;
   int c = 134;
   
-  sum
+  //sum
   a = b + c;
   System.out.println(a);
-  substract
+  //substract
   a = b - c;
   System.out.println(a);
-  times
+  //times
   a = b * c;
   System.out.println(a);
-  divide
+  //divide
   a = b / c;
   System.out.println(a);
-  remainder
+  //remainder
   a = b % c;
   System.out.println(a);
   
@@ -127,13 +127,14 @@ public static void main(String[] args) {
 <p>インスタンスの生成なしでメソッドを書きたい場合、に有効活用するのが最大のメリット</p>
 <h3>「変数」</h3>
 <p>ABCとabcは違う。</p>
+<h2>条件分岐</h2>
 <h3>「for文　繰り返し文　ループ処理」</h3>
 <ul>
 <li>何度も同じことを繰り返す処理を行うことをループ処理、繰り返し文といいます。</li>
 <li>For文には 初期化式　int i = 0;</li>
-<li>継続条件式　i&lt; 5</li>
+<li>継続条件式　i&lt; 5;</li>
 <li> 変化式　i++ </li>
-<li> があって、それをfor(int i=0; i &lt; 5 i++)のように書く！ </li>
+<li> があって、それをfor(int i=0; i &lt; 5; i++)のように書く！ </li>
 </ul>
 <pre>
 <code>
@@ -546,7 +547,7 @@ System.out.println(animals[i][j]);
 <p>x+yとしておくことで外部からのアクセスが可能になる。５＋１であれば、再利用もできなく重複してしまう。<a href= "https://teratail.com/questions/284516<">個々のウェブサイトによると</a>　そもそも「なぜ戻り値は必要なのか？」という考えではなく、その逆の思考「メソッドにどんな機能を持たせたいのか」を考えることが最も重要と書かれていました。
 <pre>
 <code>
-引数の例
+//引数の例
 public class Turtorial {
 	public static void main(String[] args) {
 		System.out.println("メソッドを呼び出します。");
@@ -560,20 +561,20 @@ public class Turtorial {
 	}
 }
 
-引数の例（渡す値が複数の場合）
+//引数の例（渡す値が複数の場合）
 public class Turtorial {
 	public static void main(String[] args) {
 		add(199,29);
 		add(288,47);
 	}
-	複数の値を受け取るaddメソッド
+	//複数の値を受け取るaddメソッド
 	public static void add(int x, int y) {
 		int ans = x + y;
 		System.out.println(x + "+" + y + "=" + ans );
 	}
 }
 
-戻り値の例
+//戻り値の例
 public class Turtorial {
 	public static int add(int x, int y) {
 		int ans = x + y;
@@ -586,9 +587,9 @@ public class Turtorial {
 }
 
 
-引数に配列を受け取るメソッドの利用
+//引数に配列を受け取るメソッドの利用
 public class Turtorial {
-	int型配列を受け取り、すべての要素を表示するメソッド
+	//int型配列を受け取り、すべての要素を表示するメソッド
 	public static void printArray(int[] array) {
 		for (int element : array) {
 			System.out.println(element);
@@ -601,10 +602,10 @@ public class Turtorial {
 	}
 }
 
-おなじ配列を参照していることを確認する。
+//おなじ配列を参照していることを確認する。
 public class Turtorial {
 	public static void incArray(int[] array) {
-      配列の長さを取得するには length フィールドの値を参照します。配列の長さとは配列に含まれる要素の数です。
+      //配列の長さを取得するには length フィールドの値を参照します。配列の長さとは配列に含まれる要素の数です。
       for(int i = 0; i &lt; array.length; i++) {
       	array[i]++;
 		}
@@ -618,8 +619,8 @@ public class Turtorial {
 	}
 }
 
-戻り値が配列の場合 makearray(3)でアドレスを作っている.newArrayでも新しい住所を作っている。
-同時にまじわるところから、数がカウントされる。
+//戻り値が配列の場合 makearray(3)でアドレスを作っている.newArrayでも新しい住所を作っている。
+//同時にまじわるところから、数がカウントされる。
 public class Turtorial {
 	public static int[] makeArray(int size) {
       int[] newArray = new int[size];
@@ -755,7 +756,7 @@ public class Turtorial {
 
 </ul>
 <p>
-インスタンスの初期値を操ることができるから。しかしどのようなときに使うのか？については一つのインスタンスに対して複数の引数を指定したいときとしか考えつくことがありません。引数が違うのであれば、コンストラクタをオーバーロードすることは可能。
+インスタンスの初期値を操ることができるから。どのようなときに使うのか？については一つのインスタンスに対して複数の引数を指定したいときとしか考えつくことがありません。引数が違うのであれば、コンストラクタをオーバーロードすることは可能。
 </p>
 <p>コンストラクタのルール定義</p>
 <ul>
@@ -766,37 +767,33 @@ public class Turtorial {
 </ul>
 <pre>
 <code>
+public class CalcTriangle {
+//コンストラクタ　finalをつけてサイズを固定する。
+  final int Width = 4;
+  final int Height = 5;
+
+  public void calcArea(final int Width, final int Height) {
+    System.out.println("The area is : " + this.Width * this.Height /2);
+  }
+
+}
+
 public class Main {
-//三角形の面積を求める。
-//これがコンストラクタ
-public static int add(int x, int y) {
-int calcTriangleArea = x * y / 2;
-return calcTriangleArea;
+  public static void main(String[] args) {
+    CalcTriangle calc = new CalcTriangle();
 
-}
+    /*5と6を代入するがfinalは変数の再代入を防ぐため
+    結果は10と表示される。*/
+    calc.calcArea(6, 5); 
+  }
 
-//円の直径を求める。
-//これがコンストラクタ
-public static int add(double z) {
-int calcCircleArea = (int) (z * z);
-return calcCircleArea;
-}
-
-public static void main(String[] args) {
-//メソッドをオーバーライドしている。引数が違うから計算も違う。
-
-//int calcTriangleArea = add(2,3);
-//int calcCircleArea = add(2.2);
-System.out.println(add(2, 3));
-System.out.println(add(2.2));
-}
 }
 </code>
 </pre>
 
 <h3>「=＝とequal違い」</h3>
 <p>
-String foo = "Apple" String bar = "Apple" if(foo == bar)の場合＝＝はオブジェクトが同じかどうかをはんていするのでTrueになる。メモリの参照先が同じかどうかを判定するしたい場合は、equalsを使う。ですので、「文字列の時にはequalsを使うと良い」。参照先とは一種の住所。アパートメント自体の住所（"Orange"）は同じだとしても部屋番号（"Orange" : 101, "Orange" : 102）は異なります。参照先が違うため、コンピューターは違う値とみなす。
+String foo = "Apple" String bar = "Apple" if(foo == bar)の場合＝＝はオブジェクトが同じかどうかを判定するのでTrueになる。メモリの参照先が同じかどうかを判定したい場合は、equalsを使う。ですので、「文字列の時にはequalsを使うと良い」。参照先とは一種の住所。アパートメント自体の住所（"Orange"）は同じだとしても部屋番号（"Orange" : 101, "Orange" : 102）は異なります。
 </p>
 <h3>クローン　ディープコピー　シャローコピー</h3>
 <p>クローンを使うとディープコピーできる。データを含めたオブジェクトをコピーできる。</p>
@@ -1124,7 +1121,7 @@ Calculation cal = new Calculation();
 //privateで1.1と固定したので1.8になっているが1.1のままで計算される。
 System.out.println(cal.priceIncludingTax(1000, 1.8));
 //アクセスできない。Privateは同じクラス内でしかアクセスできない。
-System.out.println(cal.TAX_RATE);
+System.out.println(cal.tax_rate);
 	}
 }
 
@@ -1405,7 +1402,7 @@ public int getValue(){
 </code>
 </pre>
 <p>インスタンスの元となるfile情報を格納しているメモリ領域をクラスオブジェクトと言い、Javaの実行の際にメモリ上に生成されます。</p>
-<p>クラスオブジェクトではfile情報のほかにフィールドとメソッドを保養うすることが可能であり、フィールドをクラス変数、メソッドをクラスメソッド、合わせて静的メンバと言う。</p>
+<p>クラスオブジェクトではfile情報のほかにフィールドとメソッドを保有することが可能であり、フィールドをクラス変数、メソッドをクラスメソッド、合わせて静的メンバと言う。</p>
 <p>Static修飾子をつけることで静的メンバとして扱う。</p>
 <p>クラスオブジェクトは変数名としてクラス名が使われます。</p>
 <p>インスタンス化の際に複製されない。クラスで固有全てのインスタンスで共通のものとして扱われる。</p>
@@ -1507,6 +1504,7 @@ public class Tesla extends Mercedes {
 <a href="https://qiita.com/Kujiro/items/e3ed881567b0d0f5e875#:~:text=%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%81%A8%E3%81%AF%E3%80%81%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF,%E6%A7%8B%E7%AF%89%E3%81%97%E3%81%A6%E3%81%84%E3%81%8F%E6%89%8B%E6%B3%95%E3%80%82">本当のオブジェクト指向の話をしよう</a>
 <p>タイ焼きとタイ焼きの型。タイ焼きをつくるのには、タイ焼きの型をタイ焼きを作るために作る。それを何度も繰り返し
 てタイ焼きを作る。ひな形から実体を作る。タイ焼きの材料、カスタードとかあんことか、それ専門に作る人がいる。タイ焼きを焼く人はその材料をつかって、タイ焼きの型に具材をいれてタイ焼きを作る。全部一から作ろうとしないで、元々あるスクリプト通りに分担してタイ焼きを作る。</p>
+<h2>継承編</h2>
 <h3>「継承　extend」</h3>
 <p>
 継承を利用すると同じようなコーディングを複数並べることがあるが、それをextendsで継承することができる。そして子クラスでは、継承以外の（共通機能以外の）機能だけをかくことができる。superを使うときには、親クラスのメソッドをsuper.でつなげて書く。またスーパーは書かなくても自動的に引き継がれている主流は親クラスから継承し子クラスには特有のメソッドを与え、メインメソッドで、子クラスのインスタンスを生成した際にオブジェクトを与えている。抽象的にみて（多態性）車には、トラック、救急車などがある。トラックは「荷物を運ぶ」が仕事であり、救急車は「患者さんを助ける」ことが仕事である。そして車としては「走る」「止まる」ことはかわりませんので、こちらをトラックと救急車には継承することができる。これが継承の考えである。「いちから作るのではなくてテンプレートがあるならテンプレートを複製しましょう」と言うことである。
@@ -1549,7 +1547,7 @@ public class Superhero extends Hero {
 public void attack (Matango m) {
 System.out.pprintln(this.name + "attack!");
 m.hp=-5;
-System.out.println("5 points damage");z
+System.out.println("5 points damage");
 }
 if (this.flying) {
 System.out.println(this.name + "attack!");
@@ -1640,7 +1638,49 @@ a.sevePeople();
 <ul>
 <li>privateを使うことによってバグが減らせる。固定値を定めたい時には必ずprivateを使う。バグなんか起きないでしょって思うけど使う。</li>
 <li>チームで連携してコードを書いたときに自分が触る場所はprivate以外だとわかりやすい。</li>
+<li>privateにはsetterとgetterが必要とされる。-> これを利用してsetterで「if文を使って設定されようとしている値が妥当かを検査する。」ことが可能になる。</li>
 </ul>
+<pre>
+<code>
+
+public class SettingCharacter {
+private String name;
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+if (name == null) {
+	throw new IllegalArgumentException("You have to enter your name.");
+}
+
+if (name.length() <= 1) {
+	throw new IllegalArgumentException("Your name is too shrot.");
+}
+
+if (name.length() > 8) {
+	throw new IllegalArgumentException("Your name is too long.");
+}
+this.name = name;
+	}
+
+}
+
+
+public class Main {
+ public static void main(String[] args) {
+	SettingCharacter setCha = new SettingCharacter();
+
+	/*setterで値が妥当かどうかを判断する仕組みを設定したので
+	名前が何も入っていませんと警告される。*/
+	setCha.setName("");
+	}
+}
+
+</code>
+</pre>
+
 <h3>「抽象クラス」</h3>
 <p>
 <a href="https://qiita.com/aiko_han/items/e8ddce85188970fd77da">なぜ抽象クラスを作るのか？</a>なぜ抽象クラス(Abstract)を実装するのか 一つのスーパークラス（Player）の参照変数に他のサブクラス（MusicPlayerとVideoPlayer）のインスタンスを代入できるので、統一した記述方法を使用しながら、それぞれのオーバーライドメソッドを呼び出すことができる！
@@ -1708,7 +1748,7 @@ public void sing() {
 //オブジェクト生成
 public class SampleEx302 {
 public static void main(String args[]) {
-Cro2 c = new Crow2();
+Crow2 c = new Crow2();
 Sparow2 s = new Sparrow2();
 // カラスがなく
 Sysem.out.print(c.getName() + " : ");
@@ -2136,7 +2176,7 @@ class Main {
 </code>
 </pre>
 
-<h2 class="animate__animated animate__bounce animate__infinite">ここからDB接続編に入ります。</h2>
+<h2 >ここからDB接続編に入ります。</h2>
 <p>MySQL学んでいなければ<a href="mysql_turtorial.html">ここで！</a></p>
 <h3>「データベース接続の概要」ステップ１</h3>
 <ol>

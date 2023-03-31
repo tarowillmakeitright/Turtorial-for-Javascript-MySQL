@@ -61,6 +61,110 @@
 document.querySelector('#IDName, .className');
 </code>
 </pre>
+<h3>これがDOMだ。</h3>
+<ul>
+<li>HTMLの情報をプログラムから扱いやすい形にして、メモリに保存したもの</li>
+<li>DOMはツリー構造であると仮定する。</li>
+<li>テキストは改行とスペースを含む。headの前は無視される。</li>
+<li>devicePixcelRatioで画面幅を自動的に決めてもらう。UTF-8は文字化け対策のために必ず必要。</li>
+<li>HTMLは必ずHEAD、BODYが必要。</li>
+<li>ドキュメントノードとJavascriptドキュメントオブジェクトはシンクロ率100%</li>
+</ul>
+
+<h3>Chrome DevToolsを使ってDOMを操作する方法</h3>
+<ul>
+<li>検証を押して、左上のカーソルマークでウェブ上をクリックするとDOMが表示される。</li>
+<li>DOMを5つクリックして$0 $1,$2,$3,$4とするとクリックした順にDOMが表示される。</li>
+<li></li>
+</ul>
+<h3>html要素、head要素、body要素を取得する方法</h3>
+<ul>
+<li>ReadOnlyで取得するだけの構文</li>
+</ul>
+<pre>
+<code>
+let result = document.documentElement; 
+result = document.head;
+result = document.body;
+result = document.childNodes;
+result = document.body.firstChild;
+result = document.body.lastChild;
+result = document.body.parentNode;
+result = document.head.nextSibling;
+result = document.body.previousSibling;
+console.dir(result);
+</code>
+</pre>
+<h3>特定の要素を取得する方法　querySelector(), closet(), matches(), contains()</h3>
+<ul>
+<li>querySelectorは左の子孫ノードより選択する。</li>
+<li>querySelectorAllは指定した全てのDOMを選択する。</li>
+<li></li>
+<li></li>
+</ul>
+<pre>
+<code>
+let result = document.documentElement; 
+result = document.querySelector('#title'); //HTML　id titleと仮定した場合。titleを取得する。
+result = document.querySelector('p'); //HTML　pと仮定した場合。p tagを取得する。
+
+result = document.head.querySelector('p') //ヘッド要素にｐタグはありますか？querySelectorは左の子孫ノードより選択する。
+
+result = document.querySelectorAll('p'); //pタグ全てを選択する。
+result = document.body.matches('body') //boolean
+result = document.contains(document.body);
+result = document.getElementsByTagName('p')
+result = document.body.getElementsByTagName('p')
+result = document.getElementsByClassName(); // Classから取得
+result = document.querySelectorAll('.ClassName') //Classより取得。
+result = document.links; //すべてのリンク
+result = document.forms; //すべてのフォーム
+result = document.image; //すべてのイメージ
+result = document.scripts; //すべてのscriptタグ
+console.dir(result);
+</code>
+</pre>
+<h3>DOMを変更する方法その1 innerHTML, insertAdjacentHTML</h3>
+<ul>
+<li>document.body.innerHTML　指定したHTML構文を全て置き換える。</li>
+<li>insertAdjacentHTML 要素を追加できる。</li>
+</ul>
+<pre>
+<code>
+document.body.innerHTML = 'HTMLタグ　構文'　//h1とか
+document.querySelector('div').innerHTML = 'HTMLタグ　構文'
+document.querySelector('div').insertAdjacentHTML('beforeend', 'HTMLタグ　構文');//beforebegin afterbegin, beforeend, afterend
+</code>
+</pre>
+
+
+<h3>テキストを変更する方法</h3>
+<ul>
+<li>document.body.innerHTML　クロスサイトスクリプティングにきおつけなければならない。</li>
+<li>insertAdjacentHTML クロスサイトスクリプティングにきおつけなければならない。</li>
+<li>テキストコンテントを使うと、全てのタグを取り除ける。</li>
+<li>テキストコンテントの方がHTMLを読まないから早い。</li>
+<li>insertAdjacentTextもある。あんまつかわない。</li>
+<li>appendの位置はbeforeエンドの位置</li>
+<li>prependのいちはaftarbeginの位置</li>
+</ul>
+<pre>
+<code>
+let result = document.documentElement; 
+document.body.innerHTML = 'HTMLタグ　構文'　//h1とか
+result = document.body.textContent;
+result = document.body.insertAdjacentText('beforehand', 'Hello World');//あんまつかわない。
+console.dir(result);
+
+let p = document.createElement('p');
+let text = document.createComment('comment');
+
+p.innerHTML = 'Hello'; //pタグに文字を追加
+p.text = 'Hello';
+
+document.querySelector('div').append(p); //これで追加する。
+</code>
+</pre>
 <h3>ボタンを押したら、H1の色を変える。</h3>
 <p>main.jst</p>
 <pre>

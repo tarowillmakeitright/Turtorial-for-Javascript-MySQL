@@ -42,7 +42,7 @@
 	<div class="header_image">
 	<img src="\pleiades\2022-09\workspace\ServeletProject2\headerIMG.jpg" alt="img"  width="390px"height="320px">
 	</div>
-	<p>特にわからなかったところ</p>
+	<h3>特にわからなかったところ</h3>
 	<ol>
 		<li><a href="#">関数</a></li>
 		<li><a href="#">コールバック関数</a></li>
@@ -57,101 +57,30 @@
 mysql -u username -D databaseName -p 
 ログアウト
 quit
-</pre>
 </code>
-<h3>SQL関数</h3>
-	<p style="color:blue;">日にちと時間</p>
-	<pre>
-		<code>
-create table test (
-my_time time,
-my_date date,
-my_datetime datetimeA
-     );
-
-insert into test values (CURRENT_DATE(), CURRENT_TIME(),NOW());
-     </code>
-	</pre>
-	<p style="color:blue;">2000円より大きな金額を使った日をしりたい。</p>
-	<p>SELECT 日付　FROM 家計簿　WHERE 出金額　&gt; 2000 </p>
-
-	<h3>SQLの体系</h3>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img1.jpg" alt="img"  width="390px"
-		height="320px">
-	<p style="color:blue;">家計簿の内容を全て表示したい。</p>
-	<p>SELECT * FROM 家計簿</p>
-	<p style="color:blue;">2000円より大きな金額を使った日をしりたい。</p>
-	<p>SELECT 日付　FROM 家計簿　WHERE 出金額　&gt; 2000 </p>
-	<p style="color:blue;">３月１日に1800縁で映画をみた記録を追加したい。</p>
-	<p>INSERT INTO　家計簿　VALUES ('2022-03-01', '娯楽', '映画をみた', 0, 1800)</p>
-	<p style="color:blue;">３月１日に1500\だったので直したい。</p>
-	<p>UPDATE 家計簿　SET　出金額=1500 WHERE 日付＝'2022-03-01'</p>
-	<p style="color:blue;">テーブル内容を変更したいとき。</p>
-	<p>update employees set hourly_pay = 10.50, hire_date = '2023-02-16' where employee_id = 6;</p>
-	<p style="color:blue;">全データを消去したい</p>
-	<p>DELETE FROM 家計簿</p>
-
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img3.jpg" alt="img"  width="390px"
-		height="320px">
-	<p>1.すべての列名をせっていしてすべての行の取得をしろ。</p>
-	<code>
-Q1. SELECT CODE, REGION, PREFECTURE, CAPITAL, AREA <br>
-FROM PREFECTURES<br>
-Q2. SELECT * FROM PREFECTURES<br>
-Q3. SELECT REGION AS DIARECT, PREFECTRURE AS PRF FROM PREFECTURE		
-	</code>
-	<p>2.列名の指定を省略して、１と同様の結果を取得しろ。</p>
-	<p>3.名前の替え方。</p>
-
-
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img2.jpg" alt="img"  width="390px"
-		height="320px">
-	<p>問題２－３の都道府県テーブルをSQL文で追加しなさい。</p>
-	<pre>
-		<code>
-INSERT INTO PREFECTURES (CODE, REGION, PREFECTURE, AREAS)<br>
-VALUES ('26', 'KINKI', 'KYOTO', 4613<br>
-INSERT INTO PREFECTURES<br>
-VALUES ('37', 'SHIKOKU', 'KAGAWA', 'TAKAMATSU', 1876)<br>
-INSERT INTO PREFECTURES (CODE, PREFECTURE, CAPITAL)<br>
-VALUES ('40', 'HUKUOKA', 'HUKUOKA')
-		</code>
-	</pre>
-	<p>コード２6に県庁所在地 KYOTO をアップデートしなさい。また、コード４０に地域「九州」　面積「4976」アップデートしなさい。。</p>
-	<pre>
-		<code>
-UPDATE PREFECTURES SET CAPITAL = 'KYOTO'<br>
-WHERE CODE = '26'<br>
-UPDATE PREFECTURES SET REGION = 'KYUSYU', AREA = 4976<br>
-WHERE CODE = '40'
-		</code>
-	</pre>
-	<p>２６のデータを消去しな</p>
-	<pre>
-		<code>
-DELETE FROM PREFECTURES WHERE CODE = '26'
-		</code>
-	</pre>
-	<p>プロジェクト作り方</p>
-	<p>CREATE DATABASE myProjectName</p>
-	<p>プロジェクト消し方　全部きえるので要注意</p>
-	<p>DROP DATABASE myProjectName</p>
-	<p>どのプロジェクトを使うか？　これをやらないとMySQLデータベースにデータが保存されないので注意!!!</p>
-	<p>USE projectName / Schemasの中のプロジェクトクリック→
-		右クリック→set as default schema </p>
-	<p>データベースを読む(READ ONLY)だけにする方法</p>
-	<p>ALTER DATABASE myProjectName READ ONLY = 1;</p>
-	<p>データベースを読む(READ ONLY)モードを解除する方法</p>
-	<p>ALTER DATABASE myProjectName READ ONLY = 0;</p>
+</pre>
+	<h3>プロジェクト作り方</h3>
+	<pre><code>CREATE DATABASE myProjectName</code></pre>
+	<h3>プロジェクト消し方　全部きえるので要注意</h3>
+	<pre><code>DROP DATABASE myProjectName</code></pre>
+	<h3>どのプロジェクトを使うか？　これをやらないとMySQLデータベースにデータが保存されないので注意!!!</h3>
+	<pre><code>USE projectName / Schemasの中のプロジェクトクリック→
+		右クリック→set as default schema </code></pre>
+	<h3>データベースを読む(READ ONLY)だけにする方法</h3>
+	<pre><code>ALTER DATABASE myProjectName READ ONLY = 1;</code></pre>
+	<h3>データベースを読む(READ ONLY)モードを解除する方法</h3>
+	<pre><code>ALTER DATABASE myProjectName READ ONLY = 0;</code></pre>
 
 	<h3>MySQL基礎構文</h3>
-	<p>どのプロジェクトを使うか？ここできちんと選択しないと、のちにデータが保存されない。</p>
+	<ul>
+	<li>どのプロジェクトを使うか？ここできちんと選択しないと、のちにデータが保存されない。</li>
+	</ul>
 	<pre>
 <code>use myDb</code>
 	</pre>
 
 
-	<p>Employee テーブルの作り方。</p>
+	<h3>Employee テーブルの作り方。</h3>
 	<pre>
 		<code>
 CREATE TABLE employees (
@@ -163,40 +92,49 @@ hire_date DATE
 );
 		</code>
 	</pre>
-	<p>Employee テーブルの呼び出し方。</p>
+	
+	
+	<h3>Employee テーブルの呼び出し方。</h3>
 	<pre>
 		<code>
 SELECT * FROM employees
 		</code>
 	</pre>
-	<p>Employee テーブルの名前変え方 employeeからworkersに変更</p>
+	
+	<h3>テーブルのフィールドを表示させる方法。</h3>
+		<pre>
+		<code>
+SHOW COLUMNS FROM customer;
+		</code>
+	</pre>
+	<h3>Employee テーブルの名前変え方 employeeからworkersに変更</h3>
 	<pre>
 		<code>
 RENAME　employees TO workers;
 		</code>
 	</pre>
-	<p>テーブル（コラム）に電話番号の追加</p>
+	<h3>テーブル（コラム）に電話番号の追加</h3>
 	<pre>
 		<code>
 ALTER TABLE employees
 ADD phone_number VARCHAR(15);
 		</code>
 	</pre>
-	<p>テーブルコラム電話番号をEmailに変換する。</p>
+	<h3>テーブルコラム電話番号をEmailに変換する。</h3>
 	<pre>
 		<code>
 ALTER TABLE employees
 RENAME COLUMN phone_number TO email;
 		</code>
 	</pre>
-	<p>テーブルコラムEmailのVARCHARを変更する。</p>
+	<h3>テーブルコラムEmailのVARCHARを変更する。</h3>
 	<pre>
 		<code>
 ALTER TABLE employees
 MODIFY COLUMN email VARCHAR(100);
 		</code>
 	</pre>
-	<p>テーブルコラムEmailをラストネームのあとに移動する。</p>
+	<h3>テーブルコラムEmailをラストネームのあとに移動する。</h3>
 	<pre>
 		<code>
 ALTER TABLE employees
@@ -206,7 +144,7 @@ AFTER last_name;
 SELECT * FROM employees;
 		</code>
 	</pre>
-	<p>Emailコラムの消し方</p>
+	<h3>Emailコラムの消し方</h3>
 	<pre>
 		<code>
 ALTER TABLE employees
@@ -215,28 +153,26 @@ DROP COLUMN email;
 SELECT * FROM employees;
 		</code>
 	</pre>
-	<p>employees コラムにデータ追加し方。</p>
+	<h3>employees コラムにデータ追加し方。</h3>
 	<pre>
 		<code>
+//その前に
+//show columns from employees from テーブル名　
+//で調べるといい。
+
 INSERT INTO employees
 VALUES(1,"Satoshi", "Nakamoto", 24, "2023-02-01");
 
-SELECT * FROM employees;
-		</code>
-	</pre>
-	<p>employees コラムに一気にデータ追加するやり方。</p>
-	<pre>
-		<code>
+//employees コラムに一気にデータ追加するやり方。
 INSERT INTO employees
 VALUES (2, "Tanaka", "Kakuei", 30, "2022-01-31" ),
 (3, "Takemoto", "Tsuyoshi", 20, "2022-01-31"),
 (4, "Takahashi", "Toshimitsu", 20, "2022-01-31"),
 (5, "Johnny", "Tsuyoshi", 22, "2022-02-01");
-
-SELECT * FROM employees;
 		</code>
 	</pre>
-	<p>employees コラムに特定のデータだけを追加するとき</p>
+　
+	<h3>employees コラムに特定のデータだけを追加するとき</h3>
 	<pre>
 		<code>
 INSERT INTO employees (employee_id, first_name, last_name)
@@ -245,49 +181,93 @@ VALUES (6, "Tadashi", "Hisamoto");
 SELECT * FROM employees;
 		</code>
 	</pre>
-	<p>employees 　id 4 だけを取り出す時</p>
+	<h3> UPDATE </h3>
+	<dl>
+    <dt><strong>カラム＝値という形で、変更するカラムと値を指定する。</strong></dt>
+    <dd>UPDATE テーブル名　SET　カラムと値の指定　where 条件式</dd>
+	 <dt><strong>今現在の値から指定した数だけを増加させることもできる。</strong></dt>
+	 <dd>whereで指定したレコードにおいて、複数列を同時に変更することもできる。</dd>
+	 <dd>Where句で指定しないと全てが選択されてしまう。</dd>
+</dl>
+
+	<pre>
+		<code>
+//すべてのレコードのageカラムを30に変更する。
+UPDATE members SET age = 30;
+//佐藤さんの身長172.1cmに変更する。
+UPDATE members SET height = 172.1 WHERE  id  = 1;
+//members全員の年齢を1増やす。
+UPDATE members SET age = age + 1;
+//鈴木さんの身長を１増やし体重を１０追加する。
+UPDATE members SET height = height + 1, weight = weight + 10 where id = 2;
+		</code>
+	</pre>
+	
+	<h3>DELETE </h3>
+	<dl>
+    <dt><strong>テーブル中にあるレコードを消去する。</strong></dt>
+    <dd>WHERE句を使って特定のレコードのみを消去できる。</dd>
+    <dd>条件式次第では複数のレコードを消去できる。</dd>
+    <dd>本当に削除していいデータなのかを検討した上に消すことを決めること。</dd>
+	
+</dl>
+
+	<pre>
+		<code>
+//書き方
+DELETE　FROM TABLE_NAME;
+//特定のレコードのみを消去するには、以下のようにwhereで条件を指定する。
+DELETE FROM TABLE_NAME WHERE　条件式
+//membersテーブルから、id=10の加藤さんを消去する。
+DELETE FROM members WHERE id = 10;
+//伊藤さんよりidが大きい人のレコードを消去
+DELETE FROM members WHERE id > 6;
+		</code>
+	</pre>
+	
+	<h3>employees 　id 4 だけを取り出す時</h3>
 	<pre>
 		<code>
 SELECT * FROM employees
 WHERE employee_id = 4;
 		</code>
 	</pre>
-	<p>employees 給料時給１５いじょうを抽出する</p>
+	<h3>employees 給料時給１５いじょうを抽出する</h3>
 	<pre>
 		<code>
 SELECT * FROM employees
 WHERE hourly_pay >= 15;
 		</code>
 	</pre>
-	<p>employees 給料　NULL 　のところを抽出する。</p>
+	<h3>employees 給料　NULL 　のところを抽出する。</h3>
 	<pre>
 		<code>
 SELECT * FROM employees
 WHERE hourly_pay IS NULL;
 		</code>
 	</pre>
-	<p>employees 給料　NULL 　以外のところを抽出する。</p>
+	<h3>employees 給料　NULL 　以外のところを抽出する。</h3>
 	<pre>
 		<code>
 SELECT * FROM employees
 WHERE hourly_pay IS NOT NULL;
 		</code>
 	</pre>
-	<p>ORDER BY DESCまたはASCで。上昇下向順に並び替え。</p>
+	<h3>ORDER BY DESCまたはASCで。上昇下向順に並び替え。</h3>
 	<pre>
 		<code>
 SELECT * FROM employees
 ORDER BY hourly_pay ASC
 		</code>
 	</pre>
-	<p>ランキング上位から何位までかをせんたくして抽出する方法</p>
+	<h3>ランキング上位から何位までかをせんたくして抽出する方法</h3>
 	<pre>
 		<code>
 SELECT * FROM employees
 ORDER BY hourly_pay DESC LIMIT 4
 		</code>
 	</pre>
-	<p>最大～～まで表示　【LIMIT】</p>
+	<h3>最大～～まで表示　【LIMIT】</h3>
 	<pre>
 		<code>
 select id, first_name from users LIMIT 0, 1000
@@ -300,7 +280,7 @@ select * from products limit 0,10;
 select * from products limit 10,10;
 		</code>
 	</pre>
-	<p>記述順序と実行順序の違い</p>
+	<h3>記述順序と実行順序の違い</h3>
 	<pre>
 		<code>
 1.select => from 対象テーブルの指定
@@ -312,15 +292,15 @@ select * from products limit 10,10;
 7.limit => limit　取得する行数の制限
 		</code>
 	</pre>
-	<p>過去のコマンドから、再び呼び出すやり方。</p>
-	<p>
-mysqlワークベンチのアウトプットラン「Action Output」を選択。
+	<h3>過去のコマンドから、再び呼び出すやり方。</h3>
+	<ul>
+<li>mysqlワークベンチのアウトプットラン「Action Output」を選択。
 過去のコマンドからもう一度呼びたいコマンドを選択→右クリック
-→Append Select To SQL　Script
-	</p>
+→Append Select To SQL　Script</li>
+	</ul>
 
 
-	<p>抽出するだけでなく、さらに計算などもできる。</p>
+	<h3>抽出するだけでなく、さらに計算などもできる。</h3>
 	<pre>
 		<code>
 select price,
@@ -329,13 +309,18 @@ price * 1.08 as including_tax
 from products;
 		</code>
 	</pre>
-	<p>～～以上の何かを取り出したい。=>　Whereをつかう。</p>
+	<h3>～～以上の何かを取り出したい。=>　Whereをつかう。</h3>
 	<pre>
 		<code>
 select name, price from products where price >= 9800;
 		</code>
 	</pre>
-	<p>priceが1000から1900の行を取得　～以上～以下の何かを調べたい。BETWEEN  AND </p>
+	<h3>priceが1000から1900の行を取得　～以上～以下の何かを調べたい。BETWEEN  AND </h3>
+	<dl>
+    <dt><strong>BETWEENを使うと両端の値を含みます。</strong></dt>
+    <dd>～以上～以下</dd>
+
+</dl>
 	<pre>
 		<code>
 例題1.　BETWEEN
@@ -348,25 +333,63 @@ select * from products
 where price >= 1000 and price <＝　1900; 
 </code>
 	</pre>
-	<p>whereをつかってidが1か２か３の行を取得する。　</p>
+	<h3>where in をつかってidが1か２か３の行を取得する。　</h3>
+	<dl>
+    <dt><strong>IN : ORで複数の条件式をつなぐ必要がある場合はINを使うと簡潔に書ける。</strong></dt>
+    <dd>ORが複数ある場合はINを使った方がよい。</dd>
+    <dt><strong>反対の指定した数値以外の場合はnot inを使う。</strong></dt>
+    <dd>〇〇以外の時にはNOT IN</dd>
+
+</dl>
 	<pre>
 		<code>
 select * from products where id in(1, 2, 3);
+
+
+//orを使った場合。
+SELECT name, selling_price FROM products 
+where selling_price = 100
+OR selling_price = 2300
+OR selling_price = 9800;
+//INを使った場合。
+SELECT name, selling_price FROM products 
+WHERE selling_price IN(100,2300,9800);
+
+/////////////////////////NOT IN//////////////// 
+
+//ORを使った場合
+SELECT name, selling_price FROM products 
+where selling_price != 100
+OR selling_price != 2300
+OR selling_price != 9800;
+//NO　TINを使った
+SELECT name, selling_price FROM products 
+where selling_price NOT IN(100,2300,9800);
 		</code>
 	</pre>
-	<p>whereをつかってidが1か２か３ではない行を取得する。　</p>
+	<h3>whereをつかってidが1か２か３ではない行を取得する。　</h3>
 	<pre>
 		<code>
 select * from products where id not in(1, 2, 3);
 		</code>
 	</pre>
-	<p>論理和　条件Aか条件Bが一つ以上成り立つ場合にtrue 価格が1000円2000円の商品を呼び出す。</p>
+	<h3>論理和　条件Aか条件Bが一つ以上成り立つ場合にtrue 価格が1000円2000円の商品を呼び出す。</h3>
 	<pre>
 		<code>
 select * from products where price = 1000 or price = 2000;
 		</code>
 	</pre>
-	<p>パターンマッチングの絞り込みによる【LIKE】</p>
+	<h3>パターンマッチングの絞り込みによる【LIKE】</h3>
+<dl>
+    <dt><strong>文字列の部分一致検索をするにはLIKEを使う。</strong></dt>
+    <dd>部分一致=>指定した文字が含まれていること。</dd>
+    <dt><strong>部分一致には３種類ある。前方一致、中間一致、後方一致。</strong></dt>
+    <dd>前方一致：文字列の最初に指定した文字が含まれている。（<検索する文字>%）</dd>
+    <dd>中間一致：文字列のどこかに指定した文字が含まれている。(%<検索する文字>%)</dd>
+    <dd>後方一致：文字列の末日に指定した文字が含まれている。(% <検索する文字>)</dd>
+    <dd></dd>
+</dl>
+
 	<pre>
 		<code>
 中から始まる苗字
@@ -377,9 +400,12 @@ select * from users where last_name like '%中%';
 select * from users where first_name like '%子';
 名前か3文字でかつ「子」で終わる。
 select * from users where first_name like '__子';
+
+//○〇用品を切り出す。
+select name, category, selling_price from products where category like '%用品';
 		</code>
 	</pre>
-	<p>期間により絞り込み方</p>
+	<h3>期間により絞り込み方</h3>
 	<pre>
 		<code>
 SELECT * FROM orders
@@ -387,7 +413,7 @@ where order_time >= '2017-01-01 00:00:00'
 and
 order_time < '2017-02-01 00:00:00' ; </code>
 	</pre>
-	<p>期間による合計値の求め方 sum</p>
+	<h3>期間による合計値の求め方 sum</h3>
 	<pre>
 		<code>
 SELECT sum(amount)
@@ -395,25 +421,25 @@ FROM　orders
 where order_time >= '2017-01-01 00:00:00'
 and order_time < '2017-02-01 00:00:00' ; </code>
 	</pre>
-	<p>平均値の求め方 avg()</p>
+	<h3>平均値の求め方 avg()</h3>
 	<pre>
 		<code>
 select avg(price) from products;
 		</code>
 	</pre>
-	<p>最小値の求め方　min()</p>
+	<h3>最小値の求め方　min()</h3>
 	<pre>
 		<code>
 select min(price) from products;
 		</code>
 	</pre>
-	<p>最大値の求め方　max()</p>
+	<h3>最大値の求め方　max()</h3>
 	<pre>
 		<code>
 select max(price) from products;
 		</code>
 	</pre>
-	<p>テーブル行数の求め方　(*)</p>
+	<h3>テーブル行数の求め方　(*)</h3>
 	<pre>
 		<code>
 select * from users;
@@ -422,13 +448,13 @@ select count(*) from users;
 
 		</code>
 	</pre>
-	<p>ASを使うことで別名をつける</p>
+	<h3>ASを使うことで別名をつける</h3>
 	<pre>
 		<code>
 select name as 名前, price as 価格 from products;
 		</code>
 	</pre>
-	<p>[集約関数]さらに特定の何かの「数」を求めたいとき　count(*) where </p>
+	<h3>[集約関数]さらに特定の何かの「数」を求めたいとき　count(*) where </h3>
 	<pre>
 		<code>
 SELECT COUNT(*) AS "50再以上の人数" FROM members WHERE age >= 50
@@ -436,7 +462,7 @@ SELECT COUNT(*) AS "50再以上の人数" FROM members WHERE age >= 50
 select count(*) from users where gender = 2;
 		</code>
 	</pre>
-	<p>特定の「日にち」から何かを抽出したいとき　count() where </p>
+	<h3>特定の「日にち」から何かを抽出したいとき　count() where </h3>
 	<pre>
 		<code>
 select * from access_logs;
@@ -450,18 +476,18 @@ request_month = '2017-01-01';
 		</code>
 	</pre>
 	<h3>ある特定のデータからグループごとのデータ抽出してその数を調べたいとき　count() group by </h3>
-	<p>GROUP　BY間違えやすいポイント </p>
+	<h3>GROUP　BY間違えやすいポイント </h3>
 	<ol>
 		<li>GROUPBY文にASで命名した別名は指定できない。</li>
 		<li>GROUPBY文に並び替え機能はない。→並び替えはORDERBY</li>
 	</ol>	
-	<p>SELECT文には以下のいずれしか書くことができない。 </p>
+	<h3>SELECT文には以下のいずれしか書くことができない。 </h3>
 	<ol>
 		<li>定数</li>
 		<li>GROUP BY文で指定したカラム名（集約キー）</li>
 		<li>集約関数</li>
 	</ol>	
-	<p>ポイント！</p>
+	<h3>ポイント！</h3>
 	<ol>
 	<li>GrroupByは集計を行う際に用いる。</li>
 	<li>Select句に書くことのできるカラムの制限</li>
@@ -469,13 +495,13 @@ request_month = '2017-01-01';
 	<li>GroupBy句に並び替えの機能はない。</li>
 	<li>SELECT-> FROM -> WHERE -> GROUP BY -> ORDER BYの順番に書く。</li>
 	</ol>
-	<p>基本的にいかのようにSELECT文を書くことは許されない。</p>
+	<h3>基本的にいかのようにSELECT文を書くことは許されない。</h3>
 	<pre>
 		<code>
 SELECT job_id, name FROM members GROUP BY job_id		
 	</code>
 	</pre>
-	<p>このときSELECT分のnameカラムが上記の制限に違反している。同じjob_idが複数ある時にどのnameを表示したらいいかわからなくなるため。表示する値を一つに定めなければならない。</p>
+	<ul><li>このときSELECT分のnameカラムが上記の制限に違反している。同じjob_idが複数ある時にどのnameを表示したらいいかわからなくなるため。表示する値を一つに定めなければならない。</li></ul>
 	<pre>
 		<code>
 select * from users;
@@ -491,7 +517,7 @@ prefecture_id
 
 		</code>
 	</pre>
-	<p>ある特定の期間からグループごとのデータ抽出してその数を調べたいとき　count() group by where</p>
+	<h3>ある特定の期間からグループごとのデータ抽出してその数を調べたいとき　count() group by where</h3>
 	
 	<pre>
 		<code>
@@ -504,8 +530,11 @@ where
 request_month >= '2017-01-01'
 and request_month < '2018-01-01' group by request_month </code>
 	</pre>
-	<p>GROUP　BY　HAVING　</p>
-	<p>職種ごとの平均身長が170㎝よりも高い職種と、その職種ごとの平均身長を取得</p>
+	<h3>GROUP　BY　HAVING　</h3>
+	<p>GROUP　BYには　WHERE句で条件式を追加することもできる。</p>
+	<p>WHERE句はGROUP　BY句よりも先に処理が行われるので、job_idでグループ化した後のテーブルに対しては、WHERE句で条件を指定することはできない。</p>
+	<p>グループ化したテーブルに対して条件を指定するにはHAVING句を用いる。</p>
+	<ul><li>職種ごとの平均身長が170㎝よりも高い職種と、その職種ごとの平均身長を取得</li></ul>
 	<pre>
 		<code>
 select job_id, AVG(height) 
@@ -514,7 +543,7 @@ group by job_id
 having AVG(height) > 170;
 		</code>
 	</pre>
-	<p>SELECT カラム名　FROM　テーブル名　GROUP BY　集約キー　HAVING　グループの値に対する条件式</p>
+	<h3>SELECT カラム名　FROM　テーブル名　GROUP BY　集約キー　HAVING　グループの値に対する条件式</h3>
 	<pre>
 		<code>
 select
@@ -531,7 +560,7 @@ having
 count(distinct user_id)>= 630
 		</code>
 	</pre>
-	<p>BMIが２２以下の人の名前身長体重BMIをBMIが低い順に取得</p>
+	<h3>BMIが２２以下の人の名前身長体重BMIをBMIが低い順に取得</h3>
 	<pre>
 		<code>
 select name, height, weight, (weight/(height/100)/(height/100))as BMI 
@@ -540,21 +569,23 @@ where (weight/(height/100)/(height/100)) <= 22
 order by (weight/(height/100)/(height/100));
 		</code>
 	</pre>
-	<p>ORDERBY DESC ASC　SELECT　カラム名　FROM テーブル名　ORDER BY　並び化の基準となるカラム名　DESC　ASC　</p>
-	<p>order by デフォルトでは昇順（小→大）</p>
-	<p>規則性はあるが、ORDER　BYをせンたくしないとどんな並び順になるのか保証はない。</p>
+	<h3>ORDERBY DESC ASC　SELECT　カラム名　FROM テーブル名　ORDER BY　並び化の基準となるカラム名　DESC　ASC　</h3>
+	<ul>
+	<li>order by デフォルトでは昇順（小→大）</li>
+	<li>規則性はあるが、ORDER　BYをせンたくしないとどんな並び順になるのか保証はない。</li>
+	</ul>
 	<pre>
 		<code>
 select * from products order by price desc;
 		</code>
 	</pre>
-	<p>降順昇順を両方使ってでーた抽出　ASC DESC</p>
+	<h3>降順昇順を両方使ってでーた抽出　ASC DESC</h3>
 	<pre>
 		<code>
 select * from products order by price desc, id asc;
 		</code>
 	</pre>
-	<p>四捨五入　round使い方</p>
+	<h3>四捨五入　round使い方</h3>
 	<pre>
 		<code>
 select id, name, price * 1.08 from products;
@@ -568,14 +599,14 @@ select round(10.555, 1);
 select round(10.555, 2);
 		</code>
 	</pre>
-	<p>文字列演算　concat 使い方 </p>
-	<p>名前の後ろに「さん」をつける。 </p>
+	<h3>文字列演算　concat 使い方 </h3>
+	<ul><li>名前の後ろに「さん」をつける。</li> </ul>
 	<pre>
 		<code>
 select concat(last_name, '', first_name, 'さん')from users;
 		</code>
 	</pre>
-	<p>名前のあとに「さん」をつけるのと、女性だけに、Emailをつけるやりかた。 </p>
+	<ul><li>名前のあとに「さん」をつけるのと、女性だけに、Emailをつけるやりかた。 </li> </ul>
 	<pre>
 		<code>
 select concat(last_name, '-san'), email from users where gender = 2;
@@ -593,49 +624,49 @@ X時間前の時刻 *** -interval 'x hour'
 extract *** 日付や時刻の特定の部分（年や月）までを取り出す。
 		</code>
 	</pre>
-	<p>現在の日付 </p>
+	<h3>現在の日付 </h3>
 	<pre>
 		<code>
 select current_date()
 		</code>
 	</pre>
-	<p>現在の時刻 </p>
+	<h3>現在の時刻 </h3>
 	<pre>
 		<code>
 select current_timestamp();
 		</code>
 	</pre>
-	<p>日付と時刻の演算 n日後の日付 </p>
+	<h3>日付と時刻の演算 n日後の日付 </h3>
 	<pre>
 		<code>
 select current_date() + interval 3 day;
 		</code>
 	</pre>
-	<p>日付と時刻の演算 n日前の日付 </p>
+	<h3>日付と時刻の演算 n日前の日付 </h3>
 	<pre>
 		<code>
 select current_date() - interval 3 day;
 		</code>
 	</pre>
-	<p>日付と時刻の演算 日を跨ぐx時間前の時刻計算 </p>
+	<h3>日付と時刻の演算 日を跨ぐx時間前の時刻計算 </h3>
 	<pre>
 		<code>
 select current_timestamp() - interval 6 hour;
 		</code>
 	</pre>
-	<p>Ordersテーブルから注文日時が（order_time）が、までを取り出す。 </p>
+	<h3>Ordersテーブルから注文日時が（order_time）が、までを取り出す。 </h3>
 	<pre>
 		<code>
 select * from orders where extract(year_month from order_time)= 201701;
 		</code>
 	</pre>
-	<p>Ordersテーブルから注文日時が（order_time）が、２０１７年の時だけ取り出す。 </p>
+	<h3>Ordersテーブルから注文日時が（order_time）が、２０１７年の時だけ取り出す。 </h3>
 	<pre>
 		<code>
 select * from orders where extract(year from order_time)= 2017;
 		</code>
 	</pre>
-	<p>Ordersテーブルから注文日時が（order_time）が、一月の時だけ取り出す。 </p>
+	<h3>Ordersテーブルから注文日時が（order_time）が、一月の時だけ取り出す。 </h3>
 	<pre>
 		<code>
 select * from orders where extract(month from order_time)= 1;
@@ -645,7 +676,6 @@ select * from orders where extract(month from order_time)= 1;
 	<h3>テーブルの結合</h3>
 	<p>複数のテーブルを結合して、新しく一つのテーブルをつくること。</p>
 	<p>なぜ結合するのか？データ管理が用意になる。データ容量の削減</p>
-
 	<ul>
 		<li>テーブルの結合とは</li>
 		<li>テーブルの正規化とは</li>
@@ -659,7 +689,7 @@ select * from orders where extract(month from order_time)= 1;
 		<li>外部結合　outer join</li>
 		<li>テーブルの足し算　union, union all </li>
 	</ul>
-	<p>内部結合　inner join </p>
+	<h3>内部結合　inner join </h3>
 	<pre>
 		<code>
 
@@ -674,9 +704,7 @@ users;
 		</code>
 	</pre>
 	<p>↑だとprefecture_idがどこの県なのかはっきりしない。 </p>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img4.jpg" alt="img"  width="390px"
-		height="320px">
-	<p>IDを都道府県名に変える。 </p>
+	<h3>IDを都道府県名に変える。 </h3>
 	<pre>
 		<code>
 select
@@ -693,9 +721,7 @@ prefectures
 on users.prefecture_id = prefectures.id;
 		</code>
 	</pre>
-	<img src="\pleiades\2022-09\workspace\ServeletProject2\mysql_turtorial_img5.jpg" alt="img"  width="390px"
-		height="320px">
-	<p>内部結合　inner join　＋　where 女性だけに絞るやり方。 </p>
+	<h3>内部結合　inner join　＋　where 女性だけに絞るやり方。 </h3>
 	<pre>
 		<code>
 select
@@ -723,7 +749,7 @@ on users.prefecture_id = prefectures.id
 where users.gender = 2;
 		</code>
 	</pre>
-	<p>体重が50kg以上かつ年収が５００万円以上かつ年齢が４０歳未満の人の名前を取得。 </p>
+	<h3>体重が50kg以上かつ年収が５００万円以上かつ年齢が４０歳未満の人の名前を取得。 </h3>
 	<pre>
 		<code>
 -- membersの表を選択　--
@@ -737,7 +763,7 @@ and members.age < 40;
 		</code>
 	</pre>
 
-	<p>実行順序 </p>
+	<h3>実行順序 </h3>
 	<ol>
 		<li>from　対象テーブルの指定</li>
 		<li>結合処理</li>
@@ -748,7 +774,25 @@ and members.age < 40;
 		<li>order by並び替え条件を指定</li>
 		<li>limit　取得する行数の制限</li>
 	</ol>
-	<p>内部結合　inner join　orderID順　期間限定　限定エリア　 </p>
+	<h3>四捨五入</h3>
+	<ul>
+	<li>四捨五入します。</li>
+	</ul>
+	<pre>
+	<code>
+	 select id, name, round (price * 1.08,0) from products; //expected 四捨五入された数字が表示される。
+	 select round(10.555,0); //expected 11
+	 select round(10.555, 1);  //expected 10.6
+	 select round (10.555, 2);　//expected      10.56
+	</code>
+	</pre>
+	
+	<h3>内部結合　inner join　orderID順　期間限定　限定エリア　 </h3>
+	<dl>
+	<dt>内部結合</dt>
+		<dd>がっちゃんこする。<dd>
+		<dd>いくつも基本的には結合できる。<dd>
+	</dl>
 	<pre>
 		<code>
 select * from orders;
@@ -768,8 +812,224 @@ on orders.user_id = users.id
 //東京は１３　限定エリア
 where users.prefecture_id = 13
 and orders.order_time >= '2017-01-01- 00:00:00'
-and orders.order_time < '2017-02-01- 00:00:00' order by order_id; ; </code>
+and orders.order_time < '2017-02-01- 00:00:00' order by order_id; ;
+
+
+//いくつも結合できる、
+select 
+ o.id order_id,
+ o.user_id user_id,
+ u.last_name last_name,
+ u.first_name first_name,
+ o.amount amount,
+ o.order_time order_time,
+ p.name product_name,
+ od.product_qty qty, 
+ p.price product_price 
+ from 
+ orders o 
+ inner join 
+ order_details od
+ on o.id = od.order_id
+ inner join 
+ products p
+ on od.product_id = p.id
+ inner join 
+ users u 
+ on o.user_id =u.id;
+</code>
 	</pre>
+	<h3>外部結合とは</h3>
+	<dl>
+	<dt>外部結合</dt>
+		<dd>片方のテーブルの情報が全て出力される、テーブルの結合<dd>
+		<dd>外部結合は欠落のあるデータを取り扱う結合。</dd>
+		<dd>お互いに一致している行がテーブルの対象となる。</dd>
+		<dd>内部結合は同じ要素をもったデータを抽出する。外部結合は要素が同じでも違っても出力する。</dd>
+	</dl>
+	<pre>
+		<code>
+mysql> select
+    -> u.last_name,
+    -> u.id,
+    -> o.user_id,
+    -> o.id
+    -> from
+    -> users u
+    -> left outer join
+    -> orders o
+    -> on u.id = o.user_id
+    -> order by u.id;
+
+//inner joinを使うとuser　id とorder idがかぶっている場所が出力される。
+ select * from users u inner join orders o on u.id = o.user_id order by u.id limit 10;
+ //userのorderidとorderのユーザーIDはおなじにはならない。left joinとも略させる。
+  select u.last_name, u.id, o.user_id,o.id from users u left outer join orders o on u.id = o.user_id order by u.id;
+		</code>
+	</pre>
+	<h3>テーブルの足し算</h3>
+	<dl>
+	<dt>Unionによるテーブルの足し算</dt>
+		<dd>Unionを使うと足し算ができる。<dd>
+		<dd>テーブル１とテーブル２で列数を合わせる必要がる。<dd>
+		<dd>同じ位置にあるカラムのデータ型は一致している必要がある。<dd>
+		<dd>重複行は削除される。<dd>
+		<dd>union allと指定すると消去されない。<dd>
+		<dd>句をつけることができる。where, group by, having<dd>
+		<dd>ただしorder byだけは、全体として最後に一つしか記述できない。<dd>
+	</dl>
+	<pre>
+		<code>
+
+		</code>
+	</pre>
+	<h3>ビュー</h3>
+	<dl>
+	<dt>ビューとは</dt>
+		<dd>データそのものを保存するのではなく、データを取り出すSELECT文だけを保存する。<dd>
+		<dd>データベースユーザーの利便性を高める道具	<dd>
+		<dd>SQLの観点から見ると、テーブルと同じもの<dd>
+		<dd>ビューを使うと、必要なデータが複数のテーブルにまたがる場合などの複雑な集約を行いやすくなる。<dd>
+		<dd>よく使うSELECT文はびゅーにして使い回すことができる。<dd>
+	<dt>ビューの制限事項</dt>
+		<dd>いくつかの条件をみたすばあいのみ、ビューに対する更新が可能。</dd>
+		<dd>select句にdistinctが含まれていない。</dd>
+		<dd>from句に含まれるテーブルが一つだけ。</dd>
+		<dd>group by句を使用していない。</dd>
+		<dd>having句を使用していない。</dd>
+	<dt>ビューの消去</dt>
+	</dl>
+	<pre>
+		<code>
+//ビューとテーブル
+
+
+//ビューの作成　create view prefecture_user_counts(name,count)
+as
+select
+	p.name name, 
+    count(*) count
+from 
+	users u 
+inner join 
+	prefectures p 
+on
+	u.prefecture_id = p.id
+group by 
+	u.prefecture_id;
+
+//ビューの呼び出し方
+select
+	name,
+	count
+from 
+	prefecture_user_counts;
+//ビューの消去
+drop view prefecture_user_counts
+		</code>
+	</pre>
+	<h3>サブクエリ（where句）</h3>
+	<p>使い捨てのビュー。ビューはSELECT文に生をつけて保存するが、サブクエリはSELECT文を保存せずに直接FROM句に書き込む。</p>
+	<dl>
+	<dt>ポイント</dt>
+		<dd>サブクエリと　not in 演算子を利用する。<dd>
+		<dd>ある値が値セット内にふくまれていないかどうか。<dd>
+		
+	<dt>()で囲むとサブクエリ使える。</dt>
+		<dd>ある問い合わせの結果に基づいて異なる問い合わせを行う仕組み。</dd>
+		<dd>サブクエリは集約関数を組み合わせた分析を可能にする。</dd>
+		<dd>繰り返しを使うSELECT文はビュー、一度きりのSELECT文はサブクエリで扱う。</dd>
+		<dd>スカラ値を記入できる箇所なら何処でもスカラサブクエリを書くことができる。</dd>
+		 <dd>集約関数はWHERE句には書けない。</dd>
+	</dl>
+	<pre>
+		<code>
+//サブクエリ　
+select 
+	id, 
+    last_name, 
+    email
+from 
+	users
+where id not in (
+select 
+	user_id
+from orders
+where 
+	order_time >= '2017-12-01 00:00:00' 
+    and  order_time < '2018-01-01- 00:00:00');
+
+//複雑な抽出条件を満たすようになる。   
+ select id, last_name, email from users where id not in (
+select 
+user_id
+from orders
+where 
+	order_time >= '2017-12-01 00:00:00'
+    and order_time <  '2018-01-01 00:00:00');
+
+
+//2017年12月に商品を購入したユーザーにメルマガを出すために
+//該当ユーザー一覧を表示する。必要な情報はユーザーID、苗字　email    
+select id, last_name, email from users where id in(
+select 
+	user_id 
+from
+	orders
+where order_time >= '2017-12-01 00:00:00'
+and order_time < '2018-01-01 00:00:00');
+ 
+
+//販売価格の平均値よりも販売価格が高い商品名と販売価格を表示 
+select name, selling_price FROM products 
+WHERE selling_price > (SELECT AVG (selling_price) FROM products);
+
+//スカラ値を記入できる箇所なら何処でもスカラサブクエリを書くことができる。
+SELECT name, selling_price from products 
+WHERE selling_price > 2678.7500;
+
+//集約関数はWHERE句には書けない。→だからスカラサブクエリを使う。
+SELECT name, selling_price FROM products 
+WHERE selling_price > AVG(selling_price); //expected error
+		</code>
+	</pre>
+	<h3>CASE式</h3>
+	<p>場合分け　条件分岐を記述するにはCASE式を使う。CASE式には単純CASE式と検索CASE式がある。単純CASE式は検索CASE式によっても表現できるため、検索CASE式のみ扱う。</p>
+	<dl>
+	<dt>ポイント</dt>
+		<dd>SELECT句でnameカラムとCASE式がカンマで区切って書かれている。<dd>
+		<dd>CASE式はこれ一つが式である。単一の値を結果として返す。<dd>
+		<dd>「then 1」 と 「else 0」 はtrue falseを表す。</dd>
+	<dt>when句に書かれている条件式は上から順番に確認されていき条件式を満たしたら終了。</dt>
+		<dd>満たした条件式のTHEN句に書かれた値がCASE式の結果として出力される。</dd>
+		 <dd>ELSEはその条件式も満たさないときに返される値式を記述する。</dd>
+		 
+		  <dd>CASE式は式であるため、式をかけるところならば何処でも書ける。ELSEとENDを忘れないようにしてください。</dd>
+	</dl>
+	<pre>s
+		<code>
+CASE WHEN <条件式> THEN <値・式>
+	 WHEN <条件式> THEN<値・式>
+	 
+	 
+	 ELSE <値・式>
+	 
+//セール時の価格を表示する
+select name, 
+	case when selling_price >= 5000 then selling_price * 0.8
+		 when selling_price >= 1000 then selling_price * 0.9
+		 else selling_price
+	end as 'saled price'
+FROM products;　
+//カテゴリの合計値を算出する。
+select 
+sum(case whhen category='キッチン用品' then selling_price else 0 end) as 'Kitchen goods',
+sum(case whhen category='事務用品' then selling_price else 0 end) as 'office goods',
+sum(case whhen category='衣類' then selling_price else 0 end) as 'clothing'
+from products;
+	 	</code>
+	</pre>
+
 	<h3>Java MySQL databaseつなぎ方　 </h3>
 	<pre>
 		<code>
@@ -833,10 +1093,10 @@ System.out.println("データベース・アクセスエラーです。");
 		
 		
 <h3>JavaでMySQLを書く　DAO </h3>
-<p>なぜDAOを書くのか？たとえば使用するＤＢＭＳがMySQLからPostgresSQLに変更になった場合JDBC ドライバうを変更しなければなりません。また、保存先のデータベースの変更があったりテーブル名や列名の変更
-列数の増減があった場合それまでに記述した業務ロジックのソースコードをすべて書き換える必要があるためです。</p>
-<p>Daoはテーブルに合わせてつくる。たとえばプロダクトテーブルがあったら、プロダクトDaoを作る。</p>
-<p></p>
+<ul><li>なぜDAOを書くのか？たとえば使用するＤＢＭＳがMySQLからPostgresSQLに変更になった場合JDBC ドライバうを変更しなければなりません。また、保存先のデータベースの変更があったりテーブル名や列名の変更
+列数の増減があった場合それまでに記述した業務ロジックのソースコードをすべて書き換える必要があるためです。</li></ul>
+<h3>Daoはテーブルに合わせてつくる。たとえばプロダクトテーブルがあったら、プロダクトDaoを作る。</h3>
+<h3></h3>
 	<pre>
 		<code>
 
